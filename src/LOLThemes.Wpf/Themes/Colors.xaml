@@ -1,0 +1,87 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- 主要颜色 -->
+    <Color x:Key="PrimaryGold">#C8AA6E</Color>
+    <Color x:Key="PrimaryDarkBlue">#010A13</Color>
+    <Color x:Key="PrimaryCyan">#0AC8B9</Color>
+    
+    <!-- 背景颜色 -->
+    <Color x:Key="BackgroundDark">#010A13</Color>
+    <Color x:Key="BackgroundMedium">#1E2328</Color>
+    <Color x:Key="BackgroundLight">#2A2E35</Color>
+    <Color x:Key="BackgroundPanel">#0E1015</Color>
+    
+    <!-- 文本颜色 -->
+    <Color x:Key="TextPrimary">#F0E6D2</Color>
+    <Color x:Key="TextSecondary">#A09B8C</Color>
+    <Color x:Key="TextDisabled">#5B5A56</Color>
+    <Color x:Key="TextWhite">#FFFFFF</Color>
+    
+    <!-- 边框颜色 -->
+    <Color x:Key="BorderGold">#C8AA6E</Color>
+    <Color x:Key="BorderDark">#1E2328</Color>
+    <Color x:Key="BorderLight">#463714</Color>
+    <Color x:Key="BorderAccent">#785A28</Color>
+    
+    <!-- 状态颜色 -->
+    <Color x:Key="HoverGold">#F0E6D2</Color>
+    <Color x:Key="PressedGold">#785A28</Color>
+    <Color x:Key="SuccessGreen">#0AC8B9</Color>
+    <Color x:Key="ErrorRed">#E84057</Color>
+    <Color x:Key="WarningYellow">#CDBE91</Color>
+    
+    <!-- 灰度色阶 -->
+    <Color x:Key="Gray100">#0E1015</Color>
+    <Color x:Key="Gray200">#1E2328</Color>
+    <Color x:Key="Gray300">#2A2E35</Color>
+    <Color x:Key="Gray400">#3C3C41</Color>
+    <Color x:Key="Gray500">#5B5A56</Color>
+    <Color x:Key="Gray600">#A09B8C</Color>
+    <Color x:Key="Gray700">#C8C8C8</Color>
+    <Color x:Key="Gray800">#F0E6D2</Color>
+
+
+    <!-- SolidColorBrush 资源 -->
+    
+    <!-- 主要颜色画刷 -->
+    <SolidColorBrush x:Key="PrimaryGoldBrush" Color="{StaticResource PrimaryGold}"/>
+    <SolidColorBrush x:Key="PrimaryDarkBlueBrush" Color="{StaticResource PrimaryDarkBlue}"/>
+    <SolidColorBrush x:Key="PrimaryCyanBrush" Color="{StaticResource PrimaryCyan}"/>
+    
+    <!-- 背景颜色画刷 -->
+    <SolidColorBrush x:Key="BackgroundDarkBrush" Color="{StaticResource BackgroundDark}"/>
+    <SolidColorBrush x:Key="BackgroundMediumBrush" Color="{StaticResource BackgroundMedium}"/>
+    <SolidColorBrush x:Key="BackgroundLightBrush" Color="{StaticResource BackgroundLight}"/>
+    <SolidColorBrush x:Key="BackgroundPanelBrush" Color="{StaticResource BackgroundPanel}"/>
+    
+    <!-- 文本颜色画刷 -->
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="{StaticResource TextPrimary}"/>
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="{StaticResource TextSecondary}"/>
+    <SolidColorBrush x:Key="TextDisabledBrush" Color="{StaticResource TextDisabled}"/>
+    <SolidColorBrush x:Key="TextWhiteBrush" Color="{StaticResource TextWhite}"/>
+    
+    <!-- 边框颜色画刷 -->
+    <SolidColorBrush x:Key="BorderGoldBrush" Color="{StaticResource BorderGold}"/>
+    <SolidColorBrush x:Key="BorderDarkBrush" Color="{StaticResource BorderDark}"/>
+    <SolidColorBrush x:Key="BorderLightBrush" Color="{StaticResource BorderLight}"/>
+    <SolidColorBrush x:Key="BorderAccentBrush" Color="{StaticResource BorderAccent}"/>
+    
+    <!-- 状态颜色画刷 -->
+    <SolidColorBrush x:Key="HoverGoldBrush" Color="{StaticResource HoverGold}"/>
+    <SolidColorBrush x:Key="PressedGoldBrush" Color="{StaticResource PressedGold}"/>
+    <SolidColorBrush x:Key="SuccessGreenBrush" Color="{StaticResource SuccessGreen}"/>
+    <SolidColorBrush x:Key="ErrorRedBrush" Color="{StaticResource ErrorRed}"/>
+    <SolidColorBrush x:Key="WarningYellowBrush" Color="{StaticResource WarningYellow}"/>
+    
+    <!-- 灰度色阶画刷 -->
+    <SolidColorBrush x:Key="Gray100Brush" Color="{StaticResource Gray100}"/>
+    <SolidColorBrush x:Key="Gray200Brush" Color="{StaticResource Gray200}"/>
+    <SolidColorBrush x:Key="Gray300Brush" Color="{StaticResource Gray300}"/>
+    <SolidColorBrush x:Key="Gray400Brush" Color="{StaticResource Gray400}"/>
+    <SolidColorBrush x:Key="Gray500Brush" Color="{StaticResource Gray500}"/>
+    <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
+    <SolidColorBrush x:Key="Gray700Brush" Color="{StaticResource Gray700}"/>
+    <SolidColorBrush x:Key="Gray800Brush" Color="{StaticResource Gray800}"/>
+
+</ResourceDictionary>

@@ -1,0 +1,41 @@
+# Visual Studio generated files and folders
+.vs/
+bin/
+obj/
+*.suo
+*.user
+*.sln.docstates
+*.csproj.user
+
+# Build output
+*.dll
+*.exe
+*.pdb
+*.xml
+
+# NuGet packages
+packages/
+*.nupkg
+
+# Test results
+TestResults/
+*.trx
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Documentation build output
+Documentation/_site/
+Documentation/.vuepress/dist/
+
+# Sample app build output
+src/LOLThemes.WPF.Samples/bin/
+src/LOLThemes.WPF.Samples/obj/

@@ -1,0 +1,66 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- 基础 Image 样式 -->
+    <Style x:Key="LOLImageStyle" TargetType="Image">
+        <Setter Property="Stretch" Value="Uniform"/>
+        <Setter Property="StretchDirection" Value="Both"/>
+    </Style>
+
+    <!-- 圆形 Image 样式 -->
+    <Style x:Key="CircleImage" TargetType="Image" BasedOn="{StaticResource LOLImageStyle}">
+        <Setter Property="Stretch" Value="UniformToFill"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Height" Value="100"/>
+        <Setter Property="Clip">
+            <Setter.Value>
+                <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- 带边框的 Image 样式 -->
+    <Style x:Key="BorderedImage" TargetType="Image" BasedOn="{StaticResource LOLImageStyle}">
+        <Setter Property="Stretch" Value="UniformToFill"/>
+        <Style.Resources>
+            <Style TargetType="Border">
+                <Setter Property="BorderBrush" Value="{StaticResource BorderGoldBrush}"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="Padding" Value="4"/>
+            </Style>
+        </Style.Resources>
+    </Style>
+
+    <!-- 缩略图 Image 样式 -->
+    <Style x:Key="ThumbnailImage" TargetType="Image" BasedOn="{StaticResource LOLImageStyle}">
+        <Setter Property="Width" Value="64"/>
+        <Setter Property="Height" Value="64"/>
+        <Setter Property="Stretch" Value="UniformToFill"/>
+    </Style>
+
+    <!-- 图标 Image 样式 -->
+    <Style x:Key="IconImage" TargetType="Image" BasedOn="{StaticResource LOLImageStyle}">
+        <Setter Property="Width" Value="24"/>
+        <Setter Property="Height" Value="24"/>
+        <Setter Property="Stretch" Value="Uniform"/>
+    </Style>
+
+    <!-- 头像 Image 样式 -->
+    <Style x:Key="AvatarImage" TargetType="Image" BasedOn="{StaticResource LOLImageStyle}">
+        <Setter Property="Width" Value="48"/>
+        <Setter Property="Height" Value="48"/>
+        <Setter Property="Stretch" Value="UniformToFill"/>
+        <Setter Property="Clip">
+            <Setter.Value>
+                <EllipseGeometry Center="24,24" RadiusX="24" RadiusY="24"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- 背景 Image 样式 -->
+    <Style x:Key="BackgroundImage" TargetType="Image" BasedOn="{StaticResource LOLImageStyle}">
+        <Setter Property="Stretch" Value="UniformToFill"/>
+        <Setter Property="Opacity" Value="0.3"/>
+    </Style>
+
+</ResourceDictionary>

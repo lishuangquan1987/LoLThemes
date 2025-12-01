@@ -1,0 +1,126 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- LOL Button 样式 -->
+    <Style x:Key="LOLButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGoldBrush}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Padding" Value="20,10"/>
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                           Background="{TemplateBinding Background}"
+                           BorderBrush="{TemplateBinding BorderBrush}"
+                           BorderThickness="{TemplateBinding BorderThickness}"
+                           CornerRadius="0"
+                           SnapsToDevicePixels="True">
+                        <ContentPresenter x:Name="contentPresenter"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        Margin="{TemplateBinding Padding}"
+                                        RecognizesAccessKey="True"
+                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <!-- MouseOver 状态 - 带颜色过渡动画 -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="border"
+                                                       Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                       To="{StaticResource PrimaryGold}"
+                                                       Duration="0:0:0.2"/>
+                                        <ColorAnimation Storyboard.TargetName="border"
+                                                       Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                                       To="{StaticResource HoverGold}"
+                                                       Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="border"
+                                                       Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                       Duration="0:0:0.2"/>
+                                        <ColorAnimation Storyboard.TargetName="border"
+                                                       Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                                       To="{StaticResource BorderGold}"
+                                                       Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                            <Setter Property="Foreground" 
+                                   Value="{StaticResource BackgroundDarkBrush}"/>
+                        </Trigger>
+
+                        <!-- Pressed 状态 - 带颜色过渡动画 -->
+                        <Trigger Property="IsPressed" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="border"
+                                                       Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                       To="{StaticResource PressedGold}"
+                                                       Duration="0:0:0.1"/>
+                                        <ColorAnimation Storyboard.TargetName="border"
+                                                       Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                                       To="{StaticResource PressedGold}"
+                                                       Duration="0:0:0.1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Setter Property="Foreground" 
+                                   Value="{StaticResource TextPrimaryBrush}"/>
+                        </Trigger>
+                        
+                        <!-- Disabled 状态 -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="BorderBrush" 
+                                   Value="{StaticResource TextDisabledBrush}"/>
+                            <Setter Property="Foreground" 
+                                   Value="{StaticResource TextDisabledBrush}"/>
+                            <Setter TargetName="border" Property="Opacity" Value="0.5"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- 主要按钮样式（填充背景） -->
+    <Style x:Key="LOLPrimaryButtonStyle" TargetType="Button" BasedOn="{StaticResource LOLButtonStyle}">
+        <Setter Property="Background" Value="{StaticResource PrimaryGoldBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource BackgroundDarkBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource PrimaryGoldBrush}"/>
+    </Style>
+    
+    <!-- 次要按钮样式 -->
+    <Style x:Key="LOLSecondaryButtonStyle" TargetType="Button" BasedOn="{StaticResource LOLButtonStyle}">
+        <Setter Property="BorderBrush" Value="{StaticResource Gray500Brush}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextSecondaryBrush}"/>
+    </Style>
+    
+    <!-- 成功按钮样式 -->
+    <Style x:Key="LOLSuccessButtonStyle" TargetType="Button" BasedOn="{StaticResource LOLButtonStyle}">
+        <Setter Property="BorderBrush" Value="{StaticResource SuccessGreenBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource SuccessGreenBrush}"/>
+    </Style>
+    
+    <!-- 危险按钮样式 -->
+    <Style x:Key="LOLDangerButtonStyle" TargetType="Button" BasedOn="{StaticResource LOLButtonStyle}">
+        <Setter Property="BorderBrush" Value="{StaticResource ErrorRedBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource ErrorRedBrush}"/>
+    </Style>
+
+</ResourceDictionary>

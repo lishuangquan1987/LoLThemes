@@ -1,0 +1,48 @@
+<UserControl x:Class="LOLThemes.Wpf.Samples.Views.Screenshot1View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1150"
+             Background="{StaticResource BackgroundDarkBrush}">
+    
+    <Grid>
+        <Border Background="{StaticResource BackgroundMediumBrush}"
+               BorderBrush="{StaticResource PrimaryGoldBrush}"
+               BorderThickness="2"
+               Margin="50"
+               Padding="40">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="截图 1 - 界面还原" 
+                          FontSize="{StaticResource FontSizeXXLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{StaticResource PrimaryGoldBrush}"
+                          HorizontalAlignment="Center"
+                          Margin="0,0,0,30"/>
+                
+                <TextBlock Text="此页面将 1:1 还原 LOL 游戏界面截图" 
+                          FontSize="{StaticResource FontSizeLarge}"
+                          Foreground="{StaticResource TextSecondaryBrush}"
+                          HorizontalAlignment="Center"
+                          Margin="0,0,0,50"/>
+                
+                <Image Source="/Documentation/Images/screenshot-1764513988615.png"
+                      Stretch="Uniform"
+                      MaxWidth="800"
+                      Margin="0,0,0,30"/>
+                
+                <TextBlock Text="🚧 界面还原功能开发中..." 
+                          FontSize="{StaticResource FontSizeMedium}"
+                          Foreground="{StaticResource WarningYellowBrush}"
+                          HorizontalAlignment="Center"
+                          Margin="0,20,0,10"/>
+                
+                <TextBlock Text="需要完成更多控件样式后才能准确还原游戏界面" 
+                          FontSize="{StaticResource FontSizeNormal}"
+                          Foreground="{StaticResource TextSecondaryBrush}"
+                          HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

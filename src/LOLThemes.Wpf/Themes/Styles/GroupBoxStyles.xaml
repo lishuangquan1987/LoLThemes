@@ -1,0 +1,53 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- LOL GroupBox 样式 -->
+    <Style x:Key="LOLGroupBoxStyle" TargetType="GroupBox">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGoldBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="8"/>
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="GroupBox">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        
+                        <!-- 标题栏 -->
+                        <Border x:Name="Header"
+                               Grid.Row="0"
+                               Background="{StaticResource BackgroundLightBrush}"
+                               BorderBrush="{TemplateBinding BorderBrush}"
+                               BorderThickness="1,1,1,0"
+                               Padding="12,6">
+                            <ContentPresenter ContentSource="Header"
+                                            RecognizesAccessKey="True"
+                                            TextElement.Foreground="{TemplateBinding Foreground}"
+                                            TextElement.FontFamily="{TemplateBinding FontFamily}"
+                                            TextElement.FontSize="{TemplateBinding FontSize}"
+                                            TextElement.FontWeight="{StaticResource FontWeightMedium}"/>
+                        </Border>
+                        
+                        <!-- 内容区域 -->
+                        <Border x:Name="Content"
+                               Grid.Row="1"
+                               Background="{TemplateBinding Background}"
+                               BorderBrush="{TemplateBinding BorderBrush}"
+                               BorderThickness="{TemplateBinding BorderThickness}"
+                               Padding="{TemplateBinding Padding}"
+                               SnapsToDevicePixels="True">
+                            <ContentPresenter/>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

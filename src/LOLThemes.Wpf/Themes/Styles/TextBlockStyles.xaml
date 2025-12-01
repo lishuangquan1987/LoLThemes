@@ -1,0 +1,68 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- 基础 TextBlock 样式 -->
+    <Style x:Key="LOLTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+        <Setter Property="TextWrapping" Value="NoWrap"/>
+        <Setter Property="TextTrimming" Value="None"/>
+    </Style>
+
+    <!-- H1 标题样式 -->
+    <Style x:Key="H1TextBlock" TargetType="TextBlock" BasedOn="{StaticResource LOLTextBlockStyle}">
+        <Setter Property="FontSize" Value="{StaticResource FontSizeXXLarge}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightBold}"/>
+        <Setter Property="Foreground" Value="{StaticResource PrimaryGoldBrush}"/>
+    </Style>
+
+    <!-- H2 标题样式 -->
+    <Style x:Key="H2TextBlock" TargetType="TextBlock" BasedOn="{StaticResource LOLTextBlockStyle}">
+        <Setter Property="FontSize" Value="{StaticResource FontSizeXLarge}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightBold}"/>
+        <Setter Property="Foreground" Value="{StaticResource PrimaryGoldBrush}"/>
+    </Style>
+
+    <!-- H3 标题样式 -->
+    <Style x:Key="H3TextBlock" TargetType="TextBlock" BasedOn="{StaticResource LOLTextBlockStyle}">
+        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource PrimaryGoldBrush}"/>
+    </Style>
+
+    <!-- Body 正文样式 -->
+    <Style x:Key="BodyTextBlock" TargetType="TextBlock" BasedOn="{StaticResource LOLTextBlockStyle}">
+        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <!-- Caption 说明文字样式 -->
+    <Style x:Key="CaptionTextBlock" TargetType="TextBlock" BasedOn="{StaticResource LOLTextBlockStyle}">
+        <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextSecondaryBrush}"/>
+    </Style>
+
+    <!-- Subtitle 副标题样式 -->
+    <Style x:Key="SubtitleTextBlock" TargetType="TextBlock" BasedOn="{StaticResource LOLTextBlockStyle}">
+        <Setter Property="FontSize" Value="{StaticResource FontSizeMedium}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
+    </Style>
+
+    <!-- Accent 强调文字样式 -->
+    <Style x:Key="AccentTextBlock" TargetType="TextBlock" BasedOn="{StaticResource LOLTextBlockStyle}">
+        <Setter Property="Foreground" Value="{StaticResource PrimaryCyanBrush}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
+    </Style>
+
+    <!-- Error 错误文字样式 -->
+    <Style x:Key="ErrorTextBlock" TargetType="TextBlock" BasedOn="{StaticResource LOLTextBlockStyle}">
+        <Setter Property="Foreground" Value="{StaticResource ErrorRedBrush}"/>
+    </Style>
+
+    <!-- Success 成功文字样式 -->
+    <Style x:Key="SuccessTextBlock" TargetType="TextBlock" BasedOn="{StaticResource LOLTextBlockStyle}">
+        <Setter Property="Foreground" Value="{StaticResource SuccessGreenBrush}"/>
+    </Style>
+
+</ResourceDictionary>

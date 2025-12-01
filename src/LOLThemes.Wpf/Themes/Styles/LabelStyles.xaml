@@ -1,0 +1,50 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- 基础 Label 样式 -->
+    <Style x:Key="LOLLabelStyle" TargetType="Label">
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+
+    <!-- 标题 Label 样式 -->
+    <Style x:Key="TitleLabel" TargetType="Label" BasedOn="{StaticResource LOLLabelStyle}">
+        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightBold}"/>
+        <Setter Property="Foreground" Value="{StaticResource PrimaryGoldBrush}"/>
+    </Style>
+
+    <!-- 副标题 Label 样式 -->
+    <Style x:Key="SubtitleLabel" TargetType="Label" BasedOn="{StaticResource LOLLabelStyle}">
+        <Setter Property="FontSize" Value="{StaticResource FontSizeMedium}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
+    </Style>
+
+    <!-- 正文 Label 样式 -->
+    <Style x:Key="BodyLabel" TargetType="Label" BasedOn="{StaticResource LOLLabelStyle}">
+        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+    </Style>
+
+    <!-- 说明 Label 样式 -->
+    <Style x:Key="CaptionLabel" TargetType="Label" BasedOn="{StaticResource LOLLabelStyle}">
+        <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextSecondaryBrush}"/>
+    </Style>
+
+    <!-- 强调 Label 样式 -->
+    <Style x:Key="AccentLabel" TargetType="Label" BasedOn="{StaticResource LOLLabelStyle}">
+        <Setter Property="Foreground" Value="{StaticResource PrimaryCyanBrush}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
+    </Style>
+
+    <!-- 表单 Label 样式 -->
+    <Style x:Key="FormLabel" TargetType="Label" BasedOn="{StaticResource LOLLabelStyle}">
+        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
+        <Setter Property="Margin" Value="0,0,0,4"/>
+    </Style>
+
+</ResourceDictionary>

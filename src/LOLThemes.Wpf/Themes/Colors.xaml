@@ -45,43 +45,43 @@
     <!-- SolidColorBrush 资源 -->
     
     <!-- 主要颜色画刷 -->
-    <SolidColorBrush x:Key="PrimaryGoldBrush" Color="{StaticResource PrimaryGold}"/>
-    <SolidColorBrush x:Key="PrimaryDarkBlueBrush" Color="{StaticResource PrimaryDarkBlue}"/>
-    <SolidColorBrush x:Key="PrimaryCyanBrush" Color="{StaticResource PrimaryCyan}"/>
+    <SolidColorBrush x:Key="PrimaryGoldBrush" Color="{DynamicResource PrimaryGold}"/>
+    <SolidColorBrush x:Key="PrimaryDarkBlueBrush" Color="{DynamicResource PrimaryDarkBlue}"/>
+    <SolidColorBrush x:Key="PrimaryCyanBrush" Color="{DynamicResource PrimaryCyan}"/>
     
     <!-- 背景颜色画刷 -->
-    <SolidColorBrush x:Key="BackgroundDarkBrush" Color="{StaticResource BackgroundDark}"/>
-    <SolidColorBrush x:Key="BackgroundMediumBrush" Color="{StaticResource BackgroundMedium}"/>
-    <SolidColorBrush x:Key="BackgroundLightBrush" Color="{StaticResource BackgroundLight}"/>
-    <SolidColorBrush x:Key="BackgroundPanelBrush" Color="{StaticResource BackgroundPanel}"/>
+    <SolidColorBrush x:Key="BackgroundDarkBrush" Color="{DynamicResource BackgroundDark}"/>
+    <SolidColorBrush x:Key="BackgroundMediumBrush" Color="{DynamicResource BackgroundMedium}"/>
+    <SolidColorBrush x:Key="BackgroundLightBrush" Color="{DynamicResource BackgroundLight}"/>
+    <SolidColorBrush x:Key="BackgroundPanelBrush" Color="{DynamicResource BackgroundPanel}"/>
     
     <!-- 文本颜色画刷 -->
-    <SolidColorBrush x:Key="TextPrimaryBrush" Color="{StaticResource TextPrimary}"/>
-    <SolidColorBrush x:Key="TextSecondaryBrush" Color="{StaticResource TextSecondary}"/>
-    <SolidColorBrush x:Key="TextDisabledBrush" Color="{StaticResource TextDisabled}"/>
-    <SolidColorBrush x:Key="TextWhiteBrush" Color="{StaticResource TextWhite}"/>
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="{DynamicResource TextPrimary}"/>
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="{DynamicResource TextSecondary}"/>
+    <SolidColorBrush x:Key="TextDisabledBrush" Color="{DynamicResource TextDisabled}"/>
+    <SolidColorBrush x:Key="TextWhiteBrush" Color="{DynamicResource TextWhite}"/>
     
     <!-- 边框颜色画刷 -->
-    <SolidColorBrush x:Key="BorderGoldBrush" Color="{StaticResource BorderGold}"/>
-    <SolidColorBrush x:Key="BorderDarkBrush" Color="{StaticResource BorderDark}"/>
-    <SolidColorBrush x:Key="BorderLightBrush" Color="{StaticResource BorderLight}"/>
-    <SolidColorBrush x:Key="BorderAccentBrush" Color="{StaticResource BorderAccent}"/>
+    <SolidColorBrush x:Key="BorderGoldBrush" Color="{DynamicResource BorderGold}"/>
+    <SolidColorBrush x:Key="BorderDarkBrush" Color="{DynamicResource BorderDark}"/>
+    <SolidColorBrush x:Key="BorderLightBrush" Color="{DynamicResource BorderLight}"/>
+    <SolidColorBrush x:Key="BorderAccentBrush" Color="{DynamicResource BorderAccent}"/>
     
     <!-- 状态颜色画刷 -->
-    <SolidColorBrush x:Key="HoverGoldBrush" Color="{StaticResource HoverGold}"/>
-    <SolidColorBrush x:Key="PressedGoldBrush" Color="{StaticResource PressedGold}"/>
-    <SolidColorBrush x:Key="SuccessGreenBrush" Color="{StaticResource SuccessGreen}"/>
-    <SolidColorBrush x:Key="ErrorRedBrush" Color="{StaticResource ErrorRed}"/>
-    <SolidColorBrush x:Key="WarningYellowBrush" Color="{StaticResource WarningYellow}"/>
+    <SolidColorBrush x:Key="HoverGoldBrush" Color="{DynamicResource HoverGold}"/>
+    <SolidColorBrush x:Key="PressedGoldBrush" Color="{DynamicResource PressedGold}"/>
+    <SolidColorBrush x:Key="SuccessGreenBrush" Color="{DynamicResource SuccessGreen}"/>
+    <SolidColorBrush x:Key="ErrorRedBrush" Color="{DynamicResource ErrorRed}"/>
+    <SolidColorBrush x:Key="WarningYellowBrush" Color="{DynamicResource WarningYellow}"/>
     
     <!-- 灰度色阶画刷 -->
-    <SolidColorBrush x:Key="Gray100Brush" Color="{StaticResource Gray100}"/>
-    <SolidColorBrush x:Key="Gray200Brush" Color="{StaticResource Gray200}"/>
-    <SolidColorBrush x:Key="Gray300Brush" Color="{StaticResource Gray300}"/>
-    <SolidColorBrush x:Key="Gray400Brush" Color="{StaticResource Gray400}"/>
-    <SolidColorBrush x:Key="Gray500Brush" Color="{StaticResource Gray500}"/>
-    <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
-    <SolidColorBrush x:Key="Gray700Brush" Color="{StaticResource Gray700}"/>
-    <SolidColorBrush x:Key="Gray800Brush" Color="{StaticResource Gray800}"/>
+    <SolidColorBrush x:Key="Gray100Brush" Color="{DynamicResource Gray100}"/>
+    <SolidColorBrush x:Key="Gray200Brush" Color="{DynamicResource Gray200}"/>
+    <SolidColorBrush x:Key="Gray300Brush" Color="{DynamicResource Gray300}"/>
+    <SolidColorBrush x:Key="Gray400Brush" Color="{DynamicResource Gray400}"/>
+    <SolidColorBrush x:Key="Gray500Brush" Color="{DynamicResource Gray500}"/>
+    <SolidColorBrush x:Key="Gray600Brush" Color="{DynamicResource Gray600}"/>
+    <SolidColorBrush x:Key="Gray700Brush" Color="{DynamicResource Gray700}"/>
+    <SolidColorBrush x:Key="Gray800Brush" Color="{DynamicResource Gray800}"/>
 
 </ResourceDictionary>

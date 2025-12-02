@@ -94,7 +94,7 @@
                                         CornerRadius="4"
                                         Padding="4">
                                     <Border.Effect>
-                                        <DropShadowEffect Color="{StaticResource PrimaryGold}" 
+                                        <DropShadowEffect Color="#C8AA6E" 
                                                         BlurRadius="10" 
                                                         ShadowDepth="0" 
                                                         Opacity="0.3"/>

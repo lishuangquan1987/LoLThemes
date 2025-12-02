@@ -19,7 +19,7 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
                         <Border.Effect>
-                            <DropShadowEffect Color="{StaticResource PrimaryGold}" 
+                            <DropShadowEffect Color="#C8AA6E" 
                                             BlurRadius="15" 
                                             ShadowDepth="0" 
                                             Opacity="0.3"/>

@@ -30,9 +30,9 @@
                                        CornerRadius="1">
                                     <Border.Background>
                                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                            <GradientStop Color="{StaticResource PrimaryGold}" Offset="0"/>
-                                            <GradientStop Color="{StaticResource HoverGold}" Offset="0.5"/>
-                                            <GradientStop Color="{StaticResource PrimaryGold}" Offset="1"/>
+                                            <GradientStop Color="#C8AA6E" Offset="0"/>
+                                            <GradientStop Color="#F0E6D2" Offset="0.5"/>
+                                            <GradientStop Color="#C8AA6E" Offset="1"/>
                                         </LinearGradientBrush>
                                     </Border.Background>
                                 </Border>
@@ -47,7 +47,7 @@
                                     <Border.Background>
                                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                                             <GradientStop Color="Transparent" Offset="0"/>
-                                            <GradientStop Color="{StaticResource PrimaryGold}" Offset="0.5"/>
+                                            <GradientStop Color="#C8AA6E" Offset="0.5"/>
                                             <GradientStop Color="Transparent" Offset="1"/>
                                         </LinearGradientBrush>
                                     </Border.Background>
@@ -111,9 +111,9 @@
                                        CornerRadius="1">
                                     <Border.Background>
                                         <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
-                                            <GradientStop Color="{StaticResource PrimaryGold}" Offset="0"/>
-                                            <GradientStop Color="{StaticResource HoverGold}" Offset="0.5"/>
-                                            <GradientStop Color="{StaticResource PrimaryGold}" Offset="1"/>
+                                            <GradientStop Color="#C8AA6E" Offset="0"/>
+                                            <GradientStop Color="#F0E6D2" Offset="0.5"/>
+                                            <GradientStop Color="#C8AA6E" Offset="1"/>
                                         </LinearGradientBrush>
                                     </Border.Background>
                                 </Border>

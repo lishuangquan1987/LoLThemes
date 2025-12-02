@@ -231,7 +231,7 @@
             
             <!-- 说明文本 -->
             <Border Background="{StaticResource BackgroundPanelBrush}"
-                   BorderBrush="{StaticResource PrimaryGoldBrush}"
+                   BorderBrush="{DynamicResource PrimaryGoldBrush}"
                    BorderThickness="2"
                    Padding="20"
                    Margin="0,20,0,0">
@@ -239,7 +239,7 @@
                     <TextBlock Text="🎮 更多控件正在开发中..." 
                               FontSize="{StaticResource FontSizeMedium}"
                               FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource PrimaryGoldBrush}"
+                              Foreground="{DynamicResource PrimaryGoldBrush}"
                               Margin="0,0,0,10"/>
                     <TextBlock TextWrapping="Wrap"
                               FontSize="{StaticResource FontSizeNormal}"

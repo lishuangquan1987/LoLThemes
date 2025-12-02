@@ -117,43 +117,43 @@ LOLThemes.Wpf 为以下 WPF 基础控件提供了完整的样式：
 - ✅ **TextBox** - 文本输入框（已实现）
 - ✅ **PasswordBox** - 密码输入框（已实现）
 - ✅ **ComboBox** - 组合框/下拉列表（已实现）
-- ⏳ **CheckBox** - 复选框（计划中）
-- ⏳ **RadioButton** - 单选按钮（计划中）
-- ⏳ **ToggleButton** - 切换按钮（计划中）
-- ⏳ **Slider** - 滑块（计划中）
+- ✅ **CheckBox** - 复选框（已实现）
+- ✅ **RadioButton** - 单选按钮（已实现）
+- ✅ **ToggleButton** - 切换按钮（已实现）
+- ✅ **Slider** - 滑块（已实现）
 
 #### 显示控件
-- ⏳ **Label** - 标签（计划中）
-- ⏳ **TextBlock** - 文本块（计划中）
-- ⏳ **Image** - 图片（计划中）
-- ⏳ **ProgressBar** - 进度条（计划中）
-- ⏳ **ToolTip** - 提示框（计划中）
+- ✅ **Label** - 标签（已实现）
+- ✅ **TextBlock** - 文本块（已实现）
+- ✅ **Image** - 图片（已实现）
+- ✅ **ProgressBar** - 进度条（已实现）
+- ✅ **ToolTip** - 提示框（已实现）
 
 #### 容器控件
-- ⏳ **Border** - 边框（计划中）
-- ⏳ **GroupBox** - 分组框（计划中）
-- ⏳ **Expander** - 展开面板（计划中）
-- ⏳ **TabControl** - 选项卡控件（计划中）
-- ⏳ **Window** - 窗口（计划中）
+- ✅ **Border** - 边框（已实现）
+- ✅ **GroupBox** - 分组框（已实现）
+- ✅ **Expander** - 展开面板（已实现）
+- ✅ **TabControl** - 选项卡控件（已实现）
+- ✅ **Window** - 窗口（已实现）
 
 #### 列表控件
-- ⏳ **ListBox** - 列表框（计划中）
-- ⏳ **ListView** - 列表视图（计划中）
-- ⏳ **DataGrid** - 数据网格（计划中）
-- ⏳ **TreeView** - 树形视图（计划中）
+- ✅ **ListBox** - 列表框（已实现）
+- ✅ **ListView** - 列表视图（已实现）
+- ✅ **DataGrid** - 数据网格（已实现）
+- ✅ **TreeView** - 树形视图（已实现）
 
 #### 菜单控件
-- ⏳ **Menu** - 菜单栏（计划中）
-- ⏳ **MenuItem** - 菜单项（计划中）
-- ⏳ **ContextMenu** - 上下文菜单（计划中）
+- ✅ **Menu** - 菜单栏（已实现）
+- ✅ **MenuItem** - 菜单项（已实现）
+- ✅ **ContextMenu** - 上下文菜单（已实现）
 
 #### 其他控件
-- ⏳ **ScrollBar** - 滚动条（计划中）
-- ⏳ **StatusBar** - 状态栏（计划中）
-- ⏳ **Separator** - 分隔符（计划中）
-- ⏳ **Calendar** - 日历（计划中）
-- ⏳ **DatePicker** - 日期选择器（计划中）
-- ⏳ **RichTextBox** - 富文本框（计划中）
+- ✅ **ScrollBar** - 滚动条（已实现）
+- ✅ **StatusBar** - 状态栏（已实现）
+- ✅ **Separator** - 分隔符（已实现）
+- ✅ **Calendar** - 日历（已实现）
+- ✅ **DatePicker** - 日期选择器（已实现）
+- ✅ **RichTextBox** - 富文本框（已实现）
 
 ### 自定义控件
 
@@ -167,11 +167,13 @@ LOLThemes.Wpf 为以下 WPF 基础控件提供了完整的样式：
 
 - ✅ **ButtonHelper** - Button 附加属性（已实现）
 - ✅ **TextBoxHelper** - TextBox 附加属性（已实现）
-- ⏳ **CornerRadiusHelper** - 通用圆角辅助（计划中）
-- ⏳ **GlowEffectHelper** - 发光效果辅助（计划中）
-- ⏳ **HexToColorConverter** - 十六进制颜色转换器（计划中）
-- ⏳ **BoolToVisibilityConverter** - 布尔到可见性转换器（计划中）
-- ⏳ **PercentageConverter** - 百分比转换器（计划中）
+- ✅ **CornerRadiusHelper** - 通用圆角辅助（已实现）
+- ✅ **GlowEffectHelper** - 发光效果辅助（已实现）
+- ✅ **WindowHelper** - Window 附加属性（已实现）
+- ✅ **HexToColorConverter** - 十六进制颜色转换器（已实现）
+- ✅ **BoolToVisibilityConverter** - 布尔到可见性转换器（已实现）
+- ✅ **PercentageConverter** - 百分比转换器（已实现）
+- ✅ **LevelToIndentConverter** - TreeView 缩进转换器（已实现）
 
 ## 🏗️ 项目结构
 
@@ -269,8 +271,8 @@ LOLThemes.Wpf 使用英雄联盟的标志性配色方案：
 
 ## 🔮 未来计划
 
-- [ ] 完成所有 28+ 基础控件样式
-- [ ] 实现所有 5 个自定义控件
+- [x] 完成所有 28+ 基础控件样式 ✅
+- [ ] 实现所有 5 个自定义控件（HexagonButton, GlowButton, AnimatedBorder, ChampionCard, SkillButton）
 - [ ] 添加更多主题变体（暗色/亮色）
 - [ ] 发布 NuGet 包
 - [ ] 创建交互式文档网站

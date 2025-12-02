@@ -38,11 +38,11 @@
                                     <Storyboard>
                                         <ColorAnimation Storyboard.TargetName="border"
                                                        Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
-                                                       To="{StaticResource PrimaryGold}"
+                                                       To="#C8AA6E"
                                                        Duration="0:0:0.2"/>
                                         <ColorAnimation Storyboard.TargetName="border"
                                                        Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
-                                                       To="{StaticResource HoverGold}"
+                                                       To="#F0E6D2"
                                                        Duration="0:0:0.2"/>
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -55,7 +55,7 @@
                                                        Duration="0:0:0.2"/>
                                         <ColorAnimation Storyboard.TargetName="border"
                                                        Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
-                                                       To="{StaticResource BorderGold}"
+                                                       To="#C8AA6E"
                                                        Duration="0:0:0.2"/>
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -71,11 +71,11 @@
                                     <Storyboard>
                                         <ColorAnimation Storyboard.TargetName="border"
                                                        Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
-                                                       To="{StaticResource PressedGold}"
+                                                       To="#785A28"
                                                        Duration="0:0:0.1"/>
                                         <ColorAnimation Storyboard.TargetName="border"
                                                        Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
-                                                       To="{StaticResource PressedGold}"
+                                                       To="#785A28"
                                                        Duration="0:0:0.1"/>
                                     </Storyboard>
                                 </BeginStoryboard>

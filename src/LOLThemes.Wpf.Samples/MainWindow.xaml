@@ -1,4 +1,4 @@
-﻿<Window x:Class="LOLThemes.Wpf.Samples.MainWindow"
+<Window x:Class="LOLThemes.Wpf.Samples.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="LOL Themes - WPF 控件库示例" 
         Height="800" Width="1400"
-        Background="{StaticResource BackgroundDarkBrush}"
+        Style="{DynamicResource LOLWindowStyle}"
         WindowStartupLocation="CenterScreen">
     
     <Window.DataContext>
@@ -24,8 +24,8 @@
         
         <!-- 左侧导航栏 -->
         <Border Grid.Column="0" 
-                Background="{StaticResource BackgroundPanelBrush}"
-                BorderBrush="{StaticResource BorderDarkBrush}"
+                Background="{DynamicResource BackgroundPanelBrush}"
+                BorderBrush="{DynamicResource BorderDarkBrush}"
                 BorderThickness="0,0,1,0">
             <Grid>
                 <Grid.RowDefinitions>
@@ -35,63 +35,90 @@
                 
                 <!-- 标题 -->
                 <Border Grid.Row="0" 
-                        Background="{StaticResource BackgroundMediumBrush}"
+                        Background="{DynamicResource BackgroundMediumBrush}"
                         Padding="20"
-                        BorderBrush="{StaticResource BorderGoldBrush}"
+                        BorderBrush="{DynamicResource BorderGoldBrush}"
                         BorderThickness="0,0,0,2">
                     <StackPanel>
                         <TextBlock Text="LOL THEMES" 
-                                  FontSize="{StaticResource FontSizeXLarge}"
-                                  FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{StaticResource PrimaryGoldBrush}"
+                                  FontSize="{DynamicResource FontSizeXLarge}"
+                                  FontWeight="{DynamicResource FontWeightBold}"
+                                  Foreground="{DynamicResource PrimaryGoldBrush}"
                                   HorizontalAlignment="Center"/>
-                        <TextBlock Text="WPF 控件库" 
-                                  FontSize="{StaticResource FontSizeSmall}"
-                                  Foreground="{StaticResource TextSecondaryBrush}"
+                        <TextBlock Text="WPF �ؼ���" 
+                                  FontSize="{DynamicResource FontSizeSmall}"
+                                  Foreground="{DynamicResource TextSecondaryBrush}"
                                   HorizontalAlignment="Center"
                                   Margin="0,5,0,0"/>
                     </StackPanel>
                 </Border>
                 
-                <!-- 导航菜单 -->
+                <!-- �����˵� -->
                 <ListBox Grid.Row="1"
                         ItemsSource="{Binding NavigationItems}"
+                        SelectedValue="{Binding CurrentView}"
+                        SelectedValuePath="ViewName"
+                        Style="{DynamicResource LOLListBoxStyle}"
                         Background="Transparent"
                         BorderThickness="0"
                         Padding="10">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Button Content="{Binding Name}"
-                                   Command="{Binding DataContext.NavigateCommand, RelativeSource={RelativeSource AncestorType=Window}}"
-                                   CommandParameter="{Binding ViewName}"
-                                   Style="{StaticResource LOLButtonStyle}"
-                                   HorizontalAlignment="Stretch"
-                                   Margin="0,5"
-                                   Padding="15,12">
-                                <Button.ContentTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding Icon, RelativeSource={RelativeSource AncestorType=Button}, Path=DataContext.Icon}"
-                                                      FontSize="{StaticResource FontSizeMedium}"
-                                                      Margin="0,0,10,0"/>
-                                            <TextBlock Text="{Binding}"
-                                                      FontSize="{StaticResource FontSizeNormal}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </Button.ContentTemplate>
-                            </Button>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListBoxItem">
+                                        <Border x:Name="border"
+                                                Background="Transparent"
+                                                BorderBrush="{DynamicResource BorderGoldBrush}"
+                                                BorderThickness="0"
+                                                Margin="0,2"
+                                                Padding="15,12"
+                                                CornerRadius="0">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Icon}"
+                                                          FontSize="{DynamicResource FontSizeMedium}"
+                                                          Margin="0,0,10,0"
+                                                          VerticalAlignment="Center"/>
+                                                <TextBlock Text="{Binding Name}"
+                                                          FontSize="{DynamicResource FontSizeNormal}"
+                                                          Foreground="{DynamicResource TextPrimaryBrush}"
+                                                          VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
+                                                <Setter TargetName="border" Property="BorderThickness" Value="2,0,0,0"/>
+                                            </Trigger>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundLightBrush}"/>
+                                                <Setter TargetName="border" Property="BorderThickness" Value="3,0,0,0"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
                 </ListBox>
             </Grid>
         </Border>
         
-        <!-- 右侧内容区域 -->
+        <!-- �Ҳ��������� -->
         <Border Grid.Column="1" 
-                Background="{StaticResource BackgroundDarkBrush}">
+                Background="{DynamicResource BackgroundDarkBrush}">
             <ContentControl x:Name="ContentArea">
                 <ContentControl.Style>
                     <Style TargetType="ContentControl">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <TextBlock Text="������˵�ѡ��һ����ͼ"
+                                          FontSize="{DynamicResource FontSizeLarge}"
+                                          Foreground="{DynamicResource TextSecondaryBrush}"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                            </Setter.Value>
+                        </Setter>
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding CurrentView}" Value="ControlShowcaseView">
                                 <Setter Property="Content">
@@ -104,6 +131,57 @@
                                 <Setter Property="Content">
                                     <Setter.Value>
                                         <views:Screenshot1View/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding CurrentView}" Value="Screenshot2View">
+                                <Setter Property="Content">
+                                    <Setter.Value>
+                                        <views:Screenshot2View/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding CurrentView}" Value="Screenshot3View">
+                                <Setter Property="Content">
+                                    <Setter.Value>
+                                        <TextBlock Text="Screenshot 3 View - ��ʵ��"
+                                                  FontSize="{DynamicResource FontSizeLarge}"
+                                                  Foreground="{DynamicResource TextSecondaryBrush}"
+                                                  HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding CurrentView}" Value="Screenshot4View">
+                                <Setter Property="Content">
+                                    <Setter.Value>
+                                        <TextBlock Text="Screenshot 4 View - ��ʵ��"
+                                                  FontSize="{DynamicResource FontSizeLarge}"
+                                                  Foreground="{DynamicResource TextSecondaryBrush}"
+                                                  HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding CurrentView}" Value="Screenshot5View">
+                                <Setter Property="Content">
+                                    <Setter.Value>
+                                        <TextBlock Text="Screenshot 5 View - ��ʵ��"
+                                                  FontSize="{DynamicResource FontSizeLarge}"
+                                                  Foreground="{DynamicResource TextSecondaryBrush}"
+                                                  HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding CurrentView}" Value="Screenshot6View">
+                                <Setter Property="Content">
+                                    <Setter.Value>
+                                        <TextBlock Text="Screenshot 6 View - ��ʵ��"
+                                                  FontSize="{DynamicResource FontSizeLarge}"
+                                                  Foreground="{DynamicResource TextSecondaryBrush}"
+                                                  HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
                                     </Setter.Value>
                                 </Setter>
                             </DataTrigger>

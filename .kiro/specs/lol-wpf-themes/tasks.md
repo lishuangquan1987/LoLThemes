@@ -464,8 +464,14 @@
   - 在Generic.xaml中合并RichTextBoxStyles.xaml
   - _Requirements: 2.28_
 
-- [ ] 11. 实现自定义控件
-- [ ] 11.1 实现HexagonButton自定义控件
+- [x] 11. 实现自定义控件
+
+
+
+
+- [x] 11.1 实现HexagonButton自定义控件
+
+
   - 创建Controls/HexagonButton.cs文件
   - 定义HexagonButton类，继承自Button
   - 定义HexagonGeometry依赖属性
@@ -475,7 +481,9 @@
   - 在Generic.xaml中合并HexagonButtonStyles.xaml
   - _Requirements: 3.1_
 
-- [ ] 11.2 实现GlowButton自定义控件
+- [x] 11.2 实现GlowButton自定义控件
+
+
   - 创建Controls/GlowButton.cs文件
   - 定义GlowButton类，继承自Button
   - 定义GlowColor依赖属性
@@ -485,7 +493,9 @@
   - 在Generic.xaml中合并GlowButtonStyles.xaml
   - _Requirements: 3.2_
 
-- [ ] 11.3 实现AnimatedBorder自定义控件
+- [x] 11.3 实现AnimatedBorder自定义控件
+
+
   - 创建Controls/AnimatedBorder.cs文件
   - 定义AnimatedBorder类，继承自Border
   - 定义AnimationDuration依赖属性
@@ -496,7 +506,9 @@
   - 在Generic.xaml中合并AnimatedBorderStyles.xaml
   - _Requirements: 3.3_
 
-- [ ] 11.4 实现ChampionCard自定义控件
+- [x] 11.4 实现ChampionCard自定义控件
+
+
   - 创建Controls/ChampionCard.cs文件
   - 定义ChampionCard类，继承自ContentControl
   - 定义ChampionName依赖属性
@@ -508,7 +520,9 @@
   - 在Generic.xaml中合并ChampionCardStyles.xaml
   - _Requirements: 3.4_
 
-- [ ] 11.5 实现SkillButton自定义控件
+- [x] 11.5 实现SkillButton自定义控件
+
+
   - 创建Controls/SkillButton.cs文件
   - 定义SkillButton类，继承自Button
   - 定义CooldownProgress依赖属性（0-1）
@@ -525,6 +539,7 @@
   - _Requirements: 3.5_
 
 - [x] 12. 实现转换器
+
 
 
 - [x] 12.1 实现HexToColorConverter
@@ -618,7 +633,10 @@
 
 
 
-- [-] 15.4 实现MainWindow
+- [x] 15.4 实现MainWindow
+
+
+
 
   - 修改Views/MainWindow.xaml
   - 设置DataContext为MainViewModel
@@ -628,8 +646,13 @@
   - 应用LOLWindowStyle
   - _Requirements: 7.5_
 
-- [ ] 16. 创建截图还原页面
-- [ ] 16.1 创建Screenshot1View页面
+- [x] 16. 创建截图还原页面
+-
+
+- [x] 16.1 创建Screenshot1View页面
+
+
+
   - 创建Views/Screenshot1View.xaml文件
   - 创建Views/Screenshot1View.xaml.cs代码隐藏文件
   - 根据Documentation/Images/screenshot-1764513988615.png还原界面
@@ -637,7 +660,12 @@
   - 实现布局和样式
   - _Requirements: 7.1_
 
-- [ ] 16.2 创建Screenshot2View页面
+-
+
+- [x] 16.2 创建Screenshot2View页面
+
+
+
   - 创建Views/Screenshot2View.xaml文件
   - 创建Views/Screenshot2View.xaml.cs代码隐藏文件
   - 根据Documentation/Images/screenshot-1764514015630.png还原界面
@@ -645,21 +673,30 @@
   - 实现布局和样式
   - _Requirements: 7.1_
 
+
+
+
 - [ ] 16.3 创建Screenshot3View页面
   - 创建Views/Screenshot3View.xaml文件
   - 创建Views/Screenshot3View.xaml.cs代码隐藏文件
   - 根据Documentation/Images/screenshot-1764514023433.png还原界面
   - 使用LOLThemes.Wpf控件库中的控件
+
+
   - 实现布局和样式
   - _Requirements: 7.1_
+
 
 - [ ] 16.4 创建Screenshot4View页面
   - 创建Views/Screenshot4View.xaml文件
   - 创建Views/Screenshot4View.xaml.cs代码隐藏文件
+
+
   - 根据Documentation/Images/screenshot-1764514034667.png还原界面
   - 使用LOLThemes.Wpf控件库中的控件
   - 实现布局和样式
   - _Requirements: 7.1_
+
 
 - [ ] 16.5 创建Screenshot5View页面
   - 创建Views/Screenshot5View.xaml文件
@@ -671,9 +708,14 @@
 
 
 
+
+
+
+
   - 实现布局和样式
 
   - _Requirements: 7.1_
+
 
 - [ ] 16.6 创建Screenshot6View页面
   - 创建Views/Screenshot6View.xaml文件
@@ -685,6 +727,9 @@
   - 实现布局和样式
   - _Requirements: 7.1_
 
+
+
+
 - [ ] 17. 创建控件展示页面
 - [ ] 17.1 创建ControlShowcaseView页面
   - 创建Views/ControlShowcaseView.xaml文件
@@ -695,9 +740,12 @@
   - 展示控件的不同状态和变体
   - _Requirements: 7.1_
 
-- [ ] 18. 创建README文档
+- [x] 18. 创建README文档
 
-- [ ] 18.1 编写README.md
+
+- [x] 18.1 编写README.md
+
+
   - 在项目根目录创建README.md文件
   - 在开头添加醒目的声明：本项目完全由AI IDE（Kiro）完成
   - 添加项目简介，说明这是LOL风格的WPF控件库
@@ -710,6 +758,9 @@
   - 添加贡献指南（如何提交Issue、如何贡献代码）
   - 添加许可证信息（引用LICENSE文件）
   - 添加致谢部分，感谢AI技术和开源社区
+
+
+
   - _Requirements: 10.1, 10.2, 10.3, 10.4, 10.5, 10.6, 10.7_
 
 - [ ] 19. Checkpoint - 确保示例应用程序运行正常

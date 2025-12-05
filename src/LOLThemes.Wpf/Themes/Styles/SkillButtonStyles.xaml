@@ -2,6 +2,12 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:LOLThemes.Wpf.Controls"
                     xmlns:converters="clr-namespace:LOLThemes.Wpf.Converters">
+    
+    <!-- 合并基础资源，确保可以访问 Colors 和 Fonts -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Colors.xaml"/>
+        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
 
     <!-- 辅助转换器：检查值是否大于0 -->
     <converters:GreaterThanZeroConverter x:Key="GreaterThanZeroConverter"/>

@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="LOL Themes - WPF 控件库示例" 
         Height="800" Width="1400"
-        Style="{DynamicResource LOLWindowStyle}"
+        Style="{StaticResource LOLWindowStyle}"
         WindowStartupLocation="CenterScreen">
     
     <Window.DataContext>
@@ -24,8 +24,8 @@
         
         <!-- 左侧导航栏 -->
         <Border Grid.Column="0" 
-                Background="{DynamicResource BackgroundPanelBrush}"
-                BorderBrush="{DynamicResource BorderDarkBrush}"
+                Background="{StaticResource BackgroundPanelBrush}"
+                BorderBrush="{StaticResource BorderDarkBrush}"
                 BorderThickness="0,0,1,0">
             <Grid>
                 <Grid.RowDefinitions>
@@ -35,30 +35,30 @@
                 
                 <!-- 标题 -->
                 <Border Grid.Row="0" 
-                        Background="{DynamicResource BackgroundMediumBrush}"
+                        Background="{StaticResource BackgroundMediumBrush}"
                         Padding="20"
-                        BorderBrush="{DynamicResource BorderGoldBrush}"
+                        BorderBrush="{StaticResource BorderGoldBrush}"
                         BorderThickness="0,0,0,2">
                     <StackPanel>
                         <TextBlock Text="LOL THEMES" 
-                                  FontSize="{DynamicResource FontSizeXLarge}"
-                                  FontWeight="{DynamicResource FontWeightBold}"
-                                  Foreground="{DynamicResource PrimaryGoldBrush}"
+                                  FontSize="{StaticResource FontSizeXLarge}"
+                                  FontWeight="{StaticResource FontWeightBold}"
+                                  Foreground="{StaticResource PrimaryGoldBrush}"
                                   HorizontalAlignment="Center"/>
-                        <TextBlock Text="WPF �ؼ���" 
-                                  FontSize="{DynamicResource FontSizeSmall}"
-                                  Foreground="{DynamicResource TextSecondaryBrush}"
+                        <TextBlock Text="WPF 控件库" 
+                                  FontSize="{StaticResource FontSizeSmall}"
+                                  Foreground="{StaticResource TextSecondaryBrush}"
                                   HorizontalAlignment="Center"
                                   Margin="0,5,0,0"/>
                     </StackPanel>
                 </Border>
                 
-                <!-- �����˵� -->
+                <!-- 导航菜单 -->
                 <ListBox Grid.Row="1"
                         ItemsSource="{Binding NavigationItems}"
                         SelectedValue="{Binding CurrentView}"
                         SelectedValuePath="ViewName"
-                        Style="{DynamicResource LOLListBoxStyle}"
+                        Style="{StaticResource LOLListBoxStyle}"
                         Background="Transparent"
                         BorderThickness="0"
                         Padding="10">
@@ -69,29 +69,29 @@
                                     <ControlTemplate TargetType="ListBoxItem">
                                         <Border x:Name="border"
                                                 Background="Transparent"
-                                                BorderBrush="{DynamicResource BorderGoldBrush}"
+                                                BorderBrush="{StaticResource BorderGoldBrush}"
                                                 BorderThickness="0"
                                                 Margin="0,2"
                                                 Padding="15,12"
                                                 CornerRadius="0">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Text="{Binding Icon}"
-                                                          FontSize="{DynamicResource FontSizeMedium}"
+                                                          FontSize="{StaticResource FontSizeMedium}"
                                                           Margin="0,0,10,0"
                                                           VerticalAlignment="Center"/>
                                                 <TextBlock Text="{Binding Name}"
-                                                          FontSize="{DynamicResource FontSizeNormal}"
-                                                          Foreground="{DynamicResource TextPrimaryBrush}"
+                                                          FontSize="{StaticResource FontSizeNormal}"
+                                                          Foreground="{StaticResource TextPrimaryBrush}"
                                                           VerticalAlignment="Center"/>
                                             </StackPanel>
                                         </Border>
                                         <ControlTemplate.Triggers>
                                             <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
+                                                <Setter TargetName="border" Property="Background" Value="{StaticResource BackgroundMediumBrush}"/>
                                                 <Setter TargetName="border" Property="BorderThickness" Value="2,0,0,0"/>
                                             </Trigger>
                                             <Trigger Property="IsSelected" Value="True">
-                                                <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundLightBrush}"/>
+                                                <Setter TargetName="border" Property="Background" Value="{StaticResource BackgroundLightBrush}"/>
                                                 <Setter TargetName="border" Property="BorderThickness" Value="3,0,0,0"/>
                                             </Trigger>
                                         </ControlTemplate.Triggers>
@@ -104,17 +104,17 @@
             </Grid>
         </Border>
         
-        <!-- �Ҳ��������� -->
+        <!-- 右侧内容区域 -->
         <Border Grid.Column="1" 
-                Background="{DynamicResource BackgroundDarkBrush}">
+                Background="{StaticResource BackgroundDarkBrush}">
             <ContentControl x:Name="ContentArea">
                 <ContentControl.Style>
                     <Style TargetType="ContentControl">
                         <Setter Property="Content">
                             <Setter.Value>
-                                <TextBlock Text="������˵�ѡ��һ����ͼ"
-                                          FontSize="{DynamicResource FontSizeLarge}"
-                                          Foreground="{DynamicResource TextSecondaryBrush}"
+                                <TextBlock Text="请从左侧菜单选择一个视图"
+                                          FontSize="{StaticResource FontSizeLarge}"
+                                          Foreground="{StaticResource TextSecondaryBrush}"
                                           HorizontalAlignment="Center"
                                           VerticalAlignment="Center"/>
                             </Setter.Value>
@@ -144,44 +144,28 @@
                             <DataTrigger Binding="{Binding CurrentView}" Value="Screenshot3View">
                                 <Setter Property="Content">
                                     <Setter.Value>
-                                        <TextBlock Text="Screenshot 3 View - ��ʵ��"
-                                                  FontSize="{DynamicResource FontSizeLarge}"
-                                                  Foreground="{DynamicResource TextSecondaryBrush}"
-                                                  HorizontalAlignment="Center"
-                                                  VerticalAlignment="Center"/>
+                                        <views:Screenshot3View/>
                                     </Setter.Value>
                                 </Setter>
                             </DataTrigger>
                             <DataTrigger Binding="{Binding CurrentView}" Value="Screenshot4View">
                                 <Setter Property="Content">
                                     <Setter.Value>
-                                        <TextBlock Text="Screenshot 4 View - ��ʵ��"
-                                                  FontSize="{DynamicResource FontSizeLarge}"
-                                                  Foreground="{DynamicResource TextSecondaryBrush}"
-                                                  HorizontalAlignment="Center"
-                                                  VerticalAlignment="Center"/>
+                                        <views:Screenshot4View/>
                                     </Setter.Value>
                                 </Setter>
                             </DataTrigger>
                             <DataTrigger Binding="{Binding CurrentView}" Value="Screenshot5View">
                                 <Setter Property="Content">
                                     <Setter.Value>
-                                        <TextBlock Text="Screenshot 5 View - ��ʵ��"
-                                                  FontSize="{DynamicResource FontSizeLarge}"
-                                                  Foreground="{DynamicResource TextSecondaryBrush}"
-                                                  HorizontalAlignment="Center"
-                                                  VerticalAlignment="Center"/>
+                                        <views:Screenshot5View/>
                                     </Setter.Value>
                                 </Setter>
                             </DataTrigger>
                             <DataTrigger Binding="{Binding CurrentView}" Value="Screenshot6View">
                                 <Setter Property="Content">
                                     <Setter.Value>
-                                        <TextBlock Text="Screenshot 6 View - ��ʵ��"
-                                                  FontSize="{DynamicResource FontSizeLarge}"
-                                                  Foreground="{DynamicResource TextSecondaryBrush}"
-                                                  HorizontalAlignment="Center"
-                                                  VerticalAlignment="Center"/>
+                                        <views:Screenshot6View/>
                                     </Setter.Value>
                                 </Setter>
                             </DataTrigger>

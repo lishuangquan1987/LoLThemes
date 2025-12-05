@@ -4,6 +4,18 @@ using System.Windows.Media;
 
 namespace LOLThemes.Wpf.Controls
 {
+    /// <summary>
+    /// 发光按钮控件，在鼠标悬停时显示发光效果。
+    /// 支持自定义发光颜色和强度。
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;controls:GlowButton 
+    ///     Content="点击我"
+    ///     GlowColor="#C8AA6E"
+    ///     GlowIntensity="20"/&gt;
+    /// </code>
+    /// </example>
     public class GlowButton : Button
     {
         static GlowButton()
@@ -13,7 +25,9 @@ namespace LOLThemes.Wpf.Controls
                 new FrameworkPropertyMetadata(typeof(GlowButton)));
         }
 
-        // 发光颜色
+        /// <summary>
+        /// 标识 <see cref="GlowColor"/> 依赖属性。
+        /// </summary>
         public static readonly DependencyProperty GlowColorProperty =
             DependencyProperty.Register(
                 nameof(GlowColor),
@@ -21,13 +35,19 @@ namespace LOLThemes.Wpf.Controls
                 typeof(GlowButton),
                 new PropertyMetadata(Colors.Gold));
 
+        /// <summary>
+        /// 获取或设置发光效果的颜色。
+        /// 默认值为金色（Colors.Gold）。
+        /// </summary>
         public Color GlowColor
         {
             get => (Color)GetValue(GlowColorProperty);
             set => SetValue(GlowColorProperty, value);
         }
 
-        // 发光强度
+        /// <summary>
+        /// 标识 <see cref="GlowIntensity"/> 依赖属性。
+        /// </summary>
         public static readonly DependencyProperty GlowIntensityProperty =
             DependencyProperty.Register(
                 nameof(GlowIntensity),
@@ -35,6 +55,10 @@ namespace LOLThemes.Wpf.Controls
                 typeof(GlowButton),
                 new PropertyMetadata(10.0));
 
+        /// <summary>
+        /// 获取或设置发光效果的强度（模糊半径）。
+        /// 值越大，发光效果越明显。默认值为 10.0。
+        /// </summary>
         public double GlowIntensity
         {
             get => (double)GetValue(GlowIntensityProperty);

@@ -4,6 +4,18 @@ using System.Windows.Media;
 
 namespace LOLThemes.Wpf.Controls
 {
+    /// <summary>
+    /// 六边形按钮控件，显示为六边形形状的按钮。
+    /// 常用于英雄联盟风格的界面设计。
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;controls:HexagonButton 
+    ///     Content="技能"
+    ///     Width="100"
+    ///     Height="100"/&gt;
+    /// </code>
+    /// </example>
     public class HexagonButton : Button
     {
         static HexagonButton()
@@ -13,7 +25,9 @@ namespace LOLThemes.Wpf.Controls
                 new FrameworkPropertyMetadata(typeof(HexagonButton)));
         }
 
-        // 六边形路径几何
+        /// <summary>
+        /// 标识 <see cref="HexagonGeometry"/> 依赖属性。
+        /// </summary>
         public static readonly DependencyProperty HexagonGeometryProperty =
             DependencyProperty.Register(
                 nameof(HexagonGeometry),
@@ -21,12 +35,20 @@ namespace LOLThemes.Wpf.Controls
                 typeof(HexagonButton),
                 new PropertyMetadata(CreateHexagonGeometry()));
 
+        /// <summary>
+        /// 获取或设置六边形的几何路径。
+        /// 默认值为一个标准的六边形路径。
+        /// </summary>
         public Geometry HexagonGeometry
         {
             get => (Geometry)GetValue(HexagonGeometryProperty);
             set => SetValue(HexagonGeometryProperty, value);
         }
 
+        /// <summary>
+        /// 创建默认的六边形几何路径。
+        /// </summary>
+        /// <returns>冻结的六边形几何路径</returns>
         private static Geometry CreateHexagonGeometry()
         {
             // 创建六边形路径

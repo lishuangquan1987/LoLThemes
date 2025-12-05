@@ -3,8 +3,29 @@ using System.Windows.Input;
 
 namespace LOLThemes.Wpf.Helpers
 {
+    /// <summary>
+    /// Window 控件的辅助类，提供自定义窗口装饰功能。
+    /// 用于启用自定义窗口标题栏按钮（最小化、最大化、关闭）和拖拽功能。
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;Window helpers:WindowHelper.EnableCustomChrome="True"&gt;
+    ///     ...
+    /// &lt;/Window&gt;
+    /// </code>
+    /// </example>
+    /// <remarks>
+    /// 使用此辅助类需要窗口模板中包含以下命名元素：
+    /// - MinimizeButton: 最小化按钮
+    /// - MaximizeButton: 最大化/还原按钮
+    /// - CloseButton: 关闭按钮
+    /// - TitleBar: 标题栏区域（用于拖拽）
+    /// </remarks>
     public static class WindowHelper
     {
+        /// <summary>
+        /// 标识 <see cref="EnableCustomChrome"/> 附加属性。
+        /// </summary>
         public static readonly DependencyProperty EnableCustomChromeProperty =
             DependencyProperty.RegisterAttached(
                 "EnableCustomChrome",
@@ -12,16 +33,31 @@ namespace LOLThemes.Wpf.Helpers
                 typeof(WindowHelper),
                 new PropertyMetadata(false, OnEnableCustomChromeChanged));
 
+        /// <summary>
+        /// 获取是否启用自定义窗口装饰。
+        /// </summary>
+        /// <param name="obj">依赖对象（应为 Window）</param>
+        /// <returns>如果启用自定义装饰返回 true，否则返回 false</returns>
         public static bool GetEnableCustomChrome(DependencyObject obj)
         {
             return (bool)obj.GetValue(EnableCustomChromeProperty);
         }
 
+        /// <summary>
+        /// 设置是否启用自定义窗口装饰。
+        /// </summary>
+        /// <param name="obj">依赖对象（应为 Window）</param>
+        /// <param name="value">是否启用</param>
         public static void SetEnableCustomChrome(DependencyObject obj, bool value)
         {
             obj.SetValue(EnableCustomChromeProperty, value);
         }
 
+        /// <summary>
+        /// 当 <see cref="EnableCustomChrome"/> 属性值改变时调用。
+        /// </summary>
+        /// <param name="d">依赖对象</param>
+        /// <param name="e">属性变更事件参数</param>
         private static void OnEnableCustomChromeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (d is Window window && (bool)e.NewValue)
@@ -30,6 +66,11 @@ namespace LOLThemes.Wpf.Helpers
             }
         }
 
+        /// <summary>
+        /// 窗口加载时的事件处理程序。
+        /// </summary>
+        /// <param name="sender">事件发送者</param>
+        /// <param name="e">事件参数</param>
         private static void Window_Loaded(object sender, RoutedEventArgs e)
         {
             if (sender is Window window)
@@ -39,6 +80,14 @@ namespace LOLThemes.Wpf.Helpers
             }
         }
 
+        /// <summary>
+        /// 为窗口附加事件处理程序。
+        /// 查找模板中的按钮和标题栏，并附加相应的事件处理。
+        /// </summary>
+        /// <param name="window">要附加事件的窗口</param>
+        /// <remarks>
+        /// 如果模板中找不到相应的元素，对应功能将不会生效。
+        /// </remarks>
         private static void AttachWindowEvents(Window window)
         {
             // Find buttons in the template

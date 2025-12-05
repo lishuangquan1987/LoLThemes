@@ -1,13 +1,31 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- 合并基础资源，确保可以访问 Colors 和 Fonts -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Colors.xaml"/>
+        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
 
     <!-- Primary Border 样式 -->
     <Style x:Key="PrimaryBorder" TargetType="Border">
-        <Setter Property="Background" Value="{StaticResource BackgroundMediumBrush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource BorderGoldBrush}"/>
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="Padding" Value="12"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#E61E2328" Offset="0"/>
+                    <GradientStop Color="#CC1E2328" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect Color="#C8AA6E" BlurRadius="8" ShadowDepth="0" Opacity="0.15"/>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <!-- Secondary Border 样式 -->
@@ -30,12 +48,24 @@
 
     <!-- Card Border 样式 -->
     <Style x:Key="CardBorder" TargetType="Border">
-        <Setter Property="Background" Value="{StaticResource BackgroundMediumBrush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource BorderDarkBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Padding" Value="16"/>
         <Setter Property="CornerRadius" Value="4"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <RadialGradientBrush>
+                    <GradientStop Color="#E61E2328" Offset="0"/>
+                    <GradientStop Color="#CC1E2328" Offset="1"/>
+                </RadialGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect Color="#000000" BlurRadius="10" ShadowDepth="2" Opacity="0.3"/>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <!-- Panel Border 样式 -->

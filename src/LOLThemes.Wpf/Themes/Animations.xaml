@@ -74,5 +74,43 @@
                         Duration="0:0:1"
                         EasingFunction="{StaticResource EaseInOut}"/>
     </Storyboard>
+    
+    <!-- 发光强度动画 -->
+    <Storyboard x:Key="GlowIntensityAnimation">
+        <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.BlurRadius)"
+                        Duration="{StaticResource AnimationDurationNormal}"
+                        EasingFunction="{StaticResource EaseOut}"/>
+    </Storyboard>
+    
+    <!-- 发光淡入动画 -->
+    <Storyboard x:Key="GlowFadeInAnimation">
+        <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.Opacity)"
+                        From="0" To="0.8"
+                        Duration="{StaticResource AnimationDurationNormal}"
+                        EasingFunction="{StaticResource EaseOut}"/>
+    </Storyboard>
+    
+    <!-- 发光淡出动画 -->
+    <Storyboard x:Key="GlowFadeOutAnimation">
+        <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.Opacity)"
+                        From="0.8" To="0"
+                        Duration="{StaticResource AnimationDurationNormal}"
+                        EasingFunction="{StaticResource EaseIn}"/>
+    </Storyboard>
+    
+    <!-- 组合动画：发光+缩放 -->
+    <Storyboard x:Key="GlowScaleAnimation">
+        <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.BlurRadius)"
+                        Duration="{StaticResource AnimationDurationNormal}"
+                        EasingFunction="{StaticResource EaseOut}"/>
+        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                        To="1.05"
+                        Duration="{StaticResource AnimationDurationFast}"
+                        EasingFunction="{StaticResource EaseOut}"/>
+        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                        To="1.05"
+                        Duration="{StaticResource AnimationDurationFast}"
+                        EasingFunction="{StaticResource EaseOut}"/>
+    </Storyboard>
 
 </ResourceDictionary>

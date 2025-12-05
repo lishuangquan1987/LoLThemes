@@ -7,14 +7,44 @@ using System.Windows.Media.Effects;
 
 namespace LOLThemes.Wpf.Controls
 {
+    /// <summary>
+    /// 动画类型枚举。
+    /// </summary>
     public enum AnimationType
     {
+        /// <summary>
+        /// 脉冲动画：缩放效果
+        /// </summary>
         Pulse,
+        /// <summary>
+        /// 发光动画：模糊半径变化
+        /// </summary>
         Glow,
+        /// <summary>
+        /// 旋转动画：360度旋转
+        /// </summary>
         Rotate,
+        /// <summary>
+        /// 无动画
+        /// </summary>
         None
     }
 
+    /// <summary>
+    /// 动画边框控件，支持多种动画效果。
+    /// 可以显示脉冲、发光或旋转动画，常用于吸引用户注意。
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;controls:AnimatedBorder 
+    ///     AnimationType="Pulse"
+    ///     AnimationDuration="0:0:2"
+    ///     BorderBrush="#C8AA6E"
+    ///     BorderThickness="2"&gt;
+    ///     &lt;TextBlock Text="动画内容"/&gt;
+    /// &lt;/controls:AnimatedBorder&gt;
+    /// </code>
+    /// </example>
     public class AnimatedBorder : Border
     {
         private Storyboard? _animationStoryboard;
@@ -32,7 +62,9 @@ namespace LOLThemes.Wpf.Controls
             Unloaded += OnUnloaded;
         }
 
-        // 动画持续时间
+        /// <summary>
+        /// 标识 <see cref="AnimationDuration"/> 依赖属性。
+        /// </summary>
         public static readonly DependencyProperty AnimationDurationProperty =
             DependencyProperty.Register(
                 nameof(AnimationDuration),
@@ -40,13 +72,19 @@ namespace LOLThemes.Wpf.Controls
                 typeof(AnimatedBorder),
                 new PropertyMetadata(new Duration(TimeSpan.FromSeconds(2)), OnAnimationPropertyChanged));
 
+        /// <summary>
+        /// 获取或设置动画持续时间。
+        /// 默认值为 2 秒。
+        /// </summary>
         public Duration AnimationDuration
         {
             get => (Duration)GetValue(AnimationDurationProperty);
             set => SetValue(AnimationDurationProperty, value);
         }
 
-        // 动画类型
+        /// <summary>
+        /// 标识 <see cref="AnimationType"/> 依赖属性。
+        /// </summary>
         public static readonly DependencyProperty AnimationTypeProperty =
             DependencyProperty.Register(
                 nameof(AnimationType),
@@ -54,12 +92,21 @@ namespace LOLThemes.Wpf.Controls
                 typeof(AnimatedBorder),
                 new PropertyMetadata(AnimationType.None, OnAnimationPropertyChanged));
 
+        /// <summary>
+        /// 获取或设置动画类型。
+        /// 默认值为 <see cref="AnimationType.None"/>（无动画）。
+        /// </summary>
         public AnimationType AnimationType
         {
             get => (AnimationType)GetValue(AnimationTypeProperty);
             set => SetValue(AnimationTypeProperty, value);
         }
 
+        /// <summary>
+        /// 当动画相关属性值改变时调用。
+        /// </summary>
+        /// <param name="d">依赖对象</param>
+        /// <param name="e">属性变更事件参数</param>
         private static void OnAnimationPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (d is AnimatedBorder border && border.IsLoaded)
@@ -68,16 +115,25 @@ namespace LOLThemes.Wpf.Controls
             }
         }
 
+        /// <summary>
+        /// 控件加载时启动动画。
+        /// </summary>
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             StartAnimation();
         }
 
+        /// <summary>
+        /// 控件卸载时停止动画。
+        /// </summary>
         private void OnUnloaded(object sender, RoutedEventArgs e)
         {
             StopAnimation();
         }
 
+        /// <summary>
+        /// 启动动画。如果动画类型为 None，则不启动。
+        /// </summary>
         private void StartAnimation()
         {
             StopAnimation();
@@ -106,6 +162,9 @@ namespace LOLThemes.Wpf.Controls
             _animationStoryboard?.Begin(this, true);
         }
 
+        /// <summary>
+        /// 停止当前动画。
+        /// </summary>
         private void StopAnimation()
         {
             if (_animationStoryboard != null)
@@ -115,6 +174,9 @@ namespace LOLThemes.Wpf.Controls
             }
         }
 
+        /// <summary>
+        /// 创建脉冲动画（缩放效果）。
+        /// </summary>
         private void CreatePulseAnimation()
         {
             // 缩放动画
@@ -148,6 +210,9 @@ namespace LOLThemes.Wpf.Controls
             _animationStoryboard.Children.Add(scaleYAnimation);
         }
 
+        /// <summary>
+        /// 创建发光动画（模糊半径变化）。
+        /// </summary>
         private void CreateGlowAnimation()
         {
             // 发光效果动画
@@ -180,6 +245,9 @@ namespace LOLThemes.Wpf.Controls
             }
         }
 
+        /// <summary>
+        /// 创建旋转动画（360度旋转）。
+        /// </summary>
         private void CreateRotateAnimation()
         {
             // 旋转动画

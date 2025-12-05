@@ -1,5 +1,11 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- 合并基础资源，确保可以访问 Colors 和 Fonts -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Colors.xaml"/>
+        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
 
     <!-- ComboBox 切换按钮样式 -->
     <Style x:Key="ComboBoxToggleButton" TargetType="ToggleButton">

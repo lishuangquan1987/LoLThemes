@@ -55,35 +55,69 @@
                     
                     <!-- 右侧货币显示 -->
                     <StackPanel Grid.Column="2" Orientation="Horizontal">
-                        <Border Background="{StaticResource PrimaryGoldBrush}"
+                        <Border x:Name="CurrencyGoldBorder4"
+                               Background="{StaticResource PrimaryGoldBrush}"
                                Padding="12,6"
                                CornerRadius="3"
-                               Margin="0,0,10,0">
+                               Margin="0,0,10,0"
+                               Cursor="Hand">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="💰 "
                                           FontSize="{StaticResource FontSizeNormal}"
                                           VerticalAlignment="Center"/>
-                                <TextBlock Text="15,680"
+                                <TextBlock x:Name="CurrencyGoldText4"
+                                          Text="15,680"
                                           FontSize="{StaticResource FontSizeNormal}"
                                           FontWeight="{StaticResource FontWeightBold}"
                                           Foreground="{StaticResource BackgroundDarkBrush}"
                                           VerticalAlignment="Center"/>
                             </StackPanel>
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="{StaticResource PrimaryGoldBrush}"/>
+                                            <Setter Property="Effect">
+                                                <Setter.Value>
+                                                    <DropShadowEffect Color="#C8AA6E" BlurRadius="10" ShadowDepth="0" Opacity="0.8"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
                         </Border>
                         
-                        <Border Background="{StaticResource PrimaryCyanBrush}"
+                        <Border x:Name="CurrencyCyanBorder4"
+                               Background="{StaticResource PrimaryCyanBrush}"
                                Padding="12,6"
-                               CornerRadius="3">
+                               CornerRadius="3"
+                               Cursor="Hand">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="💎 "
                                           FontSize="{StaticResource FontSizeNormal}"
                                           VerticalAlignment="Center"/>
-                                <TextBlock Text="2,450"
+                                <TextBlock x:Name="CurrencyCyanText4"
+                                          Text="2,450"
                                           FontSize="{StaticResource FontSizeNormal}"
                                           FontWeight="{StaticResource FontWeightBold}"
                                           Foreground="{StaticResource BackgroundDarkBrush}"
                                           VerticalAlignment="Center"/>
                             </StackPanel>
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="{StaticResource PrimaryCyanBrush}"/>
+                                            <Setter Property="Effect">
+                                                <Setter.Value>
+                                                    <DropShadowEffect Color="#0AC8B9" BlurRadius="10" ShadowDepth="0" Opacity="0.8"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
                         </Border>
                     </StackPanel>
                 </Grid>

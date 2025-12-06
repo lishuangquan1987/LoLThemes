@@ -30,7 +30,7 @@
         <Setter Property="Stretch" Value="UniformToFill"/>
         <Style.Resources>
             <Style TargetType="Border">
-                <Setter Property="BorderBrush" Value="{StaticResource BorderGoldBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
                 <Setter Property="BorderThickness" Value="2"/>
                 <Setter Property="Padding" Value="4"/>
             </Style>
@@ -68,5 +68,8 @@
         <Setter Property="Stretch" Value="UniformToFill"/>
         <Setter Property="Opacity" Value="0.3"/>
     </Style>
+
+    <!-- 默认 Image 样式 -->
+    <Style TargetType="{x:Type Image}" BasedOn="{StaticResource LOLImageStyle}"/>
 
 </ResourceDictionary>

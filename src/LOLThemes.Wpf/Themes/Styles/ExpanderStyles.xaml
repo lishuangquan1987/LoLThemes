@@ -9,9 +9,9 @@
 
     <!-- Expander ToggleButton 样式 -->
     <Style x:Key="ExpanderToggleButtonStyle" TargetType="ToggleButton">
-        <Setter Property="Background" Value="{StaticResource BackgroundLightBrush}"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderGoldBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundLightBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
         <Setter Property="BorderThickness" Value="0.5"/>
         <Setter Property="Padding" Value="12,8"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -33,7 +33,7 @@
                             <Path x:Name="Arrow"
                                  Grid.Column="0"
                                  Data="M 0,0 L 4,4 L 8,0 Z"
-                                 Fill="{StaticResource PrimaryGoldBrush}"
+                                 Fill="{DynamicResource PrimaryGoldBrush}"
                                  HorizontalAlignment="Center"
                                  VerticalAlignment="Center"
                                  Margin="0,0,8,0"
@@ -54,7 +54,7 @@
                         <!-- 鼠标悬停 -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Border" Property="Background" 
-                                   Value="{StaticResource Gray300Brush}"/>
+                                   Value="{DynamicResource Gray300Brush}"/>
                         </Trigger>
                         
                         <!-- 展开状�和-->
@@ -89,8 +89,8 @@
     <!-- LOL Expander 样式 -->
     <Style x:Key="LOLExpanderStyle" TargetType="Expander">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderDarkBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="BorderThickness" Value="0.5"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
@@ -151,5 +151,8 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!-- 默认 Expander 样式 -->
+    <Style TargetType="{x:Type Expander}" BasedOn="{StaticResource LOLExpanderStyle}"/>
 
 </ResourceDictionary>

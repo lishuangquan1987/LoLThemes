@@ -9,10 +9,10 @@
 
     <!-- DatePicker TextBox Style -->
     <Style x:Key="DatePickerTextBoxStyle" TargetType="{x:Type DatePickerTextBox}">
-        <Setter Property="Background" Value="{StaticResource BackgroundDarkBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderDarkBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
         <Setter Property="Padding" Value="8,6"/>
@@ -30,7 +30,7 @@
                         </Border>
                         <TextBlock x:Name="Watermark"
                                  Text="选择日期"
-                                 Foreground="{StaticResource TextSecondaryBrush}"
+                                 Foreground="{DynamicResource TextSecondaryBrush}"
                                  Padding="{TemplateBinding Padding}"
                                  VerticalAlignment="Center"
                                  IsHitTestVisible="False"
@@ -48,10 +48,10 @@
 
     <!-- DatePicker Style -->
     <Style x:Key="LOLDatePickerStyle" TargetType="{x:Type DatePicker}">
-        <Setter Property="Background" Value="{StaticResource BackgroundDarkBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderDarkBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="BorderThickness" Value="0.5"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
         <Setter Property="Padding" Value="0"/>
@@ -87,27 +87,27 @@
                                     <ControlTemplate TargetType="Button">
                                         <Border x:Name="ButtonBorder"
                                                 Background="Transparent"
-                                                BorderBrush="{StaticResource BorderDarkBrush}"
+                                                BorderBrush="{DynamicResource BorderDarkBrush}"
                                                 BorderThickness="1,0,0,0"
                                                 CornerRadius="0,4,4,0">
                                             <Path Data="M0,0 L4,4 L8,0 Z"
-                                                  Fill="{StaticResource TextPrimaryBrush}"
+                                                  Fill="{DynamicResource TextPrimaryBrush}"
                                                   HorizontalAlignment="Center"
                                                   VerticalAlignment="Center"/>
                                         </Border>
                                         <ControlTemplate.Triggers>
                                             <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter TargetName="ButtonBorder" Property="Background" Value="{StaticResource HoverGoldBrush}"/>
+                                                <Setter TargetName="ButtonBorder" Property="Background" Value="{DynamicResource HoverGoldBrush}"/>
                                             </Trigger>
                                             <Trigger Property="IsPressed" Value="True">
-                                                <Setter TargetName="ButtonBorder" Property="Background" Value="{StaticResource PressedGoldBrush}"/>
+                                                <Setter TargetName="ButtonBorder" Property="Background" Value="{DynamicResource PressedGoldBrush}"/>
                                             </Trigger>
                                         </ControlTemplate.Triggers>
                                     </ControlTemplate>
                                 </Button.Template>
                             </Button>
 
-                            <!-- Popup -->
+                            <!-- Popup - DatePicker会自动使用CalendarStyle属性中设置的样式 -->
                             <Popup Grid.Column="0"
                                    x:Name="PART_Popup"
                                    AllowsTransparency="True"
@@ -118,10 +118,10 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource BorderGoldBrush}"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
                         </Trigger>
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource PrimaryGoldBrush}"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Opacity" Value="0.5"/>
@@ -131,5 +131,8 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!-- 默认 DatePicker 样式 -->
+    <Style TargetType="{x:Type DatePicker}" BasedOn="{StaticResource LOLDatePickerStyle}"/>
 
 </ResourceDictionary>

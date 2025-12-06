@@ -17,8 +17,8 @@
                 <ControlTemplate TargetType="{x:Type controls:ChampionCard}">
                     <Grid>
                         <Border x:Name="mainBorder"
-                               Background="{StaticResource BackgroundMediumBrush}"
-                               BorderBrush="{StaticResource BorderDarkBrush}"
+                               Background="{DynamicResource BackgroundMediumBrush}"
+                               BorderBrush="{DynamicResource BorderDarkBrush}"
                                BorderThickness="2"
                                CornerRadius="0">
                             <Grid>
@@ -36,10 +36,10 @@
 
                                 <!-- 英雄名称 -->
                                 <Border Grid.Row="1"
-                                       Background="{StaticResource BackgroundDarkBrush}"
+                                       Background="{DynamicResource BackgroundDarkBrush}"
                                        Padding="5">
                                     <TextBlock Text="{TemplateBinding ChampionName}"
-                                             Foreground="{StaticResource TextPrimaryBrush}"
+                                             Foreground="{DynamicResource TextPrimaryBrush}"
                                              FontFamily="{StaticResource PrimaryFont}"
                                              FontSize="{StaticResource FontSizeSmall}"
                                              FontWeight="{StaticResource FontWeightMedium}"
@@ -50,7 +50,7 @@
                                 <!-- 选中边框 -->
                                 <Border x:Name="selectedBorder"
                                        Grid.RowSpan="2"
-                                       BorderBrush="{StaticResource BorderGoldBrush}"
+                                       BorderBrush="{DynamicResource BorderGoldBrush}"
                                        BorderThickness="3"
                                        CornerRadius="0"
                                        Visibility="Collapsed">
@@ -69,7 +69,7 @@
                             <Setter TargetName="selectedBorder" Property="Visibility" Value="Visible"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="mainBorder" Property="BorderBrush" Value="{StaticResource BorderGoldBrush}"/>
+                            <Setter TargetName="mainBorder" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

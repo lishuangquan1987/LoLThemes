@@ -10,7 +10,7 @@
     <!-- ContextMenu MenuItem Style -->
     <Style x:Key="LOLContextMenuItemStyle" TargetType="{x:Type MenuItem}">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
         <Setter Property="Padding" Value="12,6"/>
@@ -41,7 +41,7 @@
                             <Path Grid.Column="0"
                                   x:Name="CheckMark"
                                   Data="M0,5 L3,8 L8,0"
-                                  Stroke="{StaticResource PrimaryGoldBrush}"
+                                  Stroke="{DynamicResource PrimaryGoldBrush}"
                                   StrokeThickness="2"
                                   Visibility="Collapsed"
                                   Margin="8,0,8,0"
@@ -58,7 +58,7 @@
                             <TextBlock Grid.Column="2"
                                      x:Name="InputGestureText"
                                      Text="{TemplateBinding InputGestureText}"
-                                     Foreground="{StaticResource TextSecondaryBrush}"
+                                     Foreground="{DynamicResource TextSecondaryBrush}"
                                      Margin="16,0,8,0"
                                      VerticalAlignment="Center"/>
 
@@ -66,7 +66,7 @@
                             <Path Grid.Column="3"
                                   x:Name="SubMenuArrow"
                                   Data="M0,0 L4,4 L0,8 Z"
-                                  Fill="{StaticResource TextPrimaryBrush}"
+                                  Fill="{DynamicResource TextPrimaryBrush}"
                                   Visibility="Collapsed"
                                   Margin="0,0,8,0"
                                   VerticalAlignment="Center"/>
@@ -79,8 +79,8 @@
                                    IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"
                                    Focusable="False"
                                    PopupAnimation="Fade">
-                                <Border Background="{StaticResource BackgroundDarkBrush}"
-                                        BorderBrush="{StaticResource BorderGoldBrush}"
+                                <Border Background="{DynamicResource BackgroundDarkBrush}"
+                                        BorderBrush="{DynamicResource BorderGoldBrush}"
                                         BorderThickness="0.5"
                                         CornerRadius="4"
                                         Padding="4">
@@ -120,26 +120,15 @@
 
                         <!-- Mouse Over -->
                         <Trigger Property="IsHighlighted" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{StaticResource HoverGoldBrush}"/>
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource HoverGoldBrush}"/>
                         </Trigger>
 
                         <!-- Disabled -->
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Foreground" Value="{StaticResource TextDisabledBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}"/>
                         </Trigger>
 
-                        <!-- Separator -->
-                        <Trigger Property="Role" Value="Separator">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type MenuItem}">
-                                        <Border Background="{StaticResource BorderDarkBrush}"
-                                                Height="1"
-                                                Margin="4,2"/>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
+                        <!-- Separator - 移除此 Trigger，Separator 应该使用 Separator 控件而不是 MenuItem -->
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -148,15 +137,15 @@
 
     <!-- ContextMenu Style -->
     <Style x:Key="LOLContextMenuStyle" TargetType="{x:Type ContextMenu}">
-        <Setter Property="Background" Value="{StaticResource BackgroundDarkBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderGoldBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
         <Setter Property="BorderThickness" Value="0.5"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
         <Setter Property="Padding" Value="4"/>
         <Setter Property="HasDropShadow" Value="True"/>
-        <Setter Property="ItemContainerStyle" Value="{StaticResource LOLContextMenuItemStyle}"/>
+        <!-- 不设置 ItemContainerStyle，让 MenuItem 使用隐式样式，Separator 使用默认样式 -->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ContextMenu}">
@@ -210,5 +199,8 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!-- 默认 ContextMenu 样式 -->
+    <Style TargetType="{x:Type ContextMenu}" BasedOn="{StaticResource LOLContextMenuStyle}"/>
 
 </ResourceDictionary>

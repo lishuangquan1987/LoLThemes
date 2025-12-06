@@ -17,23 +17,23 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Thumb">
                     <Ellipse x:Name="Ellipse"
-                            Fill="{StaticResource PrimaryGoldBrush}"
-                            Stroke="{StaticResource BorderGoldBrush}"
+                            Fill="{DynamicResource PrimaryGoldBrush}"
+                            Stroke="{DynamicResource BorderGoldBrush}"
                             StrokeThickness="2"/>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Ellipse" Property="Fill" 
-                                   Value="{StaticResource HoverGoldBrush}"/>
+                                   Value="{DynamicResource HoverGoldBrush}"/>
                         </Trigger>
                         <Trigger Property="IsDragging" Value="True">
                             <Setter TargetName="Ellipse" Property="Fill" 
-                                   Value="{StaticResource PressedGoldBrush}"/>
+                                   Value="{DynamicResource PressedGoldBrush}"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="Ellipse" Property="Fill" 
-                                   Value="{StaticResource TextDisabledBrush}"/>
+                                   Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter TargetName="Ellipse" Property="Stroke" 
-                                   Value="{StaticResource TextDisabledBrush}"/>
+                                   Value="{DynamicResource TextDisabledBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -76,15 +76,15 @@
                                 Grid.Row="0"
                                 Height="4"
                                 Placement="Top"
-                                Fill="{StaticResource TextSecondaryBrush}"
+                                Fill="{DynamicResource TextSecondaryBrush}"
                                 Visibility="Collapsed"/>
                         
                         <!-- 轨道 -->
                         <Border x:Name="TrackBackground"
                                Grid.Row="1"
                                Height="4"
-                               Background="{StaticResource BackgroundLightBrush}"
-                               BorderBrush="{StaticResource BorderDarkBrush}"
+                               Background="{DynamicResource BackgroundLightBrush}"
+                               BorderBrush="{DynamicResource BorderDarkBrush}"
                                BorderThickness="0.5"
                                CornerRadius="2"
                                Margin="5,0"/>
@@ -108,7 +108,7 @@
                                 Grid.Row="2"
                                 Height="4"
                                 Placement="Bottom"
-                                Fill="{StaticResource TextSecondaryBrush}"
+                                Fill="{DynamicResource TextSecondaryBrush}"
                                 Visibility="Collapsed"/>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -149,15 +149,15 @@
                                 Grid.Column="0"
                                 Width="4"
                                 Placement="Left"
-                                Fill="{StaticResource TextSecondaryBrush}"
+                                Fill="{DynamicResource TextSecondaryBrush}"
                                 Visibility="Collapsed"/>
                         
                         <!-- 轨道 -->
                         <Border x:Name="TrackBackground"
                                Grid.Column="1"
                                Width="4"
-                               Background="{StaticResource BackgroundLightBrush}"
-                               BorderBrush="{StaticResource BorderDarkBrush}"
+                               Background="{DynamicResource BackgroundLightBrush}"
+                               BorderBrush="{DynamicResource BorderDarkBrush}"
                                BorderThickness="0.5"
                                CornerRadius="2"
                                Margin="0,5"/>
@@ -181,7 +181,7 @@
                                 Grid.Column="2"
                                 Width="4"
                                 Placement="Right"
-                                Fill="{StaticResource TextSecondaryBrush}"
+                                Fill="{DynamicResource TextSecondaryBrush}"
                                 Visibility="Collapsed"/>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -219,10 +219,10 @@
                                 </Grid.RowDefinitions>
                                 
                                 <TickBar x:Name="TopTick" Grid.Row="0" Height="4" Placement="Top"
-                                        Fill="{StaticResource TextSecondaryBrush}" Visibility="Collapsed"/>
+                                        Fill="{DynamicResource TextSecondaryBrush}" Visibility="Collapsed"/>
                                 
-                                <Border Grid.Row="1" Height="4" Background="{StaticResource BackgroundLightBrush}"
-                                       BorderBrush="{StaticResource BorderDarkBrush}" BorderThickness="0.5"
+                                <Border Grid.Row="1" Height="4" Background="{DynamicResource BackgroundLightBrush}"
+                                       BorderBrush="{DynamicResource BorderDarkBrush}" BorderThickness="0.5"
                                        CornerRadius="2" Margin="5,0"/>
                                 
                                 <Track x:Name="PART_Track" Grid.Row="1">
@@ -238,7 +238,7 @@
                                 </Track>
                                 
                                 <TickBar x:Name="BottomTick" Grid.Row="2" Height="4" Placement="Bottom"
-                                        Fill="{StaticResource TextSecondaryBrush}" Visibility="Collapsed"/>
+                                        Fill="{DynamicResource TextSecondaryBrush}" Visibility="Collapsed"/>
                             </Grid>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="TickPlacement" Value="TopLeft">
@@ -269,10 +269,10 @@
                                 </Grid.ColumnDefinitions>
                                 
                                 <TickBar x:Name="LeftTick" Grid.Column="0" Width="4" Placement="Left"
-                                        Fill="{StaticResource TextSecondaryBrush}" Visibility="Collapsed"/>
+                                        Fill="{DynamicResource TextSecondaryBrush}" Visibility="Collapsed"/>
                                 
-                                <Border Grid.Column="1" Width="4" Background="{StaticResource BackgroundLightBrush}"
-                                       BorderBrush="{StaticResource BorderDarkBrush}" BorderThickness="0.5"
+                                <Border Grid.Column="1" Width="4" Background="{DynamicResource BackgroundLightBrush}"
+                                       BorderBrush="{DynamicResource BorderDarkBrush}" BorderThickness="0.5"
                                        CornerRadius="2" Margin="0,5"/>
                                 
                                 <Track x:Name="PART_Track" Grid.Column="1">
@@ -288,7 +288,7 @@
                                 </Track>
                                 
                                 <TickBar x:Name="RightTick" Grid.Column="2" Width="4" Placement="Right"
-                                        Fill="{StaticResource TextSecondaryBrush}" Visibility="Collapsed"/>
+                                        Fill="{DynamicResource TextSecondaryBrush}" Visibility="Collapsed"/>
                             </Grid>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="TickPlacement" Value="TopLeft">
@@ -308,5 +308,8 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <!-- 默认 Slider 样式 -->
+    <Style TargetType="{x:Type Slider}" BasedOn="{StaticResource LOLSliderStyle}"/>
 
 </ResourceDictionary>

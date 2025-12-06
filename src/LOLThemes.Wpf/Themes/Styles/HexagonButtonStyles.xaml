@@ -10,12 +10,12 @@
 
     <Style TargetType="{x:Type controls:HexagonButton}">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderGoldBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
-        <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeMedium}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightBold}"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Width" Value="100"/>
         <Setter Property="Height" Value="100"/>
@@ -31,23 +31,20 @@
                               Stretch="Fill"/>
                         <ContentPresenter HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
-                                        TextElement.Foreground="{TemplateBinding Foreground}">
-                            <ContentPresenter.Clip>
-                                <PathGeometry Figures="{Binding HexagonGeometry.Figures, RelativeSource={RelativeSource TemplatedParent}}"/>
-                            </ContentPresenter.Clip>
-                        </ContentPresenter>
+                                        TextElement.Foreground="{TemplateBinding Foreground}"
+                                        Clip="{TemplateBinding HexagonGeometry}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="hexagonPath" Property="Fill" Value="{StaticResource PrimaryGoldBrush}"/>
-                            <Setter Property="Foreground" Value="{StaticResource BackgroundDarkBrush}"/>
+                            <Setter TargetName="hexagonPath" Property="Fill" Value="{DynamicResource PrimaryGoldBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="hexagonPath" Property="Fill" Value="{StaticResource PressedGoldBrush}"/>
+                            <Setter TargetName="hexagonPath" Property="Fill" Value="{DynamicResource PressedGoldBrush}"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="hexagonPath" Property="Stroke" Value="{StaticResource TextDisabledBrush}"/>
-                            <Setter Property="Foreground" Value="{StaticResource TextDisabledBrush}"/>
+                            <Setter TargetName="hexagonPath" Property="Stroke" Value="{DynamicResource TextDisabledBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

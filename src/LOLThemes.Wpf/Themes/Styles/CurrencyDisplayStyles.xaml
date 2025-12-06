@@ -16,7 +16,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:CurrencyDisplay}">
                     <Border x:Name="currencyBorder"
-                           Background="{StaticResource PrimaryCyanBrush}"
+                           Background="{DynamicResource PrimaryCyanBrush}"
                            CornerRadius="3"
                            Padding="{TemplateBinding Padding}">
                         <StackPanel Orientation="Horizontal">
@@ -28,17 +28,17 @@
                             <TextBlock Text="{Binding Amount, RelativeSource={RelativeSource TemplatedParent}, StringFormat='{}{0:N0}'}"
                                       FontSize="{StaticResource FontSizeNormal}"
                                       FontWeight="{StaticResource FontWeightBold}"
-                                      Foreground="{StaticResource BackgroundDarkBrush}"
+                                      Foreground="{DynamicResource BackgroundDarkBrush}"
                                       VerticalAlignment="Center"/>
                         </StackPanel>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="CurrencyType" Value="BlueEssence">
-                            <Setter TargetName="currencyBorder" Property="Background" Value="{StaticResource PrimaryCyanBrush}"/>
+                            <Setter TargetName="currencyBorder" Property="Background" Value="{DynamicResource PrimaryCyanBrush}"/>
                             <Setter TargetName="currencyIcon" Property="Text" Value="💎"/>
                         </Trigger>
                         <Trigger Property="CurrencyType" Value="RiotPoints">
-                            <Setter TargetName="currencyBorder" Property="Background" Value="{StaticResource PrimaryGoldBrush}"/>
+                            <Setter TargetName="currencyBorder" Property="Background" Value="{DynamicResource PrimaryGoldBrush}"/>
                             <Setter TargetName="currencyIcon" Property="Text" Value="🪙"/>
                         </Trigger>
                         <Trigger Property="CurrencyType" Value="OrangeEssence">

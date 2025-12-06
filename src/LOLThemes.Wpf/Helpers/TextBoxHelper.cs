@@ -53,17 +53,12 @@ namespace LOLThemes.Wpf.Helpers
 
         /// <summary>
         /// 当 <see cref="Placeholder"/> 属性值改变时调用。
-        /// 将占位符文本设置到 TextBox 的 Tag 属性，供样式使用。
         /// </summary>
         /// <param name="d">依赖对象</param>
         /// <param name="e">属性变更事件参数</param>
         private static void OnPlaceholderChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is TextBox textBox)
-            {
-                // 将占位符文本设置到Tag属性，供样式使用
-                textBox.Tag = e.NewValue;
-            }
+            // Placeholder属性现在直接通过绑定在样式中使用，无需设置Tag
         }
 
         #endregion

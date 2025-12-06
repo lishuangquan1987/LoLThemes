@@ -1,0 +1,13 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- 
+        注意：此文件是一个占位符，用于尺寸主题切换
+        默认指向Sizes.Medium.xaml，运行时可以通过ThemeManager.SwitchSizeTheme()切换
+        所有样式文件引用此文件，ThemeManager会动态替换MergedDictionaries中的引用
+    -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Sizes.Medium.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
+

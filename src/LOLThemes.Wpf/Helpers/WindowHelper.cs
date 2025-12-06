@@ -1,4 +1,5 @@
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace LOLThemes.Wpf.Helpers
@@ -32,6 +33,50 @@ namespace LOLThemes.Wpf.Helpers
                 typeof(bool),
                 typeof(WindowHelper),
                 new PropertyMetadata(false, OnEnableCustomChromeChanged));
+
+        /// <summary>
+        /// 标识 <see cref="CustomHeaderContent"/> 附加属性。
+        /// 用于在窗口标题栏右侧放置自定义内容（按钮、文本、图标等任意控件）。
+        /// </summary>
+        public static readonly DependencyProperty CustomHeaderContentProperty =
+            DependencyProperty.RegisterAttached(
+                "CustomHeaderContent",
+                typeof(UIElement),
+                typeof(WindowHelper),
+                new PropertyMetadata(null));
+
+        /// <summary>
+        /// 获取自定义标题栏内容。
+        /// </summary>
+        /// <param name="obj">依赖对象（应为 Window）</param>
+        /// <returns>自定义标题栏内容</returns>
+        public static UIElement GetCustomHeaderContent(DependencyObject obj)
+        {
+            return (UIElement)obj.GetValue(CustomHeaderContentProperty);
+        }
+
+        /// <summary>
+        /// 设置自定义标题栏内容。
+        /// </summary>
+        /// <param name="obj">依赖对象（应为 Window）</param>
+        /// <param name="value">自定义标题栏内容（可以是按钮、文本、图标等任意UIElement）</param>
+        /// <example>
+        /// <code>
+        /// // 设置单个按钮
+        /// var button = new Button { Content = "设置" };
+        /// WindowHelper.SetCustomHeaderContent(window, button);
+        /// 
+        /// // 设置多个控件（使用StackPanel）
+        /// var panel = new StackPanel { Orientation = Orientation.Horizontal };
+        /// panel.Children.Add(new Button { Content = "按钮1" });
+        /// panel.Children.Add(new Button { Content = "按钮2" });
+        /// WindowHelper.SetCustomHeaderContent(window, panel);
+        /// </code>
+        /// </example>
+        public static void SetCustomHeaderContent(DependencyObject obj, UIElement value)
+        {
+            obj.SetValue(CustomHeaderContentProperty, value);
+        }
 
         /// <summary>
         /// 获取是否启用自定义窗口装饰。

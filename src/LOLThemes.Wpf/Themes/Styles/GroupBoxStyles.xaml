@@ -10,8 +10,8 @@
     <!-- LOL GroupBox 样式 -->
     <Style x:Key="LOLGroupBoxStyle" TargetType="GroupBox">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderGoldBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
         <Setter Property="BorderThickness" Value="0.5"/>
         <Setter Property="Padding" Value="8"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
@@ -28,7 +28,7 @@
                         <!-- 标题�和-->
                         <Border x:Name="Header"
                                Grid.Row="0"
-                               Background="{StaticResource BackgroundLightBrush}"
+                               Background="{DynamicResource BackgroundLightBrush}"
                                BorderBrush="{TemplateBinding BorderBrush}"
                                BorderThickness="1,1,1,0"
                                Padding="12,6">
@@ -55,5 +55,8 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!-- 默认 GroupBox 样式 -->
+    <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource LOLGroupBoxStyle}"/>
 
 </ResourceDictionary>

@@ -9,7 +9,7 @@
 
     <!-- StatusBarItem Style -->
     <Style x:Key="LOLStatusBarItemStyle" TargetType="{x:Type StatusBarItem}">
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}"/>
         <Setter Property="Padding" Value="8,4"/>
@@ -31,10 +31,10 @@
 
     <!-- StatusBar Style -->
     <Style x:Key="LOLStatusBarStyle" TargetType="{x:Type StatusBar}">
-        <Setter Property="Background" Value="{StaticResource BackgroundMediumBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderDarkBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="BorderThickness" Value="0,1,0,0"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}"/>
         <Setter Property="Height" Value="28"/>
@@ -65,7 +65,7 @@
 
     <!-- StatusBar Separator Style -->
     <Style x:Key="StatusBarSeparatorStyle" TargetType="{x:Type Separator}">
-        <Setter Property="Background" Value="{StaticResource BorderDarkBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="Width" Value="1"/>
         <Setter Property="Margin" Value="4,2"/>
         <Setter Property="Template">
@@ -78,5 +78,10 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!-- 默认 StatusBar 样式 -->
+    <Style TargetType="{x:Type StatusBar}" BasedOn="{StaticResource LOLStatusBarStyle}"/>
+    <!-- 默认 StatusBarItem 样式 -->
+    <Style TargetType="{x:Type StatusBarItem}" BasedOn="{StaticResource LOLStatusBarItemStyle}"/>
 
 </ResourceDictionary>

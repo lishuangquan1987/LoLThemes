@@ -1,4 +1,4 @@
-<UserControl x:Class="LOLThemes.Wpf.Samples.Views.Screenshot4View"
+﻿<UserControl x:Class="LOLThemes.Wpf.Samples.Views.Screenshot4View"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
              xmlns:controls="clr-namespace:LOLThemes.Wpf.Controls;assembly=LOLThemes.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1150"
-             Background="{StaticResource BackgroundDarkBrush}">
+             Background="{DynamicResource BackgroundDarkBrush}">
     
     <Grid>
         <!-- 主容器 -->
@@ -19,8 +19,8 @@
             
             <!-- 顶部标题栏 -->
             <Border Grid.Row="0" 
-                   Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderGoldBrush}"
+                   Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderGoldBrush}"
                    BorderThickness="0,0,0,2"
                    Padding="20,15">
                 <Grid>
@@ -34,19 +34,19 @@
                     <StackPanel Grid.Column="0" Orientation="Horizontal">
                         <TextBlock Text="🛒" 
                                   FontSize="{StaticResource FontSizeXLarge}"
-                                  Foreground="{StaticResource PrimaryGoldBrush}"
+                                  Foreground="{DynamicResource PrimaryGoldBrush}"
                                   VerticalAlignment="Center"
                                   Margin="0,0,15,0"/>
                         <TextBlock Text="商店" 
                                   FontSize="{StaticResource FontSizeLarge}"
                                   FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{StaticResource TextPrimaryBrush}"
+                                  Foreground="{DynamicResource TextPrimaryBrush}"
                                   VerticalAlignment="Center"/>
                     </StackPanel>
                     
                     <!-- 中间搜索框 -->
                     <TextBox Grid.Column="1"
-                            Style="{StaticResource LOLTextBoxStyle}"
+                           
                             Tag="搜索物品..."
                             Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
                             Width="350"
@@ -57,7 +57,7 @@
                     <!-- 右侧货币显示 -->
                     <StackPanel Grid.Column="2" Orientation="Horizontal">
                         <Border x:Name="CurrencyGoldBorder4"
-                               Background="{StaticResource PrimaryGoldBrush}"
+                               Background="{DynamicResource PrimaryGoldBrush}"
                                Padding="12,6"
                                CornerRadius="3"
                                Margin="0,0,10,0"
@@ -70,17 +70,17 @@
                                           Text="{Binding PlayerData.Gold, StringFormat='{}{0:N0}'}"
                                           FontSize="{StaticResource FontSizeNormal}"
                                           FontWeight="{StaticResource FontWeightBold}"
-                                          Foreground="{StaticResource BackgroundDarkBrush}"
+                                          Foreground="{DynamicResource BackgroundDarkBrush}"
                                           VerticalAlignment="Center"/>
                             </StackPanel>
                             <Border.Style>
                                 <Style TargetType="Border">
                                     <Style.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="{StaticResource PrimaryGoldBrush}"/>
+                                            <Setter Property="Background" Value="{DynamicResource PrimaryGoldBrush}"/>
                                             <Setter Property="Effect">
                                                 <Setter.Value>
-                                                    <DropShadowEffect Color="#C8AA6E" BlurRadius="10" ShadowDepth="0" Opacity="0.8"/>
+                                                    <DropShadowEffect Color="{DynamicResource PrimaryGold}" BlurRadius="10" ShadowDepth="0" Opacity="0.8"/>
                                                 </Setter.Value>
                                             </Setter>
                                         </Trigger>
@@ -90,7 +90,7 @@
                         </Border>
                         
                         <Border x:Name="CurrencyCyanBorder4"
-                               Background="{StaticResource PrimaryCyanBrush}"
+                               Background="{DynamicResource PrimaryCyanBrush}"
                                Padding="12,6"
                                CornerRadius="3"
                                Cursor="Hand">
@@ -102,14 +102,14 @@
                                           Text="2,450"
                                           FontSize="{StaticResource FontSizeNormal}"
                                           FontWeight="{StaticResource FontWeightBold}"
-                                          Foreground="{StaticResource BackgroundDarkBrush}"
+                                          Foreground="{DynamicResource BackgroundDarkBrush}"
                                           VerticalAlignment="Center"/>
                             </StackPanel>
                             <Border.Style>
                                 <Style TargetType="Border">
                                     <Style.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="{StaticResource PrimaryCyanBrush}"/>
+                                            <Setter Property="Background" Value="{DynamicResource PrimaryCyanBrush}"/>
                                             <Setter Property="Effect">
                                                 <Setter.Value>
                                                     <DropShadowEffect Color="#0AC8B9" BlurRadius="10" ShadowDepth="0" Opacity="0.8"/>
@@ -134,8 +134,8 @@
                 
                 <!-- 左侧分类面板 -->
                 <Border Grid.Column="0"
-                       Background="{StaticResource BackgroundMediumBrush}"
-                       BorderBrush="{StaticResource BorderDarkBrush}"
+                       Background="{DynamicResource BackgroundMediumBrush}"
+                       BorderBrush="{DynamicResource BorderDarkBrush}"
                        BorderThickness="1"
                        Padding="15"
                        Margin="0,0,10,0">
@@ -143,7 +143,7 @@
                         <TextBlock Text="分类" 
                                   FontSize="{StaticResource FontSizeMedium}"
                                   FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{StaticResource PrimaryGoldBrush}"
+                                  Foreground="{DynamicResource PrimaryGoldBrush}"
                                   Margin="0,0,0,15"/>
                         
                         <Button Content="全部物品" 
@@ -171,32 +171,32 @@
                                Height="40"
                                Margin="0,0,0,8"/>
                         
-                        <Separator Style="{StaticResource LOLSeparatorStyle}"
+                        <Separator
                                   Margin="0,15,0,15"/>
                         
                         <TextBlock Text="筛选" 
                                   FontSize="{StaticResource FontSizeMedium}"
                                   FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{StaticResource PrimaryGoldBrush}"
+                                  Foreground="{DynamicResource PrimaryGoldBrush}"
                                   Margin="0,0,0,15"/>
                         
                         <CheckBox Content="已拥有" 
-                                 Style="{StaticResource LOLCheckBoxStyle}"
+                                
                                  Margin="0,0,0,8"/>
                         <CheckBox Content="未拥有" 
-                                 Style="{StaticResource LOLCheckBoxStyle}"
+                                
                                  IsChecked="True"
                                  Margin="0,0,0,8"/>
                         <CheckBox Content="限时优惠" 
-                                 Style="{StaticResource LOLCheckBoxStyle}"
+                                
                                  Margin="0,0,0,8"/>
                     </StackPanel>
                 </Border>
                 
                 <!-- 中间商品网格 -->
                 <Border Grid.Column="1"
-                       Background="{StaticResource BackgroundMediumBrush}"
-                       BorderBrush="{StaticResource BorderDarkBrush}"
+                       Background="{DynamicResource BackgroundMediumBrush}"
+                       BorderBrush="{DynamicResource BorderDarkBrush}"
                        BorderThickness="1"
                        Padding="20"
                        Margin="0,0,10,0">
@@ -217,16 +217,16 @@
                             <TextBlock Grid.Column="0"
                                       Text="{Binding ShopItems.Count, StringFormat='显示 {0} 个物品'}"
                                       FontSize="{StaticResource FontSizeNormal}"
-                                      Foreground="{StaticResource TextSecondaryBrush}"
+                                      Foreground="{DynamicResource TextSecondaryBrush}"
                                       VerticalAlignment="Center"/>
                             
                             <StackPanel Grid.Column="2" Orientation="Horizontal">
                                 <TextBlock Text="排序: "
                                           FontSize="{StaticResource FontSizeNormal}"
-                                          Foreground="{StaticResource TextSecondaryBrush}"
+                                          Foreground="{DynamicResource TextSecondaryBrush}"
                                           VerticalAlignment="Center"
                                           Margin="0,0,10,0"/>
-                                <ComboBox Style="{StaticResource LOLComboBoxStyle}"
+                                <ComboBox
                                          Width="150"
                                          Height="30">
                                     <ComboBoxItem Content="价格从低到高" IsSelected="True"/>
@@ -243,8 +243,8 @@
                                      HorizontalScrollBarVisibility="Disabled">
                             <WrapPanel>
                                 <!-- 商品卡片 1 -->
-                                <Border Background="{StaticResource BackgroundLightBrush}"
-                                       BorderBrush="{StaticResource BorderGoldBrush}"
+                                <Border Background="{DynamicResource BackgroundLightBrush}"
+                                       BorderBrush="{DynamicResource BorderGoldBrush}"
                                        BorderThickness="2"
                                        Width="140" Height="180"
                                        Margin="5"
@@ -257,12 +257,12 @@
                                         </Grid.RowDefinitions>
                                         
                                         <Border Grid.Row="0"
-                                               Background="{StaticResource PrimaryGoldBrush}"
+                                               Background="{DynamicResource PrimaryGoldBrush}"
                                                Margin="5,5,5,0">
                                             <TextBlock Text="亚索"
                                                       FontSize="{StaticResource FontSizeMedium}"
                                                       FontWeight="{StaticResource FontWeightBold}"
-                                                      Foreground="{StaticResource BackgroundDarkBrush}"
+                                                      Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"
                                                       VerticalAlignment="Center"/>
                                         </Border>
@@ -270,26 +270,26 @@
                                         <TextBlock Grid.Row="1"
                                                   Text="疾风剑豪"
                                                   FontSize="{StaticResource FontSizeSmall}"
-                                                  Foreground="{StaticResource TextPrimaryBrush}"
+                                                  Foreground="{DynamicResource TextPrimaryBrush}"
                                                   HorizontalAlignment="Center"
                                                   Margin="5,5,5,3"/>
                                         
                                         <Border Grid.Row="2"
-                                               Background="{StaticResource PrimaryCyanBrush}"
+                                               Background="{DynamicResource PrimaryCyanBrush}"
                                                Padding="8,4"
                                                Margin="5,0,5,5">
                                             <TextBlock Text="4800 BE"
                                                       FontSize="{StaticResource FontSizeSmall}"
                                                       FontWeight="{StaticResource FontWeightBold}"
-                                                      Foreground="{StaticResource BackgroundDarkBrush}"
+                                                      Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"/>
                                         </Border>
                                     </Grid>
                                 </Border>
                                 
                                 <!-- 商品卡片 2 -->
-                                <Border Background="{StaticResource BackgroundLightBrush}"
-                                       BorderBrush="{StaticResource BorderDarkBrush}"
+                                <Border Background="{DynamicResource BackgroundLightBrush}"
+                                       BorderBrush="{DynamicResource BorderDarkBrush}"
                                        BorderThickness="1"
                                        Width="140" Height="180"
                                        Margin="5"
@@ -302,12 +302,12 @@
                                         </Grid.RowDefinitions>
                                         
                                         <Border Grid.Row="0"
-                                               Background="{StaticResource PrimaryCyanBrush}"
+                                               Background="{DynamicResource PrimaryCyanBrush}"
                                                Margin="5,5,5,0">
                                             <TextBlock Text="劫"
                                                       FontSize="{StaticResource FontSizeMedium}"
                                                       FontWeight="{StaticResource FontWeightBold}"
-                                                      Foreground="{StaticResource BackgroundDarkBrush}"
+                                                      Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"
                                                       VerticalAlignment="Center"/>
                                         </Border>
@@ -315,26 +315,26 @@
                                         <TextBlock Grid.Row="1"
                                                   Text="影流之主"
                                                   FontSize="{StaticResource FontSizeSmall}"
-                                                  Foreground="{StaticResource TextPrimaryBrush}"
+                                                  Foreground="{DynamicResource TextPrimaryBrush}"
                                                   HorizontalAlignment="Center"
                                                   Margin="5,5,5,3"/>
                                         
                                         <Border Grid.Row="2"
-                                               Background="{StaticResource PrimaryCyanBrush}"
+                                               Background="{DynamicResource PrimaryCyanBrush}"
                                                Padding="8,4"
                                                Margin="5,0,5,5">
                                             <TextBlock Text="4800 BE"
                                                       FontSize="{StaticResource FontSizeSmall}"
                                                       FontWeight="{StaticResource FontWeightBold}"
-                                                      Foreground="{StaticResource BackgroundDarkBrush}"
+                                                      Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"/>
                                         </Border>
                                     </Grid>
                                 </Border>
                                 
                                 <!-- 商品卡片 3 -->
-                                <Border Background="{StaticResource BackgroundLightBrush}"
-                                       BorderBrush="{StaticResource BorderDarkBrush}"
+                                <Border Background="{DynamicResource BackgroundLightBrush}"
+                                       BorderBrush="{DynamicResource BorderDarkBrush}"
                                        BorderThickness="1"
                                        Width="140" Height="180"
                                        Margin="5"
@@ -347,12 +347,12 @@
                                         </Grid.RowDefinitions>
                                         
                                         <Border Grid.Row="0"
-                                               Background="{StaticResource PrimaryGoldBrush}"
+                                               Background="{DynamicResource PrimaryGoldBrush}"
                                                Margin="5,5,5,0">
                                             <TextBlock Text="阿卡丽"
                                                       FontSize="{StaticResource FontSizeSmall}"
                                                       FontWeight="{StaticResource FontWeightBold}"
-                                                      Foreground="{StaticResource BackgroundDarkBrush}"
+                                                      Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"
                                                       VerticalAlignment="Center"/>
                                         </Border>
@@ -360,26 +360,26 @@
                                         <TextBlock Grid.Row="1"
                                                   Text="离群之刺"
                                                   FontSize="{StaticResource FontSizeSmall}"
-                                                  Foreground="{StaticResource TextPrimaryBrush}"
+                                                  Foreground="{DynamicResource TextPrimaryBrush}"
                                                   HorizontalAlignment="Center"
                                                   Margin="5,5,5,3"/>
                                         
                                         <Border Grid.Row="2"
-                                               Background="{StaticResource PrimaryCyanBrush}"
+                                               Background="{DynamicResource PrimaryCyanBrush}"
                                                Padding="8,4"
                                                Margin="5,0,5,5">
                                             <TextBlock Text="3150 BE"
                                                       FontSize="{StaticResource FontSizeSmall}"
                                                       FontWeight="{StaticResource FontWeightBold}"
-                                                      Foreground="{StaticResource BackgroundDarkBrush}"
+                                                      Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"/>
                                         </Border>
                                     </Grid>
                                 </Border>
                                 
                                 <!-- 商品卡片 4 -->
-                                <Border Background="{StaticResource BackgroundLightBrush}"
-                                       BorderBrush="{StaticResource BorderDarkBrush}"
+                                <Border Background="{DynamicResource BackgroundLightBrush}"
+                                       BorderBrush="{DynamicResource BorderDarkBrush}"
                                        BorderThickness="1"
                                        Width="140" Height="180"
                                        Margin="5"
@@ -392,12 +392,12 @@
                                         </Grid.RowDefinitions>
                                         
                                         <Border Grid.Row="0"
-                                               Background="{StaticResource PrimaryCyanBrush}"
+                                               Background="{DynamicResource PrimaryCyanBrush}"
                                                Margin="5,5,5,0">
                                             <TextBlock Text="卡特"
                                                       FontSize="{StaticResource FontSizeMedium}"
                                                       FontWeight="{StaticResource FontWeightBold}"
-                                                      Foreground="{StaticResource BackgroundDarkBrush}"
+                                                      Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"
                                                       VerticalAlignment="Center"/>
                                         </Border>
@@ -405,26 +405,26 @@
                                         <TextBlock Grid.Row="1"
                                                   Text="不祥之刃"
                                                   FontSize="{StaticResource FontSizeSmall}"
-                                                  Foreground="{StaticResource TextPrimaryBrush}"
+                                                  Foreground="{DynamicResource TextPrimaryBrush}"
                                                   HorizontalAlignment="Center"
                                                   Margin="5,5,5,3"/>
                                         
                                         <Border Grid.Row="2"
-                                               Background="{StaticResource PrimaryCyanBrush}"
+                                               Background="{DynamicResource PrimaryCyanBrush}"
                                                Padding="8,4"
                                                Margin="5,0,5,5">
                                             <TextBlock Text="3150 BE"
                                                       FontSize="{StaticResource FontSizeSmall}"
                                                       FontWeight="{StaticResource FontWeightBold}"
-                                                      Foreground="{StaticResource BackgroundDarkBrush}"
+                                                      Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"/>
                                         </Border>
                                     </Grid>
                                 </Border>
                                 
                                 <!-- 商品卡片 5 -->
-                                <Border Background="{StaticResource BackgroundLightBrush}"
-                                       BorderBrush="{StaticResource BorderDarkBrush}"
+                                <Border Background="{DynamicResource BackgroundLightBrush}"
+                                       BorderBrush="{DynamicResource BorderDarkBrush}"
                                        BorderThickness="1"
                                        Width="140" Height="180"
                                        Margin="5"
@@ -437,12 +437,12 @@
                                         </Grid.RowDefinitions>
                                         
                                         <Border Grid.Row="0"
-                                               Background="{StaticResource PrimaryGoldBrush}"
+                                               Background="{DynamicResource PrimaryGoldBrush}"
                                                Margin="5,5,5,0">
                                             <TextBlock Text="辛德拉"
                                                       FontSize="{StaticResource FontSizeSmall}"
                                                       FontWeight="{StaticResource FontWeightBold}"
-                                                      Foreground="{StaticResource BackgroundDarkBrush}"
+                                                      Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"
                                                       VerticalAlignment="Center"/>
                                         </Border>
@@ -450,26 +450,26 @@
                                         <TextBlock Grid.Row="1"
                                                   Text="暗黑元首"
                                                   FontSize="{StaticResource FontSizeSmall}"
-                                                  Foreground="{StaticResource TextPrimaryBrush}"
+                                                  Foreground="{DynamicResource TextPrimaryBrush}"
                                                   HorizontalAlignment="Center"
                                                   Margin="5,5,5,3"/>
                                         
                                         <Border Grid.Row="2"
-                                               Background="{StaticResource PrimaryCyanBrush}"
+                                               Background="{DynamicResource PrimaryCyanBrush}"
                                                Padding="8,4"
                                                Margin="5,0,5,5">
                                             <TextBlock Text="4800 BE"
                                                       FontSize="{StaticResource FontSizeSmall}"
                                                       FontWeight="{StaticResource FontWeightBold}"
-                                                      Foreground="{StaticResource BackgroundDarkBrush}"
+                                                      Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"/>
                                         </Border>
                                     </Grid>
                                 </Border>
                                 
                                 <!-- 商品卡片 6 -->
-                                <Border Background="{StaticResource BackgroundLightBrush}"
-                                       BorderBrush="{StaticResource BorderDarkBrush}"
+                                <Border Background="{DynamicResource BackgroundLightBrush}"
+                                       BorderBrush="{DynamicResource BorderDarkBrush}"
                                        BorderThickness="1"
                                        Width="140" Height="180"
                                        Margin="5"
@@ -482,12 +482,12 @@
                                         </Grid.RowDefinitions>
                                         
                                         <Border Grid.Row="0"
-                                               Background="{StaticResource PrimaryCyanBrush}"
+                                               Background="{DynamicResource PrimaryCyanBrush}"
                                                Margin="5,5,5,0">
                                             <TextBlock Text="妖姬"
                                                       FontSize="{StaticResource FontSizeMedium}"
                                                       FontWeight="{StaticResource FontWeightBold}"
-                                                      Foreground="{StaticResource BackgroundDarkBrush}"
+                                                      Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"
                                                       VerticalAlignment="Center"/>
                                         </Border>
@@ -495,26 +495,26 @@
                                         <TextBlock Grid.Row="1"
                                                   Text="诡术妖姬"
                                                   FontSize="{StaticResource FontSizeSmall}"
-                                                  Foreground="{StaticResource TextPrimaryBrush}"
+                                                  Foreground="{DynamicResource TextPrimaryBrush}"
                                                   HorizontalAlignment="Center"
                                                   Margin="5,5,5,3"/>
                                         
                                         <Border Grid.Row="2"
-                                               Background="{StaticResource PrimaryCyanBrush}"
+                                               Background="{DynamicResource PrimaryCyanBrush}"
                                                Padding="8,4"
                                                Margin="5,0,5,5">
                                             <TextBlock Text="3150 BE"
                                                       FontSize="{StaticResource FontSizeSmall}"
                                                       FontWeight="{StaticResource FontWeightBold}"
-                                                      Foreground="{StaticResource BackgroundDarkBrush}"
+                                                      Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"/>
                                         </Border>
                                     </Grid>
                                 </Border>
                                 
                                 <!-- 商品卡片 7 -->
-                                <Border Background="{StaticResource BackgroundLightBrush}"
-                                       BorderBrush="{StaticResource BorderDarkBrush}"
+                                <Border Background="{DynamicResource BackgroundLightBrush}"
+                                       BorderBrush="{DynamicResource BorderDarkBrush}"
                                        BorderThickness="1"
                                        Width="140" Height="180"
                                        Margin="5"
@@ -527,12 +527,12 @@
                                         </Grid.RowDefinitions>
                                         
                                         <Border Grid.Row="0"
-                                               Background="{StaticResource PrimaryGoldBrush}"
+                                               Background="{DynamicResource PrimaryGoldBrush}"
                                                Margin="5,5,5,0">
                                             <TextBlock Text="发条"
                                                       FontSize="{StaticResource FontSizeMedium}"
                                                       FontWeight="{StaticResource FontWeightBold}"
-                                                      Foreground="{StaticResource BackgroundDarkBrush}"
+                                                      Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"
                                                       VerticalAlignment="Center"/>
                                         </Border>
@@ -540,26 +540,26 @@
                                         <TextBlock Grid.Row="1"
                                                   Text="发条魔灵"
                                                   FontSize="{StaticResource FontSizeSmall}"
-                                                  Foreground="{StaticResource TextPrimaryBrush}"
+                                                  Foreground="{DynamicResource TextPrimaryBrush}"
                                                   HorizontalAlignment="Center"
                                                   Margin="5,5,5,3"/>
                                         
                                         <Border Grid.Row="2"
-                                               Background="{StaticResource PrimaryCyanBrush}"
+                                               Background="{DynamicResource PrimaryCyanBrush}"
                                                Padding="8,4"
                                                Margin="5,0,5,5">
                                             <TextBlock Text="4800 BE"
                                                       FontSize="{StaticResource FontSizeSmall}"
                                                       FontWeight="{StaticResource FontWeightBold}"
-                                                      Foreground="{StaticResource BackgroundDarkBrush}"
+                                                      Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"/>
                                         </Border>
                                     </Grid>
                                 </Border>
                                 
                                 <!-- 商品卡片 8 -->
-                                <Border Background="{StaticResource BackgroundLightBrush}"
-                                       BorderBrush="{StaticResource BorderDarkBrush}"
+                                <Border Background="{DynamicResource BackgroundLightBrush}"
+                                       BorderBrush="{DynamicResource BorderDarkBrush}"
                                        BorderThickness="1"
                                        Width="140" Height="180"
                                        Margin="5"
@@ -572,12 +572,12 @@
                                         </Grid.RowDefinitions>
                                         
                                         <Border Grid.Row="0"
-                                               Background="{StaticResource PrimaryCyanBrush}"
+                                               Background="{DynamicResource PrimaryCyanBrush}"
                                                Margin="5,5,5,0">
                                             <TextBlock Text="瑞兹"
                                                       FontSize="{StaticResource FontSizeMedium}"
                                                       FontWeight="{StaticResource FontWeightBold}"
-                                                      Foreground="{StaticResource BackgroundDarkBrush}"
+                                                      Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"
                                                       VerticalAlignment="Center"/>
                                         </Border>
@@ -585,18 +585,18 @@
                                         <TextBlock Grid.Row="1"
                                                   Text="流浪法师"
                                                   FontSize="{StaticResource FontSizeSmall}"
-                                                  Foreground="{StaticResource TextPrimaryBrush}"
+                                                  Foreground="{DynamicResource TextPrimaryBrush}"
                                                   HorizontalAlignment="Center"
                                                   Margin="5,5,5,3"/>
                                         
                                         <Border Grid.Row="2"
-                                               Background="{StaticResource PrimaryCyanBrush}"
+                                               Background="{DynamicResource PrimaryCyanBrush}"
                                                Padding="8,4"
                                                Margin="5,0,5,5">
                                             <TextBlock Text="450 BE"
                                                       FontSize="{StaticResource FontSizeSmall}"
                                                       FontWeight="{StaticResource FontWeightBold}"
-                                                      Foreground="{StaticResource BackgroundDarkBrush}"
+                                                      Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"/>
                                         </Border>
                                     </Grid>
@@ -608,31 +608,31 @@
                 
                 <!-- 右侧详情面板 -->
                 <Border Grid.Column="2"
-                       Background="{StaticResource BackgroundMediumBrush}"
-                       BorderBrush="{StaticResource BorderGoldBrush}"
+                       Background="{DynamicResource BackgroundMediumBrush}"
+                       BorderBrush="{DynamicResource BorderGoldBrush}"
                        BorderThickness="2"
                        Padding="20">
                     <StackPanel>
                         <TextBlock Text="特色推荐"
                                   FontSize="{StaticResource FontSizeMedium}"
                                   FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{StaticResource PrimaryGoldBrush}"
+                                  Foreground="{DynamicResource PrimaryGoldBrush}"
                                   Margin="0,0,0,15"/>
                         
                         <!-- 推荐商品 -->
-                        <Border Background="{StaticResource BackgroundLightBrush}"
-                               BorderBrush="{StaticResource PrimaryGoldBrush}"
+                        <Border Background="{DynamicResource BackgroundLightBrush}"
+                               BorderBrush="{DynamicResource PrimaryGoldBrush}"
                                BorderThickness="2"
                                Padding="15"
                                Margin="0,0,0,15">
                             <StackPanel>
-                                <Border Background="{StaticResource PrimaryGoldBrush}"
+                                <Border Background="{DynamicResource PrimaryGoldBrush}"
                                        Height="150"
                                        Margin="0,0,0,10">
                                     <TextBlock Text="限时优惠"
                                               FontSize="{StaticResource FontSizeLarge}"
                                               FontWeight="{StaticResource FontWeightBold}"
-                                              Foreground="{StaticResource BackgroundDarkBrush}"
+                                              Foreground="{DynamicResource BackgroundDarkBrush}"
                                               HorizontalAlignment="Center"
                                               VerticalAlignment="Center"/>
                                 </Border>
@@ -640,13 +640,13 @@
                                 <TextBlock Text="源计划：亚索"
                                           FontSize="{StaticResource FontSizeMedium}"
                                           FontWeight="{StaticResource FontWeightBold}"
-                                          Foreground="{StaticResource TextPrimaryBrush}"
+                                          Foreground="{DynamicResource TextPrimaryBrush}"
                                           HorizontalAlignment="Center"
                                           Margin="0,0,0,5"/>
                                 
                                 <TextBlock Text="史诗级皮肤"
                                           FontSize="{StaticResource FontSizeSmall}"
-                                          Foreground="{StaticResource TextSecondaryBrush}"
+                                          Foreground="{DynamicResource TextSecondaryBrush}"
                                           HorizontalAlignment="Center"
                                           Margin="0,0,0,10"/>
                                 
@@ -654,16 +654,16 @@
                                     <TextBlock Text="1350"
                                               FontSize="{StaticResource FontSizeMedium}"
                                               FontWeight="{StaticResource FontWeightBold}"
-                                              Foreground="{StaticResource TextDisabledBrush}"
+                                              Foreground="{DynamicResource TextDisabledBrush}"
                                               TextDecorations="Strikethrough"
                                               Margin="0,0,10,0"/>
                                     <TextBlock Text="975 RP"
                                               FontSize="{StaticResource FontSizeLarge}"
                                               FontWeight="{StaticResource FontWeightBold}"
-                                              Foreground="{StaticResource PrimaryGoldBrush}"/>
+                                              Foreground="{DynamicResource PrimaryGoldBrush}"/>
                                 </StackPanel>
                                 
-                                <Border Background="{StaticResource ErrorRedBrush}"
+                                <Border Background="{DynamicResource ErrorRedBrush}"
                                        Padding="8,4"
                                        CornerRadius="3"
                                        HorizontalAlignment="Center"
@@ -671,11 +671,11 @@
                                     <TextBlock Text="限时 28% 折扣"
                                               FontSize="{StaticResource FontSizeSmall}"
                                               FontWeight="{StaticResource FontWeightBold}"
-                                              Foreground="{StaticResource TextPrimaryBrush}"/>
+                                              Foreground="{DynamicResource TextPrimaryBrush}"/>
                                 </Border>
                                 
                                 <controls:GlowButton Content="立即购买"
-                                                   GlowColor="#C8AA6E"
+                                                   GlowColor="{DynamicResource PrimaryGold}"
                                                    Height="40"
                                                    FontSize="{StaticResource FontSizeNormal}"
                                                    FontWeight="{StaticResource FontWeightBold}"/>
@@ -683,17 +683,17 @@
                         </Border>
                         
                         <!-- 购物车 -->
-                        <Separator Style="{StaticResource LOLSeparatorStyle}"
+                        <Separator
                                   Margin="0,10,0,15"/>
                         
                         <TextBlock Text="购物车"
                                   FontSize="{StaticResource FontSizeMedium}"
                                   FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{StaticResource PrimaryGoldBrush}"
+                                  Foreground="{DynamicResource PrimaryGoldBrush}"
                                   Margin="0,0,0,15"/>
                         
-                        <Border Background="{StaticResource BackgroundLightBrush}"
-                               BorderBrush="{StaticResource BorderDarkBrush}"
+                        <Border Background="{DynamicResource BackgroundLightBrush}"
+                               BorderBrush="{DynamicResource BorderDarkBrush}"
                                BorderThickness="1"
                                Padding="15"
                                Margin="0,0,0,10">
@@ -705,12 +705,12 @@
                                 </Grid.ColumnDefinitions>
                                 
                                 <Border Grid.Column="0"
-                                       Background="{StaticResource PrimaryGoldBrush}"
+                                       Background="{DynamicResource PrimaryGoldBrush}"
                                        Width="40" Height="40">
                                     <TextBlock Text="亚索"
                                               FontSize="10"
                                               FontWeight="{StaticResource FontWeightBold}"
-                                              Foreground="{StaticResource BackgroundDarkBrush}"
+                                              Foreground="{DynamicResource BackgroundDarkBrush}"
                                               HorizontalAlignment="Center"
                                               VerticalAlignment="Center"/>
                                 </Border>
@@ -718,11 +718,11 @@
                                 <StackPanel Grid.Column="1" Margin="10,0,0,0" VerticalAlignment="Center">
                                     <TextBlock Text="疾风剑豪"
                                               FontSize="{StaticResource FontSizeSmall}"
-                                              Foreground="{StaticResource TextPrimaryBrush}"
+                                              Foreground="{DynamicResource TextPrimaryBrush}"
                                               Margin="0,0,0,3"/>
                                     <TextBlock Text="4800 BE"
                                               FontSize="{StaticResource FontSizeSmall}"
-                                              Foreground="{StaticResource PrimaryCyanBrush}"/>
+                                              Foreground="{DynamicResource PrimaryCyanBrush}"/>
                                 </StackPanel>
                                 
                                 <Button Grid.Column="2"
@@ -733,7 +733,7 @@
                             </Grid>
                         </Border>
                         
-                        <Separator Style="{StaticResource LOLSeparatorStyle}"
+                        <Separator
                                   Margin="0,10,0,15"/>
                         
                         <!-- 总计 -->
@@ -747,13 +747,13 @@
                                       Text="总计:"
                                       FontSize="{StaticResource FontSizeMedium}"
                                       FontWeight="{StaticResource FontWeightBold}"
-                                      Foreground="{StaticResource TextPrimaryBrush}"/>
+                                      Foreground="{DynamicResource TextPrimaryBrush}"/>
                             
                             <TextBlock Grid.Column="1"
                                       Text="4800 BE"
                                       FontSize="{StaticResource FontSizeMedium}"
                                       FontWeight="{StaticResource FontWeightBold}"
-                                      Foreground="{StaticResource PrimaryCyanBrush}"/>
+                                      Foreground="{DynamicResource PrimaryCyanBrush}"/>
                         </Grid>
                         
                         <Button Content="结算"
@@ -767,8 +767,8 @@
             
             <!-- 底部状态栏 -->
             <Border Grid.Row="2"
-                   Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderGoldBrush}"
+                   Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderGoldBrush}"
                    BorderThickness="0,2,0,0"
                    Padding="20,10">
                 <Grid>
@@ -780,23 +780,23 @@
                     <StackPanel Grid.Column="0" Orientation="Horizontal">
                         <TextBlock Text="💰 蓝色精粹: "
                                   FontSize="{StaticResource FontSizeNormal}"
-                                  Foreground="{StaticResource TextSecondaryBrush}"
+                                  Foreground="{DynamicResource TextSecondaryBrush}"
                                   VerticalAlignment="Center"/>
                         <TextBlock Text="15,680"
                                   FontSize="{StaticResource FontSizeNormal}"
                                   FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{StaticResource PrimaryCyanBrush}"
+                                  Foreground="{DynamicResource PrimaryCyanBrush}"
                                   VerticalAlignment="Center"
                                   Margin="5,0,30,0"/>
                         
                         <TextBlock Text="💎 点券: "
                                   FontSize="{StaticResource FontSizeNormal}"
-                                  Foreground="{StaticResource TextSecondaryBrush}"
+                                  Foreground="{DynamicResource TextSecondaryBrush}"
                                   VerticalAlignment="Center"/>
                         <TextBlock Text="2,450"
                                   FontSize="{StaticResource FontSizeNormal}"
                                   FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{StaticResource PrimaryGoldBrush}"
+                                  Foreground="{DynamicResource PrimaryGoldBrush}"
                                   VerticalAlignment="Center"
                                   Margin="5,0,30,0"/>
                         

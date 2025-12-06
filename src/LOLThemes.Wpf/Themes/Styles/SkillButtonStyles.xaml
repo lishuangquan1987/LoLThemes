@@ -22,8 +22,8 @@
                     <Grid>
                         <!-- 圆形背景 -->
                         <Ellipse x:Name="background"
-                                Fill="{StaticResource BackgroundMediumBrush}"
-                                Stroke="{StaticResource BorderGoldBrush}"
+                                Fill="{DynamicResource BackgroundMediumBrush}"
+                                Stroke="{DynamicResource BorderGoldBrush}"
                                 StrokeThickness="2"/>
 
                         <!-- 技能图�和-->
@@ -39,7 +39,7 @@
                              Visibility="Collapsed">
                             <Ellipse Fill="#80000000"/>
                             <Path x:Name="cooldownPath"
-                                 Fill="{StaticResource BackgroundDarkBrush}"
+                                 Fill="{DynamicResource BackgroundDarkBrush}"
                                  Opacity="0.8"
                                  Stretch="Fill">
                                 <Path.Data>
@@ -59,7 +59,7 @@
 
                         <!-- 快捷键文�和-->
                         <TextBlock Text="{TemplateBinding HotkeyText}"
-                                  Foreground="{StaticResource TextPrimaryBrush}"
+                                  Foreground="{DynamicResource TextPrimaryBrush}"
                                   FontFamily="{StaticResource PrimaryFont}"
                                   FontSize="{StaticResource FontSizeSmall}"
                                   FontWeight="{StaticResource FontWeightBold}"
@@ -69,13 +69,13 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="background" Property="Stroke" Value="{StaticResource HoverGoldBrush}"/>
+                            <Setter TargetName="background" Property="Stroke" Value="{DynamicResource HoverGoldBrush}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="background" Property="Fill" Value="{StaticResource BackgroundDarkBrush}"/>
+                            <Setter TargetName="background" Property="Fill" Value="{DynamicResource BackgroundDarkBrush}"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="background" Property="Stroke" Value="{StaticResource TextDisabledBrush}"/>
+                            <Setter TargetName="background" Property="Stroke" Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter TargetName="background" Property="Opacity" Value="0.5"/>
                         </Trigger>
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=CooldownProgress, Converter={StaticResource GreaterThanZeroConverter}}" Value="True">

@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="LOLThemes.Wpf.Samples.Views.RichTextBoxShowcaseView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
+             Background="{DynamicResource BackgroundDarkBrush}">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="30">
+        <StackPanel>
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderGoldBrush}"
+                   BorderThickness="0,0,0,2"
+                   Padding="20,15"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="RichTextBox - 富文本框" 
+                          FontSize="{StaticResource FontSizeXXLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
+                          Margin="0,0,0,8"/>
+                    <TextBlock Text="富文本框用于显示和编辑格式化的文本内容。" 
+                          FontSize="{StaticResource FontSizeNormal}"
+                          Foreground="{DynamicResource TextSecondaryBrush}"/>
+                </StackPanel>
+            </Border>
+            
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderDarkBrush}"
+                   BorderThickness="0.5"
+                   Padding="20"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="基础用法" 
+                          FontSize="{StaticResource FontSizeLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
+                          Margin="0,0,0,15"/>
+                    
+                    <smtx:XamlDisplay UniqueKey="RichTextBoxBasic" Margin="0,0,0,0">
+                        <RichTextBox Width="500" Height="200" HorizontalAlignment="Left">
+                            <FlowDocument>
+                                <Paragraph>
+                                    <Run Text="这是富文本框的内容。"/>
+                                    <Run Text="支持多行文本输入。" FontWeight="Bold"/>
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                    </smtx:XamlDisplay>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
+

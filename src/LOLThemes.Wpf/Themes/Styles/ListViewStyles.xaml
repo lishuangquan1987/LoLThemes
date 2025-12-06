@@ -9,9 +9,9 @@
 
     <!-- GridViewColumnHeader 样式 -->
     <Style x:Key="LOLGridViewColumnHeaderStyle" TargetType="GridViewColumnHeader">
-        <Setter Property="Background" Value="{StaticResource BackgroundLightBrush}"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderDarkBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundLightBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="BorderThickness" Value="0,0,1,1"/>
         <Setter Property="Padding" Value="10,8"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
@@ -33,11 +33,11 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="border" Property="Background" 
-                                   Value="{StaticResource Gray300Brush}"/>
+                                   Value="{DynamicResource Gray300Brush}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="border" Property="Background" 
-                                   Value="{StaticResource Gray400Brush}"/>
+                                   Value="{DynamicResource Gray400Brush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -48,7 +48,7 @@
     <!-- ListViewItem 样式 -->
     <Style x:Key="LOLListViewItemStyle" TargetType="ListViewItem">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
         <Setter Property="Padding" Value="10,8"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
@@ -60,26 +60,19 @@
                     <Border x:Name="border"
                            BorderThickness="0"
                            Padding="{TemplateBinding Padding}"
-                           SnapsToDevicePixels="True">
+                           SnapsToDevicePixels="True"
+                           TextElement.Foreground="{TemplateBinding Foreground}">
                         <Border.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                <GradientStop Color="#E61E2328" Offset="0"/>
-                                <GradientStop Color="#CC1E2328" Offset="1"/>
-                            </LinearGradientBrush>
+                            <DynamicResource ResourceKey="DarkGradientBrush"/>
                         </Border.Background>
                         <GridViewRowPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="Background">
-                                <Setter.Value>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Color="#E6C8AA6E" Offset="0"/>
-                                        <GradientStop Color="#CCC8AA6E" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource GoldGradientBrush}"/>
+                            <Setter Property="Foreground" 
+                                   Value="{DynamicResource BackgroundDarkBrush}"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="border" Property="Background">
@@ -91,7 +84,7 @@
                                 </Setter.Value>
                             </Setter>
                             <Setter Property="Foreground" 
-                                   Value="{StaticResource BackgroundDarkBrush}"/>
+                                   Value="{DynamicResource BackgroundDarkBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -101,9 +94,9 @@
 
     <!-- LOL ListView 样式 -->
     <Style x:Key="LOLListViewStyle" TargetType="ListView">
-        <Setter Property="Background" Value="{StaticResource BackgroundMediumBrush}"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderDarkBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="BorderThickness" Value="0.5"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
@@ -123,5 +116,12 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!-- 默认 ListView 样式 -->
+    <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource LOLListViewStyle}"/>
+    <!-- 默认 ListViewItem 样式 -->
+    <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource LOLListViewItemStyle}"/>
+    <!-- 默认 GridViewColumnHeader 样式 -->
+    <Style TargetType="{x:Type GridViewColumnHeader}" BasedOn="{StaticResource LOLGridViewColumnHeaderStyle}"/>
 
 </ResourceDictionary>

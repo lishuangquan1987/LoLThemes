@@ -10,7 +10,7 @@
     <!-- ListBoxItem 样式 -->
     <Style x:Key="LOLListBoxItemStyle" TargetType="ListBoxItem">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="Padding" Value="10,8"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
@@ -53,7 +53,7 @@
                                 </Setter.Value>
                             </Setter>
                             <Setter Property="Foreground" 
-                                   Value="{StaticResource BackgroundDarkBrush}"/>
+                                   Value="{DynamicResource BackgroundDarkBrush}"/>
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -77,9 +77,9 @@
 
     <!-- LOL ListBox 样式 -->
     <Style x:Key="LOLListBoxStyle" TargetType="ListBox">
-        <Setter Property="Background" Value="{StaticResource BackgroundMediumBrush}"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderDarkBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="BorderThickness" Value="0.5"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
@@ -102,5 +102,10 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!-- 默认 ListBox 样式 -->
+    <Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource LOLListBoxStyle}"/>
+    <!-- 默认 ListBoxItem 样式 -->
+    <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource LOLListBoxItemStyle}"/>
 
 </ResourceDictionary>

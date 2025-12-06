@@ -10,8 +10,8 @@
     <!-- LOL ToggleButton 样式 -->
     <Style x:Key="LOLToggleButtonStyle" TargetType="ToggleButton">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderGoldBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="Padding" Value="20,10"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
@@ -37,17 +37,17 @@
                         <!-- 鼠标悬停 -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="border" Property="Background" 
-                                   Value="{StaticResource BackgroundLightBrush}"/>
+                                   Value="{DynamicResource BackgroundLightBrush}"/>
                             <Setter TargetName="border" Property="BorderBrush" 
-                                   Value="{StaticResource HoverGoldBrush}"/>
+                                   Value="{DynamicResource HoverGoldBrush}"/>
                         </Trigger>
                         
                         <!-- 选中状�和-->
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="border" Property="Background" 
-                                   Value="{StaticResource PrimaryGoldBrush}"/>
+                                   Value="{DynamicResource PrimaryGoldBrush}"/>
                             <Setter Property="Foreground" 
-                                   Value="{StaticResource BackgroundDarkBrush}"/>
+                                   Value="{DynamicResource BackgroundDarkBrush}"/>
                         </Trigger>
                         
                         <!-- 选中且悬�和-->
@@ -57,21 +57,21 @@
                                 <Condition Property="IsMouseOver" Value="True"/>
                             </MultiTrigger.Conditions>
                             <Setter TargetName="border" Property="Background" 
-                                   Value="{StaticResource HoverGoldBrush}"/>
+                                   Value="{DynamicResource HoverGoldBrush}"/>
                         </MultiTrigger>
                         
                         <!-- 按下状�和-->
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="border" Property="Background" 
-                                   Value="{StaticResource PressedGoldBrush}"/>
+                                   Value="{DynamicResource PressedGoldBrush}"/>
                         </Trigger>
                         
                         <!-- 禁用状�和-->
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="border" Property="BorderBrush" 
-                                   Value="{StaticResource TextDisabledBrush}"/>
+                                   Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter Property="Foreground" 
-                                   Value="{StaticResource TextDisabledBrush}"/>
+                                   Value="{DynamicResource TextDisabledBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -90,8 +90,8 @@
                     <Grid>
                         <!-- 背景轨道 -->
                         <Border x:Name="SwitchTrack"
-                               Background="{StaticResource Gray400Brush}"
-                               BorderBrush="{StaticResource BorderDarkBrush}"
+                               Background="{DynamicResource Gray400Brush}"
+                               BorderBrush="{DynamicResource BorderDarkBrush}"
                                BorderThickness="2"
                                CornerRadius="13"
                                SnapsToDevicePixels="True"/>
@@ -100,7 +100,7 @@
                         <Border x:Name="SwitchThumb"
                                Width="18"
                                Height="18"
-                               Background="{StaticResource TextSecondaryBrush}"
+                               Background="{DynamicResource TextSecondaryBrush}"
                                CornerRadius="9"
                                HorizontalAlignment="Left"
                                Margin="4,0,0,0"
@@ -114,15 +114,15 @@
                         <!-- 鼠标悬停 -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="SwitchTrack" Property="BorderBrush" 
-                                   Value="{StaticResource HoverGoldBrush}"/>
+                                   Value="{DynamicResource HoverGoldBrush}"/>
                         </Trigger>
                         
                         <!-- 选中状�和-->
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="SwitchTrack" Property="Background" 
-                                   Value="{StaticResource PrimaryGoldBrush}"/>
+                                   Value="{DynamicResource PrimaryGoldBrush}"/>
                             <Setter TargetName="SwitchThumb" Property="Background" 
-                                   Value="{StaticResource BackgroundDarkBrush}"/>
+                                   Value="{DynamicResource BackgroundDarkBrush}"/>
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
@@ -156,16 +156,19 @@
                         <!-- 禁用状�和-->
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="SwitchTrack" Property="Background" 
-                                   Value="{StaticResource Gray300Brush}"/>
+                                   Value="{DynamicResource Gray300Brush}"/>
                             <Setter TargetName="SwitchTrack" Property="BorderBrush" 
-                                   Value="{StaticResource TextDisabledBrush}"/>
+                                   Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter TargetName="SwitchThumb" Property="Background" 
-                                   Value="{StaticResource TextDisabledBrush}"/>
+                                   Value="{DynamicResource TextDisabledBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!-- 默认 ToggleButton 样式 -->
+    <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource LOLToggleButtonStyle}"/>
 
 </ResourceDictionary>

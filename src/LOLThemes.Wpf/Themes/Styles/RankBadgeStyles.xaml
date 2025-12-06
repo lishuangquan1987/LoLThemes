@@ -16,8 +16,8 @@
                 <ControlTemplate TargetType="{x:Type controls:RankBadge}">
                     <Grid>
                         <Border x:Name="rankBorder"
-                               Background="{StaticResource BackgroundMediumBrush}"
-                               BorderBrush="{StaticResource BorderGoldBrush}"
+                               Background="{DynamicResource BackgroundMediumBrush}"
+                               BorderBrush="{DynamicResource BorderGoldBrush}"
                                BorderThickness="2"
                                CornerRadius="4">
                             <StackPanel VerticalAlignment="Center"
@@ -28,7 +28,7 @@
                                           HorizontalAlignment="Center"
                                           Margin="0,0,0,5"/>
                                 <TextBlock Text="{Binding RankText, RelativeSource={RelativeSource TemplatedParent}}"
-                                          Foreground="{StaticResource TextPrimaryBrush}"
+                                          Foreground="{DynamicResource TextPrimaryBrush}"
                                           FontFamily="{StaticResource PrimaryFont}"
                                           FontSize="{StaticResource FontSizeSmall}"
                                           FontWeight="{StaticResource FontWeightMedium}"

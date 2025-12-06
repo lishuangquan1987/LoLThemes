@@ -1,4 +1,4 @@
-<UserControl x:Class="LOLThemes.Wpf.Samples.Views.Screenshot1View"
+﻿<UserControl x:Class="LOLThemes.Wpf.Samples.Views.Screenshot1View"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,7 +7,7 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1150"
-             Background="{StaticResource BackgroundDarkBrush}">
+             Background="{DynamicResource BackgroundDarkBrush}">
     
     <Grid>
         <!-- 主容器 -->
@@ -20,8 +20,8 @@
             
             <!-- 顶部导航栏 -->
             <Border Grid.Row="0" 
-                   Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderGoldBrush}"
+                   Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderGoldBrush}"
                    BorderThickness="0,0,0,2"
                    Padding="20,15">
                 <Grid>
@@ -35,19 +35,18 @@
                     <StackPanel Grid.Column="0" Orientation="Horizontal">
                         <TextBlock Text="⚔" 
                                   FontSize="{StaticResource FontSizeXLarge}"
-                                  Foreground="{StaticResource PrimaryGoldBrush}"
+                                  Foreground="{DynamicResource PrimaryGoldBrush}"
                                   VerticalAlignment="Center"
                                   Margin="0,0,15,0"/>
                         <TextBlock Text="英雄选择" 
                                   FontSize="{StaticResource FontSizeLarge}"
                                   FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{StaticResource TextPrimaryBrush}"
+                                  Foreground="{DynamicResource TextPrimaryBrush}"
                                   VerticalAlignment="Center"/>
                     </StackPanel>
                     
                     <!-- 中间搜索框 -->
                     <TextBox Grid.Column="1"
-                            Style="{StaticResource LOLTextBoxStyle}"
                             Tag="搜索英雄..."
                             Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
                             Width="300"
@@ -59,16 +58,16 @@
                     <StackPanel Grid.Column="2" Orientation="Horizontal">
                         <TextBlock Text="召唤师" 
                                   FontSize="{StaticResource FontSizeNormal}"
-                                  Foreground="{StaticResource TextSecondaryBrush}"
+                                  Foreground="{DynamicResource TextSecondaryBrush}"
                                   VerticalAlignment="Center"
                                   Margin="0,0,10,0"/>
-                        <Border Background="{StaticResource PrimaryGoldBrush}"
+                        <Border Background="{DynamicResource PrimaryGoldBrush}"
                                Width="35" Height="35"
                                CornerRadius="17.5">
                             <TextBlock Text="S" 
                                       FontSize="{StaticResource FontSizeMedium}"
                                       FontWeight="{StaticResource FontWeightBold}"
-                                      Foreground="{StaticResource BackgroundDarkBrush}"
+                                      Foreground="{DynamicResource BackgroundDarkBrush}"
                                       HorizontalAlignment="Center"
                                       VerticalAlignment="Center"/>
                         </Border>
@@ -86,8 +85,8 @@
                 
                 <!-- 左侧过滤器面板 -->
                 <Border Grid.Column="0"
-                       Background="{StaticResource BackgroundMediumBrush}"
-                       BorderBrush="{StaticResource BorderDarkBrush}"
+                       Background="{DynamicResource BackgroundMediumBrush}"
+                       BorderBrush="{DynamicResource BorderDarkBrush}"
                        BorderThickness="1"
                        Padding="20"
                        Margin="0,0,10,0">
@@ -95,7 +94,7 @@
                         <TextBlock Text="位置" 
                                   FontSize="{StaticResource FontSizeMedium}"
                                   FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{StaticResource PrimaryGoldBrush}"
+                                  Foreground="{DynamicResource PrimaryGoldBrush}"
                                   Margin="0,0,0,15"/>
                         
                         <Button Content="上单" 
@@ -119,42 +118,41 @@
                                Height="40"
                                Margin="0,0,0,20"/>
                         
-                        <Separator Style="{StaticResource LOLSeparatorStyle}"
-                                  Margin="0,10,0,20"/>
+                        <Separator Margin="0,10,0,20"/>
                         
                         <TextBlock Text="类型" 
                                   FontSize="{StaticResource FontSizeMedium}"
                                   FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{StaticResource PrimaryGoldBrush}"
+                                  Foreground="{DynamicResource PrimaryGoldBrush}"
                                   Margin="0,0,0,15"/>
                         
                         <CheckBox Content="刺客" 
-                                 Style="{StaticResource LOLCheckBoxStyle}"
+                                
                                  IsChecked="True"
                                  Margin="0,0,0,10"/>
                         <CheckBox Content="法师" 
-                                 Style="{StaticResource LOLCheckBoxStyle}"
+                                
                                  IsChecked="True"
                                  Margin="0,0,0,10"/>
                         <CheckBox Content="战士" 
-                                 Style="{StaticResource LOLCheckBoxStyle}"
+                                
                                  Margin="0,0,0,10"/>
                         <CheckBox Content="坦克" 
-                                 Style="{StaticResource LOLCheckBoxStyle}"
+                                
                                  Margin="0,0,0,10"/>
                         <CheckBox Content="射手" 
-                                 Style="{StaticResource LOLCheckBoxStyle}"
+                                
                                  Margin="0,0,0,10"/>
                         <CheckBox Content="辅助" 
-                                 Style="{StaticResource LOLCheckBoxStyle}"
+                                
                                  Margin="0,0,0,10"/>
                     </StackPanel>
                 </Border>
                 
                 <!-- 中间英雄网格 -->
                 <Border Grid.Column="1"
-                       Background="{StaticResource BackgroundMediumBrush}"
-                       BorderBrush="{StaticResource BorderDarkBrush}"
+                       Background="{DynamicResource BackgroundMediumBrush}"
+                       BorderBrush="{DynamicResource BorderDarkBrush}"
                        BorderThickness="1"
                        Padding="20"
                        Margin="0,0,10,0">
@@ -187,21 +185,21 @@
                 
                 <!-- 右侧英雄详情面板 -->
                 <Border Grid.Column="2"
-                       Background="{StaticResource BackgroundMediumBrush}"
-                       BorderBrush="{StaticResource BorderGoldBrush}"
+                       Background="{DynamicResource BackgroundMediumBrush}"
+                       BorderBrush="{DynamicResource BorderGoldBrush}"
                        BorderThickness="2"
                        Padding="20">
                     <StackPanel>
                         <!-- 英雄头像 -->
-                        <Border Background="{StaticResource BackgroundLightBrush}"
-                               BorderBrush="{StaticResource PrimaryGoldBrush}"
+                        <Border Background="{DynamicResource BackgroundLightBrush}"
+                               BorderBrush="{DynamicResource PrimaryGoldBrush}"
                                BorderThickness="2"
                                Width="200" Height="200"
                                Margin="0,0,0,20">
                             <TextBlock Text="{Binding SelectedChampion.Name, FallbackValue='亚索'}"
                                       FontSize="48"
                                       FontWeight="{StaticResource FontWeightBold}"
-                                      Foreground="{StaticResource PrimaryGoldBrush}"
+                                      Foreground="{DynamicResource PrimaryGoldBrush}"
                                       HorizontalAlignment="Center"
                                       VerticalAlignment="Center"/>
                         </Border>
@@ -210,13 +208,13 @@
                         <TextBlock Text="{Binding SelectedChampion.Title, FallbackValue='疾风剑豪'}"
                                   FontSize="{StaticResource FontSizeLarge}"
                                   FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{StaticResource TextPrimaryBrush}"
+                                  Foreground="{DynamicResource TextPrimaryBrush}"
                                   HorizontalAlignment="Center"
                                   Margin="0,0,0,5"/>
                         <TextBlock Text="{Binding SelectedChampion.Name, FallbackValue='亚索'}"
                                   FontSize="{StaticResource FontSizeXLarge}"
                                   FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{StaticResource PrimaryGoldBrush}"
+                                  Foreground="{DynamicResource PrimaryGoldBrush}"
                                   HorizontalAlignment="Center"
                                   Margin="0,0,0,20"/>
                         
@@ -229,22 +227,21 @@
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Border Background="{StaticResource PrimaryCyanBrush}"
+                                    <Border Background="{DynamicResource PrimaryCyanBrush}"
                                            Padding="8,4"
                                            Margin="3">
                                         <TextBlock Text="{Binding}"
                                                   FontSize="{StaticResource FontSizeSmall}"
-                                                  Foreground="{StaticResource BackgroundDarkBrush}"/>
+                                                  Foreground="{DynamicResource BackgroundDarkBrush}"/>
                                     </Border>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
                         <TextBlock Text="难度"
                                   FontSize="{StaticResource FontSizeNormal}"
-                                  Foreground="{StaticResource TextSecondaryBrush}"
+                                  Foreground="{DynamicResource TextSecondaryBrush}"
                                   Margin="0,10,0,5"/>
-                        <ProgressBar Style="{StaticResource LOLProgressBarStyle}"
-                                    Value="{Binding SelectedChampion.Difficulty}"
+                        <ProgressBar Value="{Binding SelectedChampion.Difficulty}"
                                     Maximum="10"
                                     Height="8"
                                     Margin="0,0,0,20"/>
@@ -253,7 +250,7 @@
                         <TextBlock Text="技能"
                                   FontSize="{StaticResource FontSizeMedium}"
                                   FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{StaticResource PrimaryGoldBrush}"
+                                  Foreground="{DynamicResource PrimaryGoldBrush}"
                                   Margin="0,0,0,10"/>
                         
                         <ItemsControl ItemsSource="{Binding SelectedChampion.Skills}">
@@ -273,7 +270,7 @@
                         
                         <!-- 选择按钮 -->
                         <controls:GlowButton Content="选择英雄"
-                                           GlowColor="#C8AA6E"
+                                           GlowColor="{DynamicResource PrimaryGold}"
                                            Height="50"
                                            FontSize="{StaticResource FontSizeMedium}"
                                            FontWeight="{StaticResource FontWeightBold}"/>
@@ -283,8 +280,8 @@
             
             <!-- 底部状态栏 -->
             <Border Grid.Row="2"
-                   Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderGoldBrush}"
+                   Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderGoldBrush}"
                    BorderThickness="0,2,0,0"
                    Padding="20,10">
                 <Grid>
@@ -296,23 +293,23 @@
                     <StackPanel Grid.Column="0" Orientation="Horizontal">
                         <TextBlock Text="已拥有英雄: "
                                   FontSize="{StaticResource FontSizeNormal}"
-                                  Foreground="{StaticResource TextSecondaryBrush}"
+                                  Foreground="{DynamicResource TextSecondaryBrush}"
                                   VerticalAlignment="Center"/>
                         <TextBlock Text="162"
                                   FontSize="{StaticResource FontSizeNormal}"
                                   FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{StaticResource PrimaryGoldBrush}"
+                                  Foreground="{DynamicResource PrimaryGoldBrush}"
                                   VerticalAlignment="Center"
                                   Margin="5,0,20,0"/>
                         
                         <TextBlock Text="蓝色精粹: "
                                   FontSize="{StaticResource FontSizeNormal}"
-                                  Foreground="{StaticResource TextSecondaryBrush}"
+                                  Foreground="{DynamicResource TextSecondaryBrush}"
                                   VerticalAlignment="Center"/>
                         <TextBlock Text="45,680"
                                   FontSize="{StaticResource FontSizeNormal}"
                                   FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{StaticResource PrimaryCyanBrush}"
+                                  Foreground="{DynamicResource PrimaryCyanBrush}"
                                   VerticalAlignment="Center"/>
                     </StackPanel>
                     

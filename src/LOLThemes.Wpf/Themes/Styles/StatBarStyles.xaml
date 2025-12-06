@@ -14,14 +14,14 @@
 
     <Style TargetType="{x:Type controls:StatBar}">
         <Setter Property="Height" Value="20"/>
-        <Setter Property="BarColor" Value="{StaticResource PrimaryGoldBrush}"/>
+        <Setter Property="BarColor" Value="{DynamicResource PrimaryGoldBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:StatBar}">
                     <Grid>
                         <!-- 背景 -->
-                        <Border Background="{StaticResource BackgroundMediumBrush}"
-                               BorderBrush="{StaticResource BorderDarkBrush}"
+                        <Border Background="{DynamicResource BackgroundMediumBrush}"
+                               BorderBrush="{DynamicResource BorderDarkBrush}"
                                BorderThickness="0.5"
                                CornerRadius="2"
                                SnapsToDevicePixels="True"/>
@@ -31,13 +31,9 @@
                                HorizontalAlignment="Left"
                                CornerRadius="2"
                                Margin="1">
-                            <Border.Background>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                    <GradientStop Color="#C8AA6E" Offset="0"/>
-                                    <GradientStop Color="#F0E6D2" Offset="0.5"/>
-                                    <GradientStop Color="#C8AA6E" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Border.Background>
+                                    <Border.Background>
+                                        <DynamicResource ResourceKey="ProgressBarGradientBrush"/>
+                                    </Border.Background>
                             <Border.Width>
                                 <MultiBinding Converter="{StaticResource StatBarWidthConverter}">
                                     <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}"/>
@@ -49,10 +45,10 @@
                         
                         <!-- 数值文�和-->
                         <TextBlock x:Name="valueText"
-                                  Foreground="{StaticResource TextPrimaryBrush}"
+                                  Foreground="{DynamicResource BackgroundDarkBrush}"
                                   FontFamily="{StaticResource PrimaryFont}"
                                   FontSize="{StaticResource FontSizeSmall}"
-                                  FontWeight="{StaticResource FontWeightMedium}"
+                                  FontWeight="{StaticResource FontWeightBold}"
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="Center"
                                   Visibility="Collapsed">

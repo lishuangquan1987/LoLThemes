@@ -9,7 +9,7 @@
 
     <!-- LOL CheckBox 样式 -->
     <Style x:Key="LOLCheckBoxStyle" TargetType="CheckBox">
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
         <Setter Property="Cursor" Value="Hand"/>
@@ -27,15 +27,15 @@
                                Grid.Column="0"
                                Width="20"
                                Height="20"
-                               Background="{StaticResource BackgroundMediumBrush}"
-                               BorderBrush="{StaticResource BorderGoldBrush}"
+                               Background="{DynamicResource BackgroundMediumBrush}"
+                               BorderBrush="{DynamicResource BorderGoldBrush}"
                                BorderThickness="2"
                                CornerRadius="2"
                                Margin="0,0,8,0">
                             <!-- 选中标记 -->
                             <Path x:Name="CheckMark"
                                  Data="M 2,8 L 7,13 L 16,2"
-                                 Stroke="{StaticResource PrimaryGoldBrush}"
+                                 Stroke="{DynamicResource PrimaryGoldBrush}"
                                  StrokeThickness="2.5"
                                  StrokeStartLineCap="Round"
                                  StrokeEndLineCap="Round"
@@ -58,9 +58,9 @@
                         <!-- 鼠标悬停 -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="CheckBoxBorder" Property="BorderBrush" 
-                                   Value="{StaticResource HoverGoldBrush}"/>
+                                   Value="{DynamicResource HoverGoldBrush}"/>
                             <Setter TargetName="CheckBoxBorder" Property="Background" 
-                                   Value="{StaticResource BackgroundLightBrush}"/>
+                                   Value="{DynamicResource BackgroundLightBrush}"/>
                         </Trigger>
                         
                         <!-- 选中状�和-->
@@ -155,16 +155,19 @@
                         <!-- 禁用状�和-->
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="CheckBoxBorder" Property="BorderBrush" 
-                                   Value="{StaticResource TextDisabledBrush}"/>
+                                   Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter TargetName="CheckMark" Property="Stroke" 
-                                   Value="{StaticResource TextDisabledBrush}"/>
+                                   Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter Property="Foreground" 
-                                   Value="{StaticResource TextDisabledBrush}"/>
+                                   Value="{DynamicResource TextDisabledBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!-- 默认 CheckBox 样式 -->
+    <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource LOLCheckBoxStyle}"/>
 
 </ResourceDictionary>

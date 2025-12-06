@@ -24,7 +24,7 @@
                             Height="16">
                         <Path x:Name="ExpandPath"
                               Data="M0,0 L4,4 L0,8 Z"
-                              Fill="{StaticResource PrimaryGoldBrush}"
+                              Fill="{DynamicResource PrimaryGoldBrush}"
                               HorizontalAlignment="Center"
                               VerticalAlignment="Center">
                             <Path.RenderTransform>
@@ -56,7 +56,7 @@
                             </Trigger.ExitActions>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="ExpandPath" Property="Fill" Value="{StaticResource HoverGoldBrush}"/>
+                            <Setter TargetName="ExpandPath" Property="Fill" Value="{DynamicResource HoverGoldBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -67,7 +67,7 @@
     <!-- TreeViewItem Style -->
     <Style x:Key="LOLTreeViewItemStyle" TargetType="{x:Type TreeViewItem}">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
         <Setter Property="Padding" Value="4,2"/>
@@ -96,7 +96,7 @@
                                 
                                 <!-- Indentation -->
                                 <FrameworkElement Grid.Column="0" 
-                                                 Width="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=Level, Converter={StaticResource LevelToIndentConverter}}"/>
+                                                 Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Level, Converter={StaticResource LevelToIndentConverter}}"/>
                                 
                                 <!-- Expand/Collapse Toggle -->
                                 <ToggleButton Grid.Column="1"
@@ -133,18 +133,18 @@
                         
                         <!-- Mouse over -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Bd" Property="Background" Value="{StaticResource BackgroundMediumBrush}"/>
+                            <Setter TargetName="Bd" Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
                         </Trigger>
                         
                         <!-- Selected -->
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="Bd" Property="Background" Value="{StaticResource PrimaryGoldBrush}"/>
-                            <Setter Property="Foreground" Value="{StaticResource PrimaryDarkBlueBrush}"/>
+                            <Setter TargetName="Bd" Property="Background" Value="{DynamicResource PrimaryGoldBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource PrimaryDarkBlueBrush}"/>
                         </Trigger>
                         
                         <!-- Disabled -->
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Foreground" Value="{StaticResource TextDisabledBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -154,10 +154,10 @@
 
     <!-- TreeView Style -->
     <Style x:Key="LOLTreeViewStyle" TargetType="{x:Type TreeView}">
-        <Setter Property="Background" Value="{StaticResource BackgroundDarkBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderDarkBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="BorderThickness" Value="0.5"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
         <Setter Property="Padding" Value="4"/>
@@ -188,5 +188,10 @@
     <Style x:Key="LOLTreeViewStyleCompact" TargetType="{x:Type TreeView}" BasedOn="{StaticResource LOLTreeViewStyle}">
         <Setter Property="Padding" Value="2"/>
     </Style>
+
+    <!-- 默认 TreeView 样式 -->
+    <Style TargetType="{x:Type TreeView}" BasedOn="{StaticResource LOLTreeViewStyle}"/>
+    <!-- 默认 TreeViewItem 样式 -->
+    <Style TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource LOLTreeViewItemStyle}"/>
 
 </ResourceDictionary>

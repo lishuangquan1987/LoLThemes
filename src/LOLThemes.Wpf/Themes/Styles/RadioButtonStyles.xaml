@@ -9,7 +9,7 @@
 
     <!-- LOL RadioButton 样式 -->
     <Style x:Key="LOLRadioButtonStyle" TargetType="RadioButton">
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
         <Setter Property="Cursor" Value="Hand"/>
@@ -27,8 +27,8 @@
                                Grid.Column="0"
                                Width="20"
                                Height="20"
-                               Background="{StaticResource BackgroundMediumBrush}"
-                               BorderBrush="{StaticResource BorderGoldBrush}"
+                               Background="{DynamicResource BackgroundMediumBrush}"
+                               BorderBrush="{DynamicResource BorderGoldBrush}"
                                BorderThickness="2"
                                CornerRadius="10"
                                Margin="0,0,8,0">
@@ -36,7 +36,7 @@
                             <Ellipse x:Name="RadioDot"
                                     Width="8"
                                     Height="8"
-                                    Fill="{StaticResource PrimaryGoldBrush}"
+                                    Fill="{DynamicResource PrimaryGoldBrush}"
                                     Opacity="0"
                                     RenderTransformOrigin="0.5,0.5">
                                 <Ellipse.RenderTransform>
@@ -55,9 +55,9 @@
                         <!-- 鼠标悬停 -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="RadioBorder" Property="BorderBrush" 
-                                   Value="{StaticResource HoverGoldBrush}"/>
+                                   Value="{DynamicResource HoverGoldBrush}"/>
                             <Setter TargetName="RadioBorder" Property="Background" 
-                                   Value="{StaticResource BackgroundLightBrush}"/>
+                                   Value="{DynamicResource BackgroundLightBrush}"/>
                         </Trigger>
                         
                         <!-- 选中状�和-->
@@ -111,16 +111,19 @@
                         <!-- 禁用状�和-->
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="RadioBorder" Property="BorderBrush" 
-                                   Value="{StaticResource TextDisabledBrush}"/>
+                                   Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter TargetName="RadioDot" Property="Fill" 
-                                   Value="{StaticResource TextDisabledBrush}"/>
+                                   Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter Property="Foreground" 
-                                   Value="{StaticResource TextDisabledBrush}"/>
+                                   Value="{DynamicResource TextDisabledBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!-- 默认 RadioButton 样式 -->
+    <Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource LOLRadioButtonStyle}"/>
 
 </ResourceDictionary>

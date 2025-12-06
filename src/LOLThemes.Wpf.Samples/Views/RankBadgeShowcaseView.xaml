@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
              xmlns:controls="clr-namespace:LOLThemes.Wpf.Controls;assembly=LOLThemes.Wpf"
-             Background="{StaticResource BackgroundDarkBrush}">
+             Background="{DynamicResource BackgroundDarkBrush}">
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="30">
         <StackPanel>
             <!-- 标题 -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderGoldBrush}"
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderGoldBrush}"
                    BorderThickness="0,0,0,2"
                    Padding="20,15"
                    Margin="0,0,0,20">
@@ -16,17 +16,17 @@
                     <TextBlock Text="RankBadge - 段位徽章" 
                           FontSize="{StaticResource FontSizeXXLarge}"
                           FontWeight="{StaticResource FontWeightBold}"
-                          Foreground="{StaticResource PrimaryGoldBrush}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,8"/>
                     <TextBlock Text="段位徽章用于显示玩家的排位段位，支持多种段位类型。" 
                           FontSize="{StaticResource FontSizeNormal}"
-                          Foreground="{StaticResource TextSecondaryBrush}"/>
+                          Foreground="{DynamicResource TextSecondaryBrush}"/>
                 </StackPanel>
             </Border>
             
             <!-- 基础用法 -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderDarkBrush}"
                    BorderThickness="0.5"
                    Padding="20"
                    Margin="0,0,0,20">
@@ -34,7 +34,7 @@
                     <TextBlock Text="不同段位" 
                           FontSize="{StaticResource FontSizeLarge}"
                           FontWeight="{StaticResource FontWeightBold}"
-                          Foreground="{StaticResource PrimaryGoldBrush}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
                     <smtx:XamlDisplay UniqueKey="RankBadgeBasic" Margin="0,0,0,0">
@@ -42,56 +42,56 @@
                             <StackPanel Margin="10">
                                 <controls:RankBadge RankType="Iron" RankText="黑铁"/>
                                 <TextBlock Text="黑铁" 
-                                         Foreground="{StaticResource TextPrimaryBrush}"
+                                         Foreground="{DynamicResource TextPrimaryBrush}"
                                          HorizontalAlignment="Center"
                                          Margin="0,5,0,0"/>
                             </StackPanel>
                             <StackPanel Margin="10">
                                 <controls:RankBadge RankType="Bronze" RankText="青铜"/>
                                 <TextBlock Text="青铜" 
-                                         Foreground="{StaticResource TextPrimaryBrush}"
+                                         Foreground="{DynamicResource TextPrimaryBrush}"
                                          HorizontalAlignment="Center"
                                          Margin="0,5,0,0"/>
                             </StackPanel>
                             <StackPanel Margin="10">
                                 <controls:RankBadge RankType="Silver" RankText="白银"/>
                                 <TextBlock Text="白银" 
-                                         Foreground="{StaticResource TextPrimaryBrush}"
+                                         Foreground="{DynamicResource TextPrimaryBrush}"
                                          HorizontalAlignment="Center"
                                          Margin="0,5,0,0"/>
                             </StackPanel>
                             <StackPanel Margin="10">
                                 <controls:RankBadge RankType="Gold" RankText="黄金"/>
                                 <TextBlock Text="黄金" 
-                                         Foreground="{StaticResource TextPrimaryBrush}"
+                                         Foreground="{DynamicResource TextPrimaryBrush}"
                                          HorizontalAlignment="Center"
                                          Margin="0,5,0,0"/>
                             </StackPanel>
                             <StackPanel Margin="10">
                                 <controls:RankBadge RankType="Platinum" RankText="白金"/>
                                 <TextBlock Text="白金" 
-                                         Foreground="{StaticResource TextPrimaryBrush}"
+                                         Foreground="{DynamicResource TextPrimaryBrush}"
                                          HorizontalAlignment="Center"
                                          Margin="0,5,0,0"/>
                             </StackPanel>
                             <StackPanel Margin="10">
                                 <controls:RankBadge RankType="Diamond" RankText="钻石"/>
                                 <TextBlock Text="钻石" 
-                                         Foreground="{StaticResource TextPrimaryBrush}"
+                                         Foreground="{DynamicResource TextPrimaryBrush}"
                                          HorizontalAlignment="Center"
                                          Margin="0,5,0,0"/>
                             </StackPanel>
                             <StackPanel Margin="10">
                                 <controls:RankBadge RankType="Master" RankText="大师"/>
                                 <TextBlock Text="大师" 
-                                         Foreground="{StaticResource TextPrimaryBrush}"
+                                         Foreground="{DynamicResource TextPrimaryBrush}"
                                          HorizontalAlignment="Center"
                                          Margin="0,5,0,0"/>
                             </StackPanel>
                             <StackPanel Margin="10">
                                 <controls:RankBadge RankType="Challenger" RankText="王者"/>
                                 <TextBlock Text="王者" 
-                                         Foreground="{StaticResource TextPrimaryBrush}"
+                                         Foreground="{DynamicResource TextPrimaryBrush}"
                                          HorizontalAlignment="Center"
                                          Margin="0,5,0,0"/>
                             </StackPanel>

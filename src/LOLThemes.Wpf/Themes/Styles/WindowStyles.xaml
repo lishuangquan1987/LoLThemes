@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:helpers="clr-namespace:LOLThemes.Wpf.Helpers;assembly=LOLThemes.Wpf">
     
     <!-- 合并基础资源，确�和WindowStyles 可以访问 Colors �和Fonts -->
     <ResourceDictionary.MergedDictionaries>
@@ -11,7 +12,7 @@
     <Style x:Key="LOLWindowStyle" TargetType="{x:Type Window}">
         <Setter Property="WindowStyle" Value="None"/>
         <Setter Property="AllowsTransparency" Value="True"/>
-        <Setter Property="Background" Value="{StaticResource BackgroundDarkBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}"/>
         <Setter Property="BorderThickness" Value="0.5"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
@@ -19,14 +20,15 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Window}">
-                    <Border Background="{StaticResource BackgroundDarkBrush}"
-                            BorderBrush="{StaticResource BorderGoldBrush}"
+                    <Border Background="{DynamicResource BackgroundDarkBrush}"
+                            BorderBrush="{DynamicResource BorderGoldBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
                         <Border.Effect>
-                            <DropShadowEffect Color="#C8AA6E" 
+                            <DropShadowEffect x:Name="windowShadow" 
                                             BlurRadius="15" 
                                             ShadowDepth="0" 
-                                            Opacity="0.3"/>
+                                            Opacity="0.3"
+                                            Color="#C8AA6E"/>
                         </Border.Effect>
                         
                         <Grid>
@@ -38,8 +40,8 @@
                             <!-- Title Bar -->
                             <Border Grid.Row="0" 
                                     x:Name="TitleBar"
-                                    Background="{StaticResource BackgroundMediumBrush}"
-                                    BorderBrush="{StaticResource BorderDarkBrush}"
+                                    Background="{DynamicResource BackgroundMediumBrush}"
+                                    BorderBrush="{DynamicResource BorderDarkBrush}"
                                     BorderThickness="0,0,0,1">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -61,13 +63,19 @@
                                                Text="{TemplateBinding Title}"
                                                FontSize="{StaticResource FontSizeMedium}"
                                                FontWeight="{StaticResource FontWeightMedium}"
-                                               Foreground="{StaticResource TextPrimaryBrush}"
+                                               Foreground="{DynamicResource TextPrimaryBrush}"
                                                VerticalAlignment="Center"
                                                Margin="10,0,0,0"/>
 
                                     <!-- Window Buttons -->
                                     <StackPanel Grid.Column="2" 
                                                 Orientation="Horizontal">
+                                        
+                                        <!-- Custom Header Content -->
+                                        <ContentPresenter x:Name="CustomHeaderContentContainer"
+                                                        Content="{Binding Path=(helpers:WindowHelper.CustomHeaderContent), RelativeSource={RelativeSource TemplatedParent}}"
+                                                        Margin="0,0,4,0"
+                                                        VerticalAlignment="Center"/>
                                         
                                         <!-- Minimize Button -->
                                         <Button x:Name="MinimizeButton"
@@ -80,7 +88,7 @@
                                                             SnapsToDevicePixels="True">
                                                         <Path x:Name="minimizePath"
                                                               Data="M0,0 L10,0" 
-                                                              Stroke="{StaticResource TextPrimaryBrush}"
+                                                              Stroke="{DynamicResource TextPrimaryBrush}"
                                                               StrokeThickness="1.5"
                                                               HorizontalAlignment="Center"
                                                               VerticalAlignment="Center"
@@ -89,10 +97,10 @@
                                                     </Border>
                                                     <ControlTemplate.Triggers>
                                                         <Trigger Property="IsMouseOver" Value="True">
-                                                            <Setter TargetName="border" Property="Background" Value="#40C8AA6E"/>
-                                                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource PrimaryGoldBrush}"/>
+                                                            <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundMediumSemiBrush}"/>
+                                                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
                                                             <Setter TargetName="border" Property="BorderThickness" Value="0.5"/>
-                                                            <Setter TargetName="minimizePath" Property="Stroke" Value="{StaticResource TextBrightBrush}"/>
+                                                            <Setter TargetName="minimizePath" Property="Stroke" Value="{DynamicResource TextBrightBrush}"/>
                                                             <Setter TargetName="minimizePath" Property="StrokeThickness" Value="2"/>
                                                         </Trigger>
                                                     </ControlTemplate.Triggers>
@@ -111,7 +119,7 @@
                                                             SnapsToDevicePixels="True">
                                                         <Path x:Name="MaximizePath"
                                                               Data="M0,0 L10,0 L10,10 L0,10 Z" 
-                                                              Stroke="{StaticResource TextPrimaryBrush}"
+                                                              Stroke="{DynamicResource TextPrimaryBrush}"
                                                               StrokeThickness="1.5"
                                                               HorizontalAlignment="Center"
                                                               VerticalAlignment="Center"
@@ -121,10 +129,10 @@
                                                     </Border>
                                                     <ControlTemplate.Triggers>
                                                         <Trigger Property="IsMouseOver" Value="True">
-                                                            <Setter TargetName="border" Property="Background" Value="#40C8AA6E"/>
-                                                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource PrimaryGoldBrush}"/>
+                                                            <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundMediumSemiBrush}"/>
+                                                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
                                                             <Setter TargetName="border" Property="BorderThickness" Value="0.5"/>
-                                                            <Setter TargetName="MaximizePath" Property="Stroke" Value="{StaticResource TextBrightBrush}"/>
+                                                            <Setter TargetName="MaximizePath" Property="Stroke" Value="{DynamicResource TextBrightBrush}"/>
                                                             <Setter TargetName="MaximizePath" Property="StrokeThickness" Value="2"/>
                                                         </Trigger>
                                                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=WindowState}" Value="Maximized">
@@ -146,7 +154,7 @@
                                                             SnapsToDevicePixels="True">
                                                         <Path x:Name="closePath"
                                                               Data="M0,0 L10,10 M10,0 L0,10" 
-                                                              Stroke="{StaticResource TextPrimaryBrush}"
+                                                              Stroke="{DynamicResource TextPrimaryBrush}"
                                                               StrokeThickness="1.5"
                                                               HorizontalAlignment="Center"
                                                               VerticalAlignment="Center"
@@ -155,10 +163,10 @@
                                                     </Border>
                                                     <ControlTemplate.Triggers>
                                                         <Trigger Property="IsMouseOver" Value="True">
-                                                            <Setter TargetName="border" Property="Background" Value="{StaticResource ErrorRedBrush}"/>
-                                                            <Setter TargetName="border" Property="BorderBrush" Value="#FFE84057"/>
+                                                            <Setter TargetName="border" Property="Background" Value="{DynamicResource ErrorRedBrush}"/>
+                                                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource ErrorRedBrush}"/>
                                                             <Setter TargetName="border" Property="BorderThickness" Value="0.5"/>
-                                                            <Setter TargetName="closePath" Property="Stroke" Value="{StaticResource TextWhiteBrush}"/>
+                                                            <Setter TargetName="closePath" Property="Stroke" Value="{DynamicResource TextWhiteBrush}"/>
                                                             <Setter TargetName="closePath" Property="StrokeThickness" Value="2"/>
                                                         </Trigger>
                                                     </ControlTemplate.Triggers>
@@ -190,5 +198,8 @@
     <Style x:Key="LOLWindowStyleSimple" TargetType="{x:Type Window}" BasedOn="{StaticResource LOLWindowStyle}">
         <Setter Property="ResizeMode" Value="NoResize"/>
     </Style>
+
+    <!-- 默认 Window 样式 -->
+    <Style TargetType="{x:Type Window}" BasedOn="{StaticResource LOLWindowStyle}"/>
 
 </ResourceDictionary>

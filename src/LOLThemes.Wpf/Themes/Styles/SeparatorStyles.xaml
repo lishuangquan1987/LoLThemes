@@ -9,7 +9,7 @@
 
     <!-- 水平 Separator 样式 -->
     <Style x:Key="LOLSeparatorStyle" TargetType="Separator">
-        <Setter Property="Background" Value="{StaticResource BorderDarkBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="Margin" Value="0,4"/>
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Height" Value="1"/>
@@ -48,7 +48,7 @@
 
     <!-- 金色 Separator 样式 -->
     <Style x:Key="GoldSeparator" TargetType="Separator" BasedOn="{StaticResource LOLSeparatorStyle}">
-        <Setter Property="Background" Value="{StaticResource BorderGoldBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BorderGoldBrush}"/>
     </Style>
 
     <!-- �和Separator 样式 -->

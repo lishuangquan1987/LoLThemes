@@ -9,15 +9,15 @@
 
     <!-- RichTextBox Style -->
     <Style x:Key="LOLRichTextBoxStyle" TargetType="{x:Type RichTextBox}">
-        <Setter Property="Background" Value="{StaticResource BackgroundDarkBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderDarkBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="BorderThickness" Value="0.5"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
-        <Setter Property="Padding" Value="8"/>
-        <Setter Property="SelectionBrush" Value="{StaticResource PrimaryGoldBrush}"/>
-        <Setter Property="CaretBrush" Value="{StaticResource PrimaryGoldBrush}"/>
+        <Setter Property="Padding" Value="{StaticResource InputBoxPadding}"/>
+        <Setter Property="SelectionBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
+        <Setter Property="CaretBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
         <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
         <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
         <Setter Property="AcceptsReturn" Value="True"/>
@@ -38,25 +38,25 @@
                     <ControlTemplate.Triggers>
                         <!-- Mouse Over -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource BorderGoldBrush}"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
                         </Trigger>
                         
                         <!-- Focused -->
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource PrimaryGoldBrush}"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
                             <Setter TargetName="Border" Property="BorderThickness" Value="2"/>
                         </Trigger>
                         
                         <!-- Disabled -->
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="Border" Property="Background" Value="{StaticResource BackgroundMediumBrush}"/>
-                            <Setter Property="Foreground" Value="{StaticResource TextDisabledBrush}"/>
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter Property="Opacity" Value="0.6"/>
                         </Trigger>
                         
                         <!-- Read Only -->
                         <Trigger Property="IsReadOnly" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{StaticResource BackgroundMediumBrush}"/>
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -67,13 +67,16 @@
     <!-- RichTextBox with Border Style -->
     <Style x:Key="LOLRichTextBoxBorderedStyle" TargetType="{x:Type RichTextBox}" BasedOn="{StaticResource LOLRichTextBoxStyle}">
         <Setter Property="BorderThickness" Value="2"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderGoldBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
     </Style>
 
     <!-- RichTextBox Compact Style -->
     <Style x:Key="LOLRichTextBoxCompactStyle" TargetType="{x:Type RichTextBox}" BasedOn="{StaticResource LOLRichTextBoxStyle}">
-        <Setter Property="Padding" Value="4"/>
+        <Setter Property="Padding" Value="{StaticResource InputBoxPaddingCompact}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}"/>
     </Style>
+
+    <!-- 默认 RichTextBox 样式 -->
+    <Style TargetType="{x:Type RichTextBox}" BasedOn="{StaticResource LOLRichTextBoxStyle}"/>
 
 </ResourceDictionary>

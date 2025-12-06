@@ -9,9 +9,9 @@
 
     <!-- DataGridColumnHeader 样式 -->
     <Style x:Key="LOLDataGridColumnHeaderStyle" TargetType="DataGridColumnHeader">
-        <Setter Property="Background" Value="{StaticResource BackgroundLightBrush}"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderDarkBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundLightBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="BorderThickness" Value="0,0,1,1"/>
         <Setter Property="Padding" Value="10,8"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
@@ -33,7 +33,7 @@
                             <Path x:Name="SortArrow"
                                  Visibility="Collapsed"
                                  Data="M 0,0 L 4,4 L 8,0 Z"
-                                 Fill="{StaticResource PrimaryGoldBrush}"
+                                 Fill="{DynamicResource PrimaryGoldBrush}"
                                  HorizontalAlignment="Right"
                                  VerticalAlignment="Center"
                                  Margin="0,0,8,0"
@@ -47,11 +47,11 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="border" Property="Background" 
-                                   Value="{StaticResource Gray300Brush}"/>
+                                   Value="{DynamicResource Gray300Brush}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="border" Property="Background" 
-                                   Value="{StaticResource Gray400Brush}"/>
+                                   Value="{DynamicResource Gray400Brush}"/>
                         </Trigger>
                         <Trigger Property="SortDirection" Value="Ascending">
                             <Setter TargetName="SortArrow" Property="Visibility" Value="Visible"/>
@@ -73,8 +73,8 @@
     <!-- DataGridCell 样式 -->
     <Style x:Key="LOLDataGridCellStyle" TargetType="DataGridCell">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderDarkBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="BorderThickness" Value="0,0,1,0"/>
         <Setter Property="Padding" Value="10,8"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
@@ -93,9 +93,9 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="border" Property="Background" 
-                                   Value="{StaticResource PrimaryGoldBrush}"/>
+                                   Value="{DynamicResource PrimaryGoldBrush}"/>
                             <Setter Property="Foreground" 
-                                   Value="{StaticResource BackgroundDarkBrush}"/>
+                                   Value="{DynamicResource BackgroundDarkBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -106,7 +106,7 @@
     <!-- DataGridRow 样式 -->
     <Style x:Key="LOLDataGridRowStyle" TargetType="DataGridRow">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
         <Setter Property="Template">
@@ -143,13 +143,13 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="DGR_Border" Property="Background" 
-                                   Value="{StaticResource BackgroundLightBrush}"/>
+                                   Value="{DynamicResource BackgroundLightBrush}"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="DGR_Border" Property="Background" 
-                                   Value="{StaticResource PrimaryGoldBrush}"/>
+                                   Value="{DynamicResource PrimaryGoldBrush}"/>
                             <Setter Property="Foreground" 
-                                   Value="{StaticResource BackgroundDarkBrush}"/>
+                                   Value="{DynamicResource BackgroundDarkBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -159,17 +159,17 @@
 
     <!-- LOL DataGrid 样式 -->
     <Style x:Key="LOLDataGridStyle" TargetType="DataGrid">
-        <Setter Property="Background" Value="{StaticResource BackgroundMediumBrush}"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderDarkBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="BorderThickness" Value="0.5"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
         <Setter Property="RowBackground" Value="Transparent"/>
-        <Setter Property="AlternatingRowBackground" Value="{StaticResource BackgroundLightBrush}"/>
+        <Setter Property="AlternatingRowBackground" Value="{DynamicResource BackgroundLightBrush}"/>
         <Setter Property="GridLinesVisibility" Value="Horizontal"/>
-        <Setter Property="HorizontalGridLinesBrush" Value="{StaticResource BorderDarkBrush}"/>
-        <Setter Property="VerticalGridLinesBrush" Value="{StaticResource BorderDarkBrush}"/>
+        <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource BorderDarkBrush}"/>
+        <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="ColumnHeaderStyle" Value="{StaticResource LOLDataGridColumnHeaderStyle}"/>
         <Setter Property="CellStyle" Value="{StaticResource LOLDataGridCellStyle}"/>
         <Setter Property="RowStyle" Value="{StaticResource LOLDataGridRowStyle}"/>
@@ -248,5 +248,14 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!-- 默认 DataGrid 样式 -->
+    <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource LOLDataGridStyle}"/>
+    <!-- 默认 DataGridColumnHeader 样式 -->
+    <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource LOLDataGridColumnHeaderStyle}"/>
+    <!-- 默认 DataGridRow 样式 -->
+    <Style TargetType="{x:Type DataGridRow}" BasedOn="{StaticResource LOLDataGridRowStyle}"/>
+    <!-- 默认 DataGridCell 样式 -->
+    <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource LOLDataGridCellStyle}"/>
 
 </ResourceDictionary>

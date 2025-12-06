@@ -9,9 +9,9 @@
 
     <!-- LOL ToolTip 样式 -->
     <Style x:Key="LOLToolTipStyle" TargetType="ToolTip">
-        <Setter Property="Background" Value="{StaticResource BackgroundDarkBrush}"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderGoldBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
         <Setter Property="BorderThickness" Value="0.5"/>
         <Setter Property="Padding" Value="8,6"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>

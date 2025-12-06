@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:helpers="clr-namespace:LOLThemes.Wpf.Helpers;assembly=LOLThemes.Wpf">
     
     <!-- 合并基础资源，确保可以访�和Colors �和Fonts -->
     <ResourceDictionary.MergedDictionaries>
@@ -9,15 +10,15 @@
 
     <!-- LOL TextBox 样式 -->
     <Style x:Key="LOLTextBoxStyle" TargetType="TextBox">
-        <Setter Property="Background" Value="{StaticResource BackgroundMediumBrush}"/>
-        <Setter Property="Foreground" Value="{StaticResource TextBrightBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="0.5"/>
-        <Setter Property="Padding" Value="10,8"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource TextBoxBorderThickness}"/>
+        <Setter Property="Padding" Value="{DynamicResource TextBoxPadding}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
-        <Setter Property="CaretBrush" Value="{StaticResource PrimaryGoldBrush}"/>
-        <Setter Property="SelectionBrush" Value="{StaticResource PrimaryGoldBrush}"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
+        <Setter Property="CaretBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
+        <Setter Property="SelectionBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
         <Setter Property="SelectionOpacity" Value="0.4"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -31,13 +32,13 @@
                            Background="{TemplateBinding Background}"
                            BorderBrush="{TemplateBinding BorderBrush}"
                            BorderThickness="{TemplateBinding BorderThickness}"
-                           CornerRadius="0"
+                           CornerRadius="{DynamicResource TextBoxCornerRadius}"
                            SnapsToDevicePixels="True">
                         <Grid>
                             <!-- 占位符文�和-->
                             <TextBlock x:Name="PlaceholderText"
-                                      Text="{TemplateBinding Tag}"
-                                      Foreground="{StaticResource TextSecondaryBrush}"
+                                      Text="{Binding Path=(helpers:TextBoxHelper.Placeholder), RelativeSource={RelativeSource TemplatedParent}}"
+                                      Foreground="{DynamicResource TextSecondaryBrush}"
                                       FontFamily="{TemplateBinding FontFamily}"
                                       FontSize="{TemplateBinding FontSize}"
                                       Padding="{TemplateBinding Padding}"
@@ -69,24 +70,24 @@
                         <!-- Focused 状�和- 边框高亮 -->
                         <Trigger Property="IsFocused" Value="True">
                             <Setter TargetName="border" Property="BorderBrush" 
-                                   Value="{StaticResource PrimaryGoldBrush}"/>
-                            <Setter TargetName="border" Property="BorderThickness" Value="0.5"/>
-                            <Setter Property="Foreground" Value="{StaticResource TextBrightBrush}"/>
+                                   Value="{DynamicResource PrimaryGoldBrush}"/>
+                            <Setter TargetName="border" Property="BorderThickness" Value="{DynamicResource TextBoxBorderThickness}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
                         </Trigger>
                         
                         <!-- MouseOver 状�和-->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="border" Property="BorderBrush" 
-                                   Value="{StaticResource BorderLightBrush}"/>
-                            <Setter Property="Foreground" Value="{StaticResource TextBrightBrush}"/>
+                                   Value="{DynamicResource BorderLightBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
                         </Trigger>
                         
                         <!-- Disabled 状�和-->
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="border" Property="Background" 
-                                   Value="{StaticResource Gray200Brush}"/>
+                                   Value="{DynamicResource Gray200Brush}"/>
                             <Setter Property="Foreground" 
-                                   Value="{StaticResource TextDisabledBrush}"/>
+                                   Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter TargetName="border" Property="Opacity" Value="0.6"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -94,5 +95,8 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!-- 默认 TextBox 样式 -->
+    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource LOLTextBoxStyle}"/>
 
 </ResourceDictionary>

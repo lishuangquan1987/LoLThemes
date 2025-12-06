@@ -10,9 +10,9 @@
     <!-- LOL ProgressBar 样式 -->
     <Style x:Key="LOLProgressBarStyle" TargetType="ProgressBar">
         <Setter Property="Height" Value="20"/>
-        <Setter Property="Background" Value="{StaticResource BackgroundMediumBrush}"/>
-        <Setter Property="Foreground" Value="{StaticResource PrimaryGoldBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderDarkBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryGoldBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="BorderThickness" Value="0.5"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -35,11 +35,7 @@
                                        HorizontalAlignment="Left"
                                        CornerRadius="1">
                                     <Border.Background>
-                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                            <GradientStop Color="#C8AA6E" Offset="0"/>
-                                            <GradientStop Color="#F0E6D2" Offset="0.5"/>
-                                            <GradientStop Color="#C8AA6E" Offset="1"/>
-                                        </LinearGradientBrush>
+                                        <DynamicResource ResourceKey="ProgressBarGradientBrush"/>
                                     </Border.Background>
                                 </Border>
                                 
@@ -93,9 +89,9 @@
     <!-- 垂直 ProgressBar 样式 -->
     <Style x:Key="LOLVerticalProgressBarStyle" TargetType="ProgressBar">
         <Setter Property="Width" Value="20"/>
-        <Setter Property="Background" Value="{StaticResource BackgroundMediumBrush}"/>
-        <Setter Property="Foreground" Value="{StaticResource PrimaryGoldBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderDarkBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryGoldBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="BorderThickness" Value="0.5"/>
         <Setter Property="Orientation" Value="Vertical"/>
         <Setter Property="Template">
@@ -133,5 +129,8 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!-- 默认 ProgressBar 样式 -->
+    <Style TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource LOLProgressBarStyle}"/>
 
 </ResourceDictionary>

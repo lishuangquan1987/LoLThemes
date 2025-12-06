@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
              xmlns:controls="clr-namespace:LOLThemes.Wpf.Controls;assembly=LOLThemes.Wpf"
-             Background="{StaticResource BackgroundDarkBrush}">
+             Background="{DynamicResource BackgroundDarkBrush}">
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="30">
         <StackPanel>
             <!-- 标题 -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderGoldBrush}"
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderGoldBrush}"
                    BorderThickness="0,0,0,2"
                    Padding="20,15"
                    Margin="0,0,0,20">
@@ -16,17 +16,17 @@
                     <TextBlock Text="SkillButton - 技能按钮" 
                           FontSize="{StaticResource FontSizeXXLarge}"
                           FontWeight="{StaticResource FontWeightBold}"
-                          Foreground="{StaticResource PrimaryGoldBrush}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,8"/>
                     <TextBlock Text="技能按钮用于显示英雄的技能，支持冷却时间进度显示。" 
                           FontSize="{StaticResource FontSizeNormal}"
-                          Foreground="{StaticResource TextSecondaryBrush}"/>
+                          Foreground="{DynamicResource TextSecondaryBrush}"/>
                 </StackPanel>
             </Border>
             
             <!-- 基础用法 -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderDarkBrush}"
                    BorderThickness="0.5"
                    Padding="20"
                    Margin="0,0,0,20">
@@ -34,7 +34,7 @@
                     <TextBlock Text="基础用法" 
                           FontSize="{StaticResource FontSizeLarge}"
                           FontWeight="{StaticResource FontWeightBold}"
-                          Foreground="{StaticResource PrimaryGoldBrush}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
                     <smtx:XamlDisplay UniqueKey="SkillButtonBasic" Margin="0,0,0,0">
@@ -57,8 +57,8 @@
             </Border>
             
             <!-- 冷却状态 -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderDarkBrush}"
                    BorderThickness="0.5"
                    Padding="20"
                    Margin="0,0,0,20">
@@ -66,7 +66,7 @@
                     <TextBlock Text="冷却状态" 
                           FontSize="{StaticResource FontSizeLarge}"
                           FontWeight="{StaticResource FontWeightBold}"
-                          Foreground="{StaticResource PrimaryGoldBrush}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
                     <smtx:XamlDisplay UniqueKey="SkillButtonCooldown" Margin="0,0,0,0">

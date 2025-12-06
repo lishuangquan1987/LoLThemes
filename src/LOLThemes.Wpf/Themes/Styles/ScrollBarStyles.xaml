@@ -16,22 +16,22 @@
             <Setter.Value>
                 <ControlTemplate TargetType="RepeatButton">
                     <Border x:Name="Border"
-                           Background="{StaticResource BackgroundLightBrush}"
+                           Background="{DynamicResource BackgroundLightBrush}"
                            BorderThickness="0">
                         <Path x:Name="Arrow"
                              HorizontalAlignment="Center"
                              VerticalAlignment="Center"
-                             Fill="{StaticResource TextSecondaryBrush}"
+                             Fill="{DynamicResource TextSecondaryBrush}"
                              Data="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Arrow" Property="Fill" 
-                                   Value="{StaticResource PrimaryGoldBrush}"/>
+                                   Value="{DynamicResource PrimaryGoldBrush}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="Border" Property="Background" 
-                                   Value="{StaticResource Gray400Brush}"/>
+                                   Value="{DynamicResource Gray400Brush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -64,7 +64,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Thumb">
                     <Border x:Name="ThumbBorder"
-                           Background="{StaticResource Gray400Brush}"
+                           Background="{DynamicResource Gray400Brush}"
                            BorderThickness="0"
                            CornerRadius="2">
                         <Border.RenderTransform>
@@ -102,11 +102,11 @@
                                 </BeginStoryboard>
                             </Trigger.ExitActions>
                             <Setter TargetName="ThumbBorder" Property="Background" 
-                                   Value="{StaticResource PrimaryGoldBrush}"/>
+                                   Value="{DynamicResource PrimaryGoldBrush}"/>
                         </Trigger>
                         <Trigger Property="IsDragging" Value="True">
                             <Setter TargetName="ThumbBorder" Property="Background" 
-                                   Value="{StaticResource PressedGoldBrush}"/>
+                                   Value="{DynamicResource PressedGoldBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

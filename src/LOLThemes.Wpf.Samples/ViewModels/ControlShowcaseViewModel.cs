@@ -52,7 +52,16 @@ namespace LOLThemes.Wpf.Samples.ViewModels
                 new ControlItem { Name = "ChampionCard", DisplayName = "英雄卡片", Icon = "🃏", ViewName = "ChampionCardShowcaseView" },
                 new ControlItem { Name = "RankBadge", DisplayName = "段位徽章", Icon = "🏆", ViewName = "RankBadgeShowcaseView" },
                 new ControlItem { Name = "CurrencyDisplay", DisplayName = "货币显示", Icon = "💰", ViewName = "CurrencyDisplayShowcaseView" },
-                new ControlItem { Name = "StatBar", DisplayName = "属性条", Icon = "📊", ViewName = "StatBarShowcaseView" }
+                new ControlItem { Name = "StatBar", DisplayName = "属性条", Icon = "📊", ViewName = "StatBarShowcaseView" },
+                new ControlItem { Name = "DataGrid", DisplayName = "数据网格", Icon = "📊", ViewName = "DataGridShowcaseView" },
+                new ControlItem { Name = "TreeView", DisplayName = "树形视图", Icon = "🌳", ViewName = "TreeViewShowcaseView" },
+                new ControlItem { Name = "Expander", DisplayName = "展开器", Icon = "📂", ViewName = "ExpanderShowcaseView" },
+                new ControlItem { Name = "RichTextBox", DisplayName = "富文本框", Icon = "📄", ViewName = "RichTextBoxShowcaseView" },
+                new ControlItem { Name = "Calendar", DisplayName = "日历", Icon = "📅", ViewName = "CalendarShowcaseView" },
+                new ControlItem { Name = "DatePicker", DisplayName = "日期选择器", Icon = "📆", ViewName = "DatePickerShowcaseView" },
+                new ControlItem { Name = "ContextMenu", DisplayName = "上下文菜单", Icon = "☰", ViewName = "ContextMenuShowcaseView" },
+                new ControlItem { Name = "StatusBar", DisplayName = "状态栏", Icon = "📊", ViewName = "StatusBarShowcaseView" },
+                new ControlItem { Name = "Window", DisplayName = "窗口", Icon = "🪟", ViewName = "WindowShowcaseView" }
             };
 
             // 默认选中第一个

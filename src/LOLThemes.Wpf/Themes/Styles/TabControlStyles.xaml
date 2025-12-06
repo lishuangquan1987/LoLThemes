@@ -10,12 +10,12 @@
     <!-- TabItem 样式 -->
     <Style x:Key="LOLTabItemStyle" TargetType="TabItem">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{StaticResource TextSecondaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderDarkBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="BorderThickness" Value="1,1,1,0"/>
-        <Setter Property="Padding" Value="16,8"/>
+        <Setter Property="Padding" Value="{DynamicResource TabItemPadding}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
@@ -29,10 +29,7 @@
                                Margin="0,0,2,0"
                                SnapsToDevicePixels="True">
                             <Border.Background>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                    <GradientStop Color="#E61E2328" Offset="0"/>
-                                    <GradientStop Color="#CC1E2328" Offset="1"/>
-                                </LinearGradientBrush>
+                                <DynamicResource ResourceKey="DarkGradientBrush"/>
                             </Border.Background>
                             <ContentPresenter x:Name="ContentSite"
                                             ContentSource="Header"
@@ -45,25 +42,25 @@
                         <Border x:Name="SelectedIndicator"
                                Height="3"
                                VerticalAlignment="Bottom"
-                               Background="{StaticResource PrimaryGoldBrush}"
+                               Background="{DynamicResource PrimaryGoldBrush}"
                                Opacity="0"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <!-- 鼠标悬停 -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Border" Property="Background" 
-                                   Value="{StaticResource BackgroundLightBrush}"/>
+                                   Value="{DynamicResource BackgroundLightBrush}"/>
                             <Setter Property="Foreground" 
-                                   Value="{StaticResource TextPrimaryBrush}"/>
+                                   Value="{DynamicResource TextPrimaryBrush}"/>
                         </Trigger>
                         
                         <!-- 选中状�和-->
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="Border" Property="Background" 
-                                   Value="{StaticResource BackgroundMediumBrush}"/>
+                                   Value="{DynamicResource BackgroundMediumBrush}"/>
                             <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0"/>
                             <Setter Property="Foreground" 
-                                   Value="{StaticResource PrimaryGoldBrush}"/>
+                                   Value="{DynamicResource PrimaryGoldBrush}"/>
                             <Setter TargetName="SelectedIndicator" Property="Opacity" Value="1"/>
                             <Setter Property="Panel.ZIndex" Value="100"/>
                         </Trigger>
@@ -71,7 +68,7 @@
                         <!-- 禁用状�和-->
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Foreground" 
-                                   Value="{StaticResource TextDisabledBrush}"/>
+                                   Value="{DynamicResource TextDisabledBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -81,9 +78,9 @@
 
     <!-- LOL TabControl 样式 -->
     <Style x:Key="LOLTabControlStyle" TargetType="TabControl">
-        <Setter Property="Background" Value="{StaticResource BackgroundMediumBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="0.5"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThicknessThin}"/>
         <Setter Property="Padding" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -96,7 +93,7 @@
                         
                         <!-- 选项卡头部区�和-->
                         <Border Grid.Row="0"
-                               Background="{StaticResource BackgroundDarkBrush}"
+                               Background="{DynamicResource BackgroundDarkBrush}"
                                BorderBrush="{TemplateBinding BorderBrush}"
                                BorderThickness="0,0,0,1">
                             <TabPanel x:Name="HeaderPanel"
@@ -123,5 +120,10 @@
         </Setter>
         <Setter Property="ItemContainerStyle" Value="{StaticResource LOLTabItemStyle}"/>
     </Style>
+
+    <!-- 默认 TabControl 样式 -->
+    <Style TargetType="{x:Type TabControl}" BasedOn="{StaticResource LOLTabControlStyle}"/>
+    <!-- 默认 TabItem 样式 -->
+    <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource LOLTabItemStyle}"/>
 
 </ResourceDictionary>

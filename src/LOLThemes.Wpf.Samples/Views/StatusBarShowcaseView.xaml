@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="LOLThemes.Wpf.Samples.Views.StatusBarShowcaseView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
+             Background="{DynamicResource BackgroundDarkBrush}">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="30">
+        <StackPanel>
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderGoldBrush}"
+                   BorderThickness="0,0,0,2"
+                   Padding="20,15"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="StatusBar - 状态栏" 
+                          FontSize="{StaticResource FontSizeXXLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
+                          Margin="0,0,0,8"/>
+                    <TextBlock Text="状态栏用于在窗口底部显示状态信息。" 
+                          FontSize="{StaticResource FontSizeNormal}"
+                          Foreground="{DynamicResource TextSecondaryBrush}"/>
+                </StackPanel>
+            </Border>
+            
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderDarkBrush}"
+                   BorderThickness="0.5"
+                   Padding="20"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="基础用法" 
+                          FontSize="{StaticResource FontSizeLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
+                          Margin="0,0,0,15"/>
+                    
+                    <smtx:XamlDisplay UniqueKey="StatusBarBasic" Margin="0,0,0,0">
+                        <Border Width="600" HorizontalAlignment="Left" BorderBrush="{DynamicResource BorderDarkBrush}" BorderThickness="0.5">
+                            <StatusBar>
+                                <StatusBarItem Content="就绪"/>
+                                <Separator/>
+                                <StatusBarItem Content="100%"/>
+                                <Separator/>
+                                <StatusBarItem Content="行 1, 列 1"/>
+                            </StatusBar>
+                        </Border>
+                    </smtx:XamlDisplay>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
+

@@ -10,7 +10,7 @@
     <!-- Calendar Button Style -->
     <Style x:Key="CalendarButtonStyle" TargetType="{x:Type CalendarButton}">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
         <Setter Property="MinWidth" Value="40"/>
@@ -21,7 +21,7 @@
                 <ControlTemplate TargetType="{x:Type CalendarButton}">
                     <Border x:Name="Border"
                             Background="{TemplateBinding Background}"
-                            BorderBrush="{StaticResource BorderDarkBrush}"
+                            BorderBrush="{DynamicResource BorderDarkBrush}"
                             BorderThickness="0.5"
                             CornerRadius="4">
                         <ContentPresenter HorizontalAlignment="Center"
@@ -30,10 +30,10 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{StaticResource HoverGoldBrush}"/>
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource HoverGoldBrush}"/>
                         </Trigger>
                         <Trigger Property="IsInactive" Value="True">
-                            <Setter Property="Foreground" Value="{StaticResource TextDisabledBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -44,7 +44,7 @@
     <!-- Calendar Day Button Style -->
     <Style x:Key="CalendarDayButtonStyle" TargetType="{x:Type CalendarDayButton}">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
         <Setter Property="MinWidth" Value="32"/>
@@ -64,20 +64,20 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{StaticResource HoverGoldBrush}"/>
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource HoverGoldBrush}"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{StaticResource PrimaryGoldBrush}"/>
-                            <Setter Property="Foreground" Value="{StaticResource PrimaryDarkBlueBrush}"/>
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource PrimaryGoldBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource PrimaryDarkBlueBrush}"/>
                         </Trigger>
                         <Trigger Property="IsToday" Value="True">
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource PrimaryGoldBrush}"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
                         </Trigger>
                         <Trigger Property="IsInactive" Value="True">
-                            <Setter Property="Foreground" Value="{StaticResource TextDisabledBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}"/>
                         </Trigger>
                         <Trigger Property="IsBlackedOut" Value="True">
-                            <Setter Property="Foreground" Value="{StaticResource TextDisabledBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter Property="IsEnabled" Value="False"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -88,10 +88,10 @@
 
     <!-- Calendar Style -->
     <Style x:Key="LOLCalendarStyle" TargetType="{x:Type Calendar}">
-        <Setter Property="Background" Value="{StaticResource BackgroundDarkBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderGoldBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
         <Setter Property="BorderThickness" Value="0.5"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
         <Setter Property="CalendarButtonStyle" Value="{StaticResource CalendarButtonStyle}"/>
@@ -113,5 +113,8 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!-- 默认 Calendar 样式 -->
+    <Style TargetType="{x:Type Calendar}" BasedOn="{StaticResource LOLCalendarStyle}"/>
 
 </ResourceDictionary>

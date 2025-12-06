@@ -1,0 +1,170 @@
+<UserControl x:Class="LOLThemes.Wpf.Samples.Views.WindowShowcaseView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
+             xmlns:helpers="clr-namespace:LOLThemes.Wpf.Helpers;assembly=LOLThemes.Wpf"
+             Background="{DynamicResource BackgroundDarkBrush}">
+    
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="30">
+        <StackPanel>
+            <!-- 标题 -->
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderGoldBrush}"
+                   BorderThickness="0,0,0,2"
+                   Padding="20,15"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="Window - 窗口" 
+                          FontSize="{StaticResource FontSizeXXLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
+                          Margin="0,0,0,8"/>
+                    <TextBlock Text="窗口控件提供了自定义的标题栏样式，支持在标题栏右侧放置自定义内容。" 
+                          FontSize="{StaticResource FontSizeNormal}"
+                          Foreground="{DynamicResource TextSecondaryBrush}"/>
+                </StackPanel>
+            </Border>
+            
+            <!-- CustomHeaderContent 属性 -->
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderDarkBrush}"
+                   BorderThickness="0.5"
+                   Padding="20"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="CustomHeaderContent 属性" 
+                          FontSize="{StaticResource FontSizeLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
+                          Margin="0,0,0,15"/>
+                    
+                    <TextBlock Text="CustomHeaderContent 属性允许您在窗口标题栏右侧放置任意控件（按钮、文本、图标等）。" 
+                          FontSize="{StaticResource FontSizeNormal}"
+                          Foreground="{DynamicResource TextSecondaryBrush}"
+                          Margin="0,0,0,15"
+                          TextWrapping="Wrap"/>
+                    
+                    <TextBlock Text="示例代码：" 
+                          FontSize="{StaticResource FontSizeMedium}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{DynamicResource TextPrimaryBrush}"
+                          Margin="0,0,0,10"/>
+                    
+                    <smtx:XamlDisplay UniqueKey="WindowCustomHeaderContent1" Margin="0,0,0,15">
+                        <StackPanel>
+                            <TextBlock Text="单个按钮：" 
+                                  FontSize="{StaticResource FontSizeNormal}"
+                                  Foreground="{DynamicResource TextPrimaryBrush}"
+                                  Margin="0,0,0,10"/>
+                            <Border Background="{DynamicResource BackgroundLightBrush}"
+                                   BorderBrush="{DynamicResource BorderDarkBrush}"
+                                   BorderThickness="0.5"
+                                   Padding="15"
+                                   CornerRadius="4">
+                                <TextBlock FontFamily="Consolas"
+                                          FontSize="{StaticResource FontSizeSmall}"
+                                          Foreground="{DynamicResource TextSecondaryBrush}"
+                                          TextWrapping="Wrap">
+                                    <Run Text="var button = new Button { Content = &quot;设置&quot; };&#x0a;"/>
+                                    <Run Text="WindowHelper.SetCustomHeaderContent(window, button);"/>
+                                </TextBlock>
+                            </Border>
+                        </StackPanel>
+                    </smtx:XamlDisplay>
+                    
+                    <smtx:XamlDisplay UniqueKey="WindowCustomHeaderContent2" Margin="0,0,0,15">
+                        <StackPanel>
+                            <TextBlock Text="多个控件（使用StackPanel）：" 
+                                  FontSize="{StaticResource FontSizeNormal}"
+                                  Foreground="{DynamicResource TextPrimaryBrush}"
+                                  Margin="0,0,0,10"/>
+                            <Border Background="{DynamicResource BackgroundLightBrush}"
+                                   BorderBrush="{DynamicResource BorderDarkBrush}"
+                                   BorderThickness="0.5"
+                                   Padding="15"
+                                   CornerRadius="4">
+                                <TextBlock FontFamily="Consolas"
+                                          FontSize="{StaticResource FontSizeSmall}"
+                                          Foreground="{DynamicResource TextSecondaryBrush}"
+                                          TextWrapping="Wrap">
+                                    <Run Text="var panel = new StackPanel { Orientation = Orientation.Horizontal };&#x0a;"/>
+                                    <Run Text="panel.Children.Add(new Button { Content = &quot;按钮1&quot; });&#x0a;"/>
+                                    <Run Text="panel.Children.Add(new Button { Content = &quot;按钮2&quot; });&#x0a;"/>
+                                    <Run Text="WindowHelper.SetCustomHeaderContent(window, panel);"/>
+                                </TextBlock>
+                            </Border>
+                        </StackPanel>
+                    </smtx:XamlDisplay>
+                    
+                    <smtx:XamlDisplay UniqueKey="WindowCustomHeaderContent3" Margin="0,0,0,0">
+                        <StackPanel>
+                            <TextBlock Text="XAML 中使用：" 
+                                  FontSize="{StaticResource FontSizeNormal}"
+                                  Foreground="{DynamicResource TextPrimaryBrush}"
+                                  Margin="0,0,0,10"/>
+                            <Border Background="{DynamicResource BackgroundLightBrush}"
+                                   BorderBrush="{DynamicResource BorderDarkBrush}"
+                                   BorderThickness="0.5"
+                                   Padding="15"
+                                   CornerRadius="4">
+                                <TextBlock FontFamily="Consolas"
+                                          FontSize="{StaticResource FontSizeSmall}"
+                                          Foreground="{DynamicResource TextSecondaryBrush}"
+                                          TextWrapping="Wrap">
+                                    <Run Text="&lt;Window helpers:WindowHelper.EnableCustomChrome=&quot;True&quot;&#x0a;"/>
+                                    <Run Text="         helpers:WindowHelper.CustomHeaderContent=&quot;...&quot;&gt;&#x0a;"/>
+                                    <Run Text="    ...&#x0a;"/>
+                                    <Run Text="&lt;/Window&gt;"/>
+                                </TextBlock>
+                            </Border>
+                        </StackPanel>
+                    </smtx:XamlDisplay>
+                </StackPanel>
+            </Border>
+            
+            <!-- 实际示例 -->
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderDarkBrush}"
+                   BorderThickness="0.5"
+                   Padding="20"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="实际示例" 
+                          FontSize="{StaticResource FontSizeLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
+                          Margin="0,0,0,15"/>
+                    
+                    <TextBlock Text="当前窗口的右上角使用了 CustomHeaderContent 属性来显示主题切换按钮。" 
+                          FontSize="{StaticResource FontSizeNormal}"
+                          Foreground="{DynamicResource TextSecondaryBrush}"
+                          Margin="0,0,0,15"
+                          TextWrapping="Wrap"/>
+                    
+                    <Border Background="{DynamicResource BackgroundLightBrush}"
+                           BorderBrush="{DynamicResource BorderGoldBrush}"
+                           BorderThickness="1"
+                           Padding="15"
+                           CornerRadius="4">
+                        <StackPanel>
+                            <TextBlock Text="提示：" 
+                                  FontSize="{StaticResource FontSizeMedium}"
+                                  FontWeight="{StaticResource FontWeightBold}"
+                                  Foreground="{DynamicResource PrimaryGoldBrush}"
+                                  Margin="0,0,0,10"/>
+                            <TextBlock FontSize="{StaticResource FontSizeNormal}"
+                                      Foreground="{DynamicResource TextSecondaryBrush}"
+                                      TextWrapping="Wrap">
+                                <Run Text="• CustomHeaderContent 可以放置任意 UIElement，包括按钮、文本、图标、组合控件等&#x0a;"/>
+                                <Run Text="• 内容会自动显示在窗口标题栏右侧，位于最小化、最大化、关闭按钮之前&#x0a;"/>
+                                <Run Text="• 如果需要在标题栏放置多个控件，可以使用 StackPanel、Grid 等容器控件&#x0a;"/>
+                                <Run Text="• 内容会随着主题切换自动更新样式"/>
+                            </TextBlock>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
+

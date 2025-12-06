@@ -10,12 +10,12 @@
     <!-- LOL Button 样式 -->
     <Style x:Key="LOLButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{StaticResource TextBrightBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderGoldBrush}"/>
-        <Setter Property="BorderThickness" Value="0.5"/>
-        <Setter Property="Padding" Value="20,10"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThickness}"/>
+        <Setter Property="Padding" Value="{DynamicResource ButtonPadding}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -29,7 +29,7 @@
                         <Border x:Name="border"
                                BorderBrush="{TemplateBinding BorderBrush}"
                                BorderThickness="{TemplateBinding BorderThickness}"
-                               CornerRadius="0"
+                               CornerRadius="{DynamicResource ButtonCornerRadius}"
                                SnapsToDevicePixels="True">
                             <Border.Background>
                                 <LinearGradientBrush x:Name="backgroundGradient" StartPoint="0,0" EndPoint="0,1">
@@ -57,9 +57,9 @@
                         <!-- 边框高光�和-->
                         <Border x:Name="highlightBorder"
                                BorderBrush="#40F0E6D2"
-                               BorderThickness="0.5"
-                               CornerRadius="0"
-                               Margin="1"
+                               BorderThickness="{DynamicResource BorderThicknessThin}"
+                               CornerRadius="{DynamicResource ButtonCornerRadius}"
+                               Margin="{DynamicResource ControlMarginSmall}"
                                Opacity="0"
                                IsHitTestVisible="False"/>
                     </Grid>
@@ -69,14 +69,6 @@
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName="border"
-                                                       Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
-                                                       To="#F0E6D2"
-                                                       Duration="0:0:0.2">
-                                            <ColorAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </ColorAnimation.EasingFunction>
-                                        </ColorAnimation>
                                         <ColorAnimation Storyboard.TargetName="gradientStop1"
                                                        Storyboard.TargetProperty="Color"
                                                        To="#E6C8AA6E"
@@ -123,14 +115,6 @@
                             <Trigger.ExitActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName="border"
-                                                       Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
-                                                       To="#C8AA6E"
-                                                       Duration="0:0:0.2">
-                                            <ColorAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseIn"/>
-                                            </ColorAnimation.EasingFunction>
-                                        </ColorAnimation>
                                         <ColorAnimation Storyboard.TargetName="gradientStop1"
                                                        Storyboard.TargetProperty="Color"
                                                        To="#CC1E2328"
@@ -174,8 +158,8 @@
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.ExitActions>
-                            <Setter Property="Foreground" 
-                                   Value="{StaticResource TextBrightBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource HoverGoldBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
                         </Trigger>
 
                         <!-- Pressed 状�和- 带颜色过渡动�和-->
@@ -211,15 +195,15 @@
                                 </Setter.Value>
                             </Setter>
                             <Setter Property="Foreground" 
-                                   Value="{StaticResource TextPrimaryBrush}"/>
+                                   Value="{DynamicResource TextPrimaryBrush}"/>
                         </Trigger>
                         
                         <!-- Disabled 状�和-->
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="border" Property="BorderBrush" 
-                                   Value="{StaticResource TextDisabledBrush}"/>
+                                   Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter Property="Foreground" 
-                                   Value="{StaticResource TextDisabledBrush}"/>
+                                   Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter TargetName="border" Property="Opacity" Value="0.5"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -230,37 +214,37 @@
     
     <!-- 主要按钮样式（填充背景） -->
     <Style x:Key="LOLPrimaryButtonStyle" TargetType="Button" BasedOn="{StaticResource LOLButtonStyle}">
-        <Setter Property="Background" Value="{StaticResource PrimaryGoldBrush}"/>
-        <Setter Property="Foreground" Value="{StaticResource BackgroundDarkBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource PrimaryGoldBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource PrimaryGoldBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{StaticResource BackgroundDarkBrush}"/>
+                <Setter Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
     
     <!-- 次要按钮样式 -->
     <Style x:Key="LOLSecondaryButtonStyle" TargetType="Button" BasedOn="{StaticResource LOLButtonStyle}">
-        <Setter Property="BorderBrush" Value="{StaticResource Gray500Brush}"/>
-        <Setter Property="Foreground" Value="{StaticResource TextBrightBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Gray500Brush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{StaticResource TextBrightBrush}"/>
+                <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
     
     <!-- 成功按钮样式 -->
     <Style x:Key="LOLSuccessButtonStyle" TargetType="Button" BasedOn="{StaticResource LOLButtonStyle}">
-        <Setter Property="BorderBrush" Value="{StaticResource SuccessGreenBrush}"/>
-        <Setter Property="Foreground" Value="{StaticResource TextBrightBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource SuccessGreenBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
     </Style>
     
     <!-- 危险按钮样式 -->
     <Style x:Key="LOLDangerButtonStyle" TargetType="Button" BasedOn="{StaticResource LOLButtonStyle}">
-        <Setter Property="BorderBrush" Value="{StaticResource ErrorRedBrush}"/>
-        <Setter Property="Foreground" Value="{StaticResource TextBrightBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource ErrorRedBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
     </Style>
 
     <!-- 默认 Button 样式（用�和{x:Type Button} 引用�和-->

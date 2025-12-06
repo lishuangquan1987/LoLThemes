@@ -9,9 +9,9 @@
 
     <!-- Menu Separator Style -->
     <Style x:Key="MenuSeparatorStyle" TargetType="{x:Type Separator}">
-        <Setter Property="Background" Value="{StaticResource BorderDarkBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="Height" Value="1"/>
-        <Setter Property="Margin" Value="4,2"/>
+        <Setter Property="Margin" Value="{DynamicResource ItemMargin}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Separator}">
@@ -26,21 +26,18 @@
     <!-- MenuItem Style -->
     <Style x:Key="LOLMenuItemStyle" TargetType="{x:Type MenuItem}">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
-        <Setter Property="Padding" Value="12,6"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
+        <Setter Property="Padding" Value="{DynamicResource MenuItemPadding}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type MenuItem}">
                     <Border x:Name="Border"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
+                            BorderBrush="Transparent"
+                            BorderThickness="0">
                         <Border.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                <GradientStop Color="#E61E2328" Offset="0"/>
-                                <GradientStop Color="#CC1E2328" Offset="1"/>
-                            </LinearGradientBrush>
+                            <DynamicResource ResourceKey="DarkGradientBrush"/>
                         </Border.Background>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -61,7 +58,7 @@
                             <Path Grid.Column="0"
                                   x:Name="CheckMark"
                                   Data="M0,5 L3,8 L8,0"
-                                  Stroke="{StaticResource PrimaryGoldBrush}"
+                                  Stroke="{DynamicResource PrimaryGoldBrush}"
                                   StrokeThickness="2"
                                   Visibility="Collapsed"
                                   Margin="8,0,8,0"
@@ -72,13 +69,14 @@
                                             ContentSource="Header"
                                             RecognizesAccessKey="True"
                                             VerticalAlignment="Center"
-                                            Margin="{TemplateBinding Padding}"/>
+                                            Margin="{TemplateBinding Padding}"
+                                            TextElement.Foreground="{TemplateBinding Foreground}"/>
 
                             <!-- Input Gesture Text (Shortcut) -->
                             <TextBlock Grid.Column="2"
                                      x:Name="InputGestureText"
                                      Text="{TemplateBinding InputGestureText}"
-                                     Foreground="{StaticResource TextSecondaryBrush}"
+                                     Foreground="{DynamicResource TextSecondaryBrush}"
                                      Margin="16,0,8,0"
                                      VerticalAlignment="Center"/>
 
@@ -86,7 +84,7 @@
                             <Path Grid.Column="3"
                                   x:Name="SubMenuArrow"
                                   Data="M0,0 L4,4 L0,8 Z"
-                                  Fill="{StaticResource TextPrimaryBrush}"
+                                  Fill="{DynamicResource TextBrightBrush}"
                                   Visibility="Collapsed"
                                   Margin="0,0,8,0"
                                   VerticalAlignment="Center"/>
@@ -99,13 +97,13 @@
                                    IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"
                                    Focusable="False"
                                    PopupAnimation="Fade">
-                                <Border Background="{StaticResource BackgroundDarkBrush}"
-                                        BorderBrush="{StaticResource BorderGoldBrush}"
-                                        BorderThickness="0.5"
-                                        CornerRadius="4"
-                                        Padding="4">
+                                <Border Background="{DynamicResource BackgroundMediumBrush}"
+                                        BorderBrush="{DynamicResource BorderGoldBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="2"
+                                        Padding="2">
                                     <Border.Effect>
-                                        <DropShadowEffect Color="#C8AA6E" 
+                                        <DropShadowEffect Color="{DynamicResource PrimaryGold}" 
                                                         BlurRadius="10" 
                                                         ShadowDepth="0" 
                                                         Opacity="0.3"/>
@@ -122,12 +120,12 @@
                     <ControlTemplate.Triggers>
                         <!-- Top Level Item -->
                         <Trigger Property="Role" Value="TopLevelHeader">
-                            <Setter Property="Padding" Value="12,6"/>
+                            <Setter Property="Padding" Value="{DynamicResource MenuItemPadding}"/>
                             <Setter TargetName="PART_Popup" Property="Placement" Value="Bottom"/>
                         </Trigger>
 
                         <Trigger Property="Role" Value="TopLevelItem">
-                            <Setter Property="Padding" Value="12,6"/>
+                            <Setter Property="Padding" Value="{DynamicResource MenuItemPadding}"/>
                         </Trigger>
 
                         <!-- Submenu Item -->
@@ -151,19 +149,17 @@
 
                         <!-- Mouse Over -->
                         <Trigger Property="IsHighlighted" Value="True">
-                            <Setter TargetName="Border" Property="Background">
-                                <Setter.Value>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Color="#E6C8AA6E" Offset="0"/>
-                                        <GradientStop Color="#CCC8AA6E" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource GoldGradientBrush}"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="Border" Property="BorderThickness" Value="{DynamicResource BorderThicknessMedium}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}"/>
+                            <Setter TargetName="SubMenuArrow" Property="Fill" Value="{DynamicResource BackgroundDarkBrush}"/>
+                            <Setter TargetName="InputGestureText" Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}"/>
                         </Trigger>
 
                         <!-- Disabled -->
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Foreground" Value="{StaticResource TextDisabledBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -173,13 +169,13 @@
 
     <!-- Menu Style -->
     <Style x:Key="LOLMenuStyle" TargetType="{x:Type Menu}">
-        <Setter Property="Background" Value="{StaticResource BackgroundMediumBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="0,0,0,1"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
+        <Setter Property="BorderThickness" Value="0,0,0,{DynamicResource BorderThicknessMedium}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
-        <Setter Property="ItemContainerStyle" Value="{StaticResource LOLMenuItemStyle}"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
+        <!-- 不设置 ItemContainerStyle，让 MenuItem 使用隐式样式，Separator 使用默认样式 -->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Menu}">
@@ -193,5 +189,10 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!-- 默认 Menu 样式 -->
+    <Style TargetType="{x:Type Menu}" BasedOn="{StaticResource LOLMenuStyle}"/>
+    <!-- 默认 MenuItem 样式 -->
+    <Style TargetType="{x:Type MenuItem}" BasedOn="{StaticResource LOLMenuItemStyle}"/>
 
 </ResourceDictionary>

@@ -1,0 +1,64 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Padding 相关资源（紧凑尺寸，0.8倍） -->
+    <Thickness x:Key="ButtonPadding">9.6,4.8</Thickness>
+    <Thickness x:Key="TextBoxPadding">6.4,3.2</Thickness>
+    <Thickness x:Key="PasswordBoxPadding">6.4,3.2</Thickness>
+    <Thickness x:Key="ComboBoxPadding">6.4,3.2</Thickness>
+    <Thickness x:Key="MenuItemPadding">9.6,6.4</Thickness>
+    <Thickness x:Key="TabItemPadding">9.6,6.4</Thickness>
+    <Thickness x:Key="ListBoxItemPadding">6.4,3.2</Thickness>
+    <Thickness x:Key="ListViewItemPadding">6.4,3.2</Thickness>
+    <Thickness x:Key="TreeViewItemPadding">3.2,1.6</Thickness>
+    <Thickness x:Key="DataGridCellPadding">4.8,3.2</Thickness>
+    <Thickness x:Key="GroupBoxPadding">9.6,6.4</Thickness>
+    <Thickness x:Key="ExpanderPadding">9.6,6.4</Thickness>
+    <Thickness x:Key="WindowPadding">0</Thickness>
+    
+    <!-- BorderThickness 相关资源（紧凑尺寸，0.8倍） -->
+    <Thickness x:Key="ButtonBorderThickness">0.4</Thickness>
+    <Thickness x:Key="TextBoxBorderThickness">0.4</Thickness>
+    <Thickness x:Key="PasswordBoxBorderThickness">0.4</Thickness>
+    <Thickness x:Key="ComboBoxBorderThickness">0.4</Thickness>
+    <Thickness x:Key="BorderThicknessThin">0.4</Thickness>
+    <Thickness x:Key="BorderThicknessMedium">0.8</Thickness>
+    <Thickness x:Key="BorderThicknessThick">1.6</Thickness>
+    <Thickness x:Key="WindowBorderThickness">0.8</Thickness>
+    
+    <!-- Margin 相关资源（紧凑尺寸，0.8倍） -->
+    <Thickness x:Key="ControlMarginSmall">3.2</Thickness>
+    <Thickness x:Key="ControlMarginMedium">6.4</Thickness>
+    <Thickness x:Key="ControlMarginLarge">9.6</Thickness>
+    <Thickness x:Key="ItemMargin">3.2,1.6</Thickness>
+    <Thickness x:Key="GroupMargin">9.6,6.4</Thickness>
+    
+    <!-- FontSize 相关资源（紧凑尺寸，0.8倍） -->
+    <sys:Double x:Key="FontSizeXSmall">8</sys:Double>
+    <sys:Double x:Key="FontSizeSmall">9.6</sys:Double>
+    <sys:Double x:Key="FontSizeNormal">11.2</sys:Double>
+    <sys:Double x:Key="FontSizeMedium">12.8</sys:Double>
+    <sys:Double x:Key="FontSizeLarge">16</sys:Double>
+    <sys:Double x:Key="FontSizeXLarge">19.2</sys:Double>
+    
+    <!-- CornerRadius 相关资源（紧凑尺寸，0.8倍） -->
+    <CornerRadius x:Key="CornerRadiusSmall">1.6</CornerRadius>
+    <CornerRadius x:Key="CornerRadiusMedium">3.2</CornerRadius>
+    <CornerRadius x:Key="CornerRadiusLarge">6.4</CornerRadius>
+    <CornerRadius x:Key="ButtonCornerRadius">1.6</CornerRadius>
+    <CornerRadius x:Key="TextBoxCornerRadius">1.6</CornerRadius>
+    <CornerRadius x:Key="BorderCornerRadius">3.2</CornerRadius>
+    
+    <!-- IconSize 相关资源（紧凑尺寸，0.8倍） -->
+    <sys:Double x:Key="IconSizeSmall">12.8</sys:Double>
+    <sys:Double x:Key="IconSizeMedium">19.2</sys:Double>
+    <sys:Double x:Key="IconSizeLarge">25.6</sys:Double>
+    
+    <!-- Spacing 相关资源（紧凑尺寸，0.8倍） -->
+    <sys:Double x:Key="SpacingSmall">3.2</sys:Double>
+    <sys:Double x:Key="SpacingMedium">6.4</sys:Double>
+    <sys:Double x:Key="SpacingLarge">9.6</sys:Double>
+
+</ResourceDictionary>
+

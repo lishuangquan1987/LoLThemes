@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="LOLThemes.Wpf.Samples.Views.GlowButtonShowcaseView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
+             xmlns:controls="clr-namespace:LOLThemes.Wpf.Controls;assembly=LOLThemes.Wpf"
+             Background="{StaticResource BackgroundDarkBrush}">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="30">
+        <StackPanel>
+            <!-- 标题 -->
+            <Border Background="{StaticResource BackgroundMediumBrush}"
+                   BorderBrush="{StaticResource BorderGoldBrush}"
+                   BorderThickness="0,0,0,2"
+                   Padding="20,15"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="GlowButton - 发光按钮" 
+                          FontSize="{StaticResource FontSizeXXLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{StaticResource PrimaryGoldBrush}"
+                          Margin="0,0,0,8"/>
+                    <TextBlock Text="发光按钮在鼠标悬停时会显示发光效果，非常适合重要操作。" 
+                          FontSize="{StaticResource FontSizeNormal}"
+                          Foreground="{StaticResource TextSecondaryBrush}"/>
+                </StackPanel>
+            </Border>
+            
+            <!-- 基础用法 -->
+            <Border Background="{StaticResource BackgroundMediumBrush}"
+                   BorderBrush="{StaticResource BorderDarkBrush}"
+                   BorderThickness="0.5"
+                   Padding="20"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="基础用法" 
+                          FontSize="{StaticResource FontSizeLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{StaticResource PrimaryGoldBrush}"
+                          Margin="0,0,0,15"/>
+                    
+                    <smtx:XamlDisplay UniqueKey="GlowButtonBasic" Margin="0,0,0,0">
+                        <StackPanel>
+                            <controls:GlowButton Content="发光按钮" 
+                                                GlowColor="#C8AA6E"
+                                                Width="200" Height="40"
+                                                Margin="0,0,0,15"/>
+                            <controls:GlowButton Content="自定义颜色" 
+                                                GlowColor="#0AC8B9"
+                                                Width="200" Height="40"/>
+                        </StackPanel>
+                    </smtx:XamlDisplay>
+                </StackPanel>
+            </Border>
+            
+            <!-- 不同状态 -->
+            <Border Background="{StaticResource BackgroundMediumBrush}"
+                   BorderBrush="{StaticResource BorderDarkBrush}"
+                   BorderThickness="0.5"
+                   Padding="20"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="不同状态" 
+                          FontSize="{StaticResource FontSizeLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{StaticResource PrimaryGoldBrush}"
+                          Margin="0,0,0,15"/>
+                    
+                    <smtx:XamlDisplay UniqueKey="GlowButtonStates" Margin="0,0,0,0">
+                        <StackPanel>
+                            <controls:GlowButton Content="正常状态" 
+                                                GlowColor="#C8AA6E"
+                                                Width="200" Height="40"
+                                                Margin="0,0,0,15"/>
+                            <controls:GlowButton Content="禁用状态" 
+                                                GlowColor="#C8AA6E"
+                                                IsEnabled="False"
+                                                Width="200" Height="40"/>
+                        </StackPanel>
+                    </smtx:XamlDisplay>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

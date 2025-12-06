@@ -1,13 +1,13 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
-    <!-- 合并基础资源，确保可以访问 Colors 和 Fonts -->
+    <!-- 合并基础资源，确保可以访�和Colors �和Fonts -->
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Colors.xaml"/>
         <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <!-- ScrollBar RepeatButton 样式（用于上下左右按钮和轨道） -->
+    <!-- ScrollBar RepeatButton 样式（用于上下左右按钮和轨道�和-->
     <Style x:Key="ScrollBarLineButton" TargetType="RepeatButton">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -212,7 +212,7 @@
         </Style.Triggers>
     </Style>
 
-    <!-- 设置为默认样式 -->
+    <!-- 设置为默认样�和-->
     <Style TargetType="ScrollBar" BasedOn="{StaticResource LOLScrollBarStyle}"/>
 
 </ResourceDictionary>

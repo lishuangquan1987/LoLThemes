@@ -572,7 +572,7 @@
                                   FontSize="{StaticResource FontSizeNormal}"
                                   Foreground="{StaticResource TextSecondaryBrush}"
                                   VerticalAlignment="Center"/>
-                        <TextBlock Text="0 RP"
+                        <TextBlock Text="{Binding PlayerData.RiotPoints, StringFormat='{}{0} RP'}"
                                   FontSize="{StaticResource FontSizeNormal}"
                                   FontWeight="{StaticResource FontWeightBold}"
                                   Foreground="{StaticResource PrimaryCyanBrush}"

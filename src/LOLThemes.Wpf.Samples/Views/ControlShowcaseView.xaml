@@ -4,1703 +4,207 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LOLThemes.Wpf.Samples.Views"
-             xmlns:controls="clr-namespace:LOLThemes.Wpf.Controls;assembly=LOLThemes.Wpf"
+             xmlns:viewmodels="clr-namespace:LOLThemes.Wpf.Samples.ViewModels"
+             xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1150"
              Background="{StaticResource BackgroundDarkBrush}">
     
-    <ScrollViewer VerticalScrollBarVisibility="Auto" 
-                  HorizontalScrollBarVisibility="Disabled"
-                  Padding="40">
-        <StackPanel>
-            <!-- 页面标题 -->
-            <TextBlock Text="LOL 风格控件展示" 
-                      FontSize="{StaticResource FontSizeXXLarge}"
-                      FontWeight="{StaticResource FontWeightBold}"
-                      Foreground="{StaticResource PrimaryGoldBrush}"
-                      Margin="0,0,0,20"/>
-            
-            <TextBlock Text="本页面展示 LOLThemes.Wpf 控件库中所有可用的控件样式" 
-                      FontSize="{StaticResource FontSizeNormal}"
-                      Foreground="{StaticResource TextSecondaryBrush}"
-                      Margin="0,0,0,40"/>
-            
-            <!-- Button 控件组 -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
-                   BorderThickness="1"
-                   Padding="30"
-                   Margin="0,0,0,30">
-                <StackPanel>
-                    <TextBlock Text="Button - 按钮" 
-                              FontSize="{StaticResource FontSizeLarge}"
-                              FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource TextPrimaryBrush}"
-                              Margin="0,0,0,20"/>
-                    
-                    <TextBlock Text="基础按钮样式" 
-                              FontSize="{StaticResource FontSizeNormal}"
-                              Foreground="{StaticResource TextSecondaryBrush}"
-                              Margin="0,0,0,10"/>
-                    
-                    <WrapPanel Margin="0,0,0,20">
-                        <Button Content="默认按钮" 
-                               Style="{StaticResource LOLButtonStyle}"
-                               Width="150" Height="40" Margin="0,0,15,0"/>
-                        <Button Content="主要按钮" 
-                               Style="{StaticResource LOLPrimaryButtonStyle}"
-                               Width="150" Height="40" Margin="0,0,15,0"/>
-                        <Button Content="次要按钮" 
-                               Style="{StaticResource LOLSecondaryButtonStyle}"
-                               Width="150" Height="40" Margin="0,0,15,0"/>
-                        <Button Content="成功按钮" 
-                               Style="{StaticResource LOLSuccessButtonStyle}"
-                               Width="150" Height="40" Margin="0,0,15,0"/>
-                        <Button Content="危险按钮" 
-                               Style="{StaticResource LOLDangerButtonStyle}"
-                               Width="150" Height="40" Margin="0,0,15,0"/>
-                    </WrapPanel>
-                    
-                    <TextBlock Text="不同尺寸" 
-                              FontSize="{StaticResource FontSizeNormal}"
-                              Foreground="{StaticResource TextSecondaryBrush}"
-                              Margin="0,0,0,10"/>
-                    
-                    <WrapPanel Margin="0,0,0,20">
-                        <Button Content="小按钮" 
-                                Padding="0"
-                               Style="{StaticResource LOLButtonStyle}"
-                               FontSize="{StaticResource FontSizeSmall}"
-                               Width="100" Height="30" Margin="0,0,15,0"/>
-                        <Button Content="中等按钮" 
-                               Style="{StaticResource LOLButtonStyle}"
-                               Width="150" Height="40" Margin="0,0,15,0"/>
-                        <Button Content="大按钮" 
-                               Style="{StaticResource LOLButtonStyle}"
-                               FontSize="{StaticResource FontSizeLarge}"
-                               Width="200" Height="50" Margin="0,0,15,0"/>
-                    </WrapPanel>
-                    
-                    <TextBlock Text="禁用状态" 
-                              FontSize="{StaticResource FontSizeNormal}"
-                              Foreground="{StaticResource TextSecondaryBrush}"
-                              Margin="0,0,0,10"/>
-                    
-                    <WrapPanel>
-                        <Button Content="禁用按钮" 
-                               Style="{StaticResource LOLButtonStyle}"
-                               IsEnabled="False"
-                               Width="150" Height="40" Margin="0,0,15,0"/>
-                        <Button Content="禁用主要按钮" 
-                               Style="{StaticResource LOLPrimaryButtonStyle}"
-                               IsEnabled="False"
-                               Width="150" Height="40" Margin="0,0,15,0"/>
-                    </WrapPanel>
-                    
-                    <!-- ShowMeTheXAML 代码展示 -->
-                    <controls:ShowMeTheXAML Margin="0,20,0,0" Cursor="">
-                        <WrapPanel>
-                            <Button Content="默认按钮" 
-                                   Style="{StaticResource LOLButtonStyle}"
-                                   Width="150" Height="40" Margin="0,0,15,0"/>
-                            <Button Content="主要按钮" 
-                                   Style="{StaticResource LOLPrimaryButtonStyle}"
-                                   Width="150" Height="40" Margin="0,0,15,0"/>
-                            <Button Content="次要按钮" 
-                                   Style="{StaticResource LOLSecondaryButtonStyle}"
-                                   Width="150" Height="40" Margin="0,0,15,0"/>
-                            <Button Content="成功按钮" 
-                                   Style="{StaticResource LOLSuccessButtonStyle}"
-                                   Width="150" Height="40" Margin="0,0,15,0"/>
-                            <Button Content="危险按钮" 
-                                   Style="{StaticResource LOLDangerButtonStyle}"
-                                   Width="150" Height="40" Margin="0,0,15,0"/>
-                        </WrapPanel>
-                    </controls:ShowMeTheXAML>
-                </StackPanel>
-            </Border>
-
-
-            <!-- TextBox 控件组 -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
-                   BorderThickness="1"
-                   Padding="30"
-                   Margin="0,0,0,30">
-                <StackPanel>
-                    <TextBlock Text="TextBox - 文本输入框" 
-                              FontSize="{StaticResource FontSizeLarge}"
-                              FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource TextPrimaryBrush}"
-                              Margin="0,0,0,20"/>
-                    
-                    <TextBlock Text="基础文本框" 
-                              FontSize="{StaticResource FontSizeNormal}"
-                              Foreground="{StaticResource TextSecondaryBrush}"
-                              Margin="0,0,0,10"/>
-                    
-                    <TextBox Style="{StaticResource LOLTextBoxStyle}"
-                            Tag="请输入用户名..."
-                            Width="300" Height="40" 
-                            HorizontalAlignment="Left"
-                            Margin="0,0,0,15"/>
-                    
-                    <TextBox Style="{StaticResource LOLTextBoxStyle}"
-                            Text="已填充的文本框"
-                            Width="300" Height="40" 
-                            HorizontalAlignment="Left"
-                            Margin="0,0,0,15"/>
-                    
-                    <TextBox Style="{StaticResource LOLTextBoxStyle}"
-                            Tag="禁用状态..."
-                            IsEnabled="False"
-                            Width="300" Height="40" 
-                            HorizontalAlignment="Left"
-                            Margin="0,0,0,15"/>
-                    
-                    <TextBlock Text="多行文本框" 
-                              FontSize="{StaticResource FontSizeNormal}"
-                              Foreground="{StaticResource TextSecondaryBrush}"
-                              Margin="0,15,0,10"/>
-                    
-                    <TextBox Style="{StaticResource LOLTextBoxStyle}"
-                            Tag="请输入多行文本..."
-                            TextWrapping="Wrap"
-                            AcceptsReturn="True"
-                            VerticalScrollBarVisibility="Auto"
-                            Width="300" Height="100" 
-                            HorizontalAlignment="Left"/>
-                    
-                    <!-- ShowMeTheXAML 代码展示 -->
-                    <Expander Margin="0,20,0,0"
-                              Style="{StaticResource LOLExpanderStyle}">
-                        <Expander.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="📋" 
-                                          FontSize="{StaticResource FontSizeMedium}"
-                                          Margin="0,0,10,0"
-                                          VerticalAlignment="Center"/>
-                                <TextBlock Text="查看 XAML 代码" 
-                                          FontSize="{StaticResource FontSizeNormal}"
-                                          FontWeight="{StaticResource FontWeightMedium}"
-                                          Foreground="{StaticResource TextPrimaryBrush}"
-                                          VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Expander.Header>
-                        <Border Style="{StaticResource CodeBlockContainerStyle}"
-                               Margin="0,10,0,0">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                
-                                <Button Grid.Row="0"
-                                       Content="📋 复制代码"
-                                       Style="{StaticResource CodeBlockButtonStyle}"
-                                       HorizontalAlignment="Right"
-                                       Margin="0,0,0,10"
-                                       Click="CopyCodeToClipboard"
-                                       Tag="&lt;TextBox Style=&quot;{StaticResource LOLTextBoxStyle}&quot;
-    Tag=&quot;请输入用户名...&quot;
-    Width=&quot;300&quot; Height=&quot;40&quot;/&gt;
-
-&lt;TextBox Style=&quot;{StaticResource LOLTextBoxStyle}&quot;
-    Text=&quot;已填充的文本框&quot;
-    Width=&quot;300&quot; Height=&quot;40&quot;/&gt;
-
-&lt;TextBox Style=&quot;{StaticResource LOLTextBoxStyle}&quot;
-    Tag=&quot;请输入多行文本...&quot;
-    TextWrapping=&quot;Wrap&quot;
-    AcceptsReturn=&quot;True&quot;
-    VerticalScrollBarVisibility=&quot;Auto&quot;
-    Width=&quot;300&quot; Height=&quot;100&quot;/&gt;"/>
-                                
-                                <ScrollViewer Grid.Row="1"
-                                            VerticalScrollBarVisibility="Auto"
-                                            HorizontalScrollBarVisibility="Auto"
-                                            Background="Transparent">
-                                    <TextBlock Style="{StaticResource CodeTextStyle}"
-                                              Text="&lt;TextBox Style=&quot;{StaticResource LOLTextBoxStyle}&quot;
-    Tag=&quot;请输入用户名...&quot;
-    Width=&quot;300&quot; Height=&quot;40&quot;/&gt;
-
-&lt;TextBox Style=&quot;{StaticResource LOLTextBoxStyle}&quot;
-    Text=&quot;已填充的文本框&quot;
-    Width=&quot;300&quot; Height=&quot;40&quot;/&gt;
-
-&lt;TextBox Style=&quot;{StaticResource LOLTextBoxStyle}&quot;
-    Tag=&quot;请输入多行文本...&quot;
-    TextWrapping=&quot;Wrap&quot;
-    AcceptsReturn=&quot;True&quot;
-    VerticalScrollBarVisibility=&quot;Auto&quot;
-    Width=&quot;300&quot; Height=&quot;100&quot;/&gt;"/>
-                                </ScrollViewer>
-                            </Grid>
-                        </Border>
-                    </Expander>
-                </StackPanel>
-            </Border>
-            
-            <!-- PasswordBox 控件组 -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
-                   BorderThickness="1"
-                   Padding="30"
-                   Margin="0,0,0,30">
-                <StackPanel>
-                    <TextBlock Text="PasswordBox - 密码输入框" 
-                              FontSize="{StaticResource FontSizeLarge}"
-                              FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource TextPrimaryBrush}"
-                              Margin="0,0,0,20"/>
-                    
-                    <PasswordBox Style="{StaticResource LOLPasswordBoxStyle}"
-                                Width="300" Height="40" 
-                                HorizontalAlignment="Left"
-                                Margin="0,0,0,15"/>
-                    
-                    <PasswordBox Style="{StaticResource LOLPasswordBoxStyle}"
-                                Password="password123"
-                                Width="300" Height="40" 
-                                HorizontalAlignment="Left"
-                                Margin="0,0,0,15"/>
-                    
-                    <PasswordBox Style="{StaticResource LOLPasswordBoxStyle}"
-                                IsEnabled="False"
-                                Width="300" Height="40" 
-                                HorizontalAlignment="Left"/>
-                    
-                    <!-- ShowMeTheXAML 代码展示 -->
-                    <controls:ShowMeTheXAML Margin="0,20,0,0">
-                        <StackPanel>
-                            <PasswordBox Style="{StaticResource LOLPasswordBoxStyle}"
-                                        Width="300" Height="40" 
-                                        HorizontalAlignment="Left"
-                                        Margin="0,0,0,10"/>
-                            <PasswordBox Style="{StaticResource LOLPasswordBoxStyle}"
-                                        Width="300" Height="40" 
-                                        HorizontalAlignment="Left"/>
-                        </StackPanel>
-                    </controls:ShowMeTheXAML>
-                </StackPanel>
-            </Border>
-            
-            <!-- ComboBox 控件组 -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
-                   BorderThickness="1"
-                   Padding="30"
-                   Margin="0,0,0,30">
-                <StackPanel>
-                    <TextBlock Text="ComboBox - 组合框/下拉列表" 
-                              FontSize="{StaticResource FontSizeLarge}"
-                              FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource TextPrimaryBrush}"
-                              Margin="0,0,0,20"/>
-                    
-                    <TextBlock Text="基础组合框" 
-                              FontSize="{StaticResource FontSizeNormal}"
-                              Foreground="{StaticResource TextSecondaryBrush}"
-                              Margin="0,0,0,10"/>
-                    
-                    <ComboBox Style="{StaticResource LOLComboBoxStyle}"
-                             Width="300" Height="40" 
-                             HorizontalAlignment="Left"
-                             Margin="0,0,0,15">
-                        <ComboBoxItem Content="选项 1"/>
-                        <ComboBoxItem Content="选项 2"/>
-                        <ComboBoxItem Content="选项 3"/>
-                        <ComboBoxItem Content="选项 4"/>
-                        <ComboBoxItem Content="选项 5"/>
-                    </ComboBox>
-                    
-                    <ComboBox Style="{StaticResource LOLComboBoxStyle}"
-                             Width="300" Height="40" 
-                             HorizontalAlignment="Left"
-                             SelectedIndex="1"
-                             Margin="0,0,0,15">
-                        <ComboBoxItem Content="已选中项 1"/>
-                        <ComboBoxItem Content="已选中项 2"/>
-                        <ComboBoxItem Content="已选中项 3"/>
-                    </ComboBox>
-                    
-                    <ComboBox Style="{StaticResource LOLComboBoxStyle}"
-                             Width="300" Height="40" 
-                             HorizontalAlignment="Left"
-                             IsEnabled="False">
-                        <ComboBoxItem Content="禁用状态"/>
-                    </ComboBox>
-                    
-                    <!-- ShowMeTheXAML 代码展示 -->
-                    <Expander Margin="0,20,0,0"
-                              Style="{StaticResource LOLExpanderStyle}">
-                        <Expander.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="📋" 
-                                          FontSize="{StaticResource FontSizeMedium}"
-                                          Margin="0,0,10,0"
-                                          VerticalAlignment="Center"/>
-                                <TextBlock Text="查看 XAML 代码" 
-                                          FontSize="{StaticResource FontSizeNormal}"
-                                          FontWeight="{StaticResource FontWeightMedium}"
-                                          Foreground="{StaticResource TextPrimaryBrush}"
-                                          VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Expander.Header>
-                        <Border Style="{StaticResource CodeBlockContainerStyle}"
-                               Margin="0,10,0,0">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                
-                                <Button Grid.Row="0"
-                                       Content="📋 复制代码"
-                                       Style="{StaticResource CodeBlockButtonStyle}"
-                                       HorizontalAlignment="Right"
-                                       Margin="0,0,0,10"
-                                       Click="CopyCodeToClipboard"
-                                       Tag="&lt;ComboBox Style=&quot;{StaticResource LOLComboBoxStyle}&quot;
-    Width=&quot;300&quot; Height=&quot;40&quot;&gt;
-    &lt;ComboBoxItem Content=&quot;选项 1&quot;/&gt;
-    &lt;ComboBoxItem Content=&quot;选项 2&quot;/&gt;
-    &lt;ComboBoxItem Content=&quot;选项 3&quot;/&gt;
-&lt;/ComboBox&gt;"/>
-                                
-                                <ScrollViewer Grid.Row="1"
-                                            VerticalScrollBarVisibility="Auto"
-                                            HorizontalScrollBarVisibility="Auto"
-                                            Background="Transparent">
-                                    <TextBlock Style="{StaticResource CodeTextStyle}"
-                                              Text="&lt;ComboBox Style=&quot;{StaticResource LOLComboBoxStyle}&quot;
-    Width=&quot;300&quot; Height=&quot;40&quot;&gt;
-    &lt;ComboBoxItem Content=&quot;选项 1&quot;/&gt;
-    &lt;ComboBoxItem Content=&quot;选项 2&quot;/&gt;
-    &lt;ComboBoxItem Content=&quot;选项 3&quot;/&gt;
-&lt;/ComboBox&gt;"/>
-                                </ScrollViewer>
-                            </Grid>
-                        </Border>
-                    </Expander>
-                </StackPanel>
-            </Border>
-            
-            <!-- CheckBox 控件组 -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
-                   BorderThickness="1"
-                   Padding="30"
-                   Margin="0,0,0,30">
-                <StackPanel>
-                    <TextBlock Text="CheckBox - 复选框" 
-                              FontSize="{StaticResource FontSizeLarge}"
-                              FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource TextPrimaryBrush}"
-                              Margin="0,0,0,20"/>
-                    
-                    <StackPanel Margin="0,0,0,20">
-                        <CheckBox Content="未选中复选框" 
-                                 Style="{StaticResource LOLCheckBoxStyle}"
-                                 Margin="0,0,0,10"/>
-                        <CheckBox Content="已选中复选框" 
-                                 Style="{StaticResource LOLCheckBoxStyle}"
-                                 IsChecked="True"
-                                 Margin="0,0,0,10"/>
-                        <CheckBox Content="禁用复选框" 
-                                 Style="{StaticResource LOLCheckBoxStyle}"
-                                 IsEnabled="False"
-                                 Margin="0,0,0,10"/>
-                        <CheckBox Content="禁用已选中" 
-                                 Style="{StaticResource LOLCheckBoxStyle}"
-                                 IsChecked="True"
-                                 IsEnabled="False"/>
+    <UserControl.DataContext>
+        <viewmodels:ControlShowcaseViewModel/>
+    </UserControl.DataContext>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- 左侧导航栏 -->
+        <Border Grid.Column="0"
+               Background="{StaticResource BackgroundMediumBrush}"
+               BorderBrush="{StaticResource BorderDarkBrush}"
+               BorderThickness="0,0,1,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <!-- 标题 -->
+                <Border Grid.Row="0"
+                       Background="{StaticResource BackgroundDarkBrush}"
+                       BorderBrush="{StaticResource BorderGoldBrush}"
+                       BorderThickness="0,0,0,1"
+                       Padding="15,20">
+                    <StackPanel>
+                        <TextBlock Text="控件列表"
+                                  FontSize="{StaticResource FontSizeLarge}"
+                                  FontWeight="{StaticResource FontWeightBold}"
+                                  Foreground="{StaticResource PrimaryGoldBrush}"/>
+                        <TextBlock Text="选择控件查看详情"
+                                  FontSize="{StaticResource FontSizeSmall}"
+                                  Foreground="{StaticResource TextSecondaryBrush}"
+                                  Margin="0,5,0,0"/>
                     </StackPanel>
-                    
-                    <!-- ShowMeTheXAML 代码展示 -->
-                    <Expander Margin="0,20,0,0"
-                              Style="{StaticResource LOLExpanderStyle}">
-                        <Expander.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="📋" 
-                                          FontSize="{StaticResource FontSizeMedium}"
-                                          Margin="0,0,10,0"
-                                          VerticalAlignment="Center"/>
-                                <TextBlock Text="查看 XAML 代码" 
-                                          FontSize="{StaticResource FontSizeNormal}"
-                                          FontWeight="{StaticResource FontWeightMedium}"
-                                          Foreground="{StaticResource TextPrimaryBrush}"
-                                          VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Expander.Header>
-                        <Border Style="{StaticResource CodeBlockContainerStyle}"
-                               Margin="0,10,0,0">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                
-                                <Button Grid.Row="0"
-                                       Content="📋 复制代码"
-                                       Style="{StaticResource CodeBlockButtonStyle}"
-                                       HorizontalAlignment="Right"
-                                       Margin="0,0,0,10"
-                                       Click="CopyCodeToClipboard"
-                                       Tag="&lt;CheckBox Content=&quot;未选中复选框&quot; 
-    Style=&quot;{StaticResource LOLCheckBoxStyle}&quot;/&gt;
-
-&lt;CheckBox Content=&quot;已选中复选框&quot; 
-    Style=&quot;{StaticResource LOLCheckBoxStyle}&quot;
-    IsChecked=&quot;True&quot;/&gt;"/>
-                                
-                                <ScrollViewer Grid.Row="1"
-                                            VerticalScrollBarVisibility="Auto"
-                                            HorizontalScrollBarVisibility="Auto"
-                                            Background="Transparent">
-                                    <TextBlock Style="{StaticResource CodeTextStyle}"
-                                              Text="&lt;CheckBox Content=&quot;未选中复选框&quot; 
-    Style=&quot;{StaticResource LOLCheckBoxStyle}&quot;/&gt;
-
-&lt;CheckBox Content=&quot;已选中复选框&quot; 
-    Style=&quot;{StaticResource LOLCheckBoxStyle}&quot;
-    IsChecked=&quot;True&quot;/&gt;"/>
-                                </ScrollViewer>
-                            </Grid>
-                        </Border>
-                    </Expander>
-                </StackPanel>
-            </Border>
-            
-            <!-- RadioButton 控件组 -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
-                   BorderThickness="1"
-                   Padding="30"
-                   Margin="0,0,0,30">
-                <StackPanel>
-                    <TextBlock Text="RadioButton - 单选按钮" 
-                              FontSize="{StaticResource FontSizeLarge}"
-                              FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource TextPrimaryBrush}"
-                              Margin="0,0,0,20"/>
-                    
-                    <StackPanel Margin="0,0,0,20">
-                        <RadioButton Content="选项 1" 
-                                    Style="{StaticResource LOLRadioButtonStyle}"
-                                    GroupName="RadioGroup1"
-                                    Margin="0,0,0,10"/>
-                        <RadioButton Content="选项 2" 
-                                    Style="{StaticResource LOLRadioButtonStyle}"
-                                    GroupName="RadioGroup1"
-                                    IsChecked="True"
-                                    Margin="0,0,0,10"/>
-                        <RadioButton Content="选项 3" 
-                                    Style="{StaticResource LOLRadioButtonStyle}"
-                                    GroupName="RadioGroup1"
-                                    Margin="0,0,0,10"/>
-                        <RadioButton Content="禁用选项" 
-                                    Style="{StaticResource LOLRadioButtonStyle}"
-                                    GroupName="RadioGroup1"
-                                    IsEnabled="False"/>
-                    </StackPanel>
-                    
-                    <!-- ShowMeTheXAML 代码展示 -->
-                    <Expander Margin="0,20,0,0"
-                              Style="{StaticResource LOLExpanderStyle}">
-                        <Expander.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="📋" 
-                                          FontSize="{StaticResource FontSizeMedium}"
-                                          Margin="0,0,10,0"
-                                          VerticalAlignment="Center"/>
-                                <TextBlock Text="查看 XAML 代码" 
-                                          FontSize="{StaticResource FontSizeNormal}"
-                                          FontWeight="{StaticResource FontWeightMedium}"
-                                          Foreground="{StaticResource TextPrimaryBrush}"
-                                          VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Expander.Header>
-                        <Border Style="{StaticResource CodeBlockContainerStyle}"
-                               Margin="0,10,0,0">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                
-                                <Button Grid.Row="0"
-                                       Content="📋 复制代码"
-                                       Style="{StaticResource CodeBlockButtonStyle}"
-                                       HorizontalAlignment="Right"
-                                       Margin="0,0,0,10"
-                                       Click="CopyCodeToClipboard"
-                                       Tag="&lt;RadioButton Content=&quot;选项 1&quot; 
-    Style=&quot;{StaticResource LOLRadioButtonStyle}&quot;
-    GroupName=&quot;RadioGroup1&quot;/&gt;
-
-&lt;RadioButton Content=&quot;选项 2&quot; 
-    Style=&quot;{StaticResource LOLRadioButtonStyle}&quot;
-    GroupName=&quot;RadioGroup1&quot;
-    IsChecked=&quot;True&quot;/&gt;"/>
-                                
-                                <ScrollViewer Grid.Row="1"
-                                            VerticalScrollBarVisibility="Auto"
-                                            HorizontalScrollBarVisibility="Auto"
-                                            Background="Transparent">
-                                    <TextBlock Style="{StaticResource CodeTextStyle}"
-                                              Text="&lt;RadioButton Content=&quot;选项 1&quot; 
-    Style=&quot;{StaticResource LOLRadioButtonStyle}&quot;
-    GroupName=&quot;RadioGroup1&quot;/&gt;
-
-&lt;RadioButton Content=&quot;选项 2&quot; 
-    Style=&quot;{StaticResource LOLRadioButtonStyle}&quot;
-    GroupName=&quot;RadioGroup1&quot;
-    IsChecked=&quot;True&quot;/&gt;"/>
-                                </ScrollViewer>
-                            </Grid>
-                        </Border>
-                    </Expander>
-                </StackPanel>
-            </Border>
-            
-            <!-- ProgressBar 控件组 -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
-                   BorderThickness="1"
-                   Padding="30"
-                   Margin="0,0,0,30">
-                <StackPanel>
-                    <TextBlock Text="ProgressBar - 进度条" 
-                              FontSize="{StaticResource FontSizeLarge}"
-                              FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource TextPrimaryBrush}"
-                              Margin="0,0,0,20"/>
-                    
-                    <StackPanel Margin="0,0,0,20">
-                        <ProgressBar Style="{StaticResource LOLProgressBarStyle}"
-                                    Value="30"
-                                    Width="300"
-                                    Height="20"
-                                    Margin="0,0,0,15"/>
-                        <ProgressBar Style="{StaticResource LOLProgressBarStyle}"
-                                    Value="60"
-                                    Width="300"
-                                    Height="20"
-                                    Margin="0,0,0,15"/>
-                        <ProgressBar Style="{StaticResource LOLProgressBarStyle}"
-                                    Value="100"
-                                    Width="300"
-                                    Height="20"
-                                    Margin="0,0,0,15"/>
-                        <ProgressBar Style="{StaticResource LOLProgressBarStyle}"
-                                    IsIndeterminate="True"
-                                    Width="300"
-                                    Height="20"/>
-                    </StackPanel>
-                    
-                    <!-- ShowMeTheXAML 代码展示 -->
-                    <Expander Margin="0,20,0,0"
-                              Style="{StaticResource LOLExpanderStyle}">
-                        <Expander.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="📋" 
-                                          FontSize="{StaticResource FontSizeMedium}"
-                                          Margin="0,0,10,0"
-                                          VerticalAlignment="Center"/>
-                                <TextBlock Text="查看 XAML 代码" 
-                                          FontSize="{StaticResource FontSizeNormal}"
-                                          FontWeight="{StaticResource FontWeightMedium}"
-                                          Foreground="{StaticResource TextPrimaryBrush}"
-                                          VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Expander.Header>
-                        <Border Style="{StaticResource CodeBlockContainerStyle}"
-                               Margin="0,10,0,0">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                
-                                <Button Grid.Row="0"
-                                       Content="📋 复制代码"
-                                       Style="{StaticResource CodeBlockButtonStyle}"
-                                       HorizontalAlignment="Right"
-                                       Margin="0,0,0,10"
-                                       Click="CopyCodeToClipboard"
-                                       Tag="&lt;ProgressBar Style=&quot;{StaticResource LOLProgressBarStyle}&quot;
-    Value=&quot;60&quot;
-    Width=&quot;300&quot;
-    Height=&quot;20&quot;/&gt;"/>
-                                
-                                <ScrollViewer Grid.Row="1"
-                                            VerticalScrollBarVisibility="Auto"
-                                            HorizontalScrollBarVisibility="Auto"
-                                            Background="Transparent">
-                                    <TextBlock Style="{StaticResource CodeTextStyle}"
-                                              Text="&lt;ProgressBar Style=&quot;{StaticResource LOLProgressBarStyle}&quot;
-    Value=&quot;60&quot;
-    Width=&quot;300&quot;
-    Height=&quot;20&quot;/&gt;"/>
-                                </ScrollViewer>
-                            </Grid>
-                        </Border>
-                    </Expander>
-                </StackPanel>
-            </Border>
-            
-            <!-- ToggleButton 控件组 -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
-                   BorderThickness="1"
-                   Padding="30"
-                   Margin="0,0,0,30">
-                <StackPanel>
-                    <TextBlock Text="ToggleButton - 切换按钮" 
-                              FontSize="{StaticResource FontSizeLarge}"
-                              FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource TextPrimaryBrush}"
-                              Margin="0,0,0,20"/>
-                    
-                    <StackPanel Margin="0,0,0,20">
-                        <ToggleButton Content="未选中" 
-                                     Style="{StaticResource LOLToggleButtonStyle}"
-                                     Width="150" Height="40"
-                                     Margin="0,0,0,10"/>
-                        <ToggleButton Content="已选中" 
-                                     Style="{StaticResource LOLToggleButtonStyle}"
-                                     IsChecked="True"
-                                     Width="150" Height="40"
-                                     Margin="0,0,0,10"/>
-                        <ToggleButton Content="禁用状态" 
-                                     Style="{StaticResource LOLToggleButtonStyle}"
-                                     IsEnabled="False"
-                                     Width="150" Height="40"/>
-                    </StackPanel>
-                    
-                    <!-- ShowMeTheXAML 代码展示 -->
-                    <Expander Margin="0,20,0,0"
-                              Style="{StaticResource LOLExpanderStyle}">
-                        <Expander.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="📋" 
-                                          FontSize="{StaticResource FontSizeMedium}"
-                                          Margin="0,0,10,0"
-                                          VerticalAlignment="Center"/>
-                                <TextBlock Text="查看 XAML 代码" 
-                                          FontSize="{StaticResource FontSizeNormal}"
-                                          FontWeight="{StaticResource FontWeightMedium}"
-                                          Foreground="{StaticResource TextPrimaryBrush}"
-                                          VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Expander.Header>
-                        <Border Style="{StaticResource CodeBlockContainerStyle}"
-                               Margin="0,10,0,0">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                
-                                <Button Grid.Row="0"
-                                       Content="📋 复制代码"
-                                       Style="{StaticResource CodeBlockButtonStyle}"
-                                       HorizontalAlignment="Right"
-                                       Margin="0,0,0,10"
-                                       Click="CopyCodeToClipboard"
-                                       Tag="&lt;ToggleButton Content=&quot;未选中&quot; 
-    Style=&quot;{StaticResource LOLToggleButtonStyle}&quot;
-    Width=&quot;150&quot; Height=&quot;40&quot;/&gt;
-
-&lt;ToggleButton Content=&quot;已选中&quot; 
-    Style=&quot;{StaticResource LOLToggleButtonStyle}&quot;
-    IsChecked=&quot;True&quot;
-    Width=&quot;150&quot; Height=&quot;40&quot;/&gt;"/>
-                                
-                                <ScrollViewer Grid.Row="1"
-                                            VerticalScrollBarVisibility="Auto"
-                                            HorizontalScrollBarVisibility="Auto"
-                                            Background="Transparent">
-                                    <TextBlock Style="{StaticResource CodeTextStyle}"
-                                              Text="&lt;ToggleButton Content=&quot;未选中&quot; 
-    Style=&quot;{StaticResource LOLToggleButtonStyle}&quot;
-    Width=&quot;150&quot; Height=&quot;40&quot;/&gt;
-
-&lt;ToggleButton Content=&quot;已选中&quot; 
-    Style=&quot;{StaticResource LOLToggleButtonStyle}&quot;
-    IsChecked=&quot;True&quot;
-    Width=&quot;150&quot; Height=&quot;40&quot;/&gt;"/>
-                                </ScrollViewer>
-                            </Grid>
-                        </Border>
-                    </Expander>
-                </StackPanel>
-            </Border>
-            
-            <!-- Slider 控件组 -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
-                   BorderThickness="1"
-                   Padding="30"
-                   Margin="0,0,0,30">
-                <StackPanel>
-                    <TextBlock Text="Slider - 滑块" 
-                              FontSize="{StaticResource FontSizeLarge}"
-                              FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource TextPrimaryBrush}"
-                              Margin="0,0,0,20"/>
-                    
-                    <StackPanel Margin="0,0,0,20">
-                        <Slider Style="{StaticResource LOLSliderStyle}"
-                               Minimum="0" Maximum="100" Value="30"
-                               Width="300"
-                               Margin="0,0,0,15"/>
-                        <Slider Style="{StaticResource LOLSliderStyle}"
-                               Minimum="0" Maximum="100" Value="60"
-                               Width="300"
-                               Margin="0,0,0,15"/>
-                        <Slider Style="{StaticResource LOLSliderStyle}"
-                               Minimum="0" Maximum="100" Value="100"
-                               Width="300"
-                               IsEnabled="False"/>
-                    </StackPanel>
-                    
-                    <!-- ShowMeTheXAML 代码展示 -->
-                    <Expander Margin="0,20,0,0"
-                              Style="{StaticResource LOLExpanderStyle}">
-                        <Expander.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="📋" 
-                                          FontSize="{StaticResource FontSizeMedium}"
-                                          Margin="0,0,10,0"
-                                          VerticalAlignment="Center"/>
-                                <TextBlock Text="查看 XAML 代码" 
-                                          FontSize="{StaticResource FontSizeNormal}"
-                                          FontWeight="{StaticResource FontWeightMedium}"
-                                          Foreground="{StaticResource TextPrimaryBrush}"
-                                          VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Expander.Header>
-                        <Border Style="{StaticResource CodeBlockContainerStyle}"
-                               Margin="0,10,0,0">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                
-                                <Button Grid.Row="0"
-                                       Content="📋 复制代码"
-                                       Style="{StaticResource CodeBlockButtonStyle}"
-                                       HorizontalAlignment="Right"
-                                       Margin="0,0,0,10"
-                                       Click="CopyCodeToClipboard"
-                                       Tag="&lt;Slider Style=&quot;{StaticResource LOLSliderStyle}&quot;
-    Minimum=&quot;0&quot; Maximum=&quot;100&quot; Value=&quot;60&quot;
-    Width=&quot;300&quot;/&gt;"/>
-                                
-                                <ScrollViewer Grid.Row="1"
-                                            VerticalScrollBarVisibility="Auto"
-                                            HorizontalScrollBarVisibility="Auto"
-                                            Background="Transparent">
-                                    <TextBlock Style="{StaticResource CodeTextStyle}"
-                                              Text="&lt;Slider Style=&quot;{StaticResource LOLSliderStyle}&quot;
-    Minimum=&quot;0&quot; Maximum=&quot;100&quot; Value=&quot;60&quot;
-    Width=&quot;300&quot;/&gt;"/>
-                                </ScrollViewer>
-                            </Grid>
-                        </Border>
-                    </Expander>
-                </StackPanel>
-            </Border>
-            
-            <!-- ListBox 控件组 -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
-                   BorderThickness="1"
-                   Padding="30"
-                   Margin="0,0,0,30">
-                <StackPanel>
-                    <TextBlock Text="ListBox - 列表框" 
-                              FontSize="{StaticResource FontSizeLarge}"
-                              FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource TextPrimaryBrush}"
-                              Margin="0,0,0,20"/>
-                    
-                    <ListBox Style="{StaticResource LOLListBoxStyle}"
-                            Width="300" Height="150"
-                            HorizontalAlignment="Left"
-                            Margin="0,0,0,20">
-                        <ListBoxItem Content="选项 1"/>
-                        <ListBoxItem Content="选项 2" IsSelected="True"/>
-                        <ListBoxItem Content="选项 3"/>
-                        <ListBoxItem Content="选项 4"/>
-                        <ListBoxItem Content="选项 5"/>
-                    </ListBox>
-                    
-                    <!-- ShowMeTheXAML 代码展示 -->
-                    <Expander Margin="0,20,0,0"
-                              Style="{StaticResource LOLExpanderStyle}">
-                        <Expander.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="📋" 
-                                          FontSize="{StaticResource FontSizeMedium}"
-                                          Margin="0,0,10,0"
-                                          VerticalAlignment="Center"/>
-                                <TextBlock Text="查看 XAML 代码" 
-                                          FontSize="{StaticResource FontSizeNormal}"
-                                          FontWeight="{StaticResource FontWeightMedium}"
-                                          Foreground="{StaticResource TextPrimaryBrush}"
-                                          VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Expander.Header>
-                        <Border Style="{StaticResource CodeBlockContainerStyle}"
-                               Margin="0,10,0,0">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                
-                                <Button Grid.Row="0"
-                                       Content="📋 复制代码"
-                                       Style="{StaticResource CodeBlockButtonStyle}"
-                                       HorizontalAlignment="Right"
-                                       Margin="0,0,0,10"
-                                       Click="CopyCodeToClipboard"
-                                       Tag="&lt;ListBox Style=&quot;{StaticResource LOLListBoxStyle}&quot;
-    Width=&quot;300&quot; Height=&quot;150&quot;&gt;
-    &lt;ListBoxItem Content=&quot;选项 1&quot;/&gt;
-    &lt;ListBoxItem Content=&quot;选项 2&quot; IsSelected=&quot;True&quot;/&gt;
-    &lt;ListBoxItem Content=&quot;选项 3&quot;/&gt;
-&lt;/ListBox&gt;"/>
-                                
-                                <ScrollViewer Grid.Row="1"
-                                            VerticalScrollBarVisibility="Auto"
-                                            HorizontalScrollBarVisibility="Auto"
-                                            Background="Transparent">
-                                    <TextBlock Style="{StaticResource CodeTextStyle}"
-                                              Text="&lt;ListBox Style=&quot;{StaticResource LOLListBoxStyle}&quot;
-    Width=&quot;300&quot; Height=&quot;150&quot;&gt;
-    &lt;ListBoxItem Content=&quot;选项 1&quot;/&gt;
-    &lt;ListBoxItem Content=&quot;选项 2&quot; IsSelected=&quot;True&quot;/&gt;
-    &lt;ListBoxItem Content=&quot;选项 3&quot;/&gt;
-&lt;/ListBox&gt;"/>
-                                </ScrollViewer>
-                            </Grid>
-                        </Border>
-                    </Expander>
-                </StackPanel>
-            </Border>
-            
-            <!-- TabControl 控件组 -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
-                   BorderThickness="1"
-                   Padding="30"
-                   Margin="0,0,0,30">
-                <StackPanel>
-                    <TextBlock Text="TabControl - 选项卡控件" 
-                              FontSize="{StaticResource FontSizeLarge}"
-                              FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource TextPrimaryBrush}"
-                              Margin="0,0,0,20"/>
-                    
-                    <TabControl Style="{StaticResource LOLTabControlStyle}"
-                               Width="400" Height="200"
-                               HorizontalAlignment="Left"
-                               Margin="0,0,0,20">
-                        <TabItem Header="选项卡 1" Style="{StaticResource LOLTabItemStyle}">
-                            <TextBlock Text="这是第一个选项卡的内容" 
-                                      Foreground="{StaticResource TextPrimaryBrush}"
-                                      Margin="10"/>
-                        </TabItem>
-                        <TabItem Header="选项卡 2" Style="{StaticResource LOLTabItemStyle}">
-                            <TextBlock Text="这是第二个选项卡的内容" 
-                                      Foreground="{StaticResource TextPrimaryBrush}"
-                                      Margin="10"/>
-                        </TabItem>
-                        <TabItem Header="选项卡 3" Style="{StaticResource LOLTabItemStyle}">
-                            <TextBlock Text="这是第三个选项卡的内容" 
-                                      Foreground="{StaticResource TextPrimaryBrush}"
-                                      Margin="10"/>
-                        </TabItem>
-                    </TabControl>
-                    
-                    <!-- ShowMeTheXAML 代码展示 -->
-                    <Expander Margin="0,20,0,0"
-                              Style="{StaticResource LOLExpanderStyle}">
-                        <Expander.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="📋" 
-                                          FontSize="{StaticResource FontSizeMedium}"
-                                          Margin="0,0,10,0"
-                                          VerticalAlignment="Center"/>
-                                <TextBlock Text="查看 XAML 代码" 
-                                          FontSize="{StaticResource FontSizeNormal}"
-                                          FontWeight="{StaticResource FontWeightMedium}"
-                                          Foreground="{StaticResource TextPrimaryBrush}"
-                                          VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Expander.Header>
-                        <Border Style="{StaticResource CodeBlockContainerStyle}"
-                               Margin="0,10,0,0">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                
-                                <Button Grid.Row="0"
-                                       Content="📋 复制代码"
-                                       Style="{StaticResource CodeBlockButtonStyle}"
-                                       HorizontalAlignment="Right"
-                                       Margin="0,0,0,10"
-                                       Click="CopyCodeToClipboard"
-                                       Tag="&lt;TabControl Style=&quot;{StaticResource LOLTabControlStyle}&quot;
-    Width=&quot;400&quot; Height=&quot;200&quot;&gt;
-    &lt;TabItem Header=&quot;选项卡 1&quot; Style=&quot;{StaticResource LOLTabItemStyle}&quot;&gt;
-        &lt;TextBlock Text=&quot;内容&quot;/&gt;
-    &lt;/TabItem&gt;
-    &lt;TabItem Header=&quot;选项卡 2&quot; Style=&quot;{StaticResource LOLTabItemStyle}&quot;&gt;
-        &lt;TextBlock Text=&quot;内容&quot;/&gt;
-    &lt;/TabItem&gt;
-&lt;/TabControl&gt;"/>
-                                
-                                <ScrollViewer Grid.Row="1"
-                                            VerticalScrollBarVisibility="Auto"
-                                            HorizontalScrollBarVisibility="Auto"
-                                            Background="Transparent">
-                                    <TextBlock Style="{StaticResource CodeTextStyle}"
-                                              Text="&lt;TabControl Style=&quot;{StaticResource LOLTabControlStyle}&quot;
-    Width=&quot;400&quot; Height=&quot;200&quot;&gt;
-    &lt;TabItem Header=&quot;选项卡 1&quot; Style=&quot;{StaticResource LOLTabItemStyle}&quot;&gt;
-        &lt;TextBlock Text=&quot;内容&quot;/&gt;
-    &lt;/TabItem&gt;
-    &lt;TabItem Header=&quot;选项卡 2&quot; Style=&quot;{StaticResource LOLTabItemStyle}&quot;&gt;
-        &lt;TextBlock Text=&quot;内容&quot;/&gt;
-    &lt;/TabItem&gt;
-&lt;/TabControl&gt;"/>
-                                </ScrollViewer>
-                            </Grid>
-                        </Border>
-                    </Expander>
-                </StackPanel>
-            </Border>
-            
-            <!-- GroupBox 控件组 -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
-                   BorderThickness="1"
-                   Padding="30"
-                   Margin="0,0,0,30">
-                <StackPanel>
-                    <TextBlock Text="GroupBox - 分组框" 
-                              FontSize="{StaticResource FontSizeLarge}"
-                              FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource TextPrimaryBrush}"
-                              Margin="0,0,0,20"/>
-                    
-                    <GroupBox Header="分组标题" 
-                             Style="{StaticResource LOLGroupBoxStyle}"
-                             Width="400"
-                             HorizontalAlignment="Left"
-                             Margin="0,0,0,20">
-                        <StackPanel>
-                            <TextBlock Text="这是分组框内的内容" 
-                                      Foreground="{StaticResource TextPrimaryBrush}"
-                                      Margin="10"/>
-                            <Button Content="分组内的按钮" 
-                                   Style="{StaticResource LOLSecondaryButtonStyle}"
-                                   Width="150" Height="35"
-                                   Margin="10"/>
-                        </StackPanel>
-                    </GroupBox>
-                    
-                    <!-- ShowMeTheXAML 代码展示 -->
-                    <Expander Margin="0,20,0,0"
-                              Style="{StaticResource LOLExpanderStyle}">
-                        <Expander.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="📋" 
-                                          FontSize="{StaticResource FontSizeMedium}"
-                                          Margin="0,0,10,0"
-                                          VerticalAlignment="Center"/>
-                                <TextBlock Text="查看 XAML 代码" 
-                                          FontSize="{StaticResource FontSizeNormal}"
-                                          FontWeight="{StaticResource FontWeightMedium}"
-                                          Foreground="{StaticResource TextPrimaryBrush}"
-                                          VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Expander.Header>
-                        <Border Style="{StaticResource CodeBlockContainerStyle}"
-                               Margin="0,10,0,0">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                
-                                <Button Grid.Row="0"
-                                       Content="📋 复制代码"
-                                       Style="{StaticResource CodeBlockButtonStyle}"
-                                       HorizontalAlignment="Right"
-                                       Margin="0,0,0,10"
-                                       Click="CopyCodeToClipboard"
-                                       Tag="&lt;GroupBox Header=&quot;分组标题&quot; 
-    Style=&quot;{StaticResource LOLGroupBoxStyle}&quot;&gt;
-    &lt;StackPanel&gt;
-        &lt;TextBlock Text=&quot;内容&quot;/&gt;
-    &lt;/StackPanel&gt;
-&lt;/GroupBox&gt;"/>
-                                
-                                <ScrollViewer Grid.Row="1"
-                                            VerticalScrollBarVisibility="Auto"
-                                            HorizontalScrollBarVisibility="Auto"
-                                            Background="Transparent">
-                                    <TextBlock Style="{StaticResource CodeTextStyle}"
-                                              Text="&lt;GroupBox Header=&quot;分组标题&quot; 
-    Style=&quot;{StaticResource LOLGroupBoxStyle}&quot;&gt;
-    &lt;StackPanel&gt;
-        &lt;TextBlock Text=&quot;内容&quot;/&gt;
-    &lt;/StackPanel&gt;
-&lt;/GroupBox&gt;"/>
-                                </ScrollViewer>
-                            </Grid>
-                        </Border>
-                    </Expander>
-                </StackPanel>
-            </Border>
-            
-            <!-- 自定义控件：GlowButton -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
-                   BorderThickness="1"
-                   Padding="30"
-                   Margin="0,0,0,30">
-                <StackPanel>
-                    <TextBlock Text="GlowButton - 发光按钮" 
-                              FontSize="{StaticResource FontSizeLarge}"
-                              FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource TextPrimaryBrush}"
-                              Margin="0,0,0,20"/>
-                    
-                    <StackPanel Margin="0,0,0,20">
-                        <controls:GlowButton Content="默认发光按钮"
-                                           Width="200" Height="45"
-                                           Margin="0,0,0,10"/>
-                        <controls:GlowButton Content="自定义颜色"
-                                           GlowColor="#0AC8B9"
-                                           GlowIntensity="25"
-                                           Width="200" Height="45"
-                                           Margin="0,0,0,10"/>
-                        <controls:GlowButton Content="禁用状态"
-                                           IsEnabled="False"
-                                           Width="200" Height="45"/>
-                    </StackPanel>
-                    
-                    <!-- ShowMeTheXAML 代码展示 -->
-                    <Expander Margin="0,20,0,0"
-                              Style="{StaticResource LOLExpanderStyle}">
-                        <Expander.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="📋" 
-                                          FontSize="{StaticResource FontSizeMedium}"
-                                          Margin="0,0,10,0"
-                                          VerticalAlignment="Center"/>
-                                <TextBlock Text="查看 XAML 代码" 
-                                          FontSize="{StaticResource FontSizeNormal}"
-                                          FontWeight="{StaticResource FontWeightMedium}"
-                                          Foreground="{StaticResource TextPrimaryBrush}"
-                                          VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Expander.Header>
-                        <Border Style="{StaticResource CodeBlockContainerStyle}"
-                               Margin="0,10,0,0">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                
-                                <Button Grid.Row="0"
-                                       Content="📋 复制代码"
-                                       Style="{StaticResource CodeBlockButtonStyle}"
-                                       HorizontalAlignment="Right"
-                                       Margin="0,0,0,10"
-                                       Click="CopyCodeToClipboard"
-                                       Tag="&lt;controls:GlowButton Content=&quot;发光按钮&quot;
-    GlowColor=&quot;#C8AA6E&quot;
-    GlowIntensity=&quot;20&quot;
-    Width=&quot;200&quot; Height=&quot;45&quot;/&gt;"/>
-                                
-                                <ScrollViewer Grid.Row="1"
-                                            VerticalScrollBarVisibility="Auto"
-                                            HorizontalScrollBarVisibility="Auto"
-                                            Background="Transparent">
-                                    <TextBlock Style="{StaticResource CodeTextStyle}"
-                                              Text="&lt;controls:GlowButton Content=&quot;发光按钮&quot;
-    GlowColor=&quot;#C8AA6E&quot;
-    GlowIntensity=&quot;20&quot;
-    Width=&quot;200&quot; Height=&quot;45&quot;/&gt;"/>
-                                </ScrollViewer>
-                            </Grid>
-                        </Border>
-                    </Expander>
-                </StackPanel>
-            </Border>
-            
-            <!-- 自定义控件：RankBadge -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
-                   BorderThickness="1"
-                   Padding="30"
-                   Margin="0,0,0,30">
-                <StackPanel>
-                    <TextBlock Text="RankBadge - 段位徽章" 
-                              FontSize="{StaticResource FontSizeLarge}"
-                              FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource TextPrimaryBrush}"
-                              Margin="0,0,0,20"/>
-                    
-                    <WrapPanel Margin="0,0,0,20">
-                        <controls:RankBadge RankType="Iron" RankLevel="3" Margin="0,0,15,0"/>
-                        <controls:RankBadge RankType="Bronze" RankLevel="2" Margin="0,0,15,0"/>
-                        <controls:RankBadge RankType="Silver" RankLevel="1" Margin="0,0,15,0"/>
-                        <controls:RankBadge RankType="Gold" RankLevel="4" Margin="0,0,15,0"/>
-                        <controls:RankBadge RankType="Platinum" RankLevel="3" Margin="0,0,15,0"/>
-                        <controls:RankBadge RankType="Diamond" RankLevel="2" Margin="0,0,15,0"/>
-                        <controls:RankBadge RankType="Master" Margin="0,0,15,0"/>
-                        <controls:RankBadge RankType="Challenger" Margin="0,0,15,0"/>
-                    </WrapPanel>
-                    
-                    <!-- ShowMeTheXAML 代码展示 -->
-                    <Expander Margin="0,20,0,0"
-                              Style="{StaticResource LOLExpanderStyle}">
-                        <Expander.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="📋" 
-                                          FontSize="{StaticResource FontSizeMedium}"
-                                          Margin="0,0,10,0"
-                                          VerticalAlignment="Center"/>
-                                <TextBlock Text="查看 XAML 代码" 
-                                          FontSize="{StaticResource FontSizeNormal}"
-                                          FontWeight="{StaticResource FontWeightMedium}"
-                                          Foreground="{StaticResource TextPrimaryBrush}"
-                                          VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Expander.Header>
-                        <Border Style="{StaticResource CodeBlockContainerStyle}"
-                               Margin="0,10,0,0">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                
-                                <Button Grid.Row="0"
-                                       Content="📋 复制代码"
-                                       Style="{StaticResource CodeBlockButtonStyle}"
-                                       HorizontalAlignment="Right"
-                                       Margin="0,0,0,10"
-                                       Click="CopyCodeToClipboard"
-                                       Tag="&lt;controls:RankBadge RankType=&quot;Gold&quot; 
-    RankLevel=&quot;4&quot;/&gt;"/>
-                                
-                                <ScrollViewer Grid.Row="1"
-                                            VerticalScrollBarVisibility="Auto"
-                                            HorizontalScrollBarVisibility="Auto"
-                                            Background="Transparent">
-                                    <TextBlock Style="{StaticResource CodeTextStyle}"
-                                              Text="&lt;controls:RankBadge RankType=&quot;Gold&quot; 
-    RankLevel=&quot;4&quot;/&gt;"/>
-                                </ScrollViewer>
-                            </Grid>
-                        </Border>
-                    </Expander>
-                </StackPanel>
-            </Border>
-            
-            <!-- 自定义控件：CurrencyDisplay -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
-                   BorderThickness="1"
-                   Padding="30"
-                   Margin="0,0,0,30">
-                <StackPanel>
-                    <TextBlock Text="CurrencyDisplay - 货币显示" 
-                              FontSize="{StaticResource FontSizeLarge}"
-                              FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource TextPrimaryBrush}"
-                              Margin="0,0,0,20"/>
-                    
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                        <controls:CurrencyDisplay CurrencyType="BlueEssence" 
-                                                Amount="2450" 
-                                                Margin="0,0,15,0"/>
-                        <controls:CurrencyDisplay CurrencyType="RiotPoints" 
-                                                Amount="45680" 
-                                                Margin="0,0,15,0"/>
-                        <controls:CurrencyDisplay CurrencyType="OrangeEssence" 
-                                                Amount="1200"/>
-                    </StackPanel>
-                    
-                    <!-- ShowMeTheXAML 代码展示 -->
-                    <Expander Margin="0,20,0,0"
-                              Style="{StaticResource LOLExpanderStyle}">
-                        <Expander.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="📋" 
-                                          FontSize="{StaticResource FontSizeMedium}"
-                                          Margin="0,0,10,0"
-                                          VerticalAlignment="Center"/>
-                                <TextBlock Text="查看 XAML 代码" 
-                                          FontSize="{StaticResource FontSizeNormal}"
-                                          FontWeight="{StaticResource FontWeightMedium}"
-                                          Foreground="{StaticResource TextPrimaryBrush}"
-                                          VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Expander.Header>
-                        <Border Style="{StaticResource CodeBlockContainerStyle}"
-                               Margin="0,10,0,0">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                
-                                <Button Grid.Row="0"
-                                       Content="📋 复制代码"
-                                       Style="{StaticResource CodeBlockButtonStyle}"
-                                       HorizontalAlignment="Right"
-                                       Margin="0,0,0,10"
-                                       Click="CopyCodeToClipboard"
-                                       Tag="&lt;controls:CurrencyDisplay CurrencyType=&quot;BlueEssence&quot; 
-    Amount=&quot;2450&quot;/&gt;"/>
-                                
-                                <ScrollViewer Grid.Row="1"
-                                            VerticalScrollBarVisibility="Auto"
-                                            HorizontalScrollBarVisibility="Auto"
-                                            Background="Transparent">
-                                    <TextBlock Style="{StaticResource CodeTextStyle}"
-                                              Text="&lt;controls:CurrencyDisplay CurrencyType=&quot;BlueEssence&quot; 
-    Amount=&quot;2450&quot;/&gt;"/>
-                                </ScrollViewer>
-                            </Grid>
-                        </Border>
-                    </Expander>
-                </StackPanel>
-            </Border>
-            
-            <!-- 自定义控件：StatBar -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
-                   BorderThickness="1"
-                   Padding="30"
-                   Margin="0,0,0,30">
-                <StackPanel>
-                    <TextBlock Text="StatBar - 属性条" 
-                              FontSize="{StaticResource FontSizeLarge}"
-                              FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource TextPrimaryBrush}"
-                              Margin="0,0,0,20"/>
-                    
-                    <StackPanel Margin="0,0,0,20">
-                        <TextBlock Text="生命值: 750/1000" 
-                                  Foreground="{StaticResource TextPrimaryBrush}"
-                                  Margin="0,0,0,5"/>
-                        <controls:StatBar Value="750" Maximum="1000" 
-                                         ShowValue="True"
-                                         Width="300" Height="25"
-                                         Margin="0,0,0,15"/>
-                        
-                        <TextBlock Text="法力值: 320/500" 
-                                  Foreground="{StaticResource TextPrimaryBrush}"
-                                  Margin="0,0,0,5"/>
-                        <controls:StatBar Value="320" Maximum="500" 
-                                         ShowValue="True"
-                                         Width="300" Height="25"
-                                         Margin="0,0,0,15"/>
-                        
-                        <TextBlock Text="经验值: 1250/2000" 
-                                  Foreground="{StaticResource TextPrimaryBrush}"
-                                  Margin="0,0,0,5"/>
-                        <controls:StatBar Value="1250" Maximum="2000" 
-                                         ShowValue="True"
-                                         Width="300" Height="25"/>
-                    </StackPanel>
-                    
-                    <!-- ShowMeTheXAML 代码展示 -->
-                    <Expander Margin="0,20,0,0"
-                              Style="{StaticResource LOLExpanderStyle}">
-                        <Expander.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="📋" 
-                                          FontSize="{StaticResource FontSizeMedium}"
-                                          Margin="0,0,10,0"
-                                          VerticalAlignment="Center"/>
-                                <TextBlock Text="查看 XAML 代码" 
-                                          FontSize="{StaticResource FontSizeNormal}"
-                                          FontWeight="{StaticResource FontWeightMedium}"
-                                          Foreground="{StaticResource TextPrimaryBrush}"
-                                          VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Expander.Header>
-                        <Border Style="{StaticResource CodeBlockContainerStyle}"
-                               Margin="0,10,0,0">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                
-                                <Button Grid.Row="0"
-                                       Content="📋 复制代码"
-                                       Style="{StaticResource CodeBlockButtonStyle}"
-                                       HorizontalAlignment="Right"
-                                       Margin="0,0,0,10"
-                                       Click="CopyCodeToClipboard"
-                                       Tag="&lt;controls:StatBar Value=&quot;750&quot; 
-    Maximum=&quot;1000&quot;
-    ShowValue=&quot;True&quot;
-    Width=&quot;300&quot; Height=&quot;25&quot;/&gt;"/>
-                                
-                                <ScrollViewer Grid.Row="1"
-                                            VerticalScrollBarVisibility="Auto"
-                                            HorizontalScrollBarVisibility="Auto"
-                                            Background="Transparent">
-                                    <TextBlock Style="{StaticResource CodeTextStyle}"
-                                              Text="&lt;controls:StatBar Value=&quot;750&quot; 
-    Maximum=&quot;1000&quot;
-    ShowValue=&quot;True&quot;
-    Width=&quot;300&quot; Height=&quot;25&quot;/&gt;"/>
-                                </ScrollViewer>
-                            </Grid>
-                        </Border>
-                    </Expander>
-                </StackPanel>
-            </Border>
-            
-            <!-- ListView 控件组 -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
-                   BorderThickness="1"
-                   Padding="30"
-                   Margin="0,0,0,30">
-                <StackPanel>
-                    <TextBlock Text="ListView - 列表视图" 
-                              FontSize="{StaticResource FontSizeLarge}"
-                              FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource TextPrimaryBrush}"
-                              Margin="0,0,0,20"/>
-                    
-                    <ListView Style="{StaticResource LOLListViewStyle}"
-                             Width="400" Height="200"
-                             HorizontalAlignment="Left"
-                             Margin="0,0,0,20">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="名称" Width="150">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding}" Foreground="{StaticResource TextPrimaryBrush}"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn Header="类型" Width="100">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="英雄" Foreground="{StaticResource TextSecondaryBrush}"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn Header="状态" Width="100">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="可用" Foreground="{StaticResource SuccessGreenBrush}"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                            </GridView>
-                        </ListView.View>
-                        <ListViewItem Content="亚索"/>
-                        <ListViewItem Content="劫" IsSelected="True"/>
-                        <ListViewItem Content="锐雯"/>
-                        <ListViewItem Content="阿卡丽"/>
-                    </ListView>
-                    
-                    <!-- ShowMeTheXAML 代码展示 -->
-                    <Expander Margin="0,20,0,0"
-                              Style="{StaticResource LOLExpanderStyle}">
-                        <Expander.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="📋" 
-                                          FontSize="{StaticResource FontSizeMedium}"
-                                          Margin="0,0,10,0"
-                                          VerticalAlignment="Center"/>
-                                <TextBlock Text="查看 XAML 代码" 
-                                          FontSize="{StaticResource FontSizeNormal}"
-                                          FontWeight="{StaticResource FontWeightMedium}"
-                                          Foreground="{StaticResource TextPrimaryBrush}"
-                                          VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Expander.Header>
-                        <Border Style="{StaticResource CodeBlockContainerStyle}"
-                               Margin="0,10,0,0">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                
-                                <Button Grid.Row="0"
-                                       Content="📋 复制代码"
-                                       Style="{StaticResource CodeBlockButtonStyle}"
-                                       HorizontalAlignment="Right"
-                                       Margin="0,0,0,10"
-                                       Click="CopyCodeToClipboard"
-                                       Tag="&lt;ListView Style=&quot;{StaticResource LOLListViewStyle}&quot;
-    Width=&quot;400&quot; Height=&quot;200&quot;&gt;
-    &lt;ListViewItem Content=&quot;项目 1&quot;/&gt;
-    &lt;ListViewItem Content=&quot;项目 2&quot; IsSelected=&quot;True&quot;/&gt;
-&lt;/ListView&gt;"/>
-                                
-                                <ScrollViewer Grid.Row="1"
-                                            VerticalScrollBarVisibility="Auto"
-                                            HorizontalScrollBarVisibility="Auto"
-                                            Background="Transparent">
-                                    <TextBlock Style="{StaticResource CodeTextStyle}"
-                                              Text="&lt;ListView Style=&quot;{StaticResource LOLListViewStyle}&quot;
-    Width=&quot;400&quot; Height=&quot;200&quot;&gt;
-    &lt;ListViewItem Content=&quot;项目 1&quot;/&gt;
-    &lt;ListViewItem Content=&quot;项目 2&quot; IsSelected=&quot;True&quot;/&gt;
-&lt;/ListView&gt;"/>
-                                </ScrollViewer>
-                            </Grid>
-                        </Border>
-                    </Expander>
-                </StackPanel>
-            </Border>
-            
-            <!-- ToolTip 控件组 -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
-                   BorderThickness="1"
-                   Padding="30"
-                   Margin="0,0,0,30">
-                <StackPanel>
-                    <TextBlock Text="ToolTip - 提示框" 
-                              FontSize="{StaticResource FontSizeLarge}"
-                              FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource TextPrimaryBrush}"
-                              Margin="0,0,0,20"/>
-                    
-                    <WrapPanel Margin="0,0,0,20">
-                        <Button Content="悬停查看提示" 
-                               Style="{StaticResource LOLButtonStyle}"
-                               Width="150" Height="40"
-                               Margin="0,0,15,0">
-                            <Button.ToolTip>
-                                <ToolTip Style="{StaticResource LOLToolTipStyle}">
-                                    <TextBlock Text="这是一个提示信息"/>
-                                </ToolTip>
-                            </Button.ToolTip>
-                        </Button>
-                        <Button Content="长提示信息" 
-                               Style="{StaticResource LOLButtonStyle}"
-                               Width="150" Height="40"
-                               Margin="0,0,15,0">
-                            <Button.ToolTip>
-                                <ToolTip Style="{StaticResource LOLToolTipStyle}">
-                                    <TextBlock TextWrapping="Wrap" Text="这是一个较长的提示信息，可以显示多行内容，帮助用户理解控件的功能。"/>
-                                </ToolTip>
-                            </Button.ToolTip>
-                        </Button>
-                        <TextBox Text="输入框提示" 
-                               Style="{StaticResource LOLTextBoxStyle}"
-                               Width="200" Height="35">
-                            <TextBox.ToolTip>
-                                <ToolTip Style="{StaticResource LOLToolTipStyle}">
-                                    <TextBlock Text="请输入您的用户名"/>
-                                </ToolTip>
-                            </TextBox.ToolTip>
-                        </TextBox>
-                    </WrapPanel>
-                    
-                    <!-- ShowMeTheXAML 代码展示 -->
-                    <Expander Margin="0,20,0,0"
-                              Style="{StaticResource LOLExpanderStyle}">
-                        <Expander.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="📋" 
-                                          FontSize="{StaticResource FontSizeMedium}"
-                                          Margin="0,0,10,0"
-                                          VerticalAlignment="Center"/>
-                                <TextBlock Text="查看 XAML 代码" 
-                                          FontSize="{StaticResource FontSizeNormal}"
-                                          FontWeight="{StaticResource FontWeightMedium}"
-                                          Foreground="{StaticResource TextPrimaryBrush}"
-                                          VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Expander.Header>
-                        <Border Style="{StaticResource CodeBlockContainerStyle}"
-                               Margin="0,10,0,0">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                
-                                <Button Grid.Row="0"
-                                       Content="📋 复制代码"
-                                       Style="{StaticResource CodeBlockButtonStyle}"
-                                       HorizontalAlignment="Right"
-                                       Margin="0,0,0,10"
-                                       Click="CopyCodeToClipboard"
-                                       Tag="&lt;Button Content=&quot;按钮&quot;
-    Style=&quot;{StaticResource LOLButtonStyle}&quot;&gt;
-    &lt;Button.ToolTip&gt;
-        &lt;ToolTip Style=&quot;{StaticResource LOLToolTipStyle}&quot;&gt;
-            &lt;TextBlock Text=&quot;提示信息&quot;/&gt;
-        &lt;/ToolTip&gt;
-    &lt;/Button.ToolTip&gt;
-&lt;/Button&gt;"/>
-                                
-                                <ScrollViewer Grid.Row="1"
-                                            VerticalScrollBarVisibility="Auto"
-                                            HorizontalScrollBarVisibility="Auto"
-                                            Background="Transparent">
-                                    <TextBlock Style="{StaticResource CodeTextStyle}"
-                                              Text="&lt;Button Content=&quot;按钮&quot;
-    Style=&quot;{StaticResource LOLButtonStyle}&quot;&gt;
-    &lt;Button.ToolTip&gt;
-        &lt;ToolTip Style=&quot;{StaticResource LOLToolTipStyle}&quot;&gt;
-            &lt;TextBlock Text=&quot;提示信息&quot;/&gt;
-        &lt;/ToolTip&gt;
-    &lt;/Button.ToolTip&gt;
-&lt;/Button&gt;"/>
-                                </ScrollViewer>
-                            </Grid>
-                        </Border>
-                    </Expander>
-                </StackPanel>
-            </Border>
-            
-            <!-- Menu 控件组 -->
-            <Border Background="{StaticResource BackgroundMediumBrush}"
-                   BorderBrush="{StaticResource BorderDarkBrush}"
-                   BorderThickness="1"
-                   Padding="30"
-                   Margin="0,0,0,30">
-                <StackPanel>
-                    <TextBlock Text="Menu - 菜单栏" 
-                              FontSize="{StaticResource FontSizeLarge}"
-                              FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource TextPrimaryBrush}"
-                              Margin="0,0,0,20"/>
-                    
-                    <Menu Style="{StaticResource LOLMenuStyle}"
-                         HorizontalAlignment="Left"
-                         Margin="0,0,0,20">
-                        <MenuItem Header="文件" Style="{StaticResource LOLMenuItemStyle}">
-                            <MenuItem Header="新建" Style="{StaticResource LOLMenuItemStyle}"/>
-                            <MenuItem Header="打开" Style="{StaticResource LOLMenuItemStyle}"/>
-                            <Separator Style="{StaticResource MenuSeparatorStyle}"/>
-                            <MenuItem Header="退出" Style="{StaticResource LOLMenuItemStyle}"/>
-                        </MenuItem>
-                        <MenuItem Header="编辑" Style="{StaticResource LOLMenuItemStyle}">
-                            <MenuItem Header="复制" Style="{StaticResource LOLMenuItemStyle}"/>
-                            <MenuItem Header="粘贴" Style="{StaticResource LOLMenuItemStyle}"/>
-                        </MenuItem>
-                        <MenuItem Header="帮助" Style="{StaticResource LOLMenuItemStyle}">
-                            <MenuItem Header="关于" Style="{StaticResource LOLMenuItemStyle}"/>
-                        </MenuItem>
-                    </Menu>
-                    
-                    <!-- ShowMeTheXAML 代码展示 -->
-                    <Expander Margin="0,20,0,0"
-                              Style="{StaticResource LOLExpanderStyle}">
-                        <Expander.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="📋" 
-                                          FontSize="{StaticResource FontSizeMedium}"
-                                          Margin="0,0,10,0"
-                                          VerticalAlignment="Center"/>
-                                <TextBlock Text="查看 XAML 代码" 
-                                          FontSize="{StaticResource FontSizeNormal}"
-                                          FontWeight="{StaticResource FontWeightMedium}"
-                                          Foreground="{StaticResource TextPrimaryBrush}"
-                                          VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Expander.Header>
-                        <Border Style="{StaticResource CodeBlockContainerStyle}"
-                               Margin="0,10,0,0">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                
-                                <Button Grid.Row="0"
-                                       Content="📋 复制代码"
-                                       Style="{StaticResource CodeBlockButtonStyle}"
-                                       HorizontalAlignment="Right"
-                                       Margin="0,0,0,10"
-                                       Click="CopyCodeToClipboard"
-                                       Tag="&lt;Menu Style=&quot;{StaticResource LOLMenuStyle}&quot;&gt;
-    &lt;MenuItem Header=&quot;文件&quot; Style=&quot;{StaticResource LOLMenuItemStyle}&quot;&gt;
-        &lt;MenuItem Header=&quot;新建&quot; Style=&quot;{StaticResource LOLMenuItemStyle}&quot;/&gt;
-        &lt;MenuItem Header=&quot;打开&quot; Style=&quot;{StaticResource LOLMenuItemStyle}&quot;/&gt;
-    &lt;/MenuItem&gt;
-&lt;/Menu&gt;"/>
-                                
-                                <ScrollViewer Grid.Row="1"
-                                            VerticalScrollBarVisibility="Auto"
-                                            HorizontalScrollBarVisibility="Auto"
-                                            Background="Transparent">
-                                    <TextBlock Style="{StaticResource CodeTextStyle}"
-                                              Text="&lt;Menu Style=&quot;{StaticResource LOLMenuStyle}&quot;&gt;
-    &lt;MenuItem Header=&quot;文件&quot; Style=&quot;{StaticResource LOLMenuItemStyle}&quot;&gt;
-        &lt;MenuItem Header=&quot;新建&quot; Style=&quot;{StaticResource LOLMenuItemStyle}&quot;/&gt;
-        &lt;MenuItem Header=&quot;打开&quot; Style=&quot;{StaticResource LOLMenuItemStyle}&quot;/&gt;
-    &lt;/MenuItem&gt;
-&lt;/Menu&gt;"/>
-                                </ScrollViewer>
-                            </Grid>
-                        </Border>
-                    </Expander>
-                </StackPanel>
-            </Border>
-            
-            <!-- 说明文本 -->
-            <Border Background="{StaticResource BackgroundPanelBrush}"
-                   BorderBrush="{StaticResource PrimaryGoldBrush}"
-                   BorderThickness="2"
-                   Padding="20"
-                   Margin="0,20,0,0">
-                <StackPanel>
-                    <TextBlock Text="🎮 更多控件展示正在完善中..." 
-                              FontSize="{StaticResource FontSizeMedium}"
-                              FontWeight="{StaticResource FontWeightBold}"
-                              Foreground="{StaticResource PrimaryGoldBrush}"
-                              Margin="0,0,0,10"/>
-                    <TextBlock TextWrapping="Wrap"
-                              FontSize="{StaticResource FontSizeNormal}"
-                              Foreground="{StaticResource TextSecondaryBrush}">
-                        <Run Text="本控件库包含完整的控件样式，包括："/>
-                        <LineBreak/>
-                        <Run Text="• DataGrid、TreeView 等列表控件"/>
-                        <LineBreak/>
-                        <Run Text="• ContextMenu、StatusBar 等菜单控件"/>
-                        <LineBreak/>
-                        <Run Text="• Calendar、DatePicker、RichTextBox 等其他控件"/>
-                        <LineBreak/>
-                        <Run Text="• HexagonButton、ChampionCard、SkillButton、AnimatedBorder 等自定义控件"/>
-                    </TextBlock>
-                </StackPanel>
-            </Border>
-        </StackPanel>
-    </ScrollViewer>
+                </Border>
+                
+                <!-- 控件列表 -->
+                <ListBox Grid.Row="1"
+                        ItemsSource="{Binding ControlItems}"
+                        SelectedValue="{Binding SelectedControl}"
+                        SelectedValuePath="ViewName"
+                        BorderThickness="0"
+                        Background="Transparent"
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="Transparent"
+                                   Padding="15,12"
+                                   Margin="5,2"
+                                   SnapsToDevicePixels="True">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Icon}"
+                                              FontSize="20"
+                                              Margin="0,0,10,0"
+                                              VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding DisplayName}"
+                                              FontSize="{StaticResource FontSizeNormal}"
+                                              Foreground="{StaticResource TextPrimaryBrush}"
+                                              VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListBoxItem">
+                                        <Border x:Name="border"
+                                               Background="{TemplateBinding Background}"
+                                               BorderBrush="{TemplateBinding BorderBrush}"
+                                               BorderThickness="0"
+                                               SnapsToDevicePixels="True">
+                                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                            Margin="{TemplateBinding Padding}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="border" Property="Background">
+                                                    <Setter.Value>
+                                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                            <GradientStop Color="#40C8AA6E" Offset="0"/>
+                                                            <GradientStop Color="#20C8AA6E" Offset="1"/>
+                                                        </LinearGradientBrush>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Trigger>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter TargetName="border" Property="Background">
+                                                    <Setter.Value>
+                                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                            <GradientStop Color="#E6C8AA6E" Offset="0"/>
+                                                            <GradientStop Color="#CCC8AA6E" Offset="1"/>
+                                                        </LinearGradientBrush>
+                                                    </Setter.Value>
+                                                </Setter>
+                                                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource PrimaryGoldBrush}"/>
+                                                <Setter TargetName="border" Property="BorderThickness" Value="0,0,3,0"/>
+                                                <Setter Property="Foreground" Value="{StaticResource BackgroundDarkBrush}"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                </ListBox>
+            </Grid>
+        </Border>
+        
+        <!-- 分隔线 -->
+        <Border Grid.Column="1"
+               Background="{StaticResource BorderDarkBrush}"/>
+        
+        <!-- 右侧内容区域 -->
+        <ContentControl Grid.Column="2"
+                       Content="{Binding SelectedControl, Mode=OneWay}"
+                       Margin="20">
+            <ContentControl.Resources>
+                <!-- 控件详情页面模板 -->
+                <DataTemplate x:Key="ButtonShowcaseViewTemplate">
+                    <local:ButtonShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="TextBoxShowcaseViewTemplate">
+                    <local:TextBoxShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="PasswordBoxShowcaseViewTemplate">
+                    <local:PasswordBoxShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="ComboBoxShowcaseViewTemplate">
+                    <local:ComboBoxShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="CheckBoxShowcaseViewTemplate">
+                    <local:CheckBoxShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="RadioButtonShowcaseViewTemplate">
+                    <local:RadioButtonShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="ToggleButtonShowcaseViewTemplate">
+                    <local:ToggleButtonShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="SliderShowcaseViewTemplate">
+                    <local:SliderShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="ProgressBarShowcaseViewTemplate">
+                    <local:ProgressBarShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="ListBoxShowcaseViewTemplate">
+                    <local:ListBoxShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="ListViewShowcaseViewTemplate">
+                    <local:ListViewShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="TabControlShowcaseViewTemplate">
+                    <local:TabControlShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="GroupBoxShowcaseViewTemplate">
+                    <local:GroupBoxShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="MenuShowcaseViewTemplate">
+                    <local:MenuShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="ToolTipShowcaseViewTemplate">
+                    <local:ToolTipShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="GlowButtonShowcaseViewTemplate">
+                    <local:GlowButtonShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="HexagonButtonShowcaseViewTemplate">
+                    <local:HexagonButtonShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="SkillButtonShowcaseViewTemplate">
+                    <local:SkillButtonShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="ChampionCardShowcaseViewTemplate">
+                    <local:ChampionCardShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="RankBadgeShowcaseViewTemplate">
+                    <local:RankBadgeShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="CurrencyDisplayShowcaseViewTemplate">
+                    <local:CurrencyDisplayShowcaseView/>
+                </DataTemplate>
+                <DataTemplate x:Key="StatBarShowcaseViewTemplate">
+                    <local:StatBarShowcaseView/>
+                </DataTemplate>
+            </ContentControl.Resources>
+            <ContentControl.ContentTemplateSelector>
+                <local:ControlShowcaseTemplateSelector/>
+            </ContentControl.ContentTemplateSelector>
+        </ContentControl>
+    </Grid>
 </UserControl>

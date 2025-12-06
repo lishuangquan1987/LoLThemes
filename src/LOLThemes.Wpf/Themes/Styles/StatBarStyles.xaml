@@ -1,15 +1,15 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:LOLThemes.Wpf.Controls"
                     xmlns:converters="clr-namespace:LOLThemes.Wpf.Converters">
     
-    <!-- 合并基础资源，确保可以访问 Colors 和 Fonts -->
+    <!-- 合并基础资源，确保可以访�和Colors �和Fonts -->
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Colors.xaml"/>
         <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <!-- StatBar 宽度转换器 -->
+    <!-- StatBar 宽度转换�和-->
     <converters:StatBarWidthConverter x:Key="StatBarWidthConverter"/>
 
     <Style TargetType="{x:Type controls:StatBar}">
@@ -22,11 +22,11 @@
                         <!-- 背景 -->
                         <Border Background="{StaticResource BackgroundMediumBrush}"
                                BorderBrush="{StaticResource BorderDarkBrush}"
-                               BorderThickness="1"
+                               BorderThickness="0.5"
                                CornerRadius="2"
                                SnapsToDevicePixels="True"/>
                         
-                        <!-- 进度条 -->
+                        <!-- 进度�和-->
                         <Border x:Name="progressBar"
                                HorizontalAlignment="Left"
                                CornerRadius="2"
@@ -47,7 +47,7 @@
                             </Border.Width>
                         </Border>
                         
-                        <!-- 数值文本 -->
+                        <!-- 数值文�和-->
                         <TextBlock x:Name="valueText"
                                   Foreground="{StaticResource TextPrimaryBrush}"
                                   FontFamily="{StaticResource PrimaryFont}"

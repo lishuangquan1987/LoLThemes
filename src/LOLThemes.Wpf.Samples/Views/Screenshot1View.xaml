@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:controls="clr-namespace:LOLThemes.Wpf.Controls;assembly=LOLThemes.Wpf"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1150"
              Background="{StaticResource BackgroundDarkBrush}">
@@ -48,6 +49,7 @@
                     <TextBox Grid.Column="1"
                             Style="{StaticResource LOLTextBoxStyle}"
                             Tag="搜索英雄..."
+                            Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
                             Width="300"
                             Height="35"
                             HorizontalAlignment="Center"
@@ -158,46 +160,28 @@
                        Margin="0,0,10,0">
                     <ScrollViewer VerticalScrollBarVisibility="Auto"
                                  HorizontalScrollBarVisibility="Disabled">
-                        <WrapPanel>
-                            <!-- 英雄卡片示例 -->
-                            <controls:ChampionCard ChampionName="亚索"
-                                                  IsSelected="True"
-                                                  Width="100" Height="120"
-                                                  Margin="5"/>
-                            <controls:ChampionCard ChampionName="劫"
-                                                  Width="100" Height="120"
-                                                  Margin="5"/>
-                            <controls:ChampionCard ChampionName="阿卡丽"
-                                                  Width="100" Height="120"
-                                                  Margin="5"/>
-                            <controls:ChampionCard ChampionName="卡特琳娜"
-                                                  Width="100" Height="120"
-                                                  Margin="5"/>
-                            <controls:ChampionCard ChampionName="辛德拉"
-                                                  Width="100" Height="120"
-                                                  Margin="5"/>
-                            <controls:ChampionCard ChampionName="妖姬"
-                                                  Width="100" Height="120"
-                                                  Margin="5"/>
-                            <controls:ChampionCard ChampionName="发条"
-                                                  Width="100" Height="120"
-                                                  Margin="5"/>
-                            <controls:ChampionCard ChampionName="瑞兹"
-                                                  Width="100" Height="120"
-                                                  Margin="5"/>
-                            <controls:ChampionCard ChampionName="卡萨丁"
-                                                  Width="100" Height="120"
-                                                  Margin="5"/>
-                            <controls:ChampionCard ChampionName="维克托"
-                                                  Width="100" Height="120"
-                                                  Margin="5"/>
-                            <controls:ChampionCard ChampionName="佐伊"
-                                                  Width="100" Height="120"
-                                                  Margin="5"/>
-                            <controls:ChampionCard ChampionName="艾克"
-                                                  Width="100" Height="120"
-                                                  Margin="5"/>
-                        </WrapPanel>
+                        <ItemsControl ItemsSource="{Binding Champions}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <controls:ChampionCard ChampionName="{Binding Name}"
+                                                          IsSelected="{Binding IsSelected}"
+                                                          Width="100" Height="120"
+                                                          Margin="5"
+                                                          Cursor="Hand">
+                                        <controls:ChampionCard.InputBindings>
+                                            <MouseBinding Gesture="LeftClick" 
+                                                        Command="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=DataContext.SelectChampionCommand}"
+                                                        CommandParameter="{Binding}"/>
+                                        </controls:ChampionCard.InputBindings>
+                                    </controls:ChampionCard>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                     </ScrollViewer>
                 </Border>
                 
@@ -214,7 +198,7 @@
                                BorderThickness="2"
                                Width="200" Height="200"
                                Margin="0,0,0,20">
-                            <TextBlock Text="亚索"
+                            <TextBlock Text="{Binding SelectedChampion.Name, FallbackValue='亚索'}"
                                       FontSize="48"
                                       FontWeight="{StaticResource FontWeightBold}"
                                       Foreground="{StaticResource PrimaryGoldBrush}"
@@ -223,13 +207,13 @@
                         </Border>
                         
                         <!-- 英雄名称 -->
-                        <TextBlock Text="疾风剑豪"
+                        <TextBlock Text="{Binding SelectedChampion.Title, FallbackValue='疾风剑豪'}"
                                   FontSize="{StaticResource FontSizeLarge}"
                                   FontWeight="{StaticResource FontWeightBold}"
                                   Foreground="{StaticResource TextPrimaryBrush}"
                                   HorizontalAlignment="Center"
                                   Margin="0,0,0,5"/>
-                        <TextBlock Text="亚索"
+                        <TextBlock Text="{Binding SelectedChampion.Name, FallbackValue='亚索'}"
                                   FontSize="{StaticResource FontSizeXLarge}"
                                   FontWeight="{StaticResource FontWeightBold}"
                                   Foreground="{StaticResource PrimaryGoldBrush}"
@@ -237,30 +221,31 @@
                                   Margin="0,0,0,20"/>
                         
                         <!-- 英雄标签 -->
-                        <WrapPanel HorizontalAlignment="Center" Margin="0,0,0,20">
-                            <Border Background="{StaticResource PrimaryCyanBrush}"
-                                   Padding="8,4"
-                                   Margin="3">
-                                <TextBlock Text="刺客"
-                                          FontSize="{StaticResource FontSizeSmall}"
-                                          Foreground="{StaticResource BackgroundDarkBrush}"/>
-                            </Border>
-                            <Border Background="{StaticResource PrimaryCyanBrush}"
-                                   Padding="8,4"
-                                   Margin="3">
-                                <TextBlock Text="战士"
-                                          FontSize="{StaticResource FontSizeSmall}"
-                                          Foreground="{StaticResource BackgroundDarkBrush}"/>
-                            </Border>
-                        </WrapPanel>
-                        
-                        <!-- 难度 -->
+                        <ItemsControl ItemsSource="{Binding SelectedChampion.Roles}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel HorizontalAlignment="Center"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Background="{StaticResource PrimaryCyanBrush}"
+                                           Padding="8,4"
+                                           Margin="3">
+                                        <TextBlock Text="{Binding}"
+                                                  FontSize="{StaticResource FontSizeSmall}"
+                                                  Foreground="{StaticResource BackgroundDarkBrush}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                         <TextBlock Text="难度"
                                   FontSize="{StaticResource FontSizeNormal}"
                                   Foreground="{StaticResource TextSecondaryBrush}"
-                                  Margin="0,0,0,5"/>
+                                  Margin="0,10,0,5"/>
                         <ProgressBar Style="{StaticResource LOLProgressBarStyle}"
-                                    Value="80"
+                                    Value="{Binding SelectedChampion.Difficulty}"
+                                    Maximum="10"
                                     Height="8"
                                     Margin="0,0,0,20"/>
                         
@@ -271,21 +256,20 @@
                                   Foreground="{StaticResource PrimaryGoldBrush}"
                                   Margin="0,0,0,10"/>
                         
-                        <WrapPanel HorizontalAlignment="Center" Margin="0,0,0,20">
-                            <controls:SkillButton HotkeyText="Q"
-                                                 Width="50" Height="50"
-                                                 Margin="5"/>
-                            <controls:SkillButton HotkeyText="W"
-                                                 Width="50" Height="50"
-                                                 Margin="5"/>
-                            <controls:SkillButton HotkeyText="E"
-                                                 Width="50" Height="50"
-                                                 Margin="5"/>
-                            <controls:SkillButton HotkeyText="R"
-                                                 CooldownProgress="0.6"
-                                                 Width="50" Height="50"
-                                                 Margin="5"/>
-                        </WrapPanel>
+                        <ItemsControl ItemsSource="{Binding SelectedChampion.Skills}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel HorizontalAlignment="Center"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <controls:SkillButton HotkeyText="{Binding Key}"
+                                                         Width="50" Height="50"
+                                                         Margin="5"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                         
                         <!-- 选择按钮 -->
                         <controls:GlowButton Content="选择英雄"

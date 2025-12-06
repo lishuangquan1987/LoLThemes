@@ -112,5 +112,57 @@
                         Duration="{StaticResource AnimationDurationFast}"
                         EasingFunction="{StaticResource EaseOut}"/>
     </Storyboard>
+    
+    <!-- 列表项进入动画 -->
+    <Storyboard x:Key="ListItemEnterAnimation">
+        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                        From="0" To="1"
+                        Duration="{StaticResource AnimationDurationNormal}"
+                        EasingFunction="{StaticResource EaseOut}"/>
+        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+                        From="-20" To="0"
+                        Duration="{StaticResource AnimationDurationNormal}"
+                        EasingFunction="{StaticResource EaseOut}"/>
+    </Storyboard>
+    
+    <!-- 卡片悬停动画 -->
+    <Storyboard x:Key="CardHoverAnimation">
+        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                        To="1.05"
+                        Duration="{StaticResource AnimationDurationFast}"
+                        EasingFunction="{StaticResource EaseOut}"/>
+        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                        To="1.05"
+                        Duration="{StaticResource AnimationDurationFast}"
+                        EasingFunction="{StaticResource EaseOut}"/>
+        <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.BlurRadius)"
+                        To="20"
+                        Duration="{StaticResource AnimationDurationFast}"
+                        EasingFunction="{StaticResource EaseOut}"/>
+        <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.Opacity)"
+                        To="0.8"
+                        Duration="{StaticResource AnimationDurationFast}"
+                        EasingFunction="{StaticResource EaseOut}"/>
+    </Storyboard>
+    
+    <!-- 卡片离开动画 -->
+    <Storyboard x:Key="CardLeaveAnimation">
+        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                        To="1.0"
+                        Duration="{StaticResource AnimationDurationFast}"
+                        EasingFunction="{StaticResource EaseIn}"/>
+        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                        To="1.0"
+                        Duration="{StaticResource AnimationDurationFast}"
+                        EasingFunction="{StaticResource EaseIn}"/>
+        <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.BlurRadius)"
+                        To="5"
+                        Duration="{StaticResource AnimationDurationFast}"
+                        EasingFunction="{StaticResource EaseIn}"/>
+        <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.Opacity)"
+                        To="0.2"
+                        Duration="{StaticResource AnimationDurationFast}"
+                        EasingFunction="{StaticResource EaseIn}"/>
+    </Storyboard>
 
 </ResourceDictionary>

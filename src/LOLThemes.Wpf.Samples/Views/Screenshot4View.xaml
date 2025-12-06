@@ -48,6 +48,7 @@
                     <TextBox Grid.Column="1"
                             Style="{StaticResource LOLTextBoxStyle}"
                             Tag="搜索物品..."
+                            Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
                             Width="350"
                             Height="35"
                             HorizontalAlignment="Center"
@@ -66,7 +67,7 @@
                                           FontSize="{StaticResource FontSizeNormal}"
                                           VerticalAlignment="Center"/>
                                 <TextBlock x:Name="CurrencyGoldText4"
-                                          Text="15,680"
+                                          Text="{Binding PlayerData.Gold, StringFormat='{}{0:N0}'}"
                                           FontSize="{StaticResource FontSizeNormal}"
                                           FontWeight="{StaticResource FontWeightBold}"
                                           Foreground="{StaticResource BackgroundDarkBrush}"
@@ -214,7 +215,7 @@
                             </Grid.ColumnDefinitions>
                             
                             <TextBlock Grid.Column="0"
-                                      Text="显示 48 个物品"
+                                      Text="{Binding ShopItems.Count, StringFormat='显示 {0} 个物品'}"
                                       FontSize="{StaticResource FontSizeNormal}"
                                       Foreground="{StaticResource TextSecondaryBrush}"
                                       VerticalAlignment="Center"/>

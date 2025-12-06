@@ -1,7 +1,7 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
-    <!-- 合并基础资源，确保可以访问 Colors 和 Fonts -->
+    <!-- 合并基础资源，确保可以访�和Colors �和Fonts -->
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Colors.xaml"/>
         <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
@@ -10,9 +10,9 @@
     <!-- LOL Button 样式 -->
     <Style x:Key="LOLButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextBrightBrush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource BorderGoldBrush}"/>
-        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderThickness" Value="0.5"/>
         <Setter Property="Padding" Value="20,10"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
@@ -20,6 +20,8 @@
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+        <Setter Property="TextOptions.TextRenderingMode" Value="ClearType"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -47,19 +49,22 @@
                                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                             Margin="{TemplateBinding Padding}"
                                             RecognizesAccessKey="True"
-                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                            TextOptions.TextFormattingMode="Display"
+                                            TextOptions.TextRenderingMode="ClearType"
+                                            RenderOptions.ClearTypeHint="Enabled"/>
                         </Border>
-                        <!-- 边框高光层 -->
+                        <!-- 边框高光�和-->
                         <Border x:Name="highlightBorder"
                                BorderBrush="#40F0E6D2"
-                               BorderThickness="1"
+                               BorderThickness="0.5"
                                CornerRadius="0"
                                Margin="1"
                                Opacity="0"
                                IsHitTestVisible="False"/>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <!-- MouseOver 状态 - 带颜色过渡动画 -->
+                        <!-- MouseOver 状�和- 带颜色过渡动�和-->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
@@ -173,7 +178,7 @@
                                    Value="{StaticResource TextBrightBrush}"/>
                         </Trigger>
 
-                        <!-- Pressed 状态 - 带颜色过渡动画 -->
+                        <!-- Pressed 状�和- 带颜色过渡动�和-->
                         <Trigger Property="IsPressed" Value="True">
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
@@ -209,7 +214,7 @@
                                    Value="{StaticResource TextPrimaryBrush}"/>
                         </Trigger>
                         
-                        <!-- Disabled 状态 -->
+                        <!-- Disabled 状�和-->
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="border" Property="BorderBrush" 
                                    Value="{StaticResource TextDisabledBrush}"/>
@@ -228,12 +233,22 @@
         <Setter Property="Background" Value="{StaticResource PrimaryGoldBrush}"/>
         <Setter Property="Foreground" Value="{StaticResource BackgroundDarkBrush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource PrimaryGoldBrush}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource BackgroundDarkBrush}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
     
     <!-- 次要按钮样式 -->
     <Style x:Key="LOLSecondaryButtonStyle" TargetType="Button" BasedOn="{StaticResource LOLButtonStyle}">
         <Setter Property="BorderBrush" Value="{StaticResource Gray500Brush}"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextBrightBrush}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource TextBrightBrush}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
     
     <!-- 成功按钮样式 -->
@@ -248,7 +263,7 @@
         <Setter Property="Foreground" Value="{StaticResource TextBrightBrush}"/>
     </Style>
 
-    <!-- 默认 Button 样式（用于 {x:Type Button} 引用） -->
+    <!-- 默认 Button 样式（用�和{x:Type Button} 引用�和-->
     <Style TargetType="Button" BasedOn="{StaticResource LOLButtonStyle}"/>
 
 </ResourceDictionary>

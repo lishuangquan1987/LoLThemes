@@ -1,4 +1,5 @@
 using System.Windows.Controls;
+using LOLThemes.Wpf.Samples.ViewModels;
 
 namespace LOLThemes.Wpf.Samples.Views
 {
@@ -7,6 +8,7 @@ namespace LOLThemes.Wpf.Samples.Views
         public Screenshot3View()
         {
             InitializeComponent();
+            DataContext = new Screenshot3ViewModel();
         }
     }
 }

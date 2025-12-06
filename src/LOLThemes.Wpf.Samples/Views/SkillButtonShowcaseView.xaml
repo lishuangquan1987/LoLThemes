@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="LOLThemes.Wpf.Samples.Views.SkillButtonShowcaseView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
+             xmlns:controls="clr-namespace:LOLThemes.Wpf.Controls;assembly=LOLThemes.Wpf"
+             Background="{StaticResource BackgroundDarkBrush}">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="30">
+        <StackPanel>
+            <!-- 标题 -->
+            <Border Background="{StaticResource BackgroundMediumBrush}"
+                   BorderBrush="{StaticResource BorderGoldBrush}"
+                   BorderThickness="0,0,0,2"
+                   Padding="20,15"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="SkillButton - 技能按钮" 
+                          FontSize="{StaticResource FontSizeXXLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{StaticResource PrimaryGoldBrush}"
+                          Margin="0,0,0,8"/>
+                    <TextBlock Text="技能按钮用于显示英雄的技能，支持冷却时间进度显示。" 
+                          FontSize="{StaticResource FontSizeNormal}"
+                          Foreground="{StaticResource TextSecondaryBrush}"/>
+                </StackPanel>
+            </Border>
+            
+            <!-- 基础用法 -->
+            <Border Background="{StaticResource BackgroundMediumBrush}"
+                   BorderBrush="{StaticResource BorderDarkBrush}"
+                   BorderThickness="0.5"
+                   Padding="20"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="基础用法" 
+                          FontSize="{StaticResource FontSizeLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{StaticResource PrimaryGoldBrush}"
+                          Margin="0,0,0,15"/>
+                    
+                    <smtx:XamlDisplay UniqueKey="SkillButtonBasic" Margin="0,0,0,0">
+                        <WrapPanel>
+                            <controls:SkillButton HotkeyText="Q" 
+                                                 Width="60" Height="60"
+                                                 Margin="10"/>
+                            <controls:SkillButton HotkeyText="W" 
+                                                 Width="60" Height="60"
+                                                 Margin="10"/>
+                            <controls:SkillButton HotkeyText="E" 
+                                                 Width="60" Height="60"
+                                                 Margin="10"/>
+                            <controls:SkillButton HotkeyText="R" 
+                                                 Width="60" Height="60"
+                                                 Margin="10"/>
+                        </WrapPanel>
+                    </smtx:XamlDisplay>
+                </StackPanel>
+            </Border>
+            
+            <!-- 冷却状态 -->
+            <Border Background="{StaticResource BackgroundMediumBrush}"
+                   BorderBrush="{StaticResource BorderDarkBrush}"
+                   BorderThickness="0.5"
+                   Padding="20"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="冷却状态" 
+                          FontSize="{StaticResource FontSizeLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{StaticResource PrimaryGoldBrush}"
+                          Margin="0,0,0,15"/>
+                    
+                    <smtx:XamlDisplay UniqueKey="SkillButtonCooldown" Margin="0,0,0,0">
+                        <WrapPanel>
+                            <controls:SkillButton HotkeyText="Q" 
+                                                 CooldownProgress="0.0"
+                                                 Width="60" Height="60"
+                                                 Margin="10"/>
+                            <controls:SkillButton HotkeyText="W" 
+                                                 CooldownProgress="0.3"
+                                                 Width="60" Height="60"
+                                                 Margin="10"/>
+                            <controls:SkillButton HotkeyText="E" 
+                                                 CooldownProgress="0.6"
+                                                 Width="60" Height="60"
+                                                 Margin="10"/>
+                            <controls:SkillButton HotkeyText="R" 
+                                                 CooldownProgress="0.9"
+                                                 Width="60" Height="60"
+                                                 Margin="10"/>
+                        </WrapPanel>
+                    </smtx:XamlDisplay>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

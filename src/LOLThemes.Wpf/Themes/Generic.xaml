@@ -54,8 +54,6 @@
         <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Styles/RankBadgeStyles.xaml"/>
         <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Styles/CurrencyDisplayStyles.xaml"/>
         <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Styles/StatBarStyles.xaml"/>
-        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Styles/CodeBlockStyles.xaml"/>
-        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Styles/ShowMeTheXAMLStyles.xaml"/>
         
     </ResourceDictionary.MergedDictionaries>
     

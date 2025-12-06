@@ -121,7 +121,7 @@
                                           FontSize="{StaticResource FontSizeMedium}"
                                           FontWeight="{StaticResource FontWeightBold}"
                                           Foreground="{StaticResource BackgroundDarkBrush}"/>
-                                <TextBlock Text="147"
+                                <TextBlock Text="{Binding PlayerData.Level}"
                                           FontSize="{StaticResource FontSizeMedium}"
                                           FontWeight="{StaticResource FontWeightBold}"
                                           Foreground="{StaticResource BackgroundDarkBrush}"/>
@@ -153,7 +153,7 @@
                                               VerticalAlignment="Center"/>
                                 </Border>
                                 
-                                <TextBlock Text="钻石 II"
+                                <TextBlock Text="{Binding PlayerData.Rank}"
                                           FontSize="{StaticResource FontSizeLarge}"
                                           FontWeight="{StaticResource FontWeightBold}"
                                           Foreground="{StaticResource TextPrimaryBrush}"

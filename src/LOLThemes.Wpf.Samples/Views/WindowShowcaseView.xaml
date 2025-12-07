@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="LOLThemes.Wpf.Samples.Views.WindowShowcaseView"
+<UserControl x:Class="LOLThemes.Wpf.Samples.Views.WindowShowcaseView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
@@ -62,7 +62,7 @@
                                    Padding="15"
                                    CornerRadius="4">
                                 <TextBlock FontFamily="Consolas"
-                                          FontSize="{StaticResource FontSizeSmall}"
+                                          FontSize="{DynamicResource FontSizeSmall}"
                                           Foreground="{DynamicResource TextSecondaryBrush}"
                                           TextWrapping="Wrap">
                                     <Run Text="var button = new Button { Content = &quot;设置&quot; };&#x0a;"/>
@@ -84,7 +84,7 @@
                                    Padding="15"
                                    CornerRadius="4">
                                 <TextBlock FontFamily="Consolas"
-                                          FontSize="{StaticResource FontSizeSmall}"
+                                          FontSize="{DynamicResource FontSizeSmall}"
                                           Foreground="{DynamicResource TextSecondaryBrush}"
                                           TextWrapping="Wrap">
                                     <Run Text="var panel = new StackPanel { Orientation = Orientation.Horizontal };&#x0a;"/>
@@ -108,7 +108,7 @@
                                    Padding="15"
                                    CornerRadius="4">
                                 <TextBlock FontFamily="Consolas"
-                                          FontSize="{StaticResource FontSizeSmall}"
+                                          FontSize="{DynamicResource FontSizeSmall}"
                                           Foreground="{DynamicResource TextSecondaryBrush}"
                                           TextWrapping="Wrap">
                                     <Run Text="&lt;Window helpers:WindowHelper.EnableCustomChrome=&quot;True&quot;&#x0a;"/>

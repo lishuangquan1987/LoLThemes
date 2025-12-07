@@ -1,12 +1,12 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:LOLThemes.Wpf.Controls"
                     xmlns:converters="clr-namespace:LOLThemes.Wpf.Converters">
     
-    <!-- 合并基础资源，确保可以访问 Colors 和 Fonts -->
+    <!-- 合并基础资源，确保可以访问 Fonts -->
+    <!-- 注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Colors.xaml"/>
-        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <!-- 辅助转换器：检查值是否大� -->
@@ -61,7 +61,7 @@
                         <TextBlock Text="{TemplateBinding HotkeyText}"
                                   Foreground="{DynamicResource TextPrimaryBrush}"
                                   FontFamily="{StaticResource PrimaryFont}"
-                                  FontSize="{StaticResource FontSizeSmall}"
+                                  FontSize="{DynamicResource FontSizeSmall}"
                                   FontWeight="{StaticResource FontWeightBold}"
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="Bottom"

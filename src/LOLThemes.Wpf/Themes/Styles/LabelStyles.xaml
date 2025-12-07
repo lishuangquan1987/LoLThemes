@@ -1,42 +1,42 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
-    <!-- 合并基础资源，确保可以访问 Colors 和 Fonts -->
+    <!-- 合并基础资源，确保可以访问 Fonts -->
+    <!-- 注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Colors.xaml"/>
-        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <!-- 基础 Label 样式 -->
     <Style x:Key="LOLLabelStyle" TargetType="Label">
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         <Setter Property="Padding" Value="0"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
     </Style>
 
     <!-- 标题 Label 样式 -->
     <Style x:Key="TitleLabel" TargetType="Label" BasedOn="{StaticResource LOLLabelStyle}">
-        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}"/>
         <Setter Property="FontWeight" Value="{StaticResource FontWeightBold}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryGoldBrush}"/>
     </Style>
 
     <!-- 副标�Label 样式 -->
     <Style x:Key="SubtitleLabel" TargetType="Label" BasedOn="{StaticResource LOLLabelStyle}">
-        <Setter Property="FontSize" Value="{StaticResource FontSizeMedium}"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeMedium}"/>
         <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
     </Style>
 
     <!-- 正文 Label 样式 -->
     <Style x:Key="BodyLabel" TargetType="Label" BasedOn="{StaticResource LOLLabelStyle}">
-        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
     </Style>
 
     <!-- 说明 Label 样式 -->
     <Style x:Key="CaptionLabel" TargetType="Label" BasedOn="{StaticResource LOLLabelStyle}">
-        <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}"/>
     </Style>
 
@@ -48,7 +48,7 @@
 
     <!-- 表单 Label 样式 -->
     <Style x:Key="FormLabel" TargetType="Label" BasedOn="{StaticResource LOLLabelStyle}">
-        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
         <Setter Property="Margin" Value="0,0,0,4"/>
     </Style>

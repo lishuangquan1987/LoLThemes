@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="LOLThemes.Wpf.Samples.Views.Screenshot2View"
+<UserControl x:Class="LOLThemes.Wpf.Samples.Views.Screenshot2View"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -260,7 +260,7 @@
                                                   HorizontalAlignment="Center"
                                                   Margin="0,0,0,5"/>
                                         <TextBlock Text="五杀"
-                                                  FontSize="{StaticResource FontSizeSmall}"
+                                                  FontSize="{DynamicResource FontSizeSmall}"
                                                   Foreground="{DynamicResource TextPrimaryBrush}"
                                                   HorizontalAlignment="Center"/>
                                     </StackPanel>
@@ -277,7 +277,7 @@
                                                   HorizontalAlignment="Center"
                                                   Margin="0,0,0,5"/>
                                         <TextBlock Text="MVP"
-                                                  FontSize="{StaticResource FontSizeSmall}"
+                                                  FontSize="{DynamicResource FontSizeSmall}"
                                                   Foreground="{DynamicResource TextPrimaryBrush}"
                                                   HorizontalAlignment="Center"/>
                                     </StackPanel>
@@ -294,7 +294,7 @@
                                                   HorizontalAlignment="Center"
                                                   Margin="0,0,0,5"/>
                                         <TextBlock Text="神射手"
-                                                  FontSize="{StaticResource FontSizeSmall}"
+                                                  FontSize="{DynamicResource FontSizeSmall}"
                                                   Foreground="{DynamicResource TextPrimaryBrush}"
                                                   HorizontalAlignment="Center"/>
                                     </StackPanel>
@@ -310,7 +310,7 @@
                                                   HorizontalAlignment="Center"
                                                   Margin="0,0,0,5"/>
                                         <TextBlock Text="守护者"
-                                                  FontSize="{StaticResource FontSizeSmall}"
+                                                  FontSize="{DynamicResource FontSizeSmall}"
                                                   Foreground="{DynamicResource TextPrimaryBrush}"
                                                   HorizontalAlignment="Center"/>
                                     </StackPanel>
@@ -351,7 +351,7 @@
                                                    Background="{DynamicResource PrimaryGoldBrush}"
                                                    Width="50" Height="50">
                                                 <TextBlock Text="亚索"
-                                                          FontSize="{StaticResource FontSizeSmall}"
+                                                          FontSize="{DynamicResource FontSizeSmall}"
                                                           FontWeight="{StaticResource FontWeightBold}"
                                                           Foreground="{DynamicResource BackgroundDarkBrush}"
                                                           HorizontalAlignment="Center"
@@ -366,10 +366,10 @@
                                                           Margin="0,0,0,5"/>
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBlock Text="87场 · "
-                                                              FontSize="{StaticResource FontSizeSmall}"
+                                                              FontSize="{DynamicResource FontSizeSmall}"
                                                               Foreground="{DynamicResource TextSecondaryBrush}"/>
                                                     <TextBlock Text="58% 胜率"
-                                                              FontSize="{StaticResource FontSizeSmall}"
+                                                              FontSize="{DynamicResource FontSizeSmall}"
                                                               Foreground="{DynamicResource SuccessGreenBrush}"/>
                                                 </StackPanel>
                                             </StackPanel>
@@ -381,7 +381,7 @@
                                                           Foreground="{DynamicResource PrimaryGoldBrush}"
                                                           HorizontalAlignment="Right"/>
                                                 <TextBlock Text="KDA"
-                                                          FontSize="{StaticResource FontSizeSmall}"
+                                                          FontSize="{DynamicResource FontSizeSmall}"
                                                           Foreground="{DynamicResource TextSecondaryBrush}"
                                                           HorizontalAlignment="Right"/>
                                             </StackPanel>
@@ -405,7 +405,7 @@
                                                    Background="{DynamicResource PrimaryCyanBrush}"
                                                    Width="50" Height="50">
                                                 <TextBlock Text="劫"
-                                                          FontSize="{StaticResource FontSizeSmall}"
+                                                          FontSize="{DynamicResource FontSizeSmall}"
                                                           FontWeight="{StaticResource FontWeightBold}"
                                                           Foreground="{DynamicResource BackgroundDarkBrush}"
                                                           HorizontalAlignment="Center"
@@ -420,10 +420,10 @@
                                                           Margin="0,0,0,5"/>
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBlock Text="65场 · "
-                                                              FontSize="{StaticResource FontSizeSmall}"
+                                                              FontSize="{DynamicResource FontSizeSmall}"
                                                               Foreground="{DynamicResource TextSecondaryBrush}"/>
                                                     <TextBlock Text="52% 胜率"
-                                                              FontSize="{StaticResource FontSizeSmall}"
+                                                              FontSize="{DynamicResource FontSizeSmall}"
                                                               Foreground="{DynamicResource SuccessGreenBrush}"/>
                                                 </StackPanel>
                                             </StackPanel>
@@ -435,7 +435,7 @@
                                                           Foreground="{DynamicResource PrimaryCyanBrush}"
                                                           HorizontalAlignment="Right"/>
                                                 <TextBlock Text="KDA"
-                                                          FontSize="{StaticResource FontSizeSmall}"
+                                                          FontSize="{DynamicResource FontSizeSmall}"
                                                           Foreground="{DynamicResource TextSecondaryBrush}"
                                                           HorizontalAlignment="Right"/>
                                             </StackPanel>
@@ -474,10 +474,10 @@
                                                           Margin="0,0,0,5"/>
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBlock Text="54场 · "
-                                                              FontSize="{StaticResource FontSizeSmall}"
+                                                              FontSize="{DynamicResource FontSizeSmall}"
                                                               Foreground="{DynamicResource TextSecondaryBrush}"/>
                                                     <TextBlock Text="50% 胜率"
-                                                              FontSize="{StaticResource FontSizeSmall}"
+                                                              FontSize="{DynamicResource FontSizeSmall}"
                                                               Foreground="{DynamicResource TextSecondaryBrush}"/>
                                                 </StackPanel>
                                             </StackPanel>
@@ -489,7 +489,7 @@
                                                           Foreground="{DynamicResource TextPrimaryBrush}"
                                                           HorizontalAlignment="Right"/>
                                                 <TextBlock Text="KDA"
-                                                          FontSize="{StaticResource FontSizeSmall}"
+                                                          FontSize="{DynamicResource FontSizeSmall}"
                                                           Foreground="{DynamicResource TextSecondaryBrush}"
                                                           HorizontalAlignment="Right"/>
                                             </StackPanel>

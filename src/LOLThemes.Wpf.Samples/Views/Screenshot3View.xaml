@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="LOLThemes.Wpf.Samples.Views.Screenshot3View"
+<UserControl x:Class="LOLThemes.Wpf.Samples.Views.Screenshot3View"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -133,10 +133,10 @@
                                                   Margin="0,0,0,5"/>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="等级 147 · "
-                                                      FontSize="{StaticResource FontSizeSmall}"
+                                                      FontSize="{DynamicResource FontSizeSmall}"
                                                       Foreground="{DynamicResource TextSecondaryBrush}"/>
                                             <TextBlock Text="钻石 II"
-                                                      FontSize="{StaticResource FontSizeSmall}"
+                                                      FontSize="{DynamicResource FontSizeSmall}"
                                                       Foreground="{DynamicResource PrimaryGoldBrush}"/>
                                         </StackPanel>
                                     </StackPanel>
@@ -148,7 +148,7 @@
                                            Margin="0,0,10,0"
                                            VerticalAlignment="Center">
                                         <TextBlock Text="准备就绪"
-                                                  FontSize="{StaticResource FontSizeSmall}"
+                                                  FontSize="{DynamicResource FontSizeSmall}"
                                                   FontWeight="{StaticResource FontWeightBold}"
                                                   Foreground="{DynamicResource BackgroundDarkBrush}"/>
                                     </Border>
@@ -192,10 +192,10 @@
                                                   Margin="0,0,0,5"/>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="等级 132 · "
-                                                      FontSize="{StaticResource FontSizeSmall}"
+                                                      FontSize="{DynamicResource FontSizeSmall}"
                                                       Foreground="{DynamicResource TextSecondaryBrush}"/>
                                             <TextBlock Text="铂金 I"
-                                                      FontSize="{StaticResource FontSizeSmall}"
+                                                      FontSize="{DynamicResource FontSizeSmall}"
                                                       Foreground="{DynamicResource PrimaryCyanBrush}"/>
                                         </StackPanel>
                                     </StackPanel>
@@ -207,7 +207,7 @@
                                            Margin="0,0,10,0"
                                            VerticalAlignment="Center">
                                         <TextBlock Text="准备就绪"
-                                                  FontSize="{StaticResource FontSizeSmall}"
+                                                  FontSize="{DynamicResource FontSizeSmall}"
                                                   FontWeight="{StaticResource FontWeightBold}"
                                                   Foreground="{DynamicResource BackgroundDarkBrush}"/>
                                     </Border>
@@ -251,10 +251,10 @@
                                                   Margin="0,0,0,5"/>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="等级 98 · "
-                                                      FontSize="{StaticResource FontSizeSmall}"
+                                                      FontSize="{DynamicResource FontSizeSmall}"
                                                       Foreground="{DynamicResource TextSecondaryBrush}"/>
                                             <TextBlock Text="黄金 III"
-                                                      FontSize="{StaticResource FontSizeSmall}"
+                                                      FontSize="{DynamicResource FontSizeSmall}"
                                                       Foreground="{DynamicResource PrimaryGoldBrush}"/>
                                         </StackPanel>
                                     </StackPanel>
@@ -266,7 +266,7 @@
                                            Margin="0,0,10,0"
                                            VerticalAlignment="Center">
                                         <TextBlock Text="未准备"
-                                                  FontSize="{StaticResource FontSizeSmall}"
+                                                  FontSize="{DynamicResource FontSizeSmall}"
                                                   FontWeight="{StaticResource FontWeightBold}"
                                                   Foreground="{DynamicResource TextPrimaryBrush}"/>
                                     </Border>
@@ -401,44 +401,44 @@
                                 <!-- 聊天消息 1 -->
                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                                     <TextBlock Text="[召唤师名称]: "
-                                              FontSize="{StaticResource FontSizeSmall}"
+                                              FontSize="{DynamicResource FontSizeSmall}"
                                               FontWeight="{StaticResource FontWeightBold}"
                                               Foreground="{DynamicResource PrimaryGoldBrush}"/>
                                     <TextBlock Text="大家好！准备开始了吗？"
-                                              FontSize="{StaticResource FontSizeSmall}"
+                                              FontSize="{DynamicResource FontSizeSmall}"
                                               Foreground="{DynamicResource TextPrimaryBrush}"/>
                                 </StackPanel>
                                 
                                 <!-- 聊天消息 2 -->
                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                                     <TextBlock Text="[队友A]: "
-                                              FontSize="{StaticResource FontSizeSmall}"
+                                              FontSize="{DynamicResource FontSizeSmall}"
                                               FontWeight="{StaticResource FontWeightBold}"
                                               Foreground="{DynamicResource PrimaryCyanBrush}"/>
                                     <TextBlock Text="准备好了！"
-                                              FontSize="{StaticResource FontSizeSmall}"
+                                              FontSize="{DynamicResource FontSizeSmall}"
                                               Foreground="{DynamicResource TextPrimaryBrush}"/>
                                 </StackPanel>
                                 
                                 <!-- 聊天消息 3 -->
                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                                     <TextBlock Text="[队友B]: "
-                                              FontSize="{StaticResource FontSizeSmall}"
+                                              FontSize="{DynamicResource FontSizeSmall}"
                                               FontWeight="{StaticResource FontWeightBold}"
                                               Foreground="{DynamicResource PrimaryCyanBrush}"/>
                                     <TextBlock Text="等我一下，马上就好"
-                                              FontSize="{StaticResource FontSizeSmall}"
+                                              FontSize="{DynamicResource FontSizeSmall}"
                                               Foreground="{DynamicResource TextPrimaryBrush}"/>
                                 </StackPanel>
                                 
                                 <!-- 系统消息 -->
                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                                     <TextBlock Text="[系统]: "
-                                              FontSize="{StaticResource FontSizeSmall}"
+                                              FontSize="{DynamicResource FontSizeSmall}"
                                               FontWeight="{StaticResource FontWeightBold}"
                                               Foreground="{DynamicResource TextSecondaryBrush}"/>
                                     <TextBlock Text="等待所有玩家准备就绪..."
-                                              FontSize="{StaticResource FontSizeSmall}"
+                                              FontSize="{DynamicResource FontSizeSmall}"
                                               Foreground="{DynamicResource TextSecondaryBrush}"
                                               FontStyle="Italic"/>
                                 </StackPanel>

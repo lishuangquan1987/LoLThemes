@@ -1,12 +1,12 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:LOLThemes.Wpf.Controls"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
     
-    <!-- 合并基础资源，确保可以访问 Colors 和 Fonts -->
+    <!-- 合并基础资源，确保可以访问 Fonts -->
+    <!-- 注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Colors.xaml"/>
-        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type controls:CurrencyDisplay}">
@@ -22,11 +22,11 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock x:Name="currencyIcon"
                                       Text="💎"
-                                      FontSize="{StaticResource FontSizeNormal}"
+                                      FontSize="{DynamicResource FontSizeNormal}"
                                       VerticalAlignment="Center"
                                       Margin="0,0,8,0"/>
                             <TextBlock Text="{Binding Amount, RelativeSource={RelativeSource TemplatedParent}, StringFormat='{}{0:N0}'}"
-                                      FontSize="{StaticResource FontSizeNormal}"
+                                      FontSize="{DynamicResource FontSizeNormal}"
                                       FontWeight="{StaticResource FontWeightBold}"
                                       Foreground="{DynamicResource BackgroundDarkBrush}"
                                       VerticalAlignment="Center"/>

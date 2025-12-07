@@ -1,11 +1,11 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:LOLThemes.Wpf.Controls">
     
-    <!-- 合并基础资源，确保可以访问 Colors 和 Fonts -->
+    <!-- 合并基础资源，确保可以访问 Fonts -->
+    <!-- 注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Colors.xaml"/>
-        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type controls:GlowButton}">
@@ -15,7 +15,7 @@
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="Padding" Value="20,10"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="GlowColor" Value="#C8AA6E"/>

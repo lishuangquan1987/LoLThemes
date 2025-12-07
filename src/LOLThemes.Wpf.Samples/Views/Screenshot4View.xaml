@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="LOLThemes.Wpf.Samples.Views.Screenshot4View"
+<UserControl x:Class="LOLThemes.Wpf.Samples.Views.Screenshot4View"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -269,7 +269,7 @@
                                         
                                         <TextBlock Grid.Row="1"
                                                   Text="疾风剑豪"
-                                                  FontSize="{StaticResource FontSizeSmall}"
+                                                  FontSize="{DynamicResource FontSizeSmall}"
                                                   Foreground="{DynamicResource TextPrimaryBrush}"
                                                   HorizontalAlignment="Center"
                                                   Margin="5,5,5,3"/>
@@ -279,7 +279,7 @@
                                                Padding="8,4"
                                                Margin="5,0,5,5">
                                             <TextBlock Text="4800 BE"
-                                                      FontSize="{StaticResource FontSizeSmall}"
+                                                      FontSize="{DynamicResource FontSizeSmall}"
                                                       FontWeight="{StaticResource FontWeightBold}"
                                                       Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"/>
@@ -314,7 +314,7 @@
                                         
                                         <TextBlock Grid.Row="1"
                                                   Text="影流之主"
-                                                  FontSize="{StaticResource FontSizeSmall}"
+                                                  FontSize="{DynamicResource FontSizeSmall}"
                                                   Foreground="{DynamicResource TextPrimaryBrush}"
                                                   HorizontalAlignment="Center"
                                                   Margin="5,5,5,3"/>
@@ -324,7 +324,7 @@
                                                Padding="8,4"
                                                Margin="5,0,5,5">
                                             <TextBlock Text="4800 BE"
-                                                      FontSize="{StaticResource FontSizeSmall}"
+                                                      FontSize="{DynamicResource FontSizeSmall}"
                                                       FontWeight="{StaticResource FontWeightBold}"
                                                       Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"/>
@@ -350,7 +350,7 @@
                                                Background="{DynamicResource PrimaryGoldBrush}"
                                                Margin="5,5,5,0">
                                             <TextBlock Text="阿卡丽"
-                                                      FontSize="{StaticResource FontSizeSmall}"
+                                                      FontSize="{DynamicResource FontSizeSmall}"
                                                       FontWeight="{StaticResource FontWeightBold}"
                                                       Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"
@@ -359,7 +359,7 @@
                                         
                                         <TextBlock Grid.Row="1"
                                                   Text="离群之刺"
-                                                  FontSize="{StaticResource FontSizeSmall}"
+                                                  FontSize="{DynamicResource FontSizeSmall}"
                                                   Foreground="{DynamicResource TextPrimaryBrush}"
                                                   HorizontalAlignment="Center"
                                                   Margin="5,5,5,3"/>
@@ -369,7 +369,7 @@
                                                Padding="8,4"
                                                Margin="5,0,5,5">
                                             <TextBlock Text="3150 BE"
-                                                      FontSize="{StaticResource FontSizeSmall}"
+                                                      FontSize="{DynamicResource FontSizeSmall}"
                                                       FontWeight="{StaticResource FontWeightBold}"
                                                       Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"/>
@@ -404,7 +404,7 @@
                                         
                                         <TextBlock Grid.Row="1"
                                                   Text="不祥之刃"
-                                                  FontSize="{StaticResource FontSizeSmall}"
+                                                  FontSize="{DynamicResource FontSizeSmall}"
                                                   Foreground="{DynamicResource TextPrimaryBrush}"
                                                   HorizontalAlignment="Center"
                                                   Margin="5,5,5,3"/>
@@ -414,7 +414,7 @@
                                                Padding="8,4"
                                                Margin="5,0,5,5">
                                             <TextBlock Text="3150 BE"
-                                                      FontSize="{StaticResource FontSizeSmall}"
+                                                      FontSize="{DynamicResource FontSizeSmall}"
                                                       FontWeight="{StaticResource FontWeightBold}"
                                                       Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"/>
@@ -440,7 +440,7 @@
                                                Background="{DynamicResource PrimaryGoldBrush}"
                                                Margin="5,5,5,0">
                                             <TextBlock Text="辛德拉"
-                                                      FontSize="{StaticResource FontSizeSmall}"
+                                                      FontSize="{DynamicResource FontSizeSmall}"
                                                       FontWeight="{StaticResource FontWeightBold}"
                                                       Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"
@@ -449,7 +449,7 @@
                                         
                                         <TextBlock Grid.Row="1"
                                                   Text="暗黑元首"
-                                                  FontSize="{StaticResource FontSizeSmall}"
+                                                  FontSize="{DynamicResource FontSizeSmall}"
                                                   Foreground="{DynamicResource TextPrimaryBrush}"
                                                   HorizontalAlignment="Center"
                                                   Margin="5,5,5,3"/>
@@ -459,7 +459,7 @@
                                                Padding="8,4"
                                                Margin="5,0,5,5">
                                             <TextBlock Text="4800 BE"
-                                                      FontSize="{StaticResource FontSizeSmall}"
+                                                      FontSize="{DynamicResource FontSizeSmall}"
                                                       FontWeight="{StaticResource FontWeightBold}"
                                                       Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"/>
@@ -494,7 +494,7 @@
                                         
                                         <TextBlock Grid.Row="1"
                                                   Text="诡术妖姬"
-                                                  FontSize="{StaticResource FontSizeSmall}"
+                                                  FontSize="{DynamicResource FontSizeSmall}"
                                                   Foreground="{DynamicResource TextPrimaryBrush}"
                                                   HorizontalAlignment="Center"
                                                   Margin="5,5,5,3"/>
@@ -504,7 +504,7 @@
                                                Padding="8,4"
                                                Margin="5,0,5,5">
                                             <TextBlock Text="3150 BE"
-                                                      FontSize="{StaticResource FontSizeSmall}"
+                                                      FontSize="{DynamicResource FontSizeSmall}"
                                                       FontWeight="{StaticResource FontWeightBold}"
                                                       Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"/>
@@ -539,7 +539,7 @@
                                         
                                         <TextBlock Grid.Row="1"
                                                   Text="发条魔灵"
-                                                  FontSize="{StaticResource FontSizeSmall}"
+                                                  FontSize="{DynamicResource FontSizeSmall}"
                                                   Foreground="{DynamicResource TextPrimaryBrush}"
                                                   HorizontalAlignment="Center"
                                                   Margin="5,5,5,3"/>
@@ -549,7 +549,7 @@
                                                Padding="8,4"
                                                Margin="5,0,5,5">
                                             <TextBlock Text="4800 BE"
-                                                      FontSize="{StaticResource FontSizeSmall}"
+                                                      FontSize="{DynamicResource FontSizeSmall}"
                                                       FontWeight="{StaticResource FontWeightBold}"
                                                       Foreground="{DynamicResource BackgroundDarkBrush}"
                                                       HorizontalAlignment="Center"/>
@@ -645,7 +645,7 @@
                                           Margin="0,0,0,5"/>
                                 
                                 <TextBlock Text="史诗级皮肤"
-                                          FontSize="{StaticResource FontSizeSmall}"
+                                          FontSize="{DynamicResource FontSizeSmall}"
                                           Foreground="{DynamicResource TextSecondaryBrush}"
                                           HorizontalAlignment="Center"
                                           Margin="0,0,0,10"/>

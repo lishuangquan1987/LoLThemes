@@ -7,7 +7,7 @@
         所有样式文件引用此文件，ThemeManager会动态替换MergedDictionaries中的引用
     -->
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Sizes.Medium.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Sizes.Medium.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
 

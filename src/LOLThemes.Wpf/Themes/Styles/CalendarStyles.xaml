@@ -1,10 +1,10 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
-    <!-- 合并基础资源，确保可以访问 Colors 和 Fonts -->
+    <!-- 合并基础资源，确保可以访问 Fonts -->
+    <!-- 注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Colors.xaml"/>
-        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <!-- Calendar Button Style -->
@@ -12,7 +12,7 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         <Setter Property="MinWidth" Value="40"/>
         <Setter Property="MinHeight" Value="40"/>
         <Setter Property="Margin" Value="1"/>
@@ -46,7 +46,7 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         <Setter Property="MinWidth" Value="32"/>
         <Setter Property="MinHeight" Value="32"/>
         <Setter Property="Margin" Value="1"/>
@@ -93,7 +93,7 @@
         <Setter Property="BorderThickness" Value="0.5"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         <Setter Property="CalendarButtonStyle" Value="{StaticResource CalendarButtonStyle}"/>
         <Setter Property="CalendarDayButtonStyle" Value="{StaticResource CalendarDayButtonStyle}"/>
         <Setter Property="Template">

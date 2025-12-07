@@ -13,3 +13,4 @@ public partial class WindowShowcaseView : UserControl
     }
 }
 
+

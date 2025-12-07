@@ -111,7 +111,8 @@ namespace LOLThemes.Wpf.Helpers
 
         /// <summary>
         /// 切换到指定主题
-        /// 新的逻辑：Generic.xaml -> Colors.xaml -> 替换内部的 Colors.xxx.xaml
+        /// 新逻辑：直接在App.Resources.MergedDictionaries中查找并替换Colors.xxx.xaml
+        /// 这种方式比通过占位符文件更可靠，可以立即生效
         /// </summary>
         /// <param name="theme">要切换到的主题</param>
         /// <param name="application">应用程序实例，如果为null则使用Application.Current</param>
@@ -125,24 +126,19 @@ namespace LOLThemes.Wpf.Helpers
 
             var colorsUri = theme == Theme.Dark ? DarkColorsUri : LightColorsUri;
 
-            // 1. 查找 Generic.xaml 资源字典
-            ResourceDictionary? genericDict = FindGenericDictionary(app.Resources);
-            if (genericDict == null)
+            // 直接在App.Resources.MergedDictionaries中查找Colors.xxx.xaml资源字典
+            ResourceDictionary? existingColorsDict = FindColorsResourceDictionary(app.Resources);
+            if (existingColorsDict != null)
             {
-                throw new InvalidOperationException("无法找到 Generic.xaml 资源字典。请确保应用已正确加载主题资源。");
+                app.Resources.MergedDictionaries.Remove(existingColorsDict);
             }
 
-            // 2. 在 Generic.xaml 的 MergedDictionaries 中找到 Colors.xaml
-            ResourceDictionary? colorsDict = FindColorsDictionary(genericDict);
-            if (colorsDict == null)
+            // 添加新的Colors.xxx.xaml资源字典
+            var newColorsDict = new ResourceDictionary
             {
-                throw new InvalidOperationException("无法找到 Colors.xaml 资源字典。请确保 Generic.xaml 正确引用了 Colors.xaml。");
-            }
-
-            // 3. 在 Colors.xaml 的 MergedDictionaries 中替换 Colors.xxx.xaml
-            //ReplaceColorsTheme(colorsDict, colorsUri);
-            colorsDict.MergedDictionaries.Clear();
-            colorsDict.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri(colorsUri, UriKind.RelativeOrAbsolute) });
+                Source = new Uri(colorsUri, UriKind.RelativeOrAbsolute)
+            };
+            app.Resources.MergedDictionaries.Add(newColorsDict);
 
             // 更新当前主题（这会触发ThemeChanged事件）
             CurrentTheme = theme;
@@ -155,135 +151,50 @@ namespace LOLThemes.Wpf.Helpers
         }
 
         /// <summary>
-        /// 查找Generic.xaml资源字典
+        /// 在App.Resources.MergedDictionaries中查找Colors.xxx.xaml资源字典
         /// </summary>
-        private static ResourceDictionary? FindGenericDictionary(ResourceDictionary resources)
+        private static ResourceDictionary? FindColorsResourceDictionary(ResourceDictionary resources)
         {
             foreach (var dict in resources.MergedDictionaries)
             {
-                if (dict.Source != null && dict.Source.OriginalString.Contains("Generic.xaml"))
-                {
-                    return dict;
-                }
-                
-                // 递归查找嵌套的资源字典
-                if (dict.MergedDictionaries.Count > 0)
-                {
-                    var found = FindGenericDictionary(dict);
-                    if (found != null)
-                    {
-                        return found;
-                    }
-                }
-            }
-            return null;
-        }
-
-        /// <summary>
-        /// 在Generic.xaml的MergedDictionaries中查找Colors.xaml资源字典
-        /// </summary>
-        private static ResourceDictionary? FindColorsDictionary(ResourceDictionary genericDict)
-        {
-            foreach (var dict in genericDict.MergedDictionaries)
-            {
                 if (dict.Source != null)
                 {
                     var sourceStr = dict.Source.OriginalString;
-                    // 查找 Colors.xaml（不包括 Colors.Dark.xaml 和 Colors.Light.xaml）
-                    if (sourceStr.Contains("/Themes/Colors.xaml") && 
-                        !sourceStr.Contains("Colors.Dark") && 
-                        !sourceStr.Contains("Colors.Light"))
-                    {
-                        return dict;
-                    }
-                }
-            }
-            return null;
-        }
-
-        /// <summary>
-        /// 在Generic.xaml的MergedDictionaries中查找Sizes.xaml资源字典
-        /// </summary>
-        private static ResourceDictionary? FindSizesDictionary(ResourceDictionary genericDict)
-        {
-            foreach (var dict in genericDict.MergedDictionaries)
-            {
-                if (dict.Source != null)
-                {
-                    var sourceStr = dict.Source.OriginalString;
-                    // 查找 Sizes.xaml（不包括 Sizes.Compact.xaml、Sizes.Medium.xaml 和 Sizes.Large.xaml）
-                    if (sourceStr.Contains("/Themes/Sizes.xaml") && 
-                        !sourceStr.Contains("Sizes.Compact") && 
-                        !sourceStr.Contains("Sizes.Medium") && 
-                        !sourceStr.Contains("Sizes.Large"))
-                    {
-                        return dict;
-                    }
-                }
-            }
-            return null;
-        }
-
-        /// <summary>
-        /// 在Colors.xaml的MergedDictionaries中替换Colors.xxx.xaml引用
-        /// </summary>
-        private static void ReplaceColorsTheme(ResourceDictionary colorsDict, string newColorsUri)
-        {
-            // 移除旧的 Colors.xxx.xaml 引用
-            for (int i = colorsDict.MergedDictionaries.Count - 1; i >= 0; i--)
-            {
-                var mergedDict = colorsDict.MergedDictionaries[i];
-                if (mergedDict.Source != null)
-                {
-                    var sourceStr = mergedDict.Source.OriginalString;
+                    // 查找 Colors.Dark.xaml 或 Colors.Light.xaml
                     if (sourceStr.Contains("Colors.Dark.xaml") || sourceStr.Contains("Colors.Light.xaml"))
                     {
-                        colorsDict.MergedDictionaries.RemoveAt(i);
-                        break; // 只替换第一个匹配的
+                        return dict;
                     }
                 }
             }
-
-            // 添加新的 Colors.xxx.xaml 引用
-            var newColorsResourceDict = new ResourceDictionary
-            {
-                Source = new Uri(newColorsUri, UriKind.Relative)
-            };
-            colorsDict.MergedDictionaries.Insert(0, newColorsResourceDict);
+            return null;
         }
 
         /// <summary>
-        /// 在Sizes.xaml的MergedDictionaries中替换Sizes.xxx.xaml引用
+        /// 在App.Resources.MergedDictionaries中查找Sizes.xxx.xaml资源字典
         /// </summary>
-        private static void ReplaceSizesTheme(ResourceDictionary sizesDict, string newSizesUri)
+        private static ResourceDictionary? FindSizesResourceDictionary(ResourceDictionary resources)
         {
-            // 移除旧的 Sizes.xxx.xaml 引用
-            for (int i = sizesDict.MergedDictionaries.Count - 1; i >= 0; i--)
+            foreach (var dict in resources.MergedDictionaries)
             {
-                var mergedDict = sizesDict.MergedDictionaries[i];
-                if (mergedDict.Source != null)
+                if (dict.Source != null)
                 {
-                    var sourceStr = mergedDict.Source.OriginalString;
+                    var sourceStr = dict.Source.OriginalString;
+                    // 查找 Sizes.Compact.xaml、Sizes.Medium.xaml 或 Sizes.Large.xaml
                     if (sourceStr.Contains("Sizes.Compact.xaml") || 
                         sourceStr.Contains("Sizes.Medium.xaml") || 
                         sourceStr.Contains("Sizes.Large.xaml"))
                     {
-                        sizesDict.MergedDictionaries.RemoveAt(i);
-                        break; // 只替换第一个匹配的
+                        return dict;
                     }
                 }
             }
-
-            // 添加新的 Sizes.xxx.xaml 引用
-            var newSizesResourceDict = new ResourceDictionary
-            {
-                Source = new Uri(newSizesUri, UriKind.Relative)
-            };
-            sizesDict.MergedDictionaries.Insert(0, newSizesResourceDict);
+            return null;
         }
 
         /// <summary>
         /// 初始化主题管理器，设置默认主题
+        /// 注意：此方法现在只是同步当前主题状态，实际的资源加载应该在App.xaml中完成
         /// </summary>
         /// <param name="defaultTheme">默认主题，默认为Dark</param>
         /// <param name="application">应用程序实例，如果为null则使用Application.Current</param>
@@ -295,8 +206,8 @@ namespace LOLThemes.Wpf.Helpers
                 throw new InvalidOperationException("无法获取Application实例。请确保在Application启动后调用此方法。");
             }
 
-            // 检查是否已经加载了主题资源字典（递归查找）
-            bool themeLoaded = HasThemeDictionary(app.Resources);
+            // 检查是否已经加载了主题资源字典
+            bool themeLoaded = FindColorsResourceDictionary(app.Resources) != null;
 
             // 如果没有加载，则加载默认主题
             if (!themeLoaded)
@@ -305,64 +216,24 @@ namespace LOLThemes.Wpf.Helpers
             }
             else
             {
-                // 如果已加载，更新当前主题状态
-                _currentTheme = defaultTheme;
-            }
-        }
-
-        /// <summary>
-        /// 递归查找并移除主题资源字典
-        /// </summary>
-        private static void RemoveThemeDictionary(ResourceDictionary resources)
-        {
-            // 在当前层级查找并移除所有匹配的字典
-            for (int i = resources.MergedDictionaries.Count - 1; i >= 0; i--)
-            {
-                var dict = resources.MergedDictionaries[i];
-                if (dict.Source != null && 
-                    (dict.Source.OriginalString.Contains("Colors.Dark.xaml") || 
-                     dict.Source.OriginalString.Contains("Colors.Light.xaml")))
+                // 如果已加载，根据当前资源确定主题并更新状态
+                var colorsDict = FindColorsResourceDictionary(app.Resources);
+                if (colorsDict?.Source != null)
                 {
-                    resources.MergedDictionaries.RemoveAt(i);
-                    // 继续查找，不返回，因为可能有多个匹配的字典
+                    var sourceStr = colorsDict.Source.OriginalString;
+                    _currentTheme = sourceStr.Contains("Colors.Dark.xaml") ? Theme.Dark : Theme.Light;
                 }
                 else
                 {
-                    // 递归查找嵌套的资源字典
-                    if (dict.MergedDictionaries.Count > 0)
-                    {
-                        RemoveThemeDictionary(dict);
-                    }
+                    _currentTheme = defaultTheme;
                 }
             }
-        }
-
-        /// <summary>
-        /// 递归查找是否存在主题资源字典
-        /// </summary>
-        private static bool HasThemeDictionary(ResourceDictionary resources)
-        {
-            foreach (var dict in resources.MergedDictionaries)
-            {
-                if (dict.Source != null && 
-                    (dict.Source.OriginalString.Contains("Colors.Dark.xaml") || 
-                     dict.Source.OriginalString.Contains("Colors.Light.xaml")))
-                {
-                    return true;
-                }
-                
-                // 递归查找嵌套的资源字典
-                if (dict.MergedDictionaries.Count > 0 && HasThemeDictionary(dict))
-                {
-                    return true;
-                }
-            }
-            return false;
         }
 
         /// <summary>
         /// 切换到指定尺寸主题
-        /// 新的逻辑：Generic.xaml -> Sizes.xaml -> 替换内部的 Sizes.xxx.xaml
+        /// 新逻辑：直接在App.Resources.MergedDictionaries中查找并替换Sizes.xxx.xaml
+        /// 这种方式比通过占位符文件更可靠，可以立即生效
         /// </summary>
         /// <param name="sizeTheme">要切换到的尺寸主题</param>
         /// <param name="application">应用程序实例，如果为null则使用Application.Current</param>
@@ -382,22 +253,19 @@ namespace LOLThemes.Wpf.Helpers
                 _ => MediumSizesUri
             };
 
-            // 1. 查找 Generic.xaml 资源字典
-            ResourceDictionary? genericDict = FindGenericDictionary(app.Resources);
-            if (genericDict == null)
+            // 直接在App.Resources.MergedDictionaries中查找Sizes.xxx.xaml资源字典
+            ResourceDictionary? existingSizesDict = FindSizesResourceDictionary(app.Resources);
+            if (existingSizesDict != null)
             {
-                throw new InvalidOperationException("无法找到 Generic.xaml 资源字典。请确保应用已正确加载主题资源。");
+                app.Resources.MergedDictionaries.Remove(existingSizesDict);
             }
 
-            // 2. 在 Generic.xaml 的 MergedDictionaries 中找到 Sizes.xaml
-            ResourceDictionary? sizesDict = FindSizesDictionary(genericDict);
-            if (sizesDict == null)
+            // 添加新的Sizes.xxx.xaml资源字典
+            var newSizesDict = new ResourceDictionary
             {
-                throw new InvalidOperationException("无法找到 Sizes.xaml 资源字典。请确保 Generic.xaml 正确引用了 Sizes.xaml。");
-            }
-
-            // 3. 在 Sizes.xaml 的 MergedDictionaries 中替换 Sizes.xxx.xaml
-            ReplaceSizesTheme(sizesDict, sizesUri);
+                Source = new Uri(sizesUri, UriKind.RelativeOrAbsolute)
+            };
+            app.Resources.MergedDictionaries.Add(newSizesDict);
 
             // 更新当前尺寸主题（这会触发SizeThemeChanged事件）
             CurrentSizeTheme = sizeTheme;
@@ -412,6 +280,7 @@ namespace LOLThemes.Wpf.Helpers
 
         /// <summary>
         /// 初始化尺寸主题管理器，设置默认尺寸主题
+        /// 注意：此方法现在只是同步当前尺寸主题状态，实际的资源加载应该在App.xaml中完成
         /// </summary>
         /// <param name="defaultSizeTheme">默认尺寸主题，默认为Medium</param>
         /// <param name="application">应用程序实例，如果为null则使用Application.Current</param>
@@ -423,7 +292,7 @@ namespace LOLThemes.Wpf.Helpers
                 throw new InvalidOperationException("无法获取Application实例。请确保在Application启动后调用此方法。");
             }
 
-            bool sizesLoaded = HasSizesDictionary(app.Resources);
+            bool sizesLoaded = FindSizesResourceDictionary(app.Resources) != null;
 
             if (!sizesLoaded)
             {
@@ -431,31 +300,29 @@ namespace LOLThemes.Wpf.Helpers
             }
             else
             {
-                _currentSizeTheme = defaultSizeTheme;
-            }
-        }
-
-        /// <summary>
-        /// 递归查找是否存在尺寸资源字典
-        /// </summary>
-        private static bool HasSizesDictionary(ResourceDictionary resources)
-        {
-            foreach (var dict in resources.MergedDictionaries)
-            {
-                if (dict.Source != null && 
-                    (dict.Source.OriginalString.Contains("Sizes.Compact.xaml") || 
-                     dict.Source.OriginalString.Contains("Sizes.Medium.xaml") || 
-                     dict.Source.OriginalString.Contains("Sizes.Large.xaml")))
+                // 如果已加载，根据当前资源确定尺寸主题并更新状态
+                var sizesDict = FindSizesResourceDictionary(app.Resources);
+                if (sizesDict?.Source != null)
                 {
-                    return true;
+                    var sourceStr = sizesDict.Source.OriginalString;
+                    if (sourceStr.Contains("Sizes.Compact.xaml"))
+                    {
+                        _currentSizeTheme = SizeTheme.Compact;
+                    }
+                    else if (sourceStr.Contains("Sizes.Large.xaml"))
+                    {
+                        _currentSizeTheme = SizeTheme.Large;
+                    }
+                    else
+                    {
+                        _currentSizeTheme = SizeTheme.Medium;
+                    }
                 }
-                
-                if (dict.MergedDictionaries.Count > 0 && HasSizesDictionary(dict))
+                else
                 {
-                    return true;
+                    _currentSizeTheme = defaultSizeTheme;
                 }
             }
-            return false;
         }
 
         /// <summary>

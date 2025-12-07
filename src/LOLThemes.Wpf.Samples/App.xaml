@@ -8,6 +8,10 @@
             <ResourceDictionary.MergedDictionaries>
                 <!-- 引用 LOLThemes.Wpf 控件库的主题资源 -->
                 <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Generic.xaml"/>
+                
+                
+                <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Colors.Dark.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Sizes.Medium.xaml"/>
                 <!-- ShowMeTheXAML AvalonEdit 样式 -->
                 <ResourceDictionary Source="pack://application:,,,/ShowMeTheXAML.AvalonEdit;component/Themes/xamldisplayer.xaml" />
                 <!-- XamlDisplay 自定义样式 -->

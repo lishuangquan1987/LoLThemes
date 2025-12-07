@@ -61,8 +61,8 @@ namespace LOLThemes.Wpf.Samples.ViewModels
         /// <summary>
         /// 主题图标（Material.Icons 图标类型）
         /// </summary>
-        public Material.Icons.MaterialIconKind ThemeIcon => CurrentTheme == Theme.Dark 
-            ? Material.Icons.MaterialIconKind.WeatherSunny 
+        public Material.Icons.MaterialIconKind ThemeIcon => CurrentTheme == Theme.Dark
+            ? Material.Icons.MaterialIconKind.WeatherSunny
             : Material.Icons.MaterialIconKind.WeatherNight;
 
         /// <summary>

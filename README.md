@@ -10,12 +10,15 @@ LOLThemes.Wpf 是一个开源的 WPF 控件库，为 .NET 8 桌面应用程序�
 ## ✨ 特性
 
 - 🎨 **完整的主题系统** - 包含 LOL 标志性的金色、深蓝色配色方案
+- 🌓 **双主题支持** - 支持暗色和亮色主题，运行时动态切换
+- 📏 **尺寸主题系统** - 支持紧凑、中等、宽大三种尺寸主题，满足不同使用场景
 - 🎯 **28+ 基础控件样式** - 覆盖所有常用 WPF 控件
 - 🔧 **5 个自定义控件** - 六边形按钮、发光按钮、英雄卡片等
-- 📦 **零第三方依赖** - 仅依赖 WPF 框架
+- 📦 **最小依赖** - 仅依赖 WPF 框架和 Material.Icons.WPF（用于图标）
 - 🎭 **流畅动画效果** - 悬停、点击、焦点等交互动画
 - 🔌 **易于集成** - 通过资源字典即可应用主题
 - 🎮 **1:1 界面还原** - 示例应用展示游戏界面还原
+- 🏗️ **MVVM 架构** - 示例应用采用 MVVM 模式，便于学习和扩展
 
 ## 🖼️ 截图展示
 
@@ -105,6 +108,28 @@ dotnet add package LOLThemes.Wpf
         local:ButtonHelper.CornerRadius="5"/>
 ```
 
+4. **切换主题和尺寸**
+
+```csharp
+using LOLThemes.Wpf.Helpers;
+
+// 在 App.xaml.cs 中初始化尺寸主题
+public partial class App : Application
+{
+    protected override void OnStartup(StartupEventArgs e)
+    {
+        base.OnStartup(e);
+        // 初始化尺寸主题（默认：Medium）
+        ThemeManager.InitializeSizeTheme(SizeTheme.Medium, this);
+    }
+}
+
+// 切换主题（暗色/亮色）
+ThemeManager.SwitchTheme(Theme.Dark);  // 或 Theme.Light
+
+// 切换尺寸主题（紧凑/中等/宽大）
+ThemeManager.SwitchSizeTheme(SizeTheme.Compact);  // 或 SizeTheme.Medium, SizeTheme.Large
+```
 
 ## 📦 可用控件
 
@@ -157,11 +182,11 @@ LOLThemes.Wpf 为以下 WPF 基础控件提供了完整的样式：
 
 ### 自定义控件
 
-- ⏳ **HexagonButton** - 六边形按钮（计划中）
-- ⏳ **GlowButton** - 发光边框按钮（计划中）
-- ⏳ **AnimatedBorder** - 动画边框容器（计划中）
-- ⏳ **ChampionCard** - 英雄卡片（计划中）
-- ⏳ **SkillButton** - 技能按钮（支持冷却动画）（计划中）
+- ✅ **HexagonButton** - 六边形按钮（已实现）
+- ✅ **GlowButton** - 发光边框按钮（已实现）
+- ✅ **AnimatedBorder** - 动画边框容器（已实现）
+- ✅ **ChampionCard** - 英雄卡片（已实现）
+- ✅ **SkillButton** - 技能按钮（支持冷却动画）（已实现）
 
 ### 辅助类和转换器
 
@@ -212,7 +237,9 @@ LOLThemes/
 
 ## 🎨 主题颜色
 
-LOLThemes.Wpf 使用英雄联盟的标志性配色方案：
+LOLThemes.Wpf 使用英雄联盟的标志性配色方案，支持**暗色主题**和**亮色主题**两种模式，可在运行时动态切换。
+
+### 暗色主题（默认）
 
 | 颜色名称 | 十六进制 | 用途 |
 |---------|---------|------|
@@ -224,6 +251,10 @@ LOLThemes.Wpf 使用英雄联盟的标志性配色方案：
 | 主要文本 | `#F0E6D2` | 主要文本颜色 |
 | 次要文本 | `#A09B8C` | 次要文本颜色 |
 | 禁用文本 | `#5B5A56` | 禁用状态文本 |
+
+### 亮色主题
+
+亮色主题使用浅色背景和深色文本，提供更好的可读性和现代感，同时保持英雄联盟的设计风格。
 
 ## 🤝 贡献指南
 
@@ -272,12 +303,13 @@ LOLThemes.Wpf 使用英雄联盟的标志性配色方案：
 ## 🔮 未来计划
 
 - [x] 完成所有 28+ 基础控件样式 ✅
-- [ ] 实现所有 5 个自定义控件（HexagonButton, GlowButton, AnimatedBorder, ChampionCard, SkillButton）
-- [ ] 添加更多主题变体（暗色/亮色）
+- [x] 实现所有 5 个自定义控件（HexagonButton, GlowButton, AnimatedBorder, ChampionCard, SkillButton）✅
+- [x] 添加更多主题变体（暗色/亮色）✅
+- [x] 支持主题动态切换 ✅
+- [x] 实现尺寸主题切换（紧凑/中等/宽大）✅
 - [ ] 发布 NuGet 包
 - [ ] 创建交互式文档网站
 - [ ] 添加更多示例和教程
-- [ ] 支持主题动态切换
 - [ ] 添加更多 LOL 特色控件
 
 ---

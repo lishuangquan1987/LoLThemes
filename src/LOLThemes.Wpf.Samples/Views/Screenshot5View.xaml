@@ -33,7 +33,7 @@
                     <!-- 左侧标题 -->
                     <StackPanel Grid.Column="0" Orientation="Horizontal">
                         <TextBlock Text="📊" 
-                                  FontSize="{StaticResource FontSizeXLarge}"
+                                  FontSize="{DynamicResource FontSizeLarge}"
                                   Foreground="{DynamicResource PrimaryGoldBrush}"
                                   VerticalAlignment="Center"
                                   Margin="0,0,15,0"/>
@@ -114,7 +114,7 @@
                                           HorizontalAlignment="Center"
                                           Margin="0,0,0,8"/>
                                 <TextBlock Text="487"
-                                          FontSize="{StaticResource FontSizeXXLarge}"
+                                          FontSize="{DynamicResource FontSizeLarge}"
                                           FontWeight="{StaticResource FontWeightBold}"
                                           Foreground="{DynamicResource PrimaryGoldBrush}"
                                           HorizontalAlignment="Center"/>
@@ -128,7 +128,7 @@
                                           HorizontalAlignment="Center"
                                           Margin="0,0,0,8"/>
                                 <TextBlock Text="268"
-                                          FontSize="{StaticResource FontSizeXXLarge}"
+                                          FontSize="{DynamicResource FontSizeLarge}"
                                           FontWeight="{StaticResource FontWeightBold}"
                                           Foreground="{DynamicResource SuccessGreenBrush}"
                                           HorizontalAlignment="Center"/>
@@ -142,7 +142,7 @@
                                           HorizontalAlignment="Center"
                                           Margin="0,0,0,8"/>
                                 <TextBlock Text="219"
-                                          FontSize="{StaticResource FontSizeXXLarge}"
+                                          FontSize="{DynamicResource FontSizeLarge}"
                                           FontWeight="{StaticResource FontWeightBold}"
                                           Foreground="{DynamicResource ErrorRedBrush}"
                                           HorizontalAlignment="Center"/>
@@ -156,7 +156,7 @@
                                           HorizontalAlignment="Center"
                                           Margin="0,0,0,8"/>
                                 <TextBlock Text="55%"
-                                          FontSize="{StaticResource FontSizeXXLarge}"
+                                          FontSize="{DynamicResource FontSizeLarge}"
                                           FontWeight="{StaticResource FontWeightBold}"
                                           Foreground="{DynamicResource PrimaryGoldBrush}"
                                           HorizontalAlignment="Center"/>
@@ -191,7 +191,7 @@
                             <!-- 段位详情 -->
                             <StackPanel Grid.Column="1" VerticalAlignment="Center">
                                 <TextBlock Text="钻石 II"
-                                          FontSize="{StaticResource FontSizeXLarge}"
+                                          FontSize="{DynamicResource FontSizeLarge}"
                                           FontWeight="{StaticResource FontWeightBold}"
                                           Foreground="{DynamicResource PrimaryCyanBrush}"
                                           Margin="0,0,0,8"/>

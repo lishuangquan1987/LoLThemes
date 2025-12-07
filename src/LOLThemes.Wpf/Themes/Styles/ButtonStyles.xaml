@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
-    <!-- 合并基础资源，确保可以访�和Colors �和Fonts -->
+    <!-- 合并基础资源，确保可以访问 Colors 和 Fonts -->
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Colors.xaml"/>
         <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
@@ -54,7 +54,7 @@
                                             TextOptions.TextRenderingMode="ClearType"
                                             RenderOptions.ClearTypeHint="Enabled"/>
                         </Border>
-                        <!-- 边框高光�和-->
+                        <!-- 边框高光�-->
                         <Border x:Name="highlightBorder"
                                BorderBrush="#40F0E6D2"
                                BorderThickness="{DynamicResource BorderThicknessThin}"
@@ -64,7 +64,7 @@
                                IsHitTestVisible="False"/>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <!-- MouseOver 状�和- 带颜色过渡动�和-->
+                        <!-- MouseOver 状�- 带颜色过渡动�-->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
@@ -162,7 +162,7 @@
                             <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
                         </Trigger>
 
-                        <!-- Pressed 状�和- 带颜色过渡动�和-->
+                        <!-- Pressed 状�- 带颜色过渡动�-->
                         <Trigger Property="IsPressed" Value="True">
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
@@ -198,7 +198,7 @@
                                    Value="{DynamicResource TextPrimaryBrush}"/>
                         </Trigger>
                         
-                        <!-- Disabled 状�和-->
+                        <!-- Disabled 状�-->
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="border" Property="BorderBrush" 
                                    Value="{DynamicResource TextDisabledBrush}"/>
@@ -247,7 +247,7 @@
         <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
     </Style>
 
-    <!-- 默认 Button 样式（用�和{x:Type Button} 引用�和-->
+    <!-- 默认 Button 样式（用�{x:Type Button} 引用�-->
     <Style TargetType="Button" BasedOn="{StaticResource LOLButtonStyle}"/>
 
 </ResourceDictionary>

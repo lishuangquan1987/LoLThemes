@@ -1,4 +1,4 @@
-<UserControl x:Class="LOLThemes.Wpf.Samples.Views.WindowShowcaseView"
+﻿<UserControl x:Class="LOLThemes.Wpf.Samples.Views.WindowShowcaseView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
@@ -15,7 +15,7 @@
                    Margin="0,0,0,20">
                 <StackPanel>
                     <TextBlock Text="Window - 窗口" 
-                          FontSize="{StaticResource FontSizeXXLarge}"
+                          FontSize="{DynamicResource FontSizeLarge}"
                           FontWeight="{StaticResource FontWeightBold}"
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,8"/>
@@ -33,7 +33,7 @@
                    Margin="0,0,0,20">
                 <StackPanel>
                     <TextBlock Text="CustomHeaderContent 属性" 
-                          FontSize="{StaticResource FontSizeLarge}"
+                          FontSize="{DynamicResource FontSizeLarge}"
                           FontWeight="{StaticResource FontWeightBold}"
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
@@ -130,7 +130,7 @@
                    Margin="0,0,0,20">
                 <StackPanel>
                     <TextBlock Text="实际示例" 
-                          FontSize="{StaticResource FontSizeLarge}"
+                          FontSize="{DynamicResource FontSizeLarge}"
                           FontWeight="{StaticResource FontWeightBold}"
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>

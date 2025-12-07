@@ -34,7 +34,7 @@
                     <!-- 左侧标题 -->
                     <StackPanel Grid.Column="0" Orientation="Horizontal">
                         <TextBlock Text="⚔" 
-                                  FontSize="{StaticResource FontSizeXLarge}"
+                                  FontSize="{DynamicResource FontSizeLarge}"
                                   Foreground="{DynamicResource PrimaryGoldBrush}"
                                   VerticalAlignment="Center"
                                   Margin="0,0,15,0"/>
@@ -212,7 +212,7 @@
                                   HorizontalAlignment="Center"
                                   Margin="0,0,0,5"/>
                         <TextBlock Text="{Binding SelectedChampion.Name, FallbackValue='亚索'}"
-                                  FontSize="{StaticResource FontSizeXLarge}"
+                                  FontSize="{DynamicResource FontSizeLarge}"
                                   FontWeight="{StaticResource FontWeightBold}"
                                   Foreground="{DynamicResource PrimaryGoldBrush}"
                                   HorizontalAlignment="Center"

@@ -14,7 +14,7 @@
                    Margin="0,0,0,20">
                 <StackPanel>
                     <TextBlock Text="StatBar - 属性条" 
-                          FontSize="{StaticResource FontSizeXXLarge}"
+                          FontSize="{DynamicResource FontSizeLarge}"
                           FontWeight="{StaticResource FontWeightBold}"
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,8"/>
@@ -32,7 +32,7 @@
                    Margin="0,0,0,20">
                 <StackPanel>
                     <TextBlock Text="基础用法" 
-                          FontSize="{StaticResource FontSizeLarge}"
+                          FontSize="{DynamicResource FontSizeLarge}"
                           FontWeight="{StaticResource FontWeightBold}"
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>

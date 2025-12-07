@@ -18,47 +18,34 @@
     <Thickness x:Key="WindowPadding">0</Thickness>
     
     <!-- BorderThickness 相关资源（宽大尺寸，1.2倍） -->
+    <Thickness x:Key="BorderThickness">0.6</Thickness>
     <Thickness x:Key="ButtonBorderThickness">0.6</Thickness>
     <Thickness x:Key="TextBoxBorderThickness">0.6</Thickness>
     <Thickness x:Key="PasswordBoxBorderThickness">0.6</Thickness>
     <Thickness x:Key="ComboBoxBorderThickness">0.6</Thickness>
-    <Thickness x:Key="BorderThicknessThin">0.6</Thickness>
-    <Thickness x:Key="BorderThicknessMedium">1.2</Thickness>
-    <Thickness x:Key="BorderThicknessThick">2.4</Thickness>
     <Thickness x:Key="WindowBorderThickness">1.2</Thickness>
     
     <!-- Margin 相关资源（宽大尺寸，1.2倍） -->
-    <Thickness x:Key="ControlMarginSmall">4.8</Thickness>
-    <Thickness x:Key="ControlMarginMedium">9.6</Thickness>
-    <Thickness x:Key="ControlMarginLarge">14.4</Thickness>
+    <Thickness x:Key="ControlMargin">4.8</Thickness>
     <Thickness x:Key="ItemMargin">4.8,2.4</Thickness>
     <Thickness x:Key="GroupMargin">14.4,9.6</Thickness>
     
     <!-- FontSize 相关资源（宽大尺寸，1.2倍） -->
-    <sys:Double x:Key="FontSizeXSmall">12</sys:Double>
     <sys:Double x:Key="FontSizeSmall">14.4</sys:Double>
     <sys:Double x:Key="FontSizeNormal">16.8</sys:Double>
     <sys:Double x:Key="FontSizeMedium">19.2</sys:Double>
     <sys:Double x:Key="FontSizeLarge">24</sys:Double>
-    <sys:Double x:Key="FontSizeXLarge">28.8</sys:Double>
     
     <!-- CornerRadius 相关资源（宽大尺寸，1.2倍） -->
-    <CornerRadius x:Key="CornerRadiusSmall">2.4</CornerRadius>
-    <CornerRadius x:Key="CornerRadiusMedium">4.8</CornerRadius>
-    <CornerRadius x:Key="CornerRadiusLarge">9.6</CornerRadius>
+    <CornerRadius x:Key="CornerRadius">2.4</CornerRadius>
     <CornerRadius x:Key="ButtonCornerRadius">2.4</CornerRadius>
     <CornerRadius x:Key="TextBoxCornerRadius">2.4</CornerRadius>
     <CornerRadius x:Key="BorderCornerRadius">4.8</CornerRadius>
     
     <!-- IconSize 相关资源（宽大尺寸，1.2倍） -->
-    <sys:Double x:Key="IconSizeSmall">19.2</sys:Double>
-    <sys:Double x:Key="IconSizeMedium">28.8</sys:Double>
-    <sys:Double x:Key="IconSizeLarge">38.4</sys:Double>
+    <sys:Double x:Key="IconSize">19.2</sys:Double>
     
     <!-- Spacing 相关资源（宽大尺寸，1.2倍） -->
-    <sys:Double x:Key="SpacingSmall">4.8</sys:Double>
-    <sys:Double x:Key="SpacingMedium">9.6</sys:Double>
-    <sys:Double x:Key="SpacingLarge">14.4</sys:Double>
+    <sys:Double x:Key="Spacing">4.8</sys:Double>
 
 </ResourceDictionary>
-

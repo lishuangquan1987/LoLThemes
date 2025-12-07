@@ -14,7 +14,7 @@
                    Margin="0,0,0,20">
                 <StackPanel>
                     <TextBlock Text="Button - 按钮" 
-                          FontSize="{StaticResource FontSizeXXLarge}"
+                          FontSize="{DynamicResource FontSizeLarge}"
                           FontWeight="{StaticResource FontWeightBold}"
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,8"/>

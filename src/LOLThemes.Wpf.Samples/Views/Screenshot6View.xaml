@@ -33,7 +33,7 @@
                     <!-- 左侧标题 -->
                     <StackPanel Grid.Column="0" Orientation="Horizontal">
                         <TextBlock Text="🛒" 
-                                  FontSize="{StaticResource FontSizeXLarge}"
+                                  FontSize="{DynamicResource FontSizeLarge}"
                                   Foreground="{DynamicResource PrimaryGoldBrush}"
                                   VerticalAlignment="Center"
                                   Margin="0,0,15,0"/>
@@ -213,7 +213,7 @@
                                    Background="{DynamicResource BackgroundLightBrush}"
                                    Margin="20">
                                 <TextBlock Text="限定皮肤预览"
-                                          FontSize="{StaticResource FontSizeXLarge}"
+                                          FontSize="{DynamicResource FontSizeLarge}"
                                           FontWeight="{StaticResource FontWeightBold}"
                                           Foreground="{DynamicResource PrimaryGoldBrush}"
                                           HorizontalAlignment="Center"
@@ -235,13 +235,13 @@
                                           Margin="0,0,0,15"/>
                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
                                     <TextBlock Text="1,820"
-                                              FontSize="{StaticResource FontSizeXLarge}"
+                                              FontSize="{DynamicResource FontSizeLarge}"
                                               FontWeight="{StaticResource FontWeightBold}"
                                               Foreground="{DynamicResource TextPrimaryBrush}"
                                               TextDecorations="Strikethrough"
                                               Margin="0,0,10,0"/>
                                     <TextBlock Text="1,350"
-                                              FontSize="{StaticResource FontSizeXLarge}"
+                                              FontSize="{DynamicResource FontSizeLarge}"
                                               FontWeight="{StaticResource FontWeightBold}"
                                               Foreground="{DynamicResource SuccessGreenBrush}"/>
                                 </StackPanel>

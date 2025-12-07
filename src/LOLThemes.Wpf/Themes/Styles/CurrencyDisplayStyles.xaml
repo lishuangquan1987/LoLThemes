@@ -3,7 +3,7 @@
                     xmlns:controls="clr-namespace:LOLThemes.Wpf.Controls"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
     
-    <!-- 合并基础资源，确保可以访�和Colors �和Fonts -->
+    <!-- 合并基础资源，确保可以访问 Colors 和 Fonts -->
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Colors.xaml"/>
         <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>

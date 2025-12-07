@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
-    <!-- 合并基础资源，确保可以访�和Colors �和Fonts -->
+    <!-- 合并基础资源，确保可以访问 Colors 和 Fonts -->
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Colors.xaml"/>
         <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
@@ -25,12 +25,12 @@
                                CornerRadius="2"
                                SnapsToDevicePixels="True"/>
                         
-                        <!-- 进度条容�和-->
+                        <!-- 进度条容�-->
                         <Border x:Name="PART_Track"
                                Margin="2"
                                CornerRadius="1">
                             <Grid>
-                                <!-- 进度指示�和-->
+                                <!-- 进度指示�-->
                                 <Border x:Name="PART_Indicator"
                                        HorizontalAlignment="Left"
                                        CornerRadius="1">
@@ -61,7 +61,7 @@
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <!-- 不确定模�和-->
+                        <!-- 不确定模�-->
                         <Trigger Property="IsIndeterminate" Value="True">
                             <Setter TargetName="PART_Indicator" Property="Visibility" Value="Collapsed"/>
                             <Setter TargetName="PART_GlowRect" Property="Visibility" Value="Visible"/>
@@ -105,12 +105,12 @@
                                CornerRadius="2"
                                SnapsToDevicePixels="True"/>
                         
-                        <!-- 进度条容�和-->
+                        <!-- 进度条容�-->
                         <Border x:Name="PART_Track"
                                Margin="2"
                                CornerRadius="1">
                             <Grid>
-                                <!-- 进度指示�和-->
+                                <!-- 进度指示�-->
                                 <Border x:Name="PART_Indicator"
                                        VerticalAlignment="Bottom"
                                        CornerRadius="1">

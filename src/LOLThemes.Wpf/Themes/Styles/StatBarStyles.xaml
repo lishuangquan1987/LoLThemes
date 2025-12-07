@@ -3,13 +3,13 @@
                     xmlns:controls="clr-namespace:LOLThemes.Wpf.Controls"
                     xmlns:converters="clr-namespace:LOLThemes.Wpf.Converters">
     
-    <!-- 合并基础资源，确保可以访�和Colors �和Fonts -->
+    <!-- 合并基础资源，确保可以访问 Colors 和 Fonts -->
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Colors.xaml"/>
         <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <!-- StatBar 宽度转换�和-->
+    <!-- StatBar 宽度转换�-->
     <converters:StatBarWidthConverter x:Key="StatBarWidthConverter"/>
 
     <Style TargetType="{x:Type controls:StatBar}">
@@ -26,7 +26,7 @@
                                CornerRadius="2"
                                SnapsToDevicePixels="True"/>
                         
-                        <!-- 进度�和-->
+                        <!-- 进度�-->
                         <Border x:Name="progressBar"
                                HorizontalAlignment="Left"
                                CornerRadius="2"
@@ -43,7 +43,7 @@
                             </Border.Width>
                         </Border>
                         
-                        <!-- 数值文�和-->
+                        <!-- 数值文�-->
                         <TextBlock x:Name="valueText"
                                   Foreground="{DynamicResource BackgroundDarkBrush}"
                                   FontFamily="{StaticResource PrimaryFont}"

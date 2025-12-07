@@ -11,10 +11,10 @@
         <!-- 第一步：加载基础资源（必须最先加载） -->
         <!-- 注意：Colors资源由ThemeManager动态加载，不在这里引用 -->
         <!-- 默认加载暗黑主题，应用启动时应调用ThemeManager.Initialize() -->
-        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Colors.Dark.xaml"/>
+        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Colors.xaml"/>
         <!-- 注意：Sizes资源由ThemeManager动态加载，不在这里引用 -->
         <!-- 默认加载中等尺寸，应用启动时应调用ThemeManager.InitializeSizeTheme() -->
-        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Sizes.Medium.xaml"/>
+        <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Sizes.xaml"/>
         <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
         <ResourceDictionary Source="/LOLThemes.Wpf;component/Themes/Animations.xaml"/>
         

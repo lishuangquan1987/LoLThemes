@@ -15,11 +15,11 @@ public partial class App : Application
     {
         XamlDisplay.Init();
         
-        // 初始化主题管理器，默认使用暗黑主题
-        ThemeManager.Initialize(Theme.Dark, this);
+        //// 初始化主题管理器，默认使用暗黑主题
+        //ThemeManager.Initialize(Theme.Light, this);
         
-        // 初始化尺寸主题管理器，默认使用中等尺寸
-        ThemeManager.InitializeSizeTheme(SizeTheme.Medium, this);
+        //// 初始化尺寸主题管理器，默认使用中等尺寸
+        //ThemeManager.InitializeSizeTheme(SizeTheme.Medium, this);
         
         base.OnStartup(e);
     }

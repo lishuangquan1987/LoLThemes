@@ -6,14 +6,7 @@
     <FontFamily x:Key="PrimaryFont">Segoe UI, Microsoft YaHei UI, Arial, sans-serif</FontFamily>
     <FontFamily x:Key="SecondaryFont">Consolas, Courier New, monospace</FontFamily>
     
-    <!-- 字体大小 -->
-    <sys:Double x:Key="FontSizeSmall">12</sys:Double>
-    <sys:Double x:Key="FontSizeNormal">14</sys:Double>
-    <sys:Double x:Key="FontSizeMedium">16</sys:Double>
-    <sys:Double x:Key="FontSizeLarge">20</sys:Double>
-    <sys:Double x:Key="FontSizeXLarge">24</sys:Double>
-    <sys:Double x:Key="FontSizeXXLarge">32</sys:Double>
-    <sys:Double x:Key="FontSizeXXXLarge">48</sys:Double>
+    <!-- 注意：字体大小（FontSize）现在在Sizes.Compact/Medium/Large.xaml中定义，支持尺寸主题切换 -->
     
     <!-- 字体权重 -->
     <FontWeight x:Key="FontWeightRegular">Normal</FontWeight>

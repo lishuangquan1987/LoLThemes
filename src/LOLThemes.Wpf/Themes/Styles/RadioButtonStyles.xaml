@@ -28,8 +28,8 @@
                                Width="20"
                                Height="20"
                                Background="{DynamicResource BackgroundMediumBrush}"
-                               BorderBrush="{DynamicResource BorderGoldBrush}"
-                               BorderThickness="2"
+                               BorderBrush="{DynamicResource InputBorderBrush}"
+                               BorderThickness="{DynamicResource BorderThickness}"
                                CornerRadius="10"
                                Margin="0,0,8,0">
                             <!-- 选中圆点 -->
@@ -56,8 +56,22 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="RadioBorder" Property="BorderBrush" 
                                    Value="{DynamicResource HoverGoldBrush}"/>
-                            <Setter TargetName="RadioBorder" Property="Background" 
-                                   Value="{DynamicResource BackgroundLightBrush}"/>
+                            <Setter TargetName="RadioBorder" Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Color="#E61E2328" Offset="0"/>
+                                        <GradientStop Color="#CC1E2328" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="RadioBorder" Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#C8AA6E"
+                                                    BlurRadius="5"
+                                                    ShadowDepth="0"
+                                                    Opacity="0.2"/>
+                                </Setter.Value>
+                            </Setter>
                         </Trigger>
                         
                         <!-- 选中状�-->

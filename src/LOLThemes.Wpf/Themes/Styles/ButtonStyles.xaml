@@ -33,8 +33,9 @@
                                SnapsToDevicePixels="True">
                             <Border.Background>
                                 <LinearGradientBrush x:Name="backgroundGradient" StartPoint="0,0" EndPoint="0,1">
-                                    <GradientStop x:Name="gradientStop1" Color="#CC1E2328" Offset="0"/>
-                                    <GradientStop x:Name="gradientStop2" Color="#801E2328" Offset="1"/>
+                                    <GradientStop x:Name="gradientStop1" Color="#E61E2328" Offset="0"/>
+                                    <GradientStop x:Name="gradientStop2" Color="#CC1E2328" Offset="0.5"/>
+                                    <GradientStop x:Name="gradientStop3" Color="#801E2328" Offset="1"/>
                                 </LinearGradientBrush>
                             </Border.Background>
                             <Border.Effect>
@@ -57,7 +58,7 @@
                         <!-- 边框高光�-->
                         <Border x:Name="highlightBorder"
                                BorderBrush="#40F0E6D2"
-                               BorderThickness="{DynamicResource BorderThicknessThin}"
+                               BorderThickness="{DynamicResource BorderThickness}"
                                CornerRadius="{DynamicResource ButtonCornerRadius}"
                                Margin="{DynamicResource ControlMarginSmall}"
                                Opacity="0"

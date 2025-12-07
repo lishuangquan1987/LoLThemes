@@ -10,9 +10,10 @@
     <!-- Primary Border 样式 -->
     <Style x:Key="PrimaryBorder" TargetType="Border">
         <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
-        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
         <Setter Property="Padding" Value="12"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="Background">
             <Setter.Value>
                 <DynamicResource ResourceKey="DarkGradientBrush"/>
@@ -20,7 +21,7 @@
         </Setter>
         <Setter Property="Effect">
             <Setter.Value>
-                <DropShadowEffect Color="{DynamicResource PrimaryGold}" BlurRadius="8" ShadowDepth="0" Opacity="0.15"/>
+                <DropShadowEffect Color="#C8AA6E" BlurRadius="8" ShadowDepth="0" Opacity="0.15"/>
             </Setter.Value>
         </Setter>
     </Style>
@@ -29,7 +30,7 @@
     <Style x:Key="SecondaryBorder" TargetType="Border">
         <Setter Property="Background" Value="{DynamicResource BackgroundLightBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="0.5"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
         <Setter Property="Padding" Value="8"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
     </Style>
@@ -38,15 +39,16 @@
     <Style x:Key="AccentBorder" TargetType="Border">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryCyanBrush}"/>
-        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
         <Setter Property="Padding" Value="12"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
     </Style>
 
     <!-- Card Border 样式 -->
     <Style x:Key="CardBorder" TargetType="Border">
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="0.5"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
         <Setter Property="Padding" Value="16"/>
         <Setter Property="CornerRadius" Value="4"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
@@ -66,7 +68,7 @@
     <Style x:Key="PanelBorder" TargetType="Border">
         <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
-        <Setter Property="BorderThickness" Value="0.5"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
         <Setter Property="Padding" Value="0"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
     </Style>
@@ -75,16 +77,17 @@
     <Style x:Key="HighlightBorder" TargetType="Border">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
-        <Setter Property="BorderThickness" Value="3"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
         <Setter Property="Padding" Value="8"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
     </Style>
 
     <!-- Subtle Border 样式 -->
     <Style x:Key="SubtleBorder" TargetType="Border">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="{DynamicResource Gray400Brush}"/>
-        <Setter Property="BorderThickness" Value="0.5"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
         <Setter Property="Padding" Value="8"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
     </Style>
@@ -93,10 +96,11 @@
     <Style x:Key="RoundedBorder" TargetType="Border">
         <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
-        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
         <Setter Property="Padding" Value="12"/>
         <Setter Property="CornerRadius" Value="8"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
     </Style>
 
 </ResourceDictionary>

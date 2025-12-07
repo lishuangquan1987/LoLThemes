@@ -12,7 +12,7 @@
         <Setter Property="Background" Value="{DynamicResource BackgroundLightBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="0,0,1,1"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource ListViewItemBorderThickness}"/>
         <Setter Property="Padding" Value="10,8"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
@@ -57,20 +57,51 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListViewItem">
-                    <Border x:Name="border"
-                           BorderThickness="0"
-                           Padding="{TemplateBinding Padding}"
-                           SnapsToDevicePixels="True"
-                           TextElement.Foreground="{TemplateBinding Foreground}">
-                        <Border.Background>
-                            <DynamicResource ResourceKey="DarkGradientBrush"/>
-                        </Border.Background>
-                        <GridViewRowPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                    </Border>
+                    <Grid>
+                        <Border x:Name="border"
+                               BorderThickness="0"
+                               Padding="{TemplateBinding Padding}"
+                               CornerRadius="3,0,0,3"
+                               SnapsToDevicePixels="True"
+                               UseLayoutRounding="True"
+                               TextElement.Foreground="{TemplateBinding Foreground}">
+                            <Border.Background>
+                                <DynamicResource ResourceKey="DarkGradientBrush"/>
+                            </Border.Background>
+                            <Border.Effect>
+                                <DropShadowEffect x:Name="ItemShadow"
+                                                Color="#C8AA6E"
+                                                BlurRadius="5"
+                                                ShadowDepth="0"
+                                                Opacity="0"/>
+                            </Border.Effect>
+                            <GridViewRowPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                TextOptions.TextFormattingMode="Display"
+                                                TextOptions.TextRenderingMode="ClearType"
+                                                RenderOptions.ClearTypeHint="Enabled"/>
+                        </Border>
+                        <!-- 左边框高光 -->
+                        <Border x:Name="LeftBorder"
+                               BorderBrush="{DynamicResource PrimaryGoldBrush}"
+                               BorderThickness="2,0,0,0"
+                               CornerRadius="3,0,0,3"
+                               Margin="0"
+                               Opacity="0"
+                               IsHitTestVisible="False"
+                               SnapsToDevicePixels="True"/>
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="border" Property="Background" Value="{DynamicResource GoldGradientBrush}"/>
+                            <Setter TargetName="border" Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#C8AA6E"
+                                                    BlurRadius="5"
+                                                    ShadowDepth="0"
+                                                    Opacity="0.15"/>
+                                </Setter.Value>
+                            </Setter>
                             <Setter Property="Foreground" 
                                    Value="{DynamicResource BackgroundDarkBrush}"/>
                         </Trigger>
@@ -79,8 +110,18 @@
                                 <Setter.Value>
                                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                                         <GradientStop Color="#E6C8AA6E" Offset="0"/>
+                                        <GradientStop Color="#D4C8AA6E" Offset="0.5"/>
                                         <GradientStop Color="#CCC8AA6E" Offset="1"/>
                                     </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="LeftBorder" Property="Opacity" Value="1"/>
+                            <Setter TargetName="border" Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#C8AA6E"
+                                                    BlurRadius="5"
+                                                    ShadowDepth="0"
+                                                    Opacity="0.2"/>
                                 </Setter.Value>
                             </Setter>
                             <Setter Property="Foreground" 

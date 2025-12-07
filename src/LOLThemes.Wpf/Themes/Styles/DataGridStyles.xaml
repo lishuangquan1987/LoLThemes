@@ -12,8 +12,11 @@
         <Setter Property="Background" Value="{DynamicResource BackgroundLightBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="0,0,1,1"/>
-        <Setter Property="Padding" Value="10,8"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource DataGridColumnHeaderBorderThickness}"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+        <Setter Property="TextOptions.TextRenderingMode" Value="ClearType"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Padding" Value="8,6"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
@@ -23,13 +26,25 @@
             <Setter.Value>
                 <ControlTemplate TargetType="DataGridColumnHeader">
                     <Border x:Name="border"
-                           Background="{TemplateBinding Background}"
                            BorderBrush="{TemplateBinding BorderBrush}"
                            BorderThickness="{TemplateBinding BorderThickness}"
-                           Padding="{TemplateBinding Padding}">
+                           Padding="{TemplateBinding Padding}"
+                           SnapsToDevicePixels="True"
+                           UseLayoutRounding="True">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#E62A2E35" Offset="0"/>
+                                <GradientStop Color="#D42A2E35" Offset="0.5"/>
+                                <GradientStop Color="#CC2A2E35" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
                         <Grid>
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                            TextOptions.TextFormattingMode="Display"
+                                            TextOptions.TextRenderingMode="ClearType"
+                                            RenderOptions.ClearTypeHint="Enabled"
+                                            SnapsToDevicePixels="True"/>
                             <Path x:Name="SortArrow"
                                  Visibility="Collapsed"
                                  Data="M 0,0 L 4,4 L 8,0 Z"
@@ -37,7 +52,8 @@
                                  HorizontalAlignment="Right"
                                  VerticalAlignment="Center"
                                  Margin="0,0,8,0"
-                                 RenderTransformOrigin="0.5,0.5">
+                                 RenderTransformOrigin="0.5,0.5"
+                                 SnapsToDevicePixels="True">
                                 <Path.RenderTransform>
                                     <RotateTransform Angle="0"/>
                                 </Path.RenderTransform>
@@ -75,8 +91,11 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="0,0,1,0"/>
-        <Setter Property="Padding" Value="10,8"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource DataGridCellBorderThickness}"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+        <Setter Property="TextOptions.TextRenderingMode" Value="ClearType"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Padding" Value="8,6"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         <Setter Property="Template">
@@ -87,15 +106,38 @@
                            BorderBrush="{TemplateBinding BorderBrush}"
                            BorderThickness="{TemplateBinding BorderThickness}"
                            Padding="{TemplateBinding Padding}"
-                           SnapsToDevicePixels="True">
-                        <ContentPresenter VerticalAlignment="Center"/>
+                           SnapsToDevicePixels="True"
+                           UseLayoutRounding="True">
+                        <ContentPresenter VerticalAlignment="Center"
+                                        TextOptions.TextFormattingMode="Display"
+                                        TextOptions.TextRenderingMode="ClearType"
+                                        RenderOptions.ClearTypeHint="Enabled"
+                                        SnapsToDevicePixels="True"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="border" Property="Background" 
-                                   Value="{DynamicResource PrimaryGoldBrush}"/>
+                            <Setter TargetName="border" Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Color="#E6C8AA6E" Offset="0"/>
+                                        <GradientStop Color="#D4C8AA6E" Offset="0.5"/>
+                                        <GradientStop Color="#CCC8AA6E" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
                             <Setter Property="Foreground" 
-                                   Value="{DynamicResource BackgroundDarkBrush}"/>
+                                   Value="#010A13"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Color="#E61E2328" Offset="0"/>
+                                        <GradientStop Color="#D41E2328" Offset="0.5"/>
+                                        <GradientStop Color="#CC1E2328" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -162,7 +204,7 @@
         <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="0.5"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         <Setter Property="RowBackground" Value="Transparent"/>
@@ -189,7 +231,15 @@
                     <Border Background="{TemplateBinding Background}"
                            BorderBrush="{TemplateBinding BorderBrush}"
                            BorderThickness="{TemplateBinding BorderThickness}"
-                           SnapsToDevicePixels="True">
+                           CornerRadius="4"
+                           SnapsToDevicePixels="True"
+                           UseLayoutRounding="True">
+                        <Border.Effect>
+                            <DropShadowEffect Color="#C8AA6E"
+                                            BlurRadius="8"
+                                            ShadowDepth="0"
+                                            Opacity="0.15"/>
+                        </Border.Effect>
                         <ScrollViewer x:Name="DG_ScrollViewer" Focusable="False">
                             <ScrollViewer.Template>
                                 <ControlTemplate TargetType="ScrollViewer">

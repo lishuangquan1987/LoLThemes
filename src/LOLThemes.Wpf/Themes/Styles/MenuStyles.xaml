@@ -37,8 +37,18 @@
                             BorderBrush="Transparent"
                             BorderThickness="0">
                         <Border.Background>
-                            <DynamicResource ResourceKey="DarkGradientBrush"/>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#E61E2328" Offset="0"/>
+                                <GradientStop Color="#D41E2328" Offset="0.5"/>
+                                <GradientStop Color="#CC1E2328" Offset="1"/>
+                            </LinearGradientBrush>
                         </Border.Background>
+                        <Border.Effect>
+                            <DropShadowEffect Color="#C8AA6E"
+                                            BlurRadius="5"
+                                            ShadowDepth="0"
+                                            Opacity="0"/>
+                        </Border.Effect>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" SharedSizeGroup="Icon"/>
@@ -99,8 +109,8 @@
                                    PopupAnimation="Fade">
                                 <Border Background="{DynamicResource BackgroundMediumBrush}"
                                         BorderBrush="{DynamicResource BorderGoldBrush}"
-                                        BorderThickness="1"
-                                        CornerRadius="2"
+                                        BorderThickness="{DynamicResource BorderThickness}"
+                                        CornerRadius="3"
                                         Padding="2">
                                     <Border.Effect>
                                         <DropShadowEffect Color="{DynamicResource PrimaryGold}" 
@@ -149,9 +159,37 @@
 
                         <!-- Mouse Over -->
                         <Trigger Property="IsHighlighted" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="Border"
+                                                       Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.Opacity)"
+                                                       To="0.2"
+                                                       Duration="0:0:0.15">
+                                            <DoubleAnimation.EasingFunction>
+                                                <CubicEase EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="Border"
+                                                       Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.Opacity)"
+                                                       To="0"
+                                                       Duration="0:0:0.15">
+                                            <DoubleAnimation.EasingFunction>
+                                                <CubicEase EasingMode="EaseIn"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
                             <Setter TargetName="Border" Property="Background" Value="{DynamicResource GoldGradientBrush}"/>
                             <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
-                            <Setter TargetName="Border" Property="BorderThickness" Value="{DynamicResource BorderThicknessMedium}"/>
+                            <Setter TargetName="Border" Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
                             <Setter Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}"/>
                             <Setter TargetName="SubMenuArrow" Property="Fill" Value="{DynamicResource BackgroundDarkBrush}"/>
                             <Setter TargetName="InputGestureText" Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}"/>
@@ -171,7 +209,7 @@
     <Style x:Key="LOLMenuStyle" TargetType="{x:Type Menu}">
         <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="0,0,0,{DynamicResource BorderThicknessMedium}"/>
+        <Setter Property="BorderThickness" Value="0,0,0,1"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>

@@ -22,14 +22,14 @@
                         <!-- 背景 -->
                         <Border Background="{DynamicResource BackgroundMediumBrush}"
                                BorderBrush="{DynamicResource BorderDarkBrush}"
-                               BorderThickness="0.5"
-                               CornerRadius="2"
+                               BorderThickness="{DynamicResource BorderThickness}"
+                               CornerRadius="3"
                                SnapsToDevicePixels="True"/>
                         
                         <!-- 进度�-->
                         <Border x:Name="progressBar"
                                HorizontalAlignment="Left"
-                               CornerRadius="2"
+                               CornerRadius="3"
                                Margin="1">
                                     <Border.Background>
                                         <DynamicResource ResourceKey="ProgressBarGradientBrush"/>

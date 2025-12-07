@@ -26,7 +26,8 @@
                               Data="M0,0 L4,4 L0,8 Z"
                               Fill="{DynamicResource PrimaryGoldBrush}"
                               HorizontalAlignment="Center"
-                              VerticalAlignment="Center">
+                              VerticalAlignment="Center"
+                              SnapsToDevicePixels="True">
                             <Path.RenderTransform>
                                 <RotateTransform Angle="0" CenterX="2" CenterY="4"/>
                             </Path.RenderTransform>
@@ -81,39 +82,63 @@
                         </Grid.RowDefinitions>
                         
                         <!-- Item Header -->
-                        <Border x:Name="Bd"
-                                Grid.Row="0"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                Padding="{TemplateBinding Padding}">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                
-                                <!-- Indentation -->
-                                <FrameworkElement Grid.Column="0" 
-                                                 Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Level, Converter={StaticResource LevelToIndentConverter}}"/>
-                                
-                                <!-- Expand/Collapse Toggle -->
-                                <ToggleButton Grid.Column="1"
-                                            x:Name="Expander"
-                                            Style="{StaticResource ExpandCollapseToggleStyle}"
-                                            IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"
-                                            ClickMode="Press"/>
-                                
-                                <!-- Content -->
-                                <ContentPresenter Grid.Column="2"
-                                                x:Name="PART_Header"
-                                                ContentSource="Header"
-                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                VerticalAlignment="Center"
-                                                Margin="4,0,0,0"/>
-                            </Grid>
-                        </Border>
+                        <Grid Grid.Row="0">
+                            <Border x:Name="Bd"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="0"
+                                    Padding="{TemplateBinding Padding}"
+                                    CornerRadius="3,0,0,3"
+                                    SnapsToDevicePixels="True"
+                                    UseLayoutRounding="True">
+                                <Border.Effect>
+                                    <DropShadowEffect x:Name="ItemShadow"
+                                                    Color="#C8AA6E"
+                                                    BlurRadius="5"
+                                                    ShadowDepth="0"
+                                                    Opacity="0"/>
+                                </Border.Effect>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <!-- Indentation -->
+                                    <FrameworkElement Grid.Column="0" 
+                                                     Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Level, Converter={StaticResource LevelToIndentConverter}}"/>
+                                    
+                                    <!-- Expand/Collapse Toggle -->
+                                    <ToggleButton Grid.Column="1"
+                                                x:Name="Expander"
+                                                Style="{StaticResource ExpandCollapseToggleStyle}"
+                                                IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"
+                                                ClickMode="Press"/>
+                                    
+                                    <!-- Content -->
+                                    <ContentPresenter Grid.Column="2"
+                                                    x:Name="PART_Header"
+                                                    ContentSource="Header"
+                                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                    VerticalAlignment="Center"
+                                                    Margin="4,0,0,0"
+                                                    TextOptions.TextFormattingMode="Display"
+                                                    TextOptions.TextRenderingMode="ClearType"
+                                                    RenderOptions.ClearTypeHint="Enabled"
+                                                    SnapsToDevicePixels="True"/>
+                                </Grid>
+                            </Border>
+                            <!-- 左边框高光 -->
+                            <Border x:Name="LeftBorder"
+                                    BorderBrush="{DynamicResource PrimaryGoldBrush}"
+                                    BorderThickness="2,0,0,0"
+                                    CornerRadius="3,0,0,3"
+                                    Margin="0"
+                                    Opacity="0"
+                                    IsHitTestVisible="False"
+                                    SnapsToDevicePixels="True"/>
+                        </Grid>
                         
                         <!-- Children Items -->
                         <ItemsPresenter Grid.Row="1"
@@ -138,8 +163,89 @@
                         
                         <!-- Selected -->
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="Bd" Property="Background" Value="{DynamicResource PrimaryGoldBrush}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource PrimaryDarkBlueBrush}"/>
+                            <Setter TargetName="Bd" Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Color="#E6C8AA6E" Offset="0"/>
+                                        <GradientStop Color="#D4C8AA6E" Offset="0.5"/>
+                                        <GradientStop Color="#CCC8AA6E" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="LeftBorder" Property="Opacity" Value="1"/>
+                            <Setter TargetName="Bd" Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#C8AA6E"
+                                                    BlurRadius="5"
+                                                    ShadowDepth="0"
+                                                    Opacity="0.2"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}"/>
+                            <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+                            <Setter Property="TextOptions.TextRenderingMode" Value="ClearType"/>
+                            <!-- 选中状态下，三角标识使用深色以增强可见性 -->
+                            <Setter TargetName="Expander" Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                        <Border Background="Transparent" 
+                                                Width="16" 
+                                                Height="16">
+                                            <Path x:Name="ExpandPath"
+                                                  Data="M0,0 L4,4 L0,8 Z"
+                                                  Fill="#010A13"
+                                                  HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"
+                                                  SnapsToDevicePixels="True">
+                                                <Path.RenderTransform>
+                                                    <RotateTransform Angle="0" CenterX="2" CenterY="4"/>
+                                                </Path.RenderTransform>
+                                                <Path.Effect>
+                                                    <DropShadowEffect Color="#FFFFFF"
+                                                                    BlurRadius="1"
+                                                                    ShadowDepth="0"
+                                                                    Opacity="0.5"/>
+                                                </Path.Effect>
+                                            </Path>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Trigger.EnterActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetName="ExpandPath"
+                                                                           Storyboard.TargetProperty="(Path.RenderTransform).(RotateTransform.Angle)"
+                                                                           To="90"
+                                                                           Duration="0:0:0.2"/>
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </Trigger.EnterActions>
+                                                <Trigger.ExitActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetName="ExpandPath"
+                                                                           Storyboard.TargetProperty="(Path.RenderTransform).(RotateTransform.Angle)"
+                                                                           To="0"
+                                                                           Duration="0:0:0.2"/>
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </Trigger.ExitActions>
+                                            </Trigger>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="ExpandPath" Property="Fill" Value="#010A13"/>
+                                                <Setter TargetName="ExpandPath" Property="Effect">
+                                                    <Setter.Value>
+                                                        <DropShadowEffect Color="#FFFFFF"
+                                                                        BlurRadius="2"
+                                                                        ShadowDepth="0"
+                                                                        Opacity="0.7"/>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
                         </Trigger>
                         
                         <!-- Disabled -->

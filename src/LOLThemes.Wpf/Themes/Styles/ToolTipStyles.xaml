@@ -12,7 +12,7 @@
         <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
-        <Setter Property="BorderThickness" Value="0.5"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
         <Setter Property="Padding" Value="8,6"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}"/>
@@ -20,21 +20,26 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToolTip">
+                    <!-- ToolTip 主体 -->
                     <Border x:Name="Border"
                            Background="{TemplateBinding Background}"
                            BorderBrush="{TemplateBinding BorderBrush}"
                            BorderThickness="{TemplateBinding BorderThickness}"
                            Padding="{TemplateBinding Padding}"
-                           CornerRadius="2"
-                           SnapsToDevicePixels="True">
+                           CornerRadius="3"
+                           SnapsToDevicePixels="True"
+                           UseLayoutRounding="True">
                         <Border.Effect>
-                            <DropShadowEffect Color="Black"
+                            <DropShadowEffect Color="#C8AA6E"
                                             BlurRadius="8"
                                             ShadowDepth="2"
-                                            Opacity="0.5"
+                                            Opacity="0.3"
                                             Direction="315"/>
                         </Border.Effect>
-                        <ContentPresenter/>
+                        <ContentPresenter TextOptions.TextFormattingMode="Display"
+                                        TextOptions.TextRenderingMode="ClearType"
+                                        RenderOptions.ClearTypeHint="Enabled"
+                                        SnapsToDevicePixels="True"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="HasDropShadow" Value="False">

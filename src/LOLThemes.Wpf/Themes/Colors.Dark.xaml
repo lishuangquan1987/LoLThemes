@@ -102,11 +102,13 @@
         <GradientStop Color="#801E2328" Offset="1"/>
     </LinearGradientBrush>
     
-    <!-- 进度条渐变画刷（水平方向，3色渐变） -->
+    <!-- 进度条渐变画刷（水平方向，4色渐变，更丰富） -->
     <LinearGradientBrush x:Key="ProgressBarGradientBrush" StartPoint="0,0" EndPoint="1,0">
-        <GradientStop Color="#C8AA6E" Offset="0"/>
+        <GradientStop Color="#785A28" Offset="0"/>
+        <GradientStop Color="#C8AA6E" Offset="0.3"/>
         <GradientStop Color="#F0E6D2" Offset="0.5"/>
-        <GradientStop Color="#C8AA6E" Offset="1"/>
+        <GradientStop Color="#C8AA6E" Offset="0.7"/>
+        <GradientStop Color="#785A28" Offset="1"/>
     </LinearGradientBrush>
     
     <!-- 边框颜色画刷 -->
@@ -114,6 +116,8 @@
     <SolidColorBrush x:Key="BorderDarkBrush" Color="#3C3C41"/>
     <SolidColorBrush x:Key="BorderLightBrush" Color="#463714"/>
     <SolidColorBrush x:Key="BorderAccentBrush" Color="#785A28"/>
+    <!-- 输入框边框颜色（在深色背景下更明显） -->
+    <SolidColorBrush x:Key="InputBorderBrush" Color="#5B5A56"/>
     
     <!-- 状态颜色画刷 -->
     <SolidColorBrush x:Key="HoverGoldBrush" Color="#F0E6D2"/>

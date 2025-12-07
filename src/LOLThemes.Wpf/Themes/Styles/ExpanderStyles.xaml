@@ -9,11 +9,14 @@
 
     <!-- Expander ToggleButton 样式 -->
     <Style x:Key="ExpanderToggleButtonStyle" TargetType="ToggleButton">
-        <Setter Property="Background" Value="{DynamicResource BackgroundLightBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
-        <Setter Property="BorderThickness" Value="0.5"/>
-        <Setter Property="Padding" Value="12,8"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
+        <Setter Property="Padding" Value="8,6"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+        <Setter Property="TextOptions.TextRenderingMode" Value="ClearType"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -91,16 +94,24 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="0.5"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
+        <Setter Property="Margin" Value="0,0,0,8"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Expander">
                     <Border Background="{TemplateBinding Background}"
                            BorderBrush="{TemplateBinding BorderBrush}"
                            BorderThickness="{TemplateBinding BorderThickness}"
-                           SnapsToDevicePixels="True">
+                           SnapsToDevicePixels="True"
+                           UseLayoutRounding="True">
+                        <Border.Effect>
+                            <DropShadowEffect Color="#C8AA6E"
+                                            BlurRadius="5"
+                                            ShadowDepth="0"
+                                            Opacity="0.1"/>
+                        </Border.Effect>
                         <DockPanel>
                             <!-- 标题按钮 -->
                             <ToggleButton x:Name="HeaderSite"
@@ -117,9 +128,9 @@
                             <Border x:Name="ContentSite"
                                    DockPanel.Dock="Top"
                                    Background="{TemplateBinding Background}"
-                                   Padding="12"
+                                   Padding="8,6"
                                    Visibility="Collapsed">
-                                <ContentPresenter/>
+                                <ContentPresenter Margin="0"/>
                             </Border>
                         </DockPanel>
                     </Border>

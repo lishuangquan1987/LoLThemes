@@ -30,7 +30,7 @@
                                Grid.Row="0"
                                Background="{DynamicResource BackgroundLightBrush}"
                                BorderBrush="{TemplateBinding BorderBrush}"
-                               BorderThickness="1,1,1,0"
+                               BorderThickness="{DynamicResource TabItemBorderThickness}"
                                Padding="12,6">
                             <ContentPresenter ContentSource="Header"
                                             RecognizesAccessKey="True"

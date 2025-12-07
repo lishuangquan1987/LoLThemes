@@ -49,9 +49,10 @@
                                    BorderBrush="{DynamicResource BorderDarkBrush}"
                                    BorderThickness="0.5"
                                    Padding="0"
-                                   SnapsToDevicePixels="True">
+                                   SnapsToDevicePixels="True"
+                                   UseLayoutRounding="True">
                                 <Border.Effect>
-                                    <DropShadowEffect Color="{DynamicResource PrimaryGold}" 
+                                    <DropShadowEffect Color="#C8AA6E" 
                                                     BlurRadius="10" 
                                                     ShadowDepth="0" 
                                                     Opacity="0.2"/>
@@ -70,17 +71,20 @@
                                     
                                     <!-- XAML 代码编辑器 -->
                                     <avalonEdit:TextEditor Document="{Binding Xaml, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource TextDocumentValueConverter}}"
-                                                          Background="#0E1015"
+                                                          Background="#0A0A0A"
                                                           Foreground="#F5EBD8"
                                                           FontFamily="Consolas, 'Courier New', monospace"
-                                                          FontSize="13"
+                                                          FontSize="14"
                                                           ShowLineNumbers="True"
-                                                          LineNumbersForeground="#A09B8C"
+                                                          LineNumbersForeground="#C8C8C8"
                                                           IsReadOnly="True"
                                                           HorizontalScrollBarVisibility="Auto"
                                                           VerticalScrollBarVisibility="Auto"
                                                           MaxHeight="400"
-                                                          Padding="10"/>
+                                                          Padding="10"
+                                                          TextOptions.TextFormattingMode="Display"
+                                                          TextOptions.TextRenderingMode="ClearType"
+                                                          SnapsToDevicePixels="True"/>
                                 </DockPanel>
                             </Border>
                         </Expander>

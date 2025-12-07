@@ -12,7 +12,7 @@
     <Style x:Key="LOLTextBoxStyle" TargetType="TextBox">
         <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource InputBorderBrush}"/>
         <Setter Property="BorderThickness" Value="{DynamicResource TextBoxBorderThickness}"/>
         <Setter Property="Padding" Value="{DynamicResource TextBoxPadding}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
@@ -33,7 +33,14 @@
                            BorderBrush="{TemplateBinding BorderBrush}"
                            BorderThickness="{TemplateBinding BorderThickness}"
                            CornerRadius="{DynamicResource TextBoxCornerRadius}"
-                           SnapsToDevicePixels="True">
+                           SnapsToDevicePixels="True"
+                           UseLayoutRounding="True">
+                        <Border.Effect>
+                            <DropShadowEffect Color="#C8AA6E"
+                                            BlurRadius="5"
+                                            ShadowDepth="0"
+                                            Opacity="0"/>
+                        </Border.Effect>
                         <Grid>
                             <!-- 占位符文�-->
                             <TextBlock x:Name="PlaceholderText"

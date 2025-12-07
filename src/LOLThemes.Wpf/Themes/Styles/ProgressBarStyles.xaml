@@ -13,7 +13,7 @@
         <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryGoldBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="0.5"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ProgressBar">
@@ -22,18 +22,18 @@
                         <Border Background="{TemplateBinding Background}"
                                BorderBrush="{TemplateBinding BorderBrush}"
                                BorderThickness="{TemplateBinding BorderThickness}"
-                               CornerRadius="2"
+                               CornerRadius="3"
                                SnapsToDevicePixels="True"/>
                         
                         <!-- 进度条容�-->
                         <Border x:Name="PART_Track"
                                Margin="2"
-                               CornerRadius="1">
+                               CornerRadius="2">
                             <Grid>
                                 <!-- 进度指示�-->
                                 <Border x:Name="PART_Indicator"
                                        HorizontalAlignment="Left"
-                                       CornerRadius="1">
+                                       CornerRadius="2">
                                     <Border.Background>
                                         <DynamicResource ResourceKey="ProgressBarGradientBrush"/>
                                     </Border.Background>
@@ -44,7 +44,7 @@
                                        HorizontalAlignment="Left"
                                        Width="100"
                                        Margin="-100,0,0,0"
-                                       CornerRadius="1"
+                                       CornerRadius="2"
                                        Visibility="Collapsed">
                                     <Border.Background>
                                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
@@ -92,7 +92,7 @@
         <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryGoldBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="0.5"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
         <Setter Property="Orientation" Value="Vertical"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -102,18 +102,18 @@
                         <Border Background="{TemplateBinding Background}"
                                BorderBrush="{TemplateBinding BorderBrush}"
                                BorderThickness="{TemplateBinding BorderThickness}"
-                               CornerRadius="2"
+                               CornerRadius="3"
                                SnapsToDevicePixels="True"/>
                         
                         <!-- 进度条容�-->
                         <Border x:Name="PART_Track"
                                Margin="2"
-                               CornerRadius="1">
+                               CornerRadius="2">
                             <Grid>
                                 <!-- 进度指示�-->
                                 <Border x:Name="PART_Indicator"
                                        VerticalAlignment="Bottom"
-                                       CornerRadius="1">
+                                       CornerRadius="2">
                                     <Border.Background>
                                         <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
                                             <GradientStop Color="#C8AA6E" Offset="0"/>

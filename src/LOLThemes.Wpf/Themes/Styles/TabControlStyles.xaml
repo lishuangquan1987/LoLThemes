@@ -12,7 +12,10 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="1,1,1,0"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource TabItemBorderThickness}"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+        <Setter Property="TextOptions.TextRenderingMode" Value="ClearType"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="Padding" Value="{DynamicResource TabItemPadding}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
@@ -27,15 +30,31 @@
                                BorderThickness="{TemplateBinding BorderThickness}"
                                Padding="{TemplateBinding Padding}"
                                Margin="0,0,2,0"
-                               SnapsToDevicePixels="True">
+                               CornerRadius="3,3,0,0"
+                               SnapsToDevicePixels="True"
+                               UseLayoutRounding="True">
                             <Border.Background>
-                                <DynamicResource ResourceKey="DarkGradientBrush"/>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientStop Color="#E61E2328" Offset="0"/>
+                                    <GradientStop Color="#D41E2328" Offset="0.5"/>
+                                    <GradientStop Color="#CC1E2328" Offset="1"/>
+                                </LinearGradientBrush>
                             </Border.Background>
+                            <Border.Effect>
+                                <DropShadowEffect Color="#C8AA6E"
+                                                BlurRadius="3"
+                                                ShadowDepth="0"
+                                                Opacity="0"/>
+                            </Border.Effect>
                             <ContentPresenter x:Name="ContentSite"
                                             ContentSource="Header"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
-                                            RecognizesAccessKey="True"/>
+                                            RecognizesAccessKey="True"
+                                            TextOptions.TextFormattingMode="Display"
+                                            TextOptions.TextRenderingMode="ClearType"
+                                            RenderOptions.ClearTypeHint="Enabled"
+                                            SnapsToDevicePixels="True"/>
                         </Border>
                         
                         <!-- 选中指示�-->
@@ -58,7 +77,7 @@
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="Border" Property="Background" 
                                    Value="{DynamicResource BackgroundMediumBrush}"/>
-                            <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0"/>
+                            <Setter TargetName="Border" Property="BorderThickness" Value="{DynamicResource TabItemBorderThickness}"/>
                             <Setter Property="Foreground" 
                                    Value="{DynamicResource PrimaryGoldBrush}"/>
                             <Setter TargetName="SelectedIndicator" Property="Opacity" Value="1"/>
@@ -80,7 +99,7 @@
     <Style x:Key="LOLTabControlStyle" TargetType="TabControl">
         <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="{DynamicResource BorderThicknessThin}"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
         <Setter Property="Padding" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -98,7 +117,7 @@
                                BorderThickness="0,0,0,1">
                             <TabPanel x:Name="HeaderPanel"
                                      IsItemsHost="True"
-                                     Margin="4,0,4,0"
+                                     Margin="2,0,2,0"
                                      Panel.ZIndex="1"/>
                         </Border>
                         
@@ -111,7 +130,7 @@
                                Padding="{TemplateBinding Padding}">
                             <ContentPresenter x:Name="PART_SelectedContentHost"
                                             ContentSource="SelectedContent"
-                                            Margin="8"
+                                            Margin="6"
                                             SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                         </Border>
                     </Grid>

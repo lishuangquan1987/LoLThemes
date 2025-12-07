@@ -22,38 +22,90 @@
                     <Border x:Name="border"
                            BorderThickness="0"
                            Padding="{TemplateBinding Padding}"
-                           SnapsToDevicePixels="True">
+                           CornerRadius="3"
+                           SnapsToDevicePixels="True"
+                           UseLayoutRounding="True">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                                 <GradientStop Color="#E61E2328" Offset="0"/>
+                                <GradientStop Color="#D41E2328" Offset="0.5"/>
                                 <GradientStop Color="#CC1E2328" Offset="1"/>
                             </LinearGradientBrush>
                         </Border.Background>
+                        <Border.Effect>
+                            <DropShadowEffect Color="#C8AA6E"
+                                            BlurRadius="5"
+                                            ShadowDepth="0"
+                                            Opacity="0"/>
+                        </Border.Effect>
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        TextOptions.TextFormattingMode="Display"
+                                        TextOptions.TextRenderingMode="ClearType"
+                                        RenderOptions.ClearTypeHint="Enabled"
+                                        SnapsToDevicePixels="True"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border"
+                                                       Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.Opacity)"
+                                                       To="0.15"
+                                                       Duration="0:0:0.15">
+                                            <DoubleAnimation.EasingFunction>
+                                                <CubicEase EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border"
+                                                       Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.Opacity)"
+                                                       To="0"
+                                                       Duration="0:0:0.15">
+                                            <DoubleAnimation.EasingFunction>
+                                                <CubicEase EasingMode="EaseIn"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
                             <Setter TargetName="border" Property="Background">
                                 <Setter.Value>
                                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                                         <GradientStop Color="#E6C8AA6E" Offset="0"/>
+                                        <GradientStop Color="#D4C8AA6E" Offset="0.5"/>
                                         <GradientStop Color="#CCC8AA6E" Offset="1"/>
                                     </LinearGradientBrush>
                                 </Setter.Value>
                             </Setter>
+                            <Setter Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="border" Property="Background">
                                 <Setter.Value>
                                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                                         <GradientStop Color="#E6C8AA6E" Offset="0"/>
+                                        <GradientStop Color="#D4C8AA6E" Offset="0.5"/>
                                         <GradientStop Color="#CCC8AA6E" Offset="1"/>
                                     </LinearGradientBrush>
                                 </Setter.Value>
                             </Setter>
+                            <Setter TargetName="border" Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#C8AA6E"
+                                                    BlurRadius="5"
+                                                    ShadowDepth="0"
+                                                    Opacity="0.2"/>
+                                </Setter.Value>
+                            </Setter>
                             <Setter Property="Foreground" 
-                                   Value="{DynamicResource BackgroundDarkBrush}"/>
+                                   Value="#010A13"/>
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -64,7 +116,8 @@
                                 <Setter.Value>
                                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                                         <GradientStop Color="#F0C8AA6E" Offset="0"/>
-                                        <GradientStop Color="#E6C8AA6E" Offset="1"/>
+                                        <GradientStop Color="#E6C8AA6E" Offset="0.5"/>
+                                        <GradientStop Color="#D4C8AA6E" Offset="1"/>
                                     </LinearGradientBrush>
                                 </Setter.Value>
                             </Setter>
@@ -80,7 +133,7 @@
         <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="0.5"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
@@ -92,7 +145,15 @@
                     <Border Background="{TemplateBinding Background}"
                            BorderBrush="{TemplateBinding BorderBrush}"
                            BorderThickness="{TemplateBinding BorderThickness}"
-                           SnapsToDevicePixels="True">
+                           CornerRadius="3"
+                           SnapsToDevicePixels="True"
+                           UseLayoutRounding="True">
+                        <Border.Effect>
+                            <DropShadowEffect Color="#C8AA6E"
+                                            BlurRadius="5"
+                                            ShadowDepth="0"
+                                            Opacity="0.1"/>
+                        </Border.Effect>
                         <ScrollViewer Focusable="False"
                                     Padding="0">
                             <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>

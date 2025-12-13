@@ -4,8 +4,24 @@ using System.Windows.Controls;
 namespace LOLThemes.Wpf.Controls
 {
     /// <summary>
-    /// 属性条控件，用于显示数值和百分比（如生命值、法力值等）。
+    /// 属性条控件，用于显示数值和百分比（如生命值、法力值、经验值等）。
+    /// 支持自定义颜色、显示/隐藏数值，以及自动计算百分比。
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;controls:StatBar 
+    ///     Value="75"
+    ///     Maximum="100"
+    ///     Minimum="0"
+    ///     ShowValue="True"
+    ///     BarColor="{DynamicResource AccentCyanBrush}"/&gt;
+    /// </code>
+    /// </example>
+    /// <remarks>
+    /// 百分比计算公式：Percentage = (Value - Minimum) / (Maximum - Minimum)
+    /// 如果 Maximum 小于等于 Minimum，百分比将返回 0。
+    /// Value 会被自动限制在 Minimum 和 Maximum 之间。
+    /// </remarks>
     public class StatBar : Control
     {
         static StatBar()
@@ -14,7 +30,7 @@ namespace LOLThemes.Wpf.Controls
         }
 
         /// <summary>
-        /// 当前值
+        /// 标识 <see cref="Value"/> 依赖属性。
         /// </summary>
         public static readonly DependencyProperty ValueProperty =
             DependencyProperty.Register(
@@ -24,7 +40,7 @@ namespace LOLThemes.Wpf.Controls
                 new PropertyMetadata(0.0, OnValueChanged));
 
         /// <summary>
-        /// 最大值
+        /// 标识 <see cref="Maximum"/> 依赖属性。
         /// </summary>
         public static readonly DependencyProperty MaximumProperty =
             DependencyProperty.Register(
@@ -34,7 +50,7 @@ namespace LOLThemes.Wpf.Controls
                 new PropertyMetadata(100.0, OnValueChanged));
 
         /// <summary>
-        /// 最小值
+        /// 标识 <see cref="Minimum"/> 依赖属性。
         /// </summary>
         public static readonly DependencyProperty MinimumProperty =
             DependencyProperty.Register(
@@ -44,7 +60,7 @@ namespace LOLThemes.Wpf.Controls
                 new PropertyMetadata(0.0, OnValueChanged));
 
         /// <summary>
-        /// 是否显示数值
+        /// 标识 <see cref="ShowValue"/> 依赖属性。
         /// </summary>
         public static readonly DependencyProperty ShowValueProperty =
             DependencyProperty.Register(
@@ -54,7 +70,7 @@ namespace LOLThemes.Wpf.Controls
                 new PropertyMetadata(true));
 
         /// <summary>
-        /// 属性条颜色
+        /// 标识 <see cref="BarColor"/> 依赖属性。
         /// </summary>
         public static readonly DependencyProperty BarColorProperty =
             DependencyProperty.Register(
@@ -64,8 +80,12 @@ namespace LOLThemes.Wpf.Controls
                 new PropertyMetadata(null));
 
         /// <summary>
-        /// 获取或设置当前值
+        /// 获取或设置当前值。
+        /// 默认值为 0.0。
         /// </summary>
+        /// <remarks>
+        /// 值会被自动限制在 <see cref="Minimum"/> 和 <see cref="Maximum"/> 之间。
+        /// </remarks>
         public double Value
         {
             get => (double)GetValue(ValueProperty);
@@ -73,7 +93,8 @@ namespace LOLThemes.Wpf.Controls
         }
 
         /// <summary>
-        /// 获取或设置最大值
+        /// 获取或设置最大值。
+        /// 默认值为 100.0。
         /// </summary>
         public double Maximum
         {
@@ -82,7 +103,8 @@ namespace LOLThemes.Wpf.Controls
         }
 
         /// <summary>
-        /// 获取或设置最小值
+        /// 获取或设置最小值。
+        /// 默认值为 0.0。
         /// </summary>
         public double Minimum
         {
@@ -91,7 +113,8 @@ namespace LOLThemes.Wpf.Controls
         }
 
         /// <summary>
-        /// 获取或设置是否显示数值
+        /// 获取或设置是否显示数值文本。
+        /// 默认值为 true。
         /// </summary>
         public bool ShowValue
         {
@@ -100,7 +123,8 @@ namespace LOLThemes.Wpf.Controls
         }
 
         /// <summary>
-        /// 获取或设置属性条颜色
+        /// 获取或设置属性条的颜色画刷。
+        /// 如果为 null，将使用默认颜色。
         /// </summary>
         public System.Windows.Media.Brush BarColor
         {
@@ -109,8 +133,12 @@ namespace LOLThemes.Wpf.Controls
         }
 
         /// <summary>
-        /// 获取百分比（0-1）
+        /// 获取当前值相对于最大值和最小值的百分比（0.0 到 1.0）。
         /// </summary>
+        /// <remarks>
+        /// 计算公式：Percentage = (Value - Minimum) / (Maximum - Minimum)
+        /// 如果 Maximum 小于等于 Minimum，返回 0.0。
+        /// </remarks>
         public double Percentage
         {
             get

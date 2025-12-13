@@ -37,15 +37,15 @@
                         <!-- 鼠标悬停 -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="border" Property="Background" 
-                                   Value="{DynamicResource BackgroundLightBrush}"/>
+                                   Value="{DynamicResource BackgroundHoverBrush}"/>
                             <Setter TargetName="border" Property="BorderBrush" 
-                                   Value="{DynamicResource HoverGoldBrush}"/>
+                                   Value="{DynamicResource BorderGoldBrush}"/>
                         </Trigger>
                         
                         <!-- 选中状�-->
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="border" Property="Background" 
-                                   Value="{DynamicResource PrimaryGoldBrush}"/>
+                                   Value="{DynamicResource BorderGoldBrush}"/>
                             <Setter Property="Foreground" 
                                    Value="{DynamicResource BackgroundDarkBrush}"/>
                         </Trigger>
@@ -57,13 +57,13 @@
                                 <Condition Property="IsMouseOver" Value="True"/>
                             </MultiTrigger.Conditions>
                             <Setter TargetName="border" Property="Background" 
-                                   Value="{DynamicResource HoverGoldBrush}"/>
+                                   Value="{DynamicResource BorderGoldBrush}"/>
                         </MultiTrigger>
                         
                         <!-- 按下状�-->
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="border" Property="Background" 
-                                   Value="{DynamicResource PressedGoldBrush}"/>
+                                   Value="{DynamicResource BackgroundCardBrush}"/>
                         </Trigger>
                         
                         <!-- 禁用状�-->
@@ -120,7 +120,7 @@
                         <!-- 选中状�-->
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="SwitchTrack" Property="Background" 
-                                   Value="{DynamicResource PrimaryGoldBrush}"/>
+                                   Value="{DynamicResource BorderGoldBrush}"/>
                             <Setter TargetName="SwitchThumb" Property="Background" 
                                    Value="{DynamicResource BackgroundDarkBrush}"/>
                             <Trigger.EnterActions>

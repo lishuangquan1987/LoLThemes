@@ -54,12 +54,6 @@
                                        BorderThickness="3"
                                        CornerRadius="0"
                                        Visibility="Collapsed">
-                                    <Border.Effect>
-                                        <DropShadowEffect Color="#C8AA6E"
-                                                        BlurRadius="15"
-                                                        ShadowDepth="0"
-                                                        Opacity="0.8"/>
-                                    </Border.Effect>
                                 </Border>
                             </Grid>
                         </Border>

@@ -2,7 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
     <!-- 合并基础资源，确保可以访问 Fonts -->
-    <!-- 注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
     </ResourceDictionary.MergedDictionaries>
@@ -12,11 +11,11 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="{DynamicResource TabItemBorderThickness}"/>
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
         <Setter Property="TextOptions.TextRenderingMode" Value="ClearType"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="Padding" Value="{DynamicResource TabItemPadding}"/>
+        <Setter Property="Padding" Value="12,8"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
@@ -30,22 +29,9 @@
                                BorderThickness="{TemplateBinding BorderThickness}"
                                Padding="{TemplateBinding Padding}"
                                Margin="0,0,2,0"
-                               CornerRadius="3,3,0,0"
                                SnapsToDevicePixels="True"
-                               UseLayoutRounding="True">
-                            <Border.Background>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                    <GradientStop Color="#E61E2328" Offset="0"/>
-                                    <GradientStop Color="#D41E2328" Offset="0.5"/>
-                                    <GradientStop Color="#CC1E2328" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Border.Background>
-                            <Border.Effect>
-                                <DropShadowEffect Color="#C8AA6E"
-                                                BlurRadius="3"
-                                                ShadowDepth="0"
-                                                Opacity="0"/>
-                            </Border.Effect>
+                               UseLayoutRounding="True"
+                               Background="Transparent">
                             <ContentPresenter x:Name="ContentSite"
                                             ContentSource="Header"
                                             HorizontalAlignment="Center"
@@ -57,34 +43,33 @@
                                             SnapsToDevicePixels="True"/>
                         </Border>
                         
-                        <!-- 选中指示�-->
+                        <!-- 选中指示器 - 青色下划线 -->
                         <Border x:Name="SelectedIndicator"
                                Height="3"
                                VerticalAlignment="Bottom"
-                               Background="{DynamicResource PrimaryGoldBrush}"
+                               Background="{DynamicResource SelectedAccentBrush}"
                                Opacity="0"/>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <!-- 鼠标悬停 -->
+                        <!-- 鼠标悬停 - 无动画，即时切换 -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Border" Property="Background" 
-                                   Value="{DynamicResource BackgroundLightBrush}"/>
+                                   Value="Transparent"/>
                             <Setter Property="Foreground" 
                                    Value="{DynamicResource TextPrimaryBrush}"/>
                         </Trigger>
                         
-                        <!-- 选中状�-->
+                        <!-- 选中状态 - 青色下划线 -->
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="Border" Property="Background" 
-                                   Value="{DynamicResource BackgroundMediumBrush}"/>
-                            <Setter TargetName="Border" Property="BorderThickness" Value="{DynamicResource TabItemBorderThickness}"/>
+                                   Value="Transparent"/>
                             <Setter Property="Foreground" 
-                                   Value="{DynamicResource PrimaryGoldBrush}"/>
-                            <Setter TargetName="SelectedIndicator" Property="Opacity" Value="1"/>
+                                   Value="{DynamicResource SelectedAccentBrush}"/>
                             <Setter Property="Panel.ZIndex" Value="100"/>
+                            <Setter TargetName="SelectedIndicator" Property="Opacity" Value="1"/>
                         </Trigger>
                         
-                        <!-- 禁用状�-->
+                        <!-- 禁用状态 -->
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Foreground" 
                                    Value="{DynamicResource TextDisabledBrush}"/>
@@ -97,9 +82,9 @@
 
     <!-- LOL TabControl 样式 -->
     <Style x:Key="LOLTabControlStyle" TargetType="TabControl">
-        <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Padding" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -110,15 +95,14 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         
-                        <!-- 选项卡头部区�-->
+                        <!-- 选项卡头部区域 -->
                         <Border Grid.Row="0"
                                Background="{DynamicResource BackgroundDarkBrush}"
                                BorderBrush="{TemplateBinding BorderBrush}"
                                BorderThickness="0,0,0,1">
                             <TabPanel x:Name="HeaderPanel"
                                      IsItemsHost="True"
-                                     Margin="2,0,2,0"
-                                     Panel.ZIndex="1"/>
+                                     Margin="2,0,2,0"/>
                         </Border>
                         
                         <!-- 内容区域 -->

@@ -16,8 +16,8 @@
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         <Setter Property="Padding" Value="{DynamicResource InputBoxPadding}"/>
-        <Setter Property="SelectionBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
-        <Setter Property="CaretBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
+        <Setter Property="SelectionBrush" Value="{DynamicResource BorderGoldBrush}"/>
+        <Setter Property="CaretBrush" Value="{DynamicResource BorderGoldBrush}"/>
         <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
         <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
         <Setter Property="AcceptsReturn" Value="True"/>
@@ -32,12 +32,6 @@
                             CornerRadius="3"
                             SnapsToDevicePixels="True"
                             UseLayoutRounding="True">
-                        <Border.Effect>
-                            <DropShadowEffect Color="#C8AA6E"
-                                            BlurRadius="5"
-                                            ShadowDepth="0"
-                                            Opacity="0"/>
-                        </Border.Effect>
                         <ScrollViewer x:Name="PART_ContentHost"
                                     Focusable="False"
                                     HorizontalScrollBarVisibility="{TemplateBinding HorizontalScrollBarVisibility}"
@@ -48,110 +42,26 @@
                                     SnapsToDevicePixels="True"/>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <!-- Mouse Over -->
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Trigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Border"
-                                                       Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.Opacity)"
-                                                       To="0.2"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.EnterActions>
-                            <Trigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Border"
-                                                       Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.Opacity)"
-                                                       To="0"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseIn"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.ExitActions>
+                        <!-- Focused 且 MouseOver 状态 - 确保边框明显（优先级最高） -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="True"/>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                            </MultiTrigger.Conditions>
                             <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="Border" Property="BorderThickness" Value="2"/>
+                        </MultiTrigger>
+                        
+                        <!-- Focused 状态 - 边框高亮 -->
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="Border" Property="BorderThickness" Value="2"/>
                         </Trigger>
                         
-                        <!-- Focused -->
-                        <Trigger Property="IsFocused" Value="True">
-                            <Trigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName="Border"
-                                                       Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
-                                                       To="#C8AA6E"
-                                                       Duration="0:0:0.15">
-                                            <ColorAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </ColorAnimation.EasingFunction>
-                                        </ColorAnimation>
-                                        <DoubleAnimation Storyboard.TargetName="Border"
-                                                       Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.Opacity)"
-                                                       To="0.4"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                        <DoubleAnimation Storyboard.TargetName="Border"
-                                                       Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.BlurRadius)"
-                                                       To="8"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.EnterActions>
-                            <Trigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName="Border"
-                                                       Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
-                                                       To="#3C3C41"
-                                                       Duration="0:0:0.15">
-                                            <ColorAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseIn"/>
-                                            </ColorAnimation.EasingFunction>
-                                        </ColorAnimation>
-                                        <DoubleAnimation Storyboard.TargetName="Border"
-                                                       Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.Opacity)"
-                                                       To="0"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseIn"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                        <DoubleAnimation Storyboard.TargetName="Border"
-                                                       Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.BlurRadius)"
-                                                       To="5"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseIn"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.ExitActions>
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
-                            <Setter TargetName="Border" Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="#C8AA6E"
-                                                    BlurRadius="8"
-                                                    ShadowDepth="0"
-                                                    Opacity="0.4"/>
-                                </Setter.Value>
-                            </Setter>
+                        <!-- MouseOver 状态（仅在未获得焦点时） -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="Border" Property="BorderThickness" Value="1.5"/>
                         </Trigger>
                         
                         <!-- Disabled -->

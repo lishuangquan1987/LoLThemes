@@ -2,7 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
     <!-- 合并基础资源，确保可以访问 Fonts -->
-    <!-- 注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
     </ResourceDictionary.MergedDictionaries>
@@ -10,10 +9,10 @@
     <!-- LOL ProgressBar 样式 -->
     <Style x:Key="LOLProgressBarStyle" TargetType="ProgressBar">
         <Setter Property="Height" Value="20"/>
-        <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryGoldBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundCardBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource ProgressFillBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ProgressBar">
@@ -25,54 +24,36 @@
                                CornerRadius="3"
                                SnapsToDevicePixels="True"/>
                         
-                        <!-- 进度条容�-->
+                        <!-- 进度条容器 -->
                         <Border x:Name="PART_Track"
                                Margin="2"
                                CornerRadius="2">
                             <Grid>
-                                <!-- 进度指示�-->
+                                <!-- 进度指示器 - 纯色填充 -->
                                 <Border x:Name="PART_Indicator"
                                        HorizontalAlignment="Left"
-                                       CornerRadius="2">
-                                    <Border.Background>
-                                        <DynamicResource ResourceKey="ProgressBarGradientBrush"/>
-                                    </Border.Background>
-                                </Border>
-                                
-                                <!-- 不确定模式的动画 -->
-                                <Border x:Name="PART_GlowRect"
-                                       HorizontalAlignment="Left"
-                                       Width="100"
-                                       Margin="-100,0,0,0"
                                        CornerRadius="2"
-                                       Visibility="Collapsed">
-                                    <Border.Background>
-                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                            <GradientStop Color="Transparent" Offset="0"/>
-                                            <GradientStop Color="#C8AA6E" Offset="0.5"/>
-                                            <GradientStop Color="Transparent" Offset="1"/>
-                                        </LinearGradientBrush>
-                                    </Border.Background>
-                                    <Border.RenderTransform>
-                                        <TranslateTransform x:Name="GlowTransform" X="0"/>
-                                    </Border.RenderTransform>
-                                </Border>
+                                       Background="{TemplateBinding Foreground}"/>
                             </Grid>
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <!-- 不确定模�-->
+                        <!-- 不确定模式 - 保留动画（用于加载状态） -->
                         <Trigger Property="IsIndeterminate" Value="True">
                             <Setter TargetName="PART_Indicator" Property="Visibility" Value="Collapsed"/>
-                            <Setter TargetName="PART_GlowRect" Property="Visibility" Value="Visible"/>
                             <Trigger.EnterActions>
                                 <BeginStoryboard Name="IndeterminateStoryboard">
                                     <Storyboard RepeatBehavior="Forever">
-                                        <DoubleAnimation Storyboard.TargetName="GlowTransform"
-                                                       Storyboard.TargetProperty="X"
+                                        <DoubleAnimation Storyboard.TargetName="PART_Indicator"
+                                                       Storyboard.TargetProperty="Width"
                                                        From="0"
-                                                       To="2000"
-                                                       Duration="0:0:1.5"/>
+                                                       To="100"
+                                                       Duration="0:0:1.5"
+                                                       AutoReverse="True">
+                                            <DoubleAnimation.EasingFunction>
+                                                <CubicEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.EnterActions>
@@ -89,10 +70,10 @@
     <!-- 垂直 ProgressBar 样式 -->
     <Style x:Key="LOLVerticalProgressBarStyle" TargetType="ProgressBar">
         <Setter Property="Width" Value="20"/>
-        <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryGoldBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundCardBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource ProgressFillBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Orientation" Value="Vertical"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -105,23 +86,16 @@
                                CornerRadius="3"
                                SnapsToDevicePixels="True"/>
                         
-                        <!-- 进度条容�-->
+                        <!-- 进度条容器 -->
                         <Border x:Name="PART_Track"
                                Margin="2"
                                CornerRadius="2">
                             <Grid>
-                                <!-- 进度指示�-->
+                                <!-- 进度指示器 - 纯色填充 -->
                                 <Border x:Name="PART_Indicator"
                                        VerticalAlignment="Bottom"
-                                       CornerRadius="2">
-                                    <Border.Background>
-                                        <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
-                                            <GradientStop Color="#C8AA6E" Offset="0"/>
-                                            <GradientStop Color="#F0E6D2" Offset="0.5"/>
-                                            <GradientStop Color="#C8AA6E" Offset="1"/>
-                                        </LinearGradientBrush>
-                                    </Border.Background>
-                                </Border>
+                                       CornerRadius="2"
+                                       Background="{TemplateBinding Foreground}"/>
                             </Grid>
                         </Border>
                     </Grid>

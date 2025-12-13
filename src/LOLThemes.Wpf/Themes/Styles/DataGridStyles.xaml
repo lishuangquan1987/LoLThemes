@@ -32,11 +32,7 @@
                            SnapsToDevicePixels="True"
                            UseLayoutRounding="True">
                         <Border.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                <GradientStop Color="#E62A2E35" Offset="0"/>
-                                <GradientStop Color="#D42A2E35" Offset="0.5"/>
-                                <GradientStop Color="#CC2A2E35" Offset="1"/>
-                            </LinearGradientBrush>
+                            <SolidColorBrush Color="{DynamicResource BackgroundSecondary}"/>
                         </Border.Background>
                         <Grid>
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -48,7 +44,7 @@
                             <Path x:Name="SortArrow"
                                  Visibility="Collapsed"
                                  Data="M 0,0 L 4,4 L 8,0 Z"
-                                 Fill="{DynamicResource PrimaryGoldBrush}"
+                                 Fill="{DynamicResource BorderGoldBrush}"
                                  HorizontalAlignment="Right"
                                  VerticalAlignment="Center"
                                  Margin="0,0,8,0"
@@ -115,29 +111,17 @@
                                         SnapsToDevicePixels="True"/>
                     </Border>
                     <ControlTemplate.Triggers>
+                        <!-- IsSelected 状态 - 无动画，即时切换 -->
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="border" Property="Background">
-                                <Setter.Value>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Color="#E6C8AA6E" Offset="0"/>
-                                        <GradientStop Color="#D4C8AA6E" Offset="0.5"/>
-                                        <GradientStop Color="#CCC8AA6E" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="border" Property="Background" 
+                                   Value="{DynamicResource SelectedBackgroundBrush}"/>
                             <Setter Property="Foreground" 
-                                   Value="#010A13"/>
+                                   Value="{DynamicResource SelectedTextBrush}"/>
                         </Trigger>
+                        <!-- IsMouseOver 状态 - 无动画，即时切换 -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="Background">
-                                <Setter.Value>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Color="#E61E2328" Offset="0"/>
-                                        <GradientStop Color="#D41E2328" Offset="0.5"/>
-                                        <GradientStop Color="#CC1E2328" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="border" Property="Background" 
+                                   Value="{DynamicResource BackgroundHoverBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -183,15 +167,17 @@
                         </SelectiveScrollingGrid>
                     </Border>
                     <ControlTemplate.Triggers>
+                        <!-- IsMouseOver 状态 - 无动画，即时切换 -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="DGR_Border" Property="Background" 
-                                   Value="{DynamicResource BackgroundLightBrush}"/>
+                                   Value="{DynamicResource BackgroundHoverBrush}"/>
                         </Trigger>
+                        <!-- IsSelected 状态 - 无动画，即时切换 -->
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="DGR_Border" Property="Background" 
-                                   Value="{DynamicResource PrimaryGoldBrush}"/>
+                                   Value="{DynamicResource SelectedBackgroundBrush}"/>
                             <Setter Property="Foreground" 
-                                   Value="{DynamicResource BackgroundDarkBrush}"/>
+                                   Value="{DynamicResource SelectedTextBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -201,14 +187,14 @@
 
     <!-- LOL DataGrid 样式 -->
     <Style x:Key="LOLDataGridStyle" TargetType="DataGrid">
-        <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         <Setter Property="RowBackground" Value="Transparent"/>
-        <Setter Property="AlternatingRowBackground" Value="{DynamicResource BackgroundLightBrush}"/>
+        <Setter Property="AlternatingRowBackground" Value="{DynamicResource BackgroundSecondaryBrush}"/>
         <Setter Property="GridLinesVisibility" Value="Horizontal"/>
         <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource BorderDarkBrush}"/>
@@ -234,12 +220,6 @@
                            CornerRadius="4"
                            SnapsToDevicePixels="True"
                            UseLayoutRounding="True">
-                        <Border.Effect>
-                            <DropShadowEffect Color="#C8AA6E"
-                                            BlurRadius="8"
-                                            ShadowDepth="0"
-                                            Opacity="0.15"/>
-                        </Border.Effect>
                         <ScrollViewer x:Name="DG_ScrollViewer" Focusable="False">
                             <ScrollViewer.Template>
                                 <ControlTemplate TargetType="ScrollViewer">

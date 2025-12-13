@@ -41,7 +41,7 @@
                             <Path Grid.Column="0"
                                   x:Name="CheckMark"
                                   Data="M0,5 L3,8 L8,0"
-                                  Stroke="{DynamicResource PrimaryGoldBrush}"
+                                  Stroke="{DynamicResource BorderGoldBrush}"
                                   StrokeThickness="2"
                                   Visibility="Collapsed"
                                   Margin="8,0,8,0"
@@ -84,12 +84,6 @@
                                         BorderThickness="0.5"
                                         CornerRadius="4"
                                         Padding="4">
-                                    <Border.Effect>
-                                        <DropShadowEffect Color="#C8AA6E" 
-                                                        BlurRadius="10" 
-                                                        ShadowDepth="0" 
-                                                        Opacity="0.3"/>
-                                    </Border.Effect>
                                     <ScrollViewer CanContentScroll="True">
                                         <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Cycle"/>
                                     </ScrollViewer>
@@ -120,7 +114,7 @@
 
                         <!-- Mouse Over -->
                         <Trigger Property="IsHighlighted" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource HoverGoldBrush}"/>
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource BackgroundHoverBrush}"/>
                         </Trigger>
 
                         <!-- Disabled -->
@@ -154,41 +148,6 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="4"
                             Padding="{TemplateBinding Padding}">
-                        <Border.Effect>
-                            <DropShadowEffect Color="#C8AA6E" 
-                                            BlurRadius="15" 
-                                            ShadowDepth="0" 
-                                            Opacity="0.4"/>
-                        </Border.Effect>
-                        <Border.RenderTransform>
-                            <ScaleTransform x:Name="ScaleTransform" ScaleX="0.95" ScaleY="0.95"/>
-                        </Border.RenderTransform>
-                        <Border.Triggers>
-                            <EventTrigger RoutedEvent="Loaded">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="ScaleTransform"
-                                                       Storyboard.TargetProperty="ScaleX"
-                                                       From="0.95"
-                                                       To="1.0"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <QuadraticEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                        <DoubleAnimation Storyboard.TargetName="ScaleTransform"
-                                                       Storyboard.TargetProperty="ScaleY"
-                                                       From="0.95"
-                                                       To="1.0"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <QuadraticEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Border.Triggers>
                         <ScrollViewer CanContentScroll="True"
                                     Style="{DynamicResource {ComponentResourceKey TypeInTargetAssembly={x:Type FrameworkElement}, ResourceId=MenuScrollViewer}}">
                             <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Cycle"

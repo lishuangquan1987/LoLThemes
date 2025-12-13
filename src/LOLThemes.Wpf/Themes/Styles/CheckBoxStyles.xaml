@@ -25,34 +25,19 @@
                         <!-- 复选框容器 -->
                         <Grid Grid.Column="0" Width="20" Height="20" Margin="0,0,8,0">
                             <Border x:Name="CheckBoxBorder"
-                                   Background="{DynamicResource BackgroundMediumBrush}"
-                                   BorderBrush="{DynamicResource InputBorderBrush}"
-                                   BorderThickness="{DynamicResource BorderThickness}"
+                                   Background="{DynamicResource BackgroundInputBrush}"
+                                   BorderBrush="{DynamicResource BorderDefaultBrush}"
+                                   BorderThickness="1"
                                    CornerRadius="3"
                                    SnapsToDevicePixels="True"
-                                   UseLayoutRounding="True">
-                                <Border.Effect>
-                                    <DropShadowEffect Color="#C8AA6E"
-                                                    BlurRadius="3"
-                                                    ShadowDepth="0"
-                                                    Opacity="0"/>
-                                </Border.Effect>
-                            </Border>
-                            <!-- 内层高光边框 -->
-                            <Border BorderBrush="#40F0E6D2"
-                                   BorderThickness="{DynamicResource BorderThickness}"
-                                   CornerRadius="3"
-                                   Margin="1"
-                                   Opacity="0"
-                                   IsHitTestVisible="False"
-                                   SnapsToDevicePixels="True"/>
+                                   UseLayoutRounding="True"/>
                             <!-- 选中标记（精确居中） -->
                             <Canvas Width="20" Height="20" 
                                    HorizontalAlignment="Center" 
                                    VerticalAlignment="Center">
                                 <Path x:Name="CheckMark"
                                      Data="M 5,10 L 9,14 L 15,6"
-                                     Stroke="{DynamicResource PrimaryGoldBrush}"
+                                     Stroke="{DynamicResource BorderGoldBrush}"
                                      StrokeThickness="2"
                                      StrokeStartLineCap="Round"
                                      StrokeEndLineCap="Round"
@@ -74,26 +59,12 @@
                     </Grid>
                     
                     <ControlTemplate.Triggers>
-                        <!-- 鼠标悬停 -->
+                        <!-- 鼠标悬停 - 无动画，即时切换 -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="CheckBoxBorder" Property="BorderBrush" 
-                                   Value="{DynamicResource HoverGoldBrush}"/>
-                            <Setter TargetName="CheckBoxBorder" Property="Background">
-                                <Setter.Value>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Color="#E61E2328" Offset="0"/>
-                                        <GradientStop Color="#CC1E2328" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="CheckBoxBorder" Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="#C8AA6E"
-                                                    BlurRadius="5"
-                                                    ShadowDepth="0"
-                                                    Opacity="0.2"/>
-                                </Setter.Value>
-                            </Setter>
+                                   Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="CheckBoxBorder" Property="Background" 
+                                   Value="{DynamicResource BackgroundInputBrush}"/>
                         </Trigger>
                         
                         <!-- 选中状�-->

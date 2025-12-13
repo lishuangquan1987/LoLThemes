@@ -16,25 +16,13 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:CurrencyDisplay}">
                     <Border x:Name="currencyBorder"
+                           Background="{DynamicResource CurrencyBlueEssenceBrush}"
                            BorderBrush="{DynamicResource BorderGoldBrush}"
                            BorderThickness="0.5"
                            CornerRadius="3"
                            Padding="{TemplateBinding Padding}"
                            SnapsToDevicePixels="True"
                            UseLayoutRounding="True">
-                        <Border.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                <GradientStop Color="#E60AC8B9" Offset="0"/>
-                                <GradientStop Color="#CC0AC8B9" Offset="0.5"/>
-                                <GradientStop Color="#B30AC8B9" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Border.Background>
-                        <Border.Effect>
-                            <DropShadowEffect Color="#0AC8B9"
-                                            BlurRadius="5"
-                                            ShadowDepth="0"
-                                            Opacity="0.2"/>
-                        </Border.Effect>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock x:Name="currencyIcon"
                                       Text="💎"
@@ -47,79 +35,39 @@
                             <TextBlock Text="{Binding Amount, RelativeSource={RelativeSource TemplatedParent}, StringFormat='{}{0:N0}'}"
                                       FontSize="{DynamicResource FontSizeNormal}"
                                       FontWeight="{StaticResource FontWeightBold}"
-                                      Foreground="#010A13"
+                                      Foreground="{DynamicResource BackgroundDarkBrush}"
                                       VerticalAlignment="Center"
                                       TextOptions.TextFormattingMode="Display"
                                       TextOptions.TextRenderingMode="ClearType"
                                       RenderOptions.ClearTypeHint="Enabled"
                                       SnapsToDevicePixels="True">
-                                <TextBlock.Effect>
-                                    <DropShadowEffect Color="#FFFFFF"
-                                                    BlurRadius="1"
-                                                    ShadowDepth="0"
-                                                    Opacity="0.5"/>
-                                </TextBlock.Effect>
                             </TextBlock>
                         </StackPanel>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="CurrencyType" Value="BlueEssence">
-                            <Setter TargetName="currencyBorder" Property="Background">
-                                <Setter.Value>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Color="#E60AC8B9" Offset="0"/>
-                                        <GradientStop Color="#CC0AC8B9" Offset="0.5"/>
-                                        <GradientStop Color="#B30AC8B9" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="currencyBorder" Property="Background" 
+                                   Value="{DynamicResource CurrencyBlueEssenceBrush}"/>
                             <Setter TargetName="currencyIcon" Property="Text" Value="💎"/>
                         </Trigger>
                         <Trigger Property="CurrencyType" Value="RiotPoints">
-                            <Setter TargetName="currencyBorder" Property="Background">
-                                <Setter.Value>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Color="#E6C8AA6E" Offset="0"/>
-                                        <GradientStop Color="#D4C8AA6E" Offset="0.5"/>
-                                        <GradientStop Color="#CCC8AA6E" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="currencyBorder" Property="Background" 
+                                   Value="{DynamicResource CurrencyRiotPointsBrush}"/>
                             <Setter TargetName="currencyIcon" Property="Text" Value="🪙"/>
                         </Trigger>
                         <Trigger Property="CurrencyType" Value="OrangeEssence">
-                            <Setter TargetName="currencyBorder" Property="Background">
-                                <Setter.Value>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Color="#E6FF8C00" Offset="0"/>
-                                        <GradientStop Color="#CCFF8C00" Offset="0.5"/>
-                                        <GradientStop Color="#B3FF8C00" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="currencyBorder" Property="Background" 
+                                   Value="{DynamicResource CurrencyOrangeEssenceBrush}"/>
                             <Setter TargetName="currencyIcon" Property="Text" Value="🧡"/>
                         </Trigger>
                         <Trigger Property="CurrencyType" Value="Tokens">
-                            <Setter TargetName="currencyBorder" Property="Background">
-                                <Setter.Value>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Color="#E69370DB" Offset="0"/>
-                                        <GradientStop Color="#CC9370DB" Offset="0.5"/>
-                                        <GradientStop Color="#B39370DB" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="currencyBorder" Property="Background" 
+                                   Value="{DynamicResource CurrencyTokensBrush}"/>
                             <Setter TargetName="currencyIcon" Property="Text" Value="🎫"/>
                         </Trigger>
+                        <!-- IsMouseOver 状态 - 无动画，即时切换 -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="currencyBorder" Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="#0AC8B9"
-                                                    BlurRadius="10"
-                                                    ShadowDepth="0"
-                                                    Opacity="0.6"/>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="currencyBorder" Property="Opacity" Value="0.8"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

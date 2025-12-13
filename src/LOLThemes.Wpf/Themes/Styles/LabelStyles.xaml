@@ -20,7 +20,7 @@
     <Style x:Key="TitleLabel" TargetType="Label" BasedOn="{StaticResource LOLLabelStyle}">
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}"/>
         <Setter Property="FontWeight" Value="{StaticResource FontWeightBold}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryGoldBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextGoldBrush}"/>
     </Style>
 
     <!-- 副标�Label 样式 -->
@@ -42,7 +42,7 @@
 
     <!-- 强调 Label 样式 -->
     <Style x:Key="AccentLabel" TargetType="Label" BasedOn="{StaticResource LOLLabelStyle}">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryCyanBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextCyanBrush}"/>
         <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
     </Style>
 

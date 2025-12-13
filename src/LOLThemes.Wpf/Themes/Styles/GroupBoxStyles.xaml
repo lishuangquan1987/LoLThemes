@@ -28,7 +28,7 @@
                         <!-- 标题�-->
                         <Border x:Name="Header"
                                Grid.Row="0"
-                               Background="{DynamicResource BackgroundLightBrush}"
+                               Background="{DynamicResource BackgroundSecondaryBrush}"
                                BorderBrush="{TemplateBinding BorderBrush}"
                                BorderThickness="{DynamicResource TabItemBorderThickness}"
                                Padding="12,6">

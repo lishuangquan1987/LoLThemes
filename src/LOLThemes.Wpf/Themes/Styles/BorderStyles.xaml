@@ -14,16 +14,7 @@
         <Setter Property="Padding" Value="12"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
-        <Setter Property="Background">
-            <Setter.Value>
-                <DynamicResource ResourceKey="DarkGradientBrush"/>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="Effect">
-            <Setter.Value>
-                <DropShadowEffect Color="#C8AA6E" BlurRadius="8" ShadowDepth="0" Opacity="0.15"/>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="Background" Value="{DynamicResource BackgroundCardBrush}"/>
     </Style>
 
     <!-- Secondary Border 样式 -->
@@ -52,16 +43,7 @@
         <Setter Property="Padding" Value="16"/>
         <Setter Property="CornerRadius" Value="4"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="Background">
-            <Setter.Value>
-                <DynamicResource ResourceKey="RadialGoldGradientBrush"/>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="Effect">
-            <Setter.Value>
-                <DropShadowEffect Color="{DynamicResource PrimaryDarkBlue}" BlurRadius="10" ShadowDepth="2" Opacity="0.3"/>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="Background" Value="{DynamicResource BackgroundCardBrush}"/>
     </Style>
 
     <!-- Panel Border 样式 -->

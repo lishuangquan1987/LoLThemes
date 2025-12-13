@@ -20,21 +20,21 @@
     <Style x:Key="H1TextBlock" TargetType="TextBlock" BasedOn="{StaticResource LOLTextBlockStyle}">
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}"/>
         <Setter Property="FontWeight" Value="{StaticResource FontWeightBold}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryGoldBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextGoldBrush}"/>
     </Style>
 
     <!-- H2 标题样式 -->
     <Style x:Key="H2TextBlock" TargetType="TextBlock" BasedOn="{StaticResource LOLTextBlockStyle}">
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}"/>
         <Setter Property="FontWeight" Value="{StaticResource FontWeightBold}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryGoldBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextGoldBrush}"/>
     </Style>
 
     <!-- H3 标题样式 -->
     <Style x:Key="H3TextBlock" TargetType="TextBlock" BasedOn="{StaticResource LOLTextBlockStyle}">
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}"/>
         <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryGoldBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextGoldBrush}"/>
     </Style>
 
     <!-- Body 正文样式 -->
@@ -57,7 +57,7 @@
 
     <!-- Accent 强调文字样式 -->
     <Style x:Key="AccentTextBlock" TargetType="TextBlock" BasedOn="{StaticResource LOLTextBlockStyle}">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryCyanBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextCyanBrush}"/>
         <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
     </Style>
 

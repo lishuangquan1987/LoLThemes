@@ -48,7 +48,7 @@
     <!-- ListViewItem 样式 -->
     <Style x:Key="LOLListViewItemStyle" TargetType="ListViewItem">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="Padding" Value="10,8"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
@@ -66,15 +66,8 @@
                                UseLayoutRounding="True"
                                TextElement.Foreground="{TemplateBinding Foreground}">
                             <Border.Background>
-                                <DynamicResource ResourceKey="DarkGradientBrush"/>
+                                <SolidColorBrush Color="Transparent"/>
                             </Border.Background>
-                            <Border.Effect>
-                                <DropShadowEffect x:Name="ItemShadow"
-                                                Color="#C8AA6E"
-                                                BlurRadius="5"
-                                                ShadowDepth="0"
-                                                Opacity="0"/>
-                            </Border.Effect>
                             <GridViewRowPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                                 TextOptions.TextFormattingMode="Display"
@@ -83,7 +76,7 @@
                         </Border>
                         <!-- 左边框高光 -->
                         <Border x:Name="LeftBorder"
-                               BorderBrush="{DynamicResource PrimaryGoldBrush}"
+                               BorderBrush="{DynamicResource SelectedAccentBrush}"
                                BorderThickness="2,0,0,0"
                                CornerRadius="3,0,0,3"
                                Margin="0"
@@ -92,40 +85,17 @@
                                SnapsToDevicePixels="True"/>
                     </Grid>
                     <ControlTemplate.Triggers>
+                        <!-- MouseOver 状态 - 无动画，即时切换 -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="{DynamicResource GoldGradientBrush}"/>
-                            <Setter TargetName="border" Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="#C8AA6E"
-                                                    BlurRadius="5"
-                                                    ShadowDepth="0"
-                                                    Opacity="0.15"/>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="Foreground" 
-                                   Value="{DynamicResource BackgroundDarkBrush}"/>
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundHoverBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
                         </Trigger>
+                        <!-- IsSelected 状态 - 左侧竖条效果 -->
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="border" Property="Background">
-                                <Setter.Value>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Color="#E6C8AA6E" Offset="0"/>
-                                        <GradientStop Color="#D4C8AA6E" Offset="0.5"/>
-                                        <GradientStop Color="#CCC8AA6E" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource SelectedBackgroundBrush}"/>
                             <Setter TargetName="LeftBorder" Property="Opacity" Value="1"/>
-                            <Setter TargetName="border" Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="#C8AA6E"
-                                                    BlurRadius="5"
-                                                    ShadowDepth="0"
-                                                    Opacity="0.2"/>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="Foreground" 
-                                   Value="{DynamicResource BackgroundDarkBrush}"/>
+                            <Setter TargetName="LeftBorder" Property="BorderBrush" Value="{DynamicResource SelectedAccentBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource SelectedTextBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -135,7 +105,7 @@
 
     <!-- LOL ListView 样式 -->
     <Style x:Key="LOLListViewStyle" TargetType="ListView">
-        <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="BorderThickness" Value="0.5"/>

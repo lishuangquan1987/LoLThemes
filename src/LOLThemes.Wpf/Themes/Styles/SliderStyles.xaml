@@ -21,92 +21,30 @@
                                 SnapsToDevicePixels="True"
                                 UseLayoutRounding="True">
                             <Ellipse.Fill>
-                                <RadialGradientBrush>
-                                    <GradientStop Color="#E6C8AA6E" Offset="0"/>
-                                    <GradientStop Color="#CCC8AA6E" Offset="1"/>
-                                </RadialGradientBrush>
+                                <SolidColorBrush Color="{DynamicResource BorderGold}"/>
                             </Ellipse.Fill>
                             <Ellipse.Stroke>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                    <GradientStop Color="#F0E6D2" Offset="0"/>
-                                    <GradientStop Color="#C8AA6E" Offset="1"/>
-                                </LinearGradientBrush>
+                                <SolidColorBrush Color="{DynamicResource BorderGold}"/>
                             </Ellipse.Stroke>
                             <Ellipse.StrokeThickness>
-                                0.5
+                                1
                             </Ellipse.StrokeThickness>
-                            <Ellipse.Effect>
-                                <DropShadowEffect Color="#C8AA6E"
-                                                BlurRadius="5"
-                                                ShadowDepth="0"
-                                                Opacity="0"/>
-                            </Ellipse.Effect>
                         </Ellipse>
                     </Grid>
                     <ControlTemplate.Triggers>
+                        <!-- MouseOver 状态 - 无动画，即时切换 -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Trigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Ellipse"
-                                                       Storyboard.TargetProperty="(Ellipse.Effect).(DropShadowEffect.Opacity)"
-                                                       To="0.5"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                        <DoubleAnimation Storyboard.TargetName="Ellipse"
-                                                       Storyboard.TargetProperty="(Ellipse.Effect).(DropShadowEffect.BlurRadius)"
-                                                       To="10"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.EnterActions>
-                            <Trigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Ellipse"
-                                                       Storyboard.TargetProperty="(Ellipse.Effect).(DropShadowEffect.Opacity)"
-                                                       To="0"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                        <DoubleAnimation Storyboard.TargetName="Ellipse"
-                                                       Storyboard.TargetProperty="(Ellipse.Effect).(DropShadowEffect.BlurRadius)"
-                                                       To="5"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.ExitActions>
-                            <Setter TargetName="Ellipse" Property="Fill">
-                                <Setter.Value>
-                                    <RadialGradientBrush>
-                                        <GradientStop Color="#E6F0E6D2" Offset="0"/>
-                                        <GradientStop Color="#CCF0E6D2" Offset="1"/>
-                                    </RadialGradientBrush>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="Ellipse" Property="Fill" 
+                                   Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="Ellipse" Property="Stroke" 
+                                   Value="{DynamicResource BorderGoldBrush}"/>
                         </Trigger>
+                        <!-- IsDragging 状态 - 无动画，即时切换 -->
                         <Trigger Property="IsDragging" Value="True">
-                            <Setter TargetName="Ellipse" Property="Fill">
-                                <Setter.Value>
-                                    <RadialGradientBrush>
-                                        <GradientStop Color="#CC785A28" Offset="0"/>
-                                        <GradientStop Color="#99785A28" Offset="1"/>
-                                    </RadialGradientBrush>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="Ellipse" Property="Fill" 
+                                   Value="{DynamicResource BackgroundCardBrush}"/>
+                            <Setter TargetName="Ellipse" Property="Stroke" 
+                                   Value="{DynamicResource BorderGoldBrush}"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="Ellipse" Property="Fill" 
@@ -169,10 +107,7 @@
                                SnapsToDevicePixels="True"
                                UseLayoutRounding="True">
                             <Border.Background>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                    <GradientStop Color="#E62A2E35" Offset="0"/>
-                                    <GradientStop Color="#CC2A2E35" Offset="1"/>
-                                </LinearGradientBrush>
+                                <SolidColorBrush Color="{DynamicResource BackgroundInput}"/>
                             </Border.Background>
                         </Border>
                         

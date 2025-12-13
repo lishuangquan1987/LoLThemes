@@ -39,14 +39,7 @@
 
     <!-- StatusBar Style -->
     <Style x:Key="LOLStatusBarStyle" TargetType="{x:Type StatusBar}">
-        <Setter Property="Background">
-            <Setter.Value>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="{DynamicResource BackgroundMedium}" Offset="0"/>
-                    <GradientStop Color="{DynamicResource BackgroundLight}" Offset="1"/>
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="Background" Value="{DynamicResource BackgroundSecondaryBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
         <Setter Property="BorderThickness" Value="{DynamicResource StatusBarTopBorderThickness}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
@@ -64,12 +57,6 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             SnapsToDevicePixels="True">
-                        <Border.Effect>
-                            <DropShadowEffect Color="#C8AA6E" 
-                                            BlurRadius="5" 
-                                            ShadowDepth="0" 
-                                            Opacity="0.1"/>
-                        </Border.Effect>
                         <ItemsPresenter/>
                     </Border>
                 </ControlTemplate>

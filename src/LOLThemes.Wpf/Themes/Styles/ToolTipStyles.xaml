@@ -29,13 +29,6 @@
                            CornerRadius="3"
                            SnapsToDevicePixels="True"
                            UseLayoutRounding="True">
-                        <Border.Effect>
-                            <DropShadowEffect Color="#C8AA6E"
-                                            BlurRadius="8"
-                                            ShadowDepth="2"
-                                            Opacity="0.3"
-                                            Direction="315"/>
-                        </Border.Effect>
                         <ContentPresenter TextOptions.TextFormattingMode="Display"
                                         TextOptions.TextRenderingMode="ClearType"
                                         RenderOptions.ClearTypeHint="Enabled"

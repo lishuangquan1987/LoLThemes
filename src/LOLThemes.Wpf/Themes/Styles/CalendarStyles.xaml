@@ -67,11 +67,11 @@
                             <Setter TargetName="Border" Property="Background" Value="{DynamicResource HoverGoldBrush}"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource PrimaryGoldBrush}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource PrimaryDarkBlueBrush}"/>
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource SelectedBackgroundBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource SelectedTextBrush}"/>
                         </Trigger>
                         <Trigger Property="IsToday" Value="True">
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
                         </Trigger>
                         <Trigger Property="IsInactive" Value="True">
                             <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}"/>

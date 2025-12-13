@@ -2,18 +2,17 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
     <!-- 合并基础资源，确保可以访问 Fonts -->
-    <!-- 注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <!-- LOL Button 样式 -->
+    <!-- LOL Button 样式 - 根据101.qq.com网站配色重新设计 -->
     <Style x:Key="LOLButtonStyle" TargetType="Button">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
-        <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThickness}"/>
-        <Setter Property="Padding" Value="{DynamicResource ButtonPadding}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundCardBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="8,4"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
@@ -25,186 +24,40 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Grid>
-                        <Border x:Name="border"
-                               BorderBrush="{TemplateBinding BorderBrush}"
-                               BorderThickness="{TemplateBinding BorderThickness}"
-                               CornerRadius="{DynamicResource ButtonCornerRadius}"
-                               SnapsToDevicePixels="True">
-                            <Border.Background>
-                                <LinearGradientBrush x:Name="backgroundGradient" StartPoint="0,0" EndPoint="0,1">
-                                    <GradientStop x:Name="gradientStop1" Color="#E61E2328" Offset="0"/>
-                                    <GradientStop x:Name="gradientStop2" Color="#CC1E2328" Offset="0.5"/>
-                                    <GradientStop x:Name="gradientStop3" Color="#801E2328" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Border.Background>
-                            <Border.Effect>
-                                <DropShadowEffect x:Name="glowEffect" 
-                                                Color="#C8AA6E" 
-                                                BlurRadius="5" 
-                                                ShadowDepth="0" 
-                                                Opacity="0.2"/>
-                            </Border.Effect>
-                            <ContentPresenter x:Name="contentPresenter"
-                                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                            Margin="{TemplateBinding Padding}"
-                                            RecognizesAccessKey="True"
-                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                            TextOptions.TextFormattingMode="Display"
-                                            TextOptions.TextRenderingMode="ClearType"
-                                            RenderOptions.ClearTypeHint="Enabled"/>
-                        </Border>
-                        <!-- 边框高光�-->
-                        <Border x:Name="highlightBorder"
-                               BorderBrush="#40F0E6D2"
-                               BorderThickness="{DynamicResource BorderThickness}"
-                               CornerRadius="{DynamicResource ButtonCornerRadius}"
-                               Margin="{DynamicResource ControlMarginSmall}"
-                               Opacity="0"
-                               IsHitTestVisible="False"/>
-                    </Grid>
+                    <Border x:Name="border"
+                           Background="{TemplateBinding Background}"
+                           BorderBrush="{TemplateBinding BorderBrush}"
+                           BorderThickness="{TemplateBinding BorderThickness}"
+                           SnapsToDevicePixels="True">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        Margin="{TemplateBinding Padding}"
+                                        RecognizesAccessKey="True"
+                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                        TextOptions.TextFormattingMode="Display"
+                                        TextOptions.TextRenderingMode="ClearType"
+                                        RenderOptions.ClearTypeHint="Enabled"/>
+                    </Border>
                     <ControlTemplate.Triggers>
-                        <!-- MouseOver 状�- 带颜色过渡动�-->
+                        <!-- MouseOver 状态 - 无动画，即时切换 -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Trigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName="gradientStop1"
-                                                       Storyboard.TargetProperty="Color"
-                                                       To="#E6C8AA6E"
-                                                       Duration="0:0:0.2">
-                                            <ColorAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </ColorAnimation.EasingFunction>
-                                        </ColorAnimation>
-                                        <ColorAnimation Storyboard.TargetName="gradientStop2"
-                                                       Storyboard.TargetProperty="Color"
-                                                       To="#CCC8AA6E"
-                                                       Duration="0:0:0.2">
-                                            <ColorAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </ColorAnimation.EasingFunction>
-                                        </ColorAnimation>
-                                        <DoubleAnimation Storyboard.TargetName="glowEffect"
-                                                       Storyboard.TargetProperty="BlurRadius"
-                                                       To="15"
-                                                       Duration="0:0:0.2">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                        <DoubleAnimation Storyboard.TargetName="glowEffect"
-                                                       Storyboard.TargetProperty="Opacity"
-                                                       To="0.6"
-                                                       Duration="0:0:0.2">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                        <DoubleAnimation Storyboard.TargetName="highlightBorder"
-                                                       Storyboard.TargetProperty="Opacity"
-                                                       To="0.6"
-                                                       Duration="0:0:0.2">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.EnterActions>
-                            <Trigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName="gradientStop1"
-                                                       Storyboard.TargetProperty="Color"
-                                                       To="#CC1E2328"
-                                                       Duration="0:0:0.2">
-                                            <ColorAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseIn"/>
-                                            </ColorAnimation.EasingFunction>
-                                        </ColorAnimation>
-                                        <ColorAnimation Storyboard.TargetName="gradientStop2"
-                                                       Storyboard.TargetProperty="Color"
-                                                       To="#801E2328"
-                                                       Duration="0:0:0.2">
-                                            <ColorAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseIn"/>
-                                            </ColorAnimation.EasingFunction>
-                                        </ColorAnimation>
-                                        <DoubleAnimation Storyboard.TargetName="glowEffect"
-                                                       Storyboard.TargetProperty="BlurRadius"
-                                                       To="5"
-                                                       Duration="0:0:0.2">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseIn"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                        <DoubleAnimation Storyboard.TargetName="glowEffect"
-                                                       Storyboard.TargetProperty="Opacity"
-                                                       To="0.2"
-                                                       Duration="0:0:0.2">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseIn"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                        <DoubleAnimation Storyboard.TargetName="highlightBorder"
-                                                       Storyboard.TargetProperty="Opacity"
-                                                       To="0"
-                                                       Duration="0:0:0.2">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseIn"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.ExitActions>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource HoverGoldBrush}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundHoverBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
                         </Trigger>
 
-                        <!-- Pressed 状�- 带颜色过渡动�-->
+                        <!-- Pressed 状态 - 无动画，即时切换 -->
                         <Trigger Property="IsPressed" Value="True">
-                            <Trigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName="border"
-                                                       Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
-                                                       To="#785A28"
-                                                       Duration="0:0:0.1">
-                                            <ColorAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseIn"/>
-                                            </ColorAnimation.EasingFunction>
-                                        </ColorAnimation>
-                                        <DoubleAnimation Storyboard.TargetName="border"
-                                                       Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.BlurRadius)"
-                                                       To="8"
-                                                       Duration="0:0:0.1">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseIn"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.EnterActions>
-                            <Setter TargetName="border" Property="Background">
-                                <Setter.Value>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Color="#CC785A28" Offset="0"/>
-                                        <GradientStop Color="#99785A28" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="Foreground" 
-                                   Value="{DynamicResource TextPrimaryBrush}"/>
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundCardBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
                         </Trigger>
                         
-                        <!-- Disabled 状�-->
+                        <!-- Disabled 状态 -->
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="border" Property="BorderBrush" 
-                                   Value="{DynamicResource TextDisabledBrush}"/>
-                            <Setter Property="Foreground" 
-                                   Value="{DynamicResource TextDisabledBrush}"/>
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundCardBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter TargetName="border" Property="Opacity" Value="0.5"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -215,40 +68,30 @@
     
     <!-- 主要按钮样式（填充背景） -->
     <Style x:Key="LOLPrimaryButtonStyle" TargetType="Button" BasedOn="{StaticResource LOLButtonStyle}">
-        <Setter Property="Background" Value="{DynamicResource PrimaryGoldBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BorderGoldBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}"/>
-            </Trigger>
-        </Style.Triggers>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
     </Style>
     
     <!-- 次要按钮样式 -->
     <Style x:Key="LOLSecondaryButtonStyle" TargetType="Button" BasedOn="{StaticResource LOLButtonStyle}">
-        <Setter Property="BorderBrush" Value="{DynamicResource Gray500Brush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
-            </Trigger>
-        </Style.Triggers>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
     </Style>
     
     <!-- 成功按钮样式 -->
     <Style x:Key="LOLSuccessButtonStyle" TargetType="Button" BasedOn="{StaticResource LOLButtonStyle}">
         <Setter Property="BorderBrush" Value="{DynamicResource SuccessGreenBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
     </Style>
     
     <!-- 危险按钮样式 -->
     <Style x:Key="LOLDangerButtonStyle" TargetType="Button" BasedOn="{StaticResource LOLButtonStyle}">
         <Setter Property="BorderBrush" Value="{DynamicResource ErrorRedBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
     </Style>
 
-    <!-- 默认 Button 样式（用�{x:Type Button} 引用�-->
+    <!-- 默认 Button 样式 -->
     <Style TargetType="Button" BasedOn="{StaticResource LOLButtonStyle}"/>
 
 </ResourceDictionary>

@@ -32,12 +32,6 @@
                               StrokeThickness="{TemplateBinding BorderThickness}"
                               Stretch="Fill"
                               SnapsToDevicePixels="True">
-                            <Path.Effect>
-                                <DropShadowEffect Color="#C8AA6E"
-                                                BlurRadius="5"
-                                                ShadowDepth="0"
-                                                Opacity="0"/>
-                            </Path.Effect>
                         </Path>
                         <!-- 内层高光边框 -->
                         <Path x:Name="highlightPath"
@@ -58,71 +52,17 @@
                                         SnapsToDevicePixels="True"/>
                     </Grid>
                     <ControlTemplate.Triggers>
+                        <!-- IsMouseOver 状态 - 无动画，即时切换 -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Trigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="hexagonPath"
-                                                       Storyboard.TargetProperty="(Path.Effect).(DropShadowEffect.Opacity)"
-                                                       To="0.5"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                        <DoubleAnimation Storyboard.TargetName="hexagonPath"
-                                                       Storyboard.TargetProperty="(Path.Effect).(DropShadowEffect.BlurRadius)"
-                                                       To="10"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.EnterActions>
-                            <Trigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="hexagonPath"
-                                                       Storyboard.TargetProperty="(Path.Effect).(DropShadowEffect.Opacity)"
-                                                       To="0"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                        <DoubleAnimation Storyboard.TargetName="hexagonPath"
-                                                       Storyboard.TargetProperty="(Path.Effect).(DropShadowEffect.BlurRadius)"
-                                                       To="5"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.ExitActions>
-                            <Setter TargetName="hexagonPath" Property="Fill">
-                                <Setter.Value>
-                                    <RadialGradientBrush>
-                                        <GradientStop Color="#E6C8AA6E" Offset="0"/>
-                                        <GradientStop Color="#CCC8AA6E" Offset="1"/>
-                                    </RadialGradientBrush>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="hexagonPath" Property="Fill" 
+                                   Value="{DynamicResource BorderGoldBrush}"/>
                             <Setter TargetName="highlightPath" Property="Opacity" Value="1"/>
-                            <Setter Property="Foreground" Value="#010A13"/>
+                            <Setter Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}"/>
                         </Trigger>
+                        <!-- IsPressed 状态 - 无动画，即时切换 -->
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="hexagonPath" Property="Fill">
-                                <Setter.Value>
-                                    <RadialGradientBrush>
-                                        <GradientStop Color="#CC785A28" Offset="0"/>
-                                        <GradientStop Color="#99785A28" Offset="1"/>
-                                    </RadialGradientBrush>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="hexagonPath" Property="Fill" 
+                                   Value="{DynamicResource BackgroundCardBrush}"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="hexagonPath" Property="Stroke" Value="{DynamicResource TextDisabledBrush}"/>

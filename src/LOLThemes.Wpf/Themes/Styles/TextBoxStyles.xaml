@@ -10,15 +10,15 @@
 
     <!-- LOL TextBox 样式 -->
     <Style x:Key="LOLTextBoxStyle" TargetType="TextBox">
-        <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource InputBorderBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundInputBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}"/>
         <Setter Property="BorderThickness" Value="{DynamicResource TextBoxBorderThickness}"/>
         <Setter Property="Padding" Value="{DynamicResource TextBoxPadding}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
-        <Setter Property="CaretBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
-        <Setter Property="SelectionBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
+        <Setter Property="CaretBrush" Value="{DynamicResource BorderGoldBrush}"/>
+        <Setter Property="SelectionBrush" Value="{DynamicResource BorderGoldBrush}"/>
         <Setter Property="SelectionOpacity" Value="0.4"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -35,14 +35,8 @@
                            CornerRadius="{DynamicResource TextBoxCornerRadius}"
                            SnapsToDevicePixels="True"
                            UseLayoutRounding="True">
-                        <Border.Effect>
-                            <DropShadowEffect Color="#C8AA6E"
-                                            BlurRadius="5"
-                                            ShadowDepth="0"
-                                            Opacity="0"/>
-                        </Border.Effect>
                         <Grid>
-                            <!-- 占位符文�-->
+                            <!-- 占位符文本 -->
                             <TextBlock x:Name="PlaceholderText"
                                       Text="{Binding Path=(helpers:TextBoxHelper.Placeholder), RelativeSource={RelativeSource TemplatedParent}}"
                                       Foreground="{DynamicResource TextSecondaryBrush}"
@@ -74,25 +68,38 @@
                             <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
                         </MultiTrigger>
                         
-                        <!-- Focused 状�- 边框高亮 -->
+                        <!-- Focused 且 MouseOver 状态 - 确保边框明显（优先级最高） -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="True"/>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="border" Property="BorderBrush" 
+                                   Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="border" Property="BorderThickness" Value="2"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+                        </MultiTrigger>
+                        
+                        <!-- Focused 状态 - 边框高亮 -->
                         <Trigger Property="IsFocused" Value="True">
                             <Setter TargetName="border" Property="BorderBrush" 
-                                   Value="{DynamicResource PrimaryGoldBrush}"/>
-                            <Setter TargetName="border" Property="BorderThickness" Value="{DynamicResource TextBoxBorderThickness}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
+                                   Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="border" Property="BorderThickness" Value="2"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
                         </Trigger>
                         
-                        <!-- MouseOver 状�-->
+                        <!-- MouseOver 状态（仅在未获得焦点时） -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="border" Property="BorderBrush" 
-                                   Value="{DynamicResource BorderLightBrush}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
+                                   Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="border" Property="BorderThickness" Value="1.5"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
                         </Trigger>
                         
-                        <!-- Disabled 状�-->
+                        <!-- Disabled 状态 -->
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="border" Property="Background" 
-                                   Value="{DynamicResource Gray200Brush}"/>
+                                   Value="{DynamicResource BackgroundCardBrush}"/>
                             <Setter Property="Foreground" 
                                    Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter TargetName="border" Property="Opacity" Value="0.6"/>

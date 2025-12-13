@@ -27,8 +27,8 @@
                                Grid.Column="0"
                                Width="20"
                                Height="20"
-                               Background="{DynamicResource BackgroundMediumBrush}"
-                               BorderBrush="{DynamicResource InputBorderBrush}"
+                               Background="{DynamicResource BackgroundInputBrush}"
+                               BorderBrush="{DynamicResource BorderDefaultBrush}"
                                BorderThickness="{DynamicResource BorderThickness}"
                                CornerRadius="10"
                                Margin="0,0,8,0">
@@ -36,7 +36,7 @@
                             <Ellipse x:Name="RadioDot"
                                     Width="8"
                                     Height="8"
-                                    Fill="{DynamicResource PrimaryGoldBrush}"
+                                    Fill="{DynamicResource BorderGoldBrush}"
                                     Opacity="0"
                                     RenderTransformOrigin="0.5,0.5">
                                 <Ellipse.RenderTransform>
@@ -56,22 +56,10 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="RadioBorder" Property="BorderBrush" 
                                    Value="{DynamicResource HoverGoldBrush}"/>
-                            <Setter TargetName="RadioBorder" Property="Background">
-                                <Setter.Value>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Color="#E61E2328" Offset="0"/>
-                                        <GradientStop Color="#CC1E2328" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="RadioBorder" Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="#C8AA6E"
-                                                    BlurRadius="5"
-                                                    ShadowDepth="0"
-                                                    Opacity="0.2"/>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="RadioBorder" Property="Background" 
+                                   Value="{DynamicResource BackgroundInputBrush}"/>
+                            <Setter TargetName="RadioBorder" Property="BorderBrush" 
+                                   Value="{DynamicResource BorderGoldBrush}"/>
                         </Trigger>
                         
                         <!-- 选中状�-->

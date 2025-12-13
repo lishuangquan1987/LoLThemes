@@ -27,7 +27,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Arrow" Property="Fill" 
-                                   Value="{DynamicResource PrimaryGoldBrush}"/>
+                                   Value="{DynamicResource BorderGoldBrush}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="Border" Property="Background" 
@@ -70,105 +70,23 @@
                            SnapsToDevicePixels="True"
                            UseLayoutRounding="True">
                         <Border.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                <GradientStop Color="#E63C3C41" Offset="0"/>
-                                <GradientStop Color="#CC3C3C41" Offset="1"/>
-                            </LinearGradientBrush>
+                            <SolidColorBrush Color="{DynamicResource BackgroundInput}"/>
                         </Border.Background>
-                        <Border.Effect>
-                            <DropShadowEffect Color="#C8AA6E"
-                                            BlurRadius="3"
-                                            ShadowDepth="0"
-                                            Opacity="0"/>
-                        </Border.Effect>
-                        <Border.RenderTransform>
-                            <ScaleTransform x:Name="ThumbScale" ScaleX="1" ScaleY="1"/>
-                        </Border.RenderTransform>
                     </Border>
                     <ControlTemplate.Triggers>
+                        <!-- IsMouseOver 状态 - 无动画，即时切换 -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Trigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="ThumbScale"
-                                                       Storyboard.TargetProperty="ScaleX"
-                                                       To="1.2"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                        <DoubleAnimation Storyboard.TargetName="ThumbScale"
-                                                       Storyboard.TargetProperty="ScaleY"
-                                                       To="1.2"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                        <DoubleAnimation Storyboard.TargetName="ThumbBorder"
-                                                       Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.Opacity)"
-                                                       To="0.4"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.EnterActions>
-                            <Trigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="ThumbScale"
-                                                       Storyboard.TargetProperty="ScaleX"
-                                                       To="1"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                        <DoubleAnimation Storyboard.TargetName="ThumbScale"
-                                                       Storyboard.TargetProperty="ScaleY"
-                                                       To="1"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                        <DoubleAnimation Storyboard.TargetName="ThumbBorder"
-                                                       Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.Opacity)"
-                                                       To="0"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.ExitActions>
-                            <Setter TargetName="ThumbBorder" Property="Background">
-                                <Setter.Value>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Color="#E6C8AA6E" Offset="0"/>
-                                        <GradientStop Color="#CCC8AA6E" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="ThumbBorder" Property="Background" 
+                                   Value="{DynamicResource BorderGoldBrush}"/>
                             <Setter TargetName="ThumbBorder" Property="BorderBrush" 
-                                   Value="{DynamicResource PrimaryGoldBrush}"/>
+                                   Value="{DynamicResource BorderGoldBrush}"/>
                         </Trigger>
+                        <!-- IsDragging 状态 - 无动画，即时切换 -->
                         <Trigger Property="IsDragging" Value="True">
-                            <Setter TargetName="ThumbBorder" Property="Background">
-                                <Setter.Value>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Color="#CC785A28" Offset="0"/>
-                                        <GradientStop Color="#99785A28" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="ThumbBorder" Property="Background" 
+                                   Value="{DynamicResource BackgroundCardBrush}"/>
                             <Setter TargetName="ThumbBorder" Property="BorderBrush" 
-                                   Value="{DynamicResource PressedGoldBrush}"/>
+                                   Value="{DynamicResource BorderGoldBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

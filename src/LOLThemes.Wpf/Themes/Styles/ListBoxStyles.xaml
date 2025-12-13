@@ -2,16 +2,24 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
     <!-- 合并基础资源，确保可以访问 Fonts -->
-    <!-- 注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <!-- ListBoxItem 样式 -->
+    <!-- 选中状态渐变背景 - 从左侧浅青色到右侧深青色 -->
+    <LinearGradientBrush x:Key="SelectedItemGradientBrush" StartPoint="0,0" EndPoint="1,0">
+        <GradientStop Color="#40041c28" Offset="0"/>  <!-- 左侧：浅色背景（25%透明度的选中背景色） -->
+        <GradientStop Color="#66041c28" Offset="0.2"/>   <!-- 左侧过渡 -->
+        <GradientStop Color="#991dbaa9" Offset="0.5"/>   <!-- 中间：青色（约60%透明度） -->
+        <GradientStop Color="#CC1dbaa9" Offset="0.8"/>   <!-- 右侧过渡 -->
+        <GradientStop Color="#FF1dbaa9" Offset="1"/>   <!-- 右侧：纯青色（100%不透明） -->
+    </LinearGradientBrush>
+
+    <!-- 通用 ListBoxItem 样式 - 根据101.qq.com网站配色重新设计 -->
     <Style x:Key="LOLListBoxItemStyle" TargetType="ListBoxItem">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
-        <Setter Property="Padding" Value="10,8"/>
+        <Setter Property="Padding" Value="8,4"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -20,107 +28,88 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
                     <Border x:Name="border"
+                           Background="{TemplateBinding Background}"
+                           BorderBrush="{DynamicResource SelectedAccentBrush}"
                            BorderThickness="0"
                            Padding="{TemplateBinding Padding}"
-                           CornerRadius="3"
-                           SnapsToDevicePixels="True"
-                           UseLayoutRounding="True">
-                        <Border.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                <GradientStop Color="#E61E2328" Offset="0"/>
-                                <GradientStop Color="#D41E2328" Offset="0.5"/>
-                                <GradientStop Color="#CC1E2328" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Border.Background>
-                        <Border.Effect>
-                            <DropShadowEffect Color="#C8AA6E"
-                                            BlurRadius="5"
-                                            ShadowDepth="0"
-                                            Opacity="0"/>
-                        </Border.Effect>
+                           SnapsToDevicePixels="True">
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                        TextOptions.TextFormattingMode="Display"
-                                        TextOptions.TextRenderingMode="ClearType"
-                                        RenderOptions.ClearTypeHint="Enabled"
-                                        SnapsToDevicePixels="True"/>
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Border>
                     <ControlTemplate.Triggers>
+                        <!-- MouseOver 状态 - 无动画，即时切换 -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Trigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="border"
-                                                       Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.Opacity)"
-                                                       To="0.15"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.EnterActions>
-                            <Trigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="border"
-                                                       Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.Opacity)"
-                                                       To="0"
-                                                       Duration="0:0:0.15">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseIn"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.ExitActions>
-                            <Setter TargetName="border" Property="Background">
-                                <Setter.Value>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Color="#E6C8AA6E" Offset="0"/>
-                                        <GradientStop Color="#D4C8AA6E" Offset="0.5"/>
-                                        <GradientStop Color="#CCC8AA6E" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}"/>
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundHoverBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
                         </Trigger>
+                        
+                        <!-- IsSelected 状态 - 左侧竖条效果 + 渐变背景 -->
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="border" Property="Background">
-                                <Setter.Value>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Color="#E6C8AA6E" Offset="0"/>
-                                        <GradientStop Color="#D4C8AA6E" Offset="0.5"/>
-                                        <GradientStop Color="#CCC8AA6E" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter TargetName="border" Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="#C8AA6E"
-                                                    BlurRadius="5"
-                                                    ShadowDepth="0"
-                                                    Opacity="0.2"/>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="Foreground" 
-                                   Value="#010A13"/>
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource SelectedItemGradientBrush}"/>
+                            <Setter TargetName="border" Property="BorderThickness" Value="3,0,0,0"/>
+                            <Setter Property="Foreground" Value="{DynamicResource SelectedTextBrush}"/>
                         </Trigger>
+                        
+                        <!-- IsSelected + IsMouseOver 状态 -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsSelected" Value="True"/>
                                 <Condition Property="IsMouseOver" Value="True"/>
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="border" Property="Background">
-                                <Setter.Value>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Color="#F0C8AA6E" Offset="0"/>
-                                        <GradientStop Color="#E6C8AA6E" Offset="0.5"/>
-                                        <GradientStop Color="#D4C8AA6E" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource SelectedItemGradientBrush}"/>
+                            <Setter TargetName="border" Property="BorderThickness" Value="3,0,0,0"/>
+                            <Setter Property="Foreground" Value="{DynamicResource SelectedTextBrush}"/>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- 左侧导航菜单项样式 - 选中时使用白色文本 -->
+    <Style x:Key="LeftNavigationMenuItemStyle" TargetType="ListBoxItem">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}"/>
+        <Setter Property="Padding" Value="46,0,0,0"/>
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Border x:Name="border"
+                           Background="{TemplateBinding Background}"
+                           BorderBrush="{DynamicResource SelectedAccentBrush}"
+                           BorderThickness="0"
+                           Padding="{TemplateBinding Padding}"
+                           SnapsToDevicePixels="True">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <!-- MouseOver 状态 - 无动画，即时切换 -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource SelectedBackgroundBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextWhiteBrush}"/>
+                        </Trigger>
+                        
+                        <!-- IsSelected 状态 - 左侧竖条效果，白色文本 + 渐变背景 -->
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource SelectedItemGradientBrush}"/>
+                            <Setter TargetName="border" Property="BorderThickness" Value="3,0,0,0"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextWhiteBrush}"/>
+                        </Trigger>
+                        
+                        <!-- IsSelected + IsMouseOver 状态 -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="True"/>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource SelectedItemGradientBrush}"/>
+                            <Setter TargetName="border" Property="BorderThickness" Value="3,0,0,0"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextWhiteBrush}"/>
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -130,10 +119,10 @@
 
     <!-- LOL ListBox 样式 -->
     <Style x:Key="LOLListBoxStyle" TargetType="ListBox">
-        <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
@@ -145,15 +134,7 @@
                     <Border Background="{TemplateBinding Background}"
                            BorderBrush="{TemplateBinding BorderBrush}"
                            BorderThickness="{TemplateBinding BorderThickness}"
-                           CornerRadius="3"
-                           SnapsToDevicePixels="True"
-                           UseLayoutRounding="True">
-                        <Border.Effect>
-                            <DropShadowEffect Color="#C8AA6E"
-                                            BlurRadius="5"
-                                            ShadowDepth="0"
-                                            Opacity="0.1"/>
-                        </Border.Effect>
+                           SnapsToDevicePixels="True">
                         <ScrollViewer Focusable="False"
                                     Padding="0">
                             <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>

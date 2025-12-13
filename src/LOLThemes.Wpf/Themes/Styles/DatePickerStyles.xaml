@@ -97,10 +97,10 @@
                                         </Border>
                                         <ControlTemplate.Triggers>
                                             <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter TargetName="ButtonBorder" Property="Background" Value="{DynamicResource HoverGoldBrush}"/>
+                                                <Setter TargetName="ButtonBorder" Property="Background" Value="{DynamicResource BackgroundHoverBrush}"/>
                                             </Trigger>
                                             <Trigger Property="IsPressed" Value="True">
-                                                <Setter TargetName="ButtonBorder" Property="Background" Value="{DynamicResource PressedGoldBrush}"/>
+                                                <Setter TargetName="ButtonBorder" Property="Background" Value="{DynamicResource BackgroundCardBrush}"/>
                                             </Trigger>
                                         </ControlTemplate.Triggers>
                                     </ControlTemplate>
@@ -117,12 +117,28 @@
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
+                        <!-- Focused 且 MouseOver 状态 - 确保边框明显（优先级最高） -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="True"/>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="Border" Property="BorderThickness" Value="2"/>
+                        </MultiTrigger>
+                        
+                        <!-- Focused 状态 - 边框高亮 -->
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="Border" Property="BorderThickness" Value="2"/>
+                        </Trigger>
+                        
+                        <!-- MouseOver 状态（仅在未获得焦点时） -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="Border" Property="BorderThickness" Value="1.5"/>
                         </Trigger>
-                        <Trigger Property="IsFocused" Value="True">
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
-                        </Trigger>
+                        
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Opacity" Value="0.5"/>
                         </Trigger>
@@ -136,3 +152,4 @@
     <Style TargetType="{x:Type DatePicker}" BasedOn="{StaticResource LOLDatePickerStyle}"/>
 
 </ResourceDictionary>
+

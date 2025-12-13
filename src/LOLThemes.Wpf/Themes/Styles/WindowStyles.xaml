@@ -23,13 +23,6 @@
                     <Border Background="{DynamicResource BackgroundDarkBrush}"
                             BorderBrush="{DynamicResource BorderGoldBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
-                        <Border.Effect>
-                            <DropShadowEffect x:Name="windowShadow" 
-                                            BlurRadius="15" 
-                                            ShadowDepth="0" 
-                                            Opacity="0.3"
-                                            Color="#C8AA6E"/>
-                        </Border.Effect>
                         
                         <Grid>
                             <Grid.RowDefinitions>
@@ -40,7 +33,7 @@
                             <!-- Title Bar -->
                             <Border Grid.Row="0" 
                                     x:Name="TitleBar"
-                                    Background="{DynamicResource BackgroundMediumBrush}"
+                                    Background="{DynamicResource BackgroundSecondaryBrush}"
                                     BorderBrush="{DynamicResource BorderDarkBrush}"
                                     BorderThickness="0,0,0,1">
                                 <Grid>
@@ -97,10 +90,10 @@
                                                     </Border>
                                                     <ControlTemplate.Triggers>
                                                         <Trigger Property="IsMouseOver" Value="True">
-                                                            <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundMediumSemiBrush}"/>
-                                                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
+                                                            <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundHoverBrush}"/>
+                                                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
                                                             <Setter TargetName="border" Property="BorderThickness" Value="0.5"/>
-                                                            <Setter TargetName="minimizePath" Property="Stroke" Value="{DynamicResource TextBrightBrush}"/>
+                                                            <Setter TargetName="minimizePath" Property="Stroke" Value="{DynamicResource TextPrimaryBrush}"/>
                                                             <Setter TargetName="minimizePath" Property="StrokeThickness" Value="2"/>
                                                         </Trigger>
                                                     </ControlTemplate.Triggers>
@@ -129,10 +122,10 @@
                                                     </Border>
                                                     <ControlTemplate.Triggers>
                                                         <Trigger Property="IsMouseOver" Value="True">
-                                                            <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundMediumSemiBrush}"/>
-                                                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
+                                                            <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundHoverBrush}"/>
+                                                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
                                                             <Setter TargetName="border" Property="BorderThickness" Value="0.5"/>
-                                                            <Setter TargetName="MaximizePath" Property="Stroke" Value="{DynamicResource TextBrightBrush}"/>
+                                                            <Setter TargetName="MaximizePath" Property="Stroke" Value="{DynamicResource TextPrimaryBrush}"/>
                                                             <Setter TargetName="MaximizePath" Property="StrokeThickness" Value="2"/>
                                                         </Trigger>
                                                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=WindowState}" Value="Maximized">

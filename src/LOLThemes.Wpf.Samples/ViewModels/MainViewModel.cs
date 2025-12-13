@@ -143,7 +143,7 @@ namespace LOLThemes.Wpf.Samples.ViewModels
         {
             try
             {
-                var newTheme = CurrentTheme == Theme.Dark ? Theme.Light : Theme.Dark;
+                var newTheme =  Theme.Dark ;
                 ThemeManager.SwitchTheme(newTheme);
             }
             catch (System.Exception ex)

@@ -2,6 +2,39 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:helpers="clr-namespace:LOLThemes.Wpf.Helpers;assembly=LOLThemes.Wpf">
     
+    <!--
+        ===================================================================
+        TextBoxStyles.xaml - TextBox 控件样式定义
+        ===================================================================
+        
+        文件说明：
+        - 定义 TextBox 控件的视觉样式
+        - 支持占位符文本、清除按钮、图标等附加功能
+        - 根据 101.qq.com 网站配色重新设计
+        
+        包含的样式：
+        - LOLTextBoxStyle: 基础文本框样式
+        - 默认样式: 自动应用到所有 TextBox 控件
+        
+        设计特点：
+        - 焦点状态使用金色边框（2px）突出显示
+        - 悬停+焦点状态使用金色边框（2px）确保可见性
+        - 移除所有动画效果和阴影
+        - 支持占位符文本显示
+        - 支持清除按钮（通过 TextBoxHelper.ShowClearButton 启用）
+        - 支持图标显示（通过 TextBoxHelper.Icon 设置）
+        
+        附加属性支持：
+        - TextBoxHelper.Placeholder: 占位符文本
+        - TextBoxHelper.ShowClearButton: 是否显示清除按钮
+        - TextBoxHelper.Icon: 图标图像源
+        - TextBoxHelper.CornerRadius: 圆角值
+        
+        使用方式：
+        - 默认样式会自动应用到所有 TextBox 控件
+        - 使用附加属性启用额外功能
+    -->
+    
     <!-- 合并基础资源，确保可以访问 Fonts -->
     <!-- 注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
     <ResourceDictionary.MergedDictionaries>

@@ -1,6 +1,38 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
+    <!--
+        ===================================================================
+        ListBoxStyles.xaml - ListBox 控件样式定义
+        ===================================================================
+        
+        文件说明：
+        - 定义 ListBox 和 ListBoxItem 控件的视觉样式
+        - 根据 101.qq.com 网站配色重新设计
+        - 支持选中项的左侧竖条和渐变背景效果
+        
+        包含的样式：
+        - LOLListBoxItemStyle: 通用列表项样式（选中时使用青色文本）
+        - LeftNavigationMenuItemStyle: 左侧导航菜单项样式（选中时使用白色文本）
+        - LOLListBoxStyle: 列表容器样式
+        - 默认样式: 自动应用到所有 ListBox 和 ListBoxItem 控件
+        
+        设计特点：
+        - 选中项显示左侧 3px 青色竖条（AccentCyan）
+        - 选中项使用水平渐变背景（从浅色背景到青色）
+        - 悬停状态使用即时切换，无动画
+        - 移除所有阴影效果
+        
+        渐变背景说明：
+        - SelectedItemGradientBrush: 水平渐变，从左侧浅色背景到右侧纯青色
+        - 用于选中项的背景，提供视觉层次感
+        
+        使用方式：
+        - 默认样式会自动应用到所有 ListBox 和 ListBoxItem 控件
+        - 导航菜单使用 LeftNavigationMenuItemStyle
+        - 普通列表使用 LOLListBoxItemStyle（默认）
+    -->
+    
     <!-- 合并基础资源，确保可以访问 Fonts -->
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>

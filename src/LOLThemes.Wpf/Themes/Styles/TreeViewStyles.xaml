@@ -2,6 +2,37 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:converters="clr-namespace:LOLThemes.Wpf.Converters">
     
+    <!--
+        ===================================================================
+        TreeViewStyles.xaml - TreeView 控件样式定义
+        ===================================================================
+        
+        文件说明：
+        - 定义 TreeView 和 TreeViewItem 控件的视觉样式
+        - 根据 101.qq.com 网站配色重新设计
+        - 使用现代化的线条箭头（>）替代实心三角形
+        
+        包含的样式：
+        - ExpandCollapseToggleStyle: 展开/折叠切换按钮样式
+        - LOLTreeViewItemStyle: TreeViewItem 样式
+        - LOLTreeViewStyle: TreeView 容器样式
+        - 默认样式: 自动应用到所有 TreeView 和 TreeViewItem 控件
+        
+        设计特点：
+        - 展开/折叠箭头使用线条样式（>），非实心三角形
+        - 箭头旋转动画（0-90度），不影响字体清晰度
+        - 箭头颜色绑定到 ToggleButton 的 Foreground，确保可见性
+        - 箭头与文本间距为 8px
+        - 移除所有阴影效果
+        
+        动画说明：
+        - 箭头旋转动画：展开时从 0 度旋转到 90 度
+        - 动画不影响字体清晰度，仅影响箭头方向
+        
+        使用方式：
+        - 默认样式会自动应用到所有 TreeView 和 TreeViewItem 控件
+    -->
+    
     <!-- 合并基础资源，确保可以访问 Fonts -->
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>

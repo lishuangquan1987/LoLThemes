@@ -1,6 +1,33 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
+    <!--
+        ===================================================================
+        TabControlStyles.xaml - TabControl 控件样式定义
+        ===================================================================
+        
+        文件说明：
+        - 定义 TabControl 和 TabItem 控件的视觉样式
+        - 根据 101.qq.com 网站配色重新设计
+        - 选中项显示底部青色下划线
+        
+        包含的样式：
+        - LOLTabItemStyle: TabItem 样式
+        - LOLTabControlStyle: TabControl 容器样式
+        - 默认样式: 自动应用到所有 TabControl 和 TabItem 控件
+        
+        设计特点：
+        - 选中项显示底部 3px 青色下划线（AccentCyan）
+        - 选中项文本颜色为青色（AccentCyan）
+        - 未选中项文本颜色为次要文本色（TextSecondary）
+        - 移除所有动画效果（下划线为静态显示）
+        - 移除所有阴影效果
+        
+        使用方式：
+        - 默认样式会自动应用到所有 TabControl 和 TabItem 控件
+        - 每个 TabItem 包含自己的 SelectedIndicator，静态显示
+    -->
+    
     <!-- 合并基础资源，确保可以访问 Fonts -->
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>

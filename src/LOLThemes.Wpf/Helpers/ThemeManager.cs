@@ -7,18 +7,14 @@ namespace LOLThemes.Wpf.Helpers
 {
     /// <summary>
     /// 主题枚举
+    /// 注意：当前版本仅支持 Dark 主题
     /// </summary>
     public enum Theme
     {
         /// <summary>
-        /// 暗黑主题
+        /// 暗黑主题（唯一支持的主题）
         /// </summary>
-        Dark,
-        
-        /// <summary>
-        /// 白色主题
-        /// </summary>
-        Light
+        Dark
     }
 
     /// <summary>
@@ -43,15 +39,13 @@ namespace LOLThemes.Wpf.Helpers
     }
 
     /// <summary>
-    /// 主题管理器，用于在运行时切换应用主题。
+    /// 主题管理器，用于管理应用主题。
+    /// 注意：当前版本仅支持 Dark 主题，Light 主题已移除。
     /// </summary>
     /// <example>
     /// <code>
-    /// // 切换到暗黑主题
+    /// // 切换到暗黑主题（唯一支持的主题）
     /// ThemeManager.SwitchTheme(Theme.Dark);
-    /// 
-    /// // 切换到白色主题
-    /// ThemeManager.SwitchTheme(Theme.Light);
     /// 
     /// // 获取当前主题
     /// Theme currentTheme = ThemeManager.CurrentTheme;
@@ -59,12 +53,34 @@ namespace LOLThemes.Wpf.Helpers
     /// </example>
     public static class ThemeManager
     {
+        /// <summary>
+        /// 当前主题（固定为 Dark）
+        /// </summary>
         private static Theme _currentTheme = Theme.Dark;
+        
+        /// <summary>
+        /// 当前尺寸主题
+        /// </summary>
         private static SizeTheme _currentSizeTheme = SizeTheme.Medium;
+        
+        /// <summary>
+        /// Dark 主题颜色资源 URI
+        /// </summary>
         private const string DarkColorsUri = "pack://application:,,,/LOLThemes.Wpf;component/Themes/Colors.Dark.xaml";
-        private const string LightColorsUri = "pack://application:,,,/LOLThemes.Wpf;component/Themes/Colors.Light.xaml";
+        
+        /// <summary>
+        /// 紧凑尺寸资源 URI
+        /// </summary>
         private const string CompactSizesUri = "pack://application:,,,/LOLThemes.Wpf;component/Themes/Sizes.Compact.xaml";
+        
+        /// <summary>
+        /// 中等尺寸资源 URI
+        /// </summary>
         private const string MediumSizesUri = "pack://application:,,,/LOLThemes.Wpf;component/Themes/Sizes.Medium.xaml";
+        
+        /// <summary>
+        /// 宽大尺寸资源 URI
+        /// </summary>
         private const string LargeSizesUri = "pack://application:,,,/LOLThemes.Wpf;component/Themes/Sizes.Large.xaml";
 
         /// <summary>
@@ -111,32 +127,39 @@ namespace LOLThemes.Wpf.Helpers
 
         /// <summary>
         /// 切换到指定主题
-        /// 新逻辑：直接在App.Resources.MergedDictionaries中查找并替换Colors.xxx.xaml
+        /// 注意：当前版本仅支持 Dark 主题，此方法主要用于确保 Dark 主题资源已加载
+        /// 新逻辑：直接在App.Resources.MergedDictionaries中查找并替换Colors.Dark.xaml
         /// 这种方式比通过占位符文件更可靠，可以立即生效
         /// </summary>
-        /// <param name="theme">要切换到的主题</param>
+        /// <param name="theme">要切换到的主题（当前仅支持 Theme.Dark）</param>
         /// <param name="application">应用程序实例，如果为null则使用Application.Current</param>
+        /// <exception cref="InvalidOperationException">当无法获取Application实例时抛出</exception>
+        /// <exception cref="ArgumentException">当传入非 Dark 主题时抛出</exception>
         public static void SwitchTheme(Theme theme, Application? application = null)
         {
+            // 当前版本仅支持 Dark 主题
+            if (theme != Theme.Dark)
+            {
+                throw new ArgumentException("当前版本仅支持 Dark 主题。", nameof(theme));
+            }
+
             var app = application ?? Application.Current;
             if (app == null)
             {
                 throw new InvalidOperationException("无法获取Application实例。请确保在Application启动后调用此方法。");
             }
 
-            var colorsUri = theme == Theme.Dark ? DarkColorsUri : LightColorsUri;
-
-            // 直接在App.Resources.MergedDictionaries中查找Colors.xxx.xaml资源字典
+            // 直接在App.Resources.MergedDictionaries中查找Colors.Dark.xaml资源字典
             ResourceDictionary? existingColorsDict = FindColorsResourceDictionary(app.Resources);
             if (existingColorsDict != null)
             {
                 app.Resources.MergedDictionaries.Remove(existingColorsDict);
             }
 
-            // 添加新的Colors.xxx.xaml资源字典
+            // 添加新的Colors.Dark.xaml资源字典
             var newColorsDict = new ResourceDictionary
             {
-                Source = new Uri(colorsUri, UriKind.RelativeOrAbsolute)
+                Source = new Uri(DarkColorsUri, UriKind.RelativeOrAbsolute)
             };
             app.Resources.MergedDictionaries.Add(newColorsDict);
 
@@ -151,8 +174,10 @@ namespace LOLThemes.Wpf.Helpers
         }
 
         /// <summary>
-        /// 在App.Resources.MergedDictionaries中查找Colors.xxx.xaml资源字典
+        /// 在App.Resources.MergedDictionaries中查找Colors.Dark.xaml资源字典
         /// </summary>
+        /// <param name="resources">要搜索的资源字典</param>
+        /// <returns>找到的Colors资源字典，如果未找到则返回null</returns>
         private static ResourceDictionary? FindColorsResourceDictionary(ResourceDictionary resources)
         {
             foreach (var dict in resources.MergedDictionaries)
@@ -160,8 +185,8 @@ namespace LOLThemes.Wpf.Helpers
                 if (dict.Source != null)
                 {
                     var sourceStr = dict.Source.OriginalString;
-                    // 查找 Colors.Dark.xaml 或 Colors.Light.xaml
-                    if (sourceStr.Contains("Colors.Dark.xaml") || sourceStr.Contains("Colors.Light.xaml"))
+                    // 查找 Colors.Dark.xaml（当前唯一支持的主题）
+                    if (sourceStr.Contains("Colors.Dark.xaml"))
                     {
                         return dict;
                     }
@@ -173,6 +198,8 @@ namespace LOLThemes.Wpf.Helpers
         /// <summary>
         /// 在App.Resources.MergedDictionaries中查找Sizes.xxx.xaml资源字典
         /// </summary>
+        /// <param name="resources">要搜索的资源字典</param>
+        /// <returns>找到的Sizes资源字典，如果未找到则返回null</returns>
         private static ResourceDictionary? FindSizesResourceDictionary(ResourceDictionary resources)
         {
             foreach (var dict in resources.MergedDictionaries)
@@ -195,9 +222,11 @@ namespace LOLThemes.Wpf.Helpers
         /// <summary>
         /// 初始化主题管理器，设置默认主题
         /// 注意：此方法现在只是同步当前主题状态，实际的资源加载应该在App.xaml中完成
+        /// 当前版本仅支持 Dark 主题，defaultTheme 参数将被忽略
         /// </summary>
-        /// <param name="defaultTheme">默认主题，默认为Dark</param>
+        /// <param name="defaultTheme">默认主题（当前仅支持 Theme.Dark，此参数将被忽略）</param>
         /// <param name="application">应用程序实例，如果为null则使用Application.Current</param>
+        /// <exception cref="InvalidOperationException">当无法获取Application实例时抛出</exception>
         public static void Initialize(Theme defaultTheme = Theme.Dark, Application? application = null)
         {
             var app = application ?? Application.Current;
@@ -220,8 +249,8 @@ namespace LOLThemes.Wpf.Helpers
                 var colorsDict = FindColorsResourceDictionary(app.Resources);
                 if (colorsDict?.Source != null)
                 {
-                    var sourceStr = colorsDict.Source.OriginalString;
-                    _currentTheme = sourceStr.Contains("Colors.Dark.xaml") ? Theme.Dark : Theme.Light;
+                    // 当前版本仅支持 Dark 主题
+                    _currentTheme = Theme.Dark;
                 }
                 else
                 {
@@ -237,6 +266,7 @@ namespace LOLThemes.Wpf.Helpers
         /// </summary>
         /// <param name="sizeTheme">要切换到的尺寸主题</param>
         /// <param name="application">应用程序实例，如果为null则使用Application.Current</param>
+        /// <exception cref="InvalidOperationException">当无法获取Application实例时抛出</exception>
         public static void SwitchSizeTheme(SizeTheme sizeTheme, Application? application = null)
         {
             var app = application ?? Application.Current;
@@ -284,6 +314,7 @@ namespace LOLThemes.Wpf.Helpers
         /// </summary>
         /// <param name="defaultSizeTheme">默认尺寸主题，默认为Medium</param>
         /// <param name="application">应用程序实例，如果为null则使用Application.Current</param>
+        /// <exception cref="InvalidOperationException">当无法获取Application实例时抛出</exception>
         public static void InitializeSizeTheme(SizeTheme defaultSizeTheme = SizeTheme.Medium, Application? application = null)
         {
             var app = application ?? Application.Current;
@@ -327,7 +358,9 @@ namespace LOLThemes.Wpf.Helpers
 
         /// <summary>
         /// 递归刷新视觉树中的所有元素
+        /// 用于在主题或尺寸主题切换后强制更新所有UI元素
         /// </summary>
+        /// <param name="obj">要刷新的依赖对象</param>
         public static void RefreshVisualTree(DependencyObject obj)
         {
             if (obj == null) return;

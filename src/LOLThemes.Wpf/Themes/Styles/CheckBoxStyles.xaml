@@ -1,6 +1,36 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
+    <!--
+        ===================================================================
+        CheckBoxStyles.xaml - CheckBox 控件样式定义
+        ===================================================================
+        
+        文件说明：
+        - 定义 CheckBox 控件的视觉样式
+        - 根据 101.qq.com 网站配色重新设计
+        - 支持选中状态的勾选动画
+        
+        包含的样式：
+        - LOLCheckBoxStyle: 基础复选框样式
+        - 默认样式: 自动应用到所有 CheckBox 控件
+        
+        设计特点：
+        - 使用纯色背景和边框，无渐变
+        - 选中时显示青色边框和背景（AccentCyan）
+        - 勾选标记使用白色，带缩放和透明度动画
+        - 动画不影响字体清晰度，仅影响勾选标记
+        - 移除所有阴影效果
+        
+        动画说明：
+        - 勾选标记动画：选中时从 0.5 倍缩放到 1.0 倍，透明度从 0 到 1
+        - 动画持续时间：0.2 秒
+        - 动画不影响字体清晰度
+        
+        使用方式：
+        - 默认样式会自动应用到所有 CheckBox 控件
+    -->
+    
     <!-- 合并基础资源，确保可以访问 Fonts -->
     <!-- 注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
     <ResourceDictionary.MergedDictionaries>

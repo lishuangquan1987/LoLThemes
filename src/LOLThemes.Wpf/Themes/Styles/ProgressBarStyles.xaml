@@ -1,6 +1,30 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
+    <!--
+        ===================================================================
+        ProgressBarStyles.xaml - ProgressBar 控件样式定义
+        ===================================================================
+        
+        文件说明：
+        - 定义 ProgressBar 控件的视觉样式
+        - 根据 101.qq.com 网站配色重新设计
+        - 使用青色填充色（AccentCyan）
+        
+        包含的样式：
+        - LOLProgressBarStyle: 基础进度条样式
+        - 默认样式: 自动应用到所有 ProgressBar 控件
+        
+        设计特点：
+        - 使用纯色背景和边框，无渐变
+        - 进度填充使用青色（AccentCyan）
+        - 移除所有动画效果和阴影
+        - 支持不确定状态（IsIndeterminate）
+        
+        使用方式：
+        - 默认样式会自动应用到所有 ProgressBar 控件
+    -->
+    
     <!-- 合并基础资源，确保可以访问 Fonts -->
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>

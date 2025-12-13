@@ -1,6 +1,35 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
+    <!--
+        ===================================================================
+        ExpanderStyles.xaml - Expander 控件样式定义
+        ===================================================================
+        
+        文件说明：
+        - 定义 Expander 控件的视觉样式
+        - 根据 101.qq.com 网站配色重新设计
+        - 使用现代化的线条箭头（>）替代实心三角形
+        
+        包含的样式：
+        - ExpanderToggleButtonStyle: 展开/折叠切换按钮样式
+        - LOLExpanderStyle: Expander 容器样式
+        - 默认样式: 自动应用到所有 Expander 控件
+        
+        设计特点：
+        - 展开/折叠箭头使用线条样式（>），非实心三角形
+        - 箭头旋转动画（0-90度），不影响字体清晰度
+        - 展开时箭头旋转 90 度（不是 180 度）
+        - 移除所有阴影效果
+        
+        动画说明：
+        - 箭头旋转动画：展开时从 0 度旋转到 90 度
+        - 动画不影响字体清晰度，仅影响箭头方向
+        
+        使用方式：
+        - 默认样式会自动应用到所有 Expander 控件
+    -->
+    
     <!-- 合并基础资源，确保可以访问 Fonts -->
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>

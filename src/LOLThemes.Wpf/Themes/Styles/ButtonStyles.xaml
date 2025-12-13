@@ -1,6 +1,31 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
+    <!--
+        ===================================================================
+        ButtonStyles.xaml - Button 控件样式定义
+        ===================================================================
+        
+        文件说明：
+        - 定义标准 Button 控件的视觉样式
+        - 根据 101.qq.com 网站配色重新设计
+        - 使用纯色背景，无渐变和阴影效果，确保字体清晰度
+        
+        包含的样式：
+        - LOLButtonStyle: 基础按钮样式
+        - 默认样式: 自动应用到所有 Button 控件
+        
+        设计特点：
+        - 移除所有动画效果（影响字体清晰度的动画）
+        - 使用纯色背景和边框
+        - 悬停和按下状态使用即时切换，无过渡动画
+        - 支持禁用状态样式
+        
+        使用方式：
+        - 默认样式会自动应用到所有 Button 控件
+        - 如需自定义，可基于 LOLButtonStyle 创建新样式
+    -->
+    
     <!-- 合并基础资源，确保可以访问 Fonts -->
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>

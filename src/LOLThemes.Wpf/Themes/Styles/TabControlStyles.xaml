@@ -29,9 +29,7 @@
     -->
     
     <!-- 合并基础资源，确保可以访问 Fonts -->
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
+    
 
     <!-- TabItem 样式 -->
     <Style x:Key="LOLTabItemStyle" TargetType="TabItem">

@@ -33,9 +33,7 @@
     
     <!-- 合并基础资源，确保可以访问 Fonts -->
     <!-- 注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
+    
 
     <!-- LOL CheckBox 样式 -->
     <Style x:Key="LOLCheckBoxStyle" TargetType="CheckBox">
@@ -43,10 +41,16 @@
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         <Setter Property="Cursor" Value="Hand"/>
+        <!-- 添加自动化属性支持 -->
+        <Setter Property="AutomationProperties.AutomationId" Value="CheckBox"/>
+        <Setter Property="AutomationProperties.Name" Value="{Binding Content, RelativeSource={RelativeSource Self}}"/>
+        <Setter Property="AutomationProperties.HelpText" Value="复选框控件"/>
+        <!-- 添加键盘导航支持 -->
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="CheckBox">
-                    <Grid Background="Transparent">
+                    <Grid Background="Transparent" KeyboardNavigation.IsTabStop="True" KeyboardNavigation.TabNavigation="Local">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
@@ -61,6 +65,16 @@
                                    CornerRadius="3"
                                    SnapsToDevicePixels="True"
                                    UseLayoutRounding="True"/>
+                            <!-- 焦点指示 -->
+                            <Border x:Name="FocusBorder"
+                                   Background="Transparent"
+                                   BorderBrush="{DynamicResource AccentGoldBrush}"
+                                   BorderThickness="1"
+                                   CornerRadius="3"
+                                   SnapsToDevicePixels="True"
+                                   UseLayoutRounding="True"
+                                   IsHitTestVisible="False"
+                                   Opacity="0"/>
                             <!-- 选中标记（精确居中） -->
                             <Canvas Width="20" Height="20" 
                                    HorizontalAlignment="Center" 
@@ -89,7 +103,7 @@
                     </Grid>
                     
                     <ControlTemplate.Triggers>
-                        <!-- 鼠标悬停 - 无动画，即时切换 -->
+                        <!-- 鼠标悬停 -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="CheckBoxBorder" Property="BorderBrush" 
                                    Value="{DynamicResource BorderGoldBrush}"/>
@@ -97,7 +111,13 @@
                                    Value="{DynamicResource BackgroundInputBrush}"/>
                         </Trigger>
                         
-                        <!-- 选中状�-->
+                        <!-- 键盘焦点 -->
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter TargetName="FocusBorder" Property="Opacity" Value="1"/>
+                            <Setter TargetName="FocusBorder" Property="BorderThickness" Value="2"/>
+                        </Trigger>
+                        
+                        <!-- 选中状态 -->
                         <Trigger Property="IsChecked" Value="True">
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
@@ -145,7 +165,7 @@
                             </Trigger.ExitActions>
                         </Trigger>
                         
-                        <!-- 不确定状�-->
+                        <!-- 不确定状态 -->
                         <Trigger Property="IsChecked" Value="{x:Null}">
                             <Setter TargetName="CheckMark" Property="Data" Value="M 4,9 L 14,9"/>
                             <Trigger.EnterActions>
@@ -186,7 +206,7 @@
                             </Trigger.ExitActions>
                         </Trigger>
                         
-                        <!-- 禁用状�-->
+                        <!-- 禁用状态 -->
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="CheckBoxBorder" Property="BorderBrush" 
                                    Value="{DynamicResource TextDisabledBrush}"/>
@@ -194,6 +214,7 @@
                                    Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter Property="Foreground" 
                                    Value="{DynamicResource TextDisabledBrush}"/>
+                            <Setter TargetName="FocusBorder" Property="Opacity" Value="0"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

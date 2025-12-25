@@ -58,6 +58,10 @@
         <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
         <Setter Property="TextOptions.TextRenderingMode" Value="ClearType"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <!-- 自动化属性，优化可访问性 -->
+        <Setter Property="AutomationProperties.AutomationId" Value="TextBox"/>
+        <Setter Property="AutomationProperties.Name" Value="{Binding Path=(helpers:TextBoxHelper.Placeholder), RelativeSource={RelativeSource Self}}"/>
+        <Setter Property="AutomationProperties.HelpText" Value="文本输入框"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
@@ -68,6 +72,13 @@
                            CornerRadius="{DynamicResource TextBoxCornerRadius}"
                            SnapsToDevicePixels="True"
                            UseLayoutRounding="True">
+                        <!-- 添加LOL风格的发光效果 -->
+                        <Border x:Name="glowBorder"
+                               Background="Transparent"
+                               BorderBrush="Transparent"
+                               BorderThickness="2"
+                               CornerRadius="{DynamicResource TextBoxCornerRadius}"
+                               Margin="-2">
                         <Grid>
                             <!-- 占位符文本 -->
                             <TextBlock x:Name="PlaceholderText"
@@ -88,6 +99,7 @@
                                         VerticalScrollBarVisibility="Hidden"
                                         Margin="{TemplateBinding Padding}"/>
                         </Grid>
+                        </Border>
                     </Border>
 
                     
@@ -110,6 +122,8 @@
                             <Setter TargetName="border" Property="BorderBrush" 
                                    Value="{DynamicResource BorderGoldBrush}"/>
                             <Setter TargetName="border" Property="BorderThickness" Value="2"/>
+                            <Setter TargetName="glowBorder" Property="BorderBrush" 
+                                   Value="{DynamicResource GoldGlowGradientIntense}"/>
                             <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
                         </MultiTrigger>
                         
@@ -118,6 +132,8 @@
                             <Setter TargetName="border" Property="BorderBrush" 
                                    Value="{DynamicResource BorderGoldBrush}"/>
                             <Setter TargetName="border" Property="BorderThickness" Value="2"/>
+                            <Setter TargetName="glowBorder" Property="BorderBrush" 
+                                   Value="{DynamicResource GoldGlowGradient}"/>
                             <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
                         </Trigger>
                         
@@ -126,8 +142,19 @@
                             <Setter TargetName="border" Property="BorderBrush" 
                                    Value="{DynamicResource BorderGoldBrush}"/>
                             <Setter TargetName="border" Property="BorderThickness" Value="1.5"/>
+                            <Setter TargetName="glowBorder" Property="BorderBrush" 
+                                   Value="{DynamicResource GoldGlowGradient}"/>
                             <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
                         </Trigger>
+                        
+                        <!-- Normal 状态 - 移除发光效果 -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="False"/>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="glowBorder" Property="BorderBrush" Value="Transparent"/>
+                        </MultiTrigger>
                         
                         <!-- Disabled 状态 -->
                         <Trigger Property="IsEnabled" Value="False">

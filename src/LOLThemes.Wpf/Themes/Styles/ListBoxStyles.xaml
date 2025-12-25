@@ -34,9 +34,7 @@
     -->
     
     <!-- 合并基础资源，确保可以访问 Fonts -->
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
+    
 
     <!-- 选中状态渐变背景 - 从左侧浅青色到右侧深青色 -->
     <LinearGradientBrush x:Key="SelectedItemGradientBrush" StartPoint="0,0" EndPoint="1,0">

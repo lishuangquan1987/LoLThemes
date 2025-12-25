@@ -1,11 +1,7 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
-    <!-- 合并基础资源，确保可以访问 Fonts -->
-    <!-- 注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
+    <!-- Fonts.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
 
     <!-- LOL ToggleButton 样式 -->
     <Style x:Key="LOLToggleButtonStyle" TargetType="ToggleButton">
@@ -25,7 +21,7 @@
                            Background="{TemplateBinding Background}"
                            BorderBrush="{TemplateBinding BorderBrush}"
                            BorderThickness="{TemplateBinding BorderThickness}"
-                           CornerRadius="0"
+                           CornerRadius="{DynamicResource ButtonCornerRadius}"
                            SnapsToDevicePixels="True">
                         <ContentPresenter x:Name="contentPresenter"
                                         HorizontalAlignment="Center"
@@ -90,7 +86,7 @@
                     <Grid>
                         <!-- 背景轨道 -->
                         <Border x:Name="SwitchTrack"
-                               Background="{DynamicResource Gray400Brush}"
+                               Background="{DynamicResource BackgroundInputBrush}"
                                BorderBrush="{DynamicResource BorderDarkBrush}"
                                BorderThickness="2"
                                CornerRadius="13"
@@ -153,10 +149,10 @@
                             </Trigger.ExitActions>
                         </Trigger>
                         
-                        <!-- 禁用状�-->
+                        <!-- 禁用状态 -->
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="SwitchTrack" Property="Background" 
-                                   Value="{DynamicResource Gray300Brush}"/>
+                                   Value="{DynamicResource BackgroundCardBrush}"/>
                             <Setter TargetName="SwitchTrack" Property="BorderBrush" 
                                    Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter TargetName="SwitchThumb" Property="Background" 

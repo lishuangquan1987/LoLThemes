@@ -26,10 +26,7 @@
         - 如需自定义，可基于 LOLButtonStyle 创建新样式
     -->
     
-    <!-- 合并基础资源，确保可以访问 Fonts -->
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
+    <!-- Fonts.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
 
     <!-- LOL Button 样式 - 根据101.qq.com网站配色重新设计 -->
     <Style x:Key="LOLButtonStyle" TargetType="Button">
@@ -53,35 +50,53 @@
                            Background="{TemplateBinding Background}"
                            BorderBrush="{TemplateBinding BorderBrush}"
                            BorderThickness="{TemplateBinding BorderThickness}"
-                           SnapsToDevicePixels="True">
-                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                        Margin="{TemplateBinding Padding}"
-                                        RecognizesAccessKey="True"
-                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                        TextOptions.TextFormattingMode="Display"
-                                        TextOptions.TextRenderingMode="ClearType"
-                                        RenderOptions.ClearTypeHint="Enabled"/>
+                           CornerRadius="{DynamicResource ButtonCornerRadius}"
+                           SnapsToDevicePixels="True"
+                           UseLayoutRounding="True">
+                        <!-- 添加LOL风格的内发光效果 -->
+                        <Border x:Name="glowBorder"
+                               Background="Transparent"
+                               BorderBrush="Transparent"
+                               BorderThickness="2"
+                               CornerRadius="{DynamicResource ButtonCornerRadius}"
+                               Margin="-2">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                            Margin="{TemplateBinding Padding}"
+                                            RecognizesAccessKey="True"
+                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                            TextOptions.TextFormattingMode="Display"
+                                            TextOptions.TextRenderingMode="ClearType"
+                                            RenderOptions.ClearTypeHint="Enabled"/>
+                        </Border>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <!-- MouseOver 状态 - 无动画，即时切换 -->
+                        <!-- MouseOver 状态 - 添加发光效果 -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundHoverBrush}"/>
                             <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="glowBorder" Property="BorderBrush" Value="{DynamicResource GoldGlowGradient}"/>
                             <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
                         </Trigger>
 
-                        <!-- Pressed 状态 - 无动画，即时切换 -->
+                        <!-- Pressed 状态 - 添加按下效果和强化发光 -->
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundCardBrush}"/>
                             <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="glowBorder" Property="BorderBrush" Value="{DynamicResource GoldGlowGradientIntense}"/>
                             <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+                        </Trigger>
+                        
+                        <!-- Normal 状态 - 移除发光效果 -->
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter TargetName="glowBorder" Property="BorderBrush" Value="Transparent"/>
                         </Trigger>
                         
                         <!-- Disabled 状态 -->
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundCardBrush}"/>
                             <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}"/>
+                            <Setter TargetName="glowBorder" Property="BorderBrush" Value="Transparent"/>
                             <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter TargetName="border" Property="Opacity" Value="0.5"/>
                         </Trigger>

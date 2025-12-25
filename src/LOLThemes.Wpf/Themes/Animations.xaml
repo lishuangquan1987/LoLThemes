@@ -1,15 +1,160 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <!-- 动画持续时间 - 仅用于 TreeView、Expander、CheckBox -->
+    <!-- 动画持续时间 - 扩展用于所有控件 -->
     <Duration x:Key="AnimationDurationFast">0:0:0.15</Duration>
     <Duration x:Key="AnimationDurationNormal">0:0:0.2</Duration>
     <Duration x:Key="AnimationDurationSlow">0:0:0.3</Duration>
+    <Duration x:Key="AnimationDurationVerySlow">0:0:0.5</Duration>
     
-    <!-- 缓动函数 - 仅用于 TreeView、Expander、CheckBox -->
+    <!-- 缓动函数 - 扩展用于所有控件 -->
     <CubicEase x:Key="EaseOut" EasingMode="EaseOut"/>
     <CubicEase x:Key="EaseIn" EasingMode="EaseIn"/>
     <CubicEase x:Key="EaseInOut" EasingMode="EaseInOut"/>
     <QuadraticEase x:Key="QuadraticEaseOut" EasingMode="EaseOut"/>
+    <QuadraticEase x:Key="QuadraticEaseIn" EasingMode="EaseIn"/>
+    <QuadraticEase x:Key="QuadraticEaseInOut" EasingMode="EaseInOut"/>
+    <BounceEase x:Key="BounceEaseOut" EasingMode="EaseOut" Bounces="2" Bounciness="2"/>
+    <PowerEase x:Key="PowerEaseOut" EasingMode="EaseOut" Power="2"/>
+    
+    <!-- 常见动画效果 -->
+    
+    <!-- 淡入动画 -->
+    <Storyboard x:Key="FadeInAnimation">
+        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                         From="0"
+                         To="1"
+                         Duration="{DynamicResource AnimationDurationNormal}"
+                         EasingFunction="{DynamicResource EaseOut}"/>
+    </Storyboard>
+    
+    <!-- 淡出动画 -->
+    <Storyboard x:Key="FadeOutAnimation">
+        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                         From="1"
+                         To="0"
+                         Duration="{DynamicResource AnimationDurationNormal}"
+                         EasingFunction="{DynamicResource EaseOut}"/>
+    </Storyboard>
+    
+    <!-- 轻微缩放动画（悬停效果） -->
+    <Storyboard x:Key="ScaleInAnimation">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX"
+                         From="1"
+                         To="1.02"
+                         Duration="{DynamicResource AnimationDurationFast}"
+                         EasingFunction="{DynamicResource EaseOut}"/>
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY"
+                         From="1"
+                         To="1.02"
+                         Duration="{DynamicResource AnimationDurationFast}"
+                         EasingFunction="{DynamicResource EaseOut}"/>
+    </Storyboard>
+    
+    <!-- 缩放恢复动画 -->
+    <Storyboard x:Key="ScaleOutAnimation">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX"
+                         From="1.02"
+                         To="1"
+                         Duration="{DynamicResource AnimationDurationFast}"
+                         EasingFunction="{DynamicResource EaseOut}"/>
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY"
+                         From="1.02"
+                         To="1"
+                         Duration="{DynamicResource AnimationDurationFast}"
+                         EasingFunction="{DynamicResource EaseOut}"/>
+    </Storyboard>
+    
+    <!-- 按钮按下缩放动画 -->
+    <Storyboard x:Key="ButtonPressAnimation">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX"
+                         From="1"
+                         To="0.98"
+                         Duration="{DynamicResource AnimationDurationFast}"
+                         EasingFunction="{DynamicResource EaseOut}"/>
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY"
+                         From="1"
+                         To="0.98"
+                         Duration="{DynamicResource AnimationDurationFast}"
+                         EasingFunction="{DynamicResource EaseOut}"/>
+    </Storyboard>
+    
+    <!-- 按钮释放缩放动画 -->
+    <Storyboard x:Key="ButtonReleaseAnimation">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX"
+                         From="0.98"
+                         To="1"
+                         Duration="{DynamicResource AnimationDurationFast}"
+                         EasingFunction="{DynamicResource EaseOut}"/>
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY"
+                         From="0.98"
+                         To="1"
+                         Duration="{DynamicResource AnimationDurationFast}"
+                         EasingFunction="{DynamicResource EaseOut}"/>
+    </Storyboard>
+    
+    <!-- 平移效果（从下往上） -->
+    <Storyboard x:Key="SlideUpInAnimation">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.Y"
+                         From="10"
+                         To="0"
+                         Duration="{DynamicResource AnimationDurationNormal}"
+                         EasingFunction="{DynamicResource EaseOut}"/>
+        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                         From="0"
+                         To="1"
+                         Duration="{DynamicResource AnimationDurationNormal}"
+                         EasingFunction="{DynamicResource EaseOut}"/>
+    </Storyboard>
+    
+    <!-- 平移效果（从左到右） -->
+    <Storyboard x:Key="SlideRightInAnimation">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.X"
+                         From="-10"
+                         To="0"
+                         Duration="{DynamicResource AnimationDurationNormal}"
+                         EasingFunction="{DynamicResource EaseOut}"/>
+        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                         From="0"
+                         To="1"
+                         Duration="{DynamicResource AnimationDurationNormal}"
+                         EasingFunction="{DynamicResource EaseOut}"/>
+    </Storyboard>
+    
+    <!-- 边框发光动画 -->
+    <Storyboard x:Key="BorderGlowAnimation" RepeatBehavior="Forever" AutoReverse="True">
+        <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
+                       From="{DynamicResource AccentGold}"
+                       To="{DynamicResource AccentGoldBright}"
+                       Duration="{DynamicResource AnimationDurationVerySlow}"
+                       EasingFunction="{DynamicResource EaseInOut}"/>
+    </Storyboard>
+    
+    <!-- 脉冲动画（用于按钮按下效果） -->
+    <Storyboard x:Key="PulseAnimation">
+        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                         From="0.5"
+                         To="0"
+                         Duration="{DynamicResource AnimationDurationSlow}"
+                         EasingFunction="{DynamicResource EaseOut}"/>
+    </Storyboard>
+    
+    <!-- 文本高亮动画 -->
+    <Storyboard x:Key="TextHighlightAnimation" RepeatBehavior="Forever" AutoReverse="True">
+        <ColorAnimation Storyboard.TargetProperty="Foreground.Color"
+                       From="{DynamicResource TextPrimary}"
+                       To="{DynamicResource AccentGoldBright}"
+                       Duration="{DynamicResource AnimationDurationVerySlow}"
+                       EasingFunction="{DynamicResource EaseInOut}"/>
+    </Storyboard>
+    
+    <!-- 加载旋转动画 -->
+    <Storyboard x:Key="RotateAnimation" RepeatBehavior="Forever">
+        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.Angle"
+                         From="0"
+                         To="360"
+                         Duration="0:0:1"
+                         EasingFunction="{DynamicResource EaseInOut}"/>
+    </Storyboard>
 
 </ResourceDictionary>

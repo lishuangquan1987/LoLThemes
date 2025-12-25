@@ -39,16 +39,49 @@
     <Color x:Key="BackgroundDark">#02151e</Color>          <!-- 主背景（最深） -->
     <Color x:Key="BackgroundSecondary">#041822</Color>     <!-- 次背景（面板、侧边栏） -->
     <Color x:Key="BackgroundTertiary">#041c28</Color>      <!-- 三级背景（选中背景） -->
-    <Color x:Key="BackgroundCard">#161a20</Color>          <!-- 卡片背景 -->
-    <Color x:Key="BackgroundInput">#191d24</Color>         <!-- 输入框背景 -->
-    <Color x:Key="BackgroundHover">#1b2128</Color>         <!-- 悬停背景（合并了 BackgroundMedium） -->
+    <Color x:Key="BackgroundCard">#161a20</Color>          <!-- 卡片背景 - 增强深度感 -->
+    <Color x:Key="BackgroundPanel">#191e25</Color>         <!-- 面板背景 - 增强深度感 -->
+    <Color x:Key="BackgroundInput">#1c2128</Color>         <!-- 输入框背景 - 调整为更深颜色，增强深度感 -->
+    <Color x:Key="BackgroundHover">#1e242b</Color>         <!-- 悬停背景 - 调整为更深颜色，增强深度感 -->
     <Color x:Key="BackgroundSelected">#252c35</Color>      <!-- 选中背景 -->
-    <Color x:Key="BackgroundPanel">#191e25</Color>         <!-- 面板背景 -->
+    <!-- 注：BackgroundPanel 与 BackgroundInput 颜色值相近，未来考虑合并 -->
+    <Color x:Key="BackgroundSurface">#1a1f25</Color>       <!-- 表面背景 - 新增背景层级，增强深度感 -->
+    <Color x:Key="BackgroundElevation1">#1d2229</Color>     <!-- 一级抬升背景 - 新增，用于轻微抬升的元素 -->
+    <Color x:Key="BackgroundElevation2">#20252c</Color>     <!-- 二级抬升背景 - 新增，用于明显抬升的元素 -->
+    
+    <!-- 阴影效果资源（增强深度感） -->
+    <DropShadowEffect x:Key="CardShadow" 
+                     BlurRadius="8" 
+                     Color="#000000" 
+                     Opacity="0.3" 
+                     Direction="270" 
+                     ShadowDepth="2" />
+    
+    <DropShadowEffect x:Key="PanelShadow" 
+                     BlurRadius="12" 
+                     Color="#000000" 
+                     Opacity="0.4" 
+                     Direction="270" 
+                     ShadowDepth="3" />
+    
+    <DropShadowEffect x:Key="ButtonShadow" 
+                     BlurRadius="6" 
+                     Color="#000000" 
+                     Opacity="0.2" 
+                     Direction="270" 
+                     ShadowDepth="2" />
+    
+    <DropShadowEffect x:Key="InputShadow" 
+                     BlurRadius="4" 
+                     Color="#000000" 
+                     Opacity="0.15" 
+                     Direction="270" 
+                     ShadowDepth="1" />
     
     <!-- 文本颜色 -->
     <Color x:Key="TextPrimary">#fff5e0</Color>             <!-- 主文本（暖白色，合并了 TextBright） -->
-    <Color x:Key="TextSecondary">#7e807d</Color>           <!-- 次要文本（灰色） -->
-    <Color x:Key="TextDisabled">#5e625a</Color>            <!-- 禁用文本 -->
+    <Color x:Key="TextSecondary">#a0a09e</Color>           <!-- 次要文本（灰色） - 提高对比度，优化可读性 -->
+    <Color x:Key="TextDisabled">#6a6e68</Color>            <!-- 禁用文本 - 提高对比度，优化可读性 -->
     <Color x:Key="TextGoldLight">#ae9156</Color>           <!-- 浅金色文本 -->
     <Color x:Key="TextWhite">#ffffff</Color>              <!-- 纯白色（备用） -->
     
@@ -59,14 +92,19 @@
     <Color x:Key="BorderLight">#112833</Color>             <!-- 浅色边框 -->
     <Color x:Key="BorderGray">#9c9c9b</Color>              <!-- 灰色边框 -->
     
-    <!-- 强调色（合并了多个重复的颜色） -->
-    <Color x:Key="AccentCyan">#1dbaa9</Color>               <!-- 强调色（青色，合并了 SelectedAccent/SuccessGreen/ProgressFill/CurrencyBlueEssence/SelectedText/TextCyan） -->
-    <Color x:Key="AccentGold">#b59758</Color>               <!-- 强调色（金色，合并了 BorderGold/TextGold/WarningGold/CurrencyRiotPoints） -->
+    <!-- 强调色 -->
+    <Color x:Key="AccentCyan">#1dbaa9</Color>               <!-- 强调色（青色） -->
+    <Color x:Key="AccentGold">#b59758</Color>               <!-- 强调色（金色） - 基础金色 -->
+    <Color x:Key="AccentGoldLight">#c8aa6e</Color>          <!-- 强调色（金色） - 浅金色 -->
+    <Color x:Key="AccentGoldDark">#9d8048</Color>           <!-- 强调色（金色） - 深金色 -->
+    <Color x:Key="AccentGoldBright">#FFD700</Color>         <!-- 强调色（金色） - 亮金色 -->
     <Color x:Key="SelectedAccentBlue">#40a5e5</Color>      <!-- 选中强调色（蓝色，备用） -->
     
     <!-- 状态颜色 -->
     <Color x:Key="StateError">#f32643</Color>              <!-- 错误红色 -->
     <Color x:Key="StateErrorDark">#e54050</Color>          <!-- 深错误红 -->
+    <Color x:Key="StateSuccess">#1dbaa9</Color>            <!-- 成功青色 - 使用 AccentCyan，避免重复定义 -->
+    <Color x:Key="StateWarning">#b59758</Color>            <!-- 警告金色 - 使用 AccentGold，避免重复定义 -->
     <Color x:Key="StateInfo">#4385e9</Color>                <!-- 信息蓝色 -->
     
     <!-- 货币显示颜色（使用强调色，保留独立定义以便未来扩展） -->
@@ -91,10 +129,13 @@
     <SolidColorBrush x:Key="BackgroundSecondaryBrush" Color="{DynamicResource BackgroundSecondary}"/>
     <SolidColorBrush x:Key="BackgroundTertiaryBrush" Color="{DynamicResource BackgroundTertiary}"/>
     <SolidColorBrush x:Key="BackgroundCardBrush" Color="{DynamicResource BackgroundCard}"/>
+    <SolidColorBrush x:Key="BackgroundPanelBrush" Color="{DynamicResource BackgroundPanel}"/>
     <SolidColorBrush x:Key="BackgroundInputBrush" Color="{DynamicResource BackgroundInput}"/>
     <SolidColorBrush x:Key="BackgroundHoverBrush" Color="{DynamicResource BackgroundHover}"/>
     <SolidColorBrush x:Key="BackgroundSelectedBrush" Color="{DynamicResource BackgroundSelected}"/>
-    <SolidColorBrush x:Key="BackgroundPanelBrush" Color="{DynamicResource BackgroundPanel}"/>
+    <SolidColorBrush x:Key="BackgroundSurfaceBrush" Color="{DynamicResource BackgroundSurface}"/>
+    <SolidColorBrush x:Key="BackgroundElevation1Brush" Color="{DynamicResource BackgroundElevation1}"/>
+    <SolidColorBrush x:Key="BackgroundElevation2Brush" Color="{DynamicResource BackgroundElevation2}"/>
     
     <!-- 文本颜色画刷 -->
     <SolidColorBrush x:Key="TextPrimaryBrush" Color="{DynamicResource TextPrimary}"/>
@@ -113,6 +154,9 @@
     <!-- 强调色画刷 -->
     <SolidColorBrush x:Key="AccentCyanBrush" Color="{DynamicResource AccentCyan}"/>
     <SolidColorBrush x:Key="AccentGoldBrush" Color="{DynamicResource AccentGold}"/>
+    <SolidColorBrush x:Key="AccentGoldLightBrush" Color="{DynamicResource AccentGoldLight}"/>
+    <SolidColorBrush x:Key="AccentGoldDarkBrush" Color="{DynamicResource AccentGoldDark}"/>
+    <SolidColorBrush x:Key="AccentGoldBrightBrush" Color="{DynamicResource AccentGoldBright}"/>
     <SolidColorBrush x:Key="SelectedAccentBlueBrush" Color="{DynamicResource SelectedAccentBlue}"/>
     
     <!-- 状态颜色画刷 -->
@@ -134,7 +178,117 @@
     <SolidColorBrush x:Key="DataGoldBrush" Color="{DynamicResource DataGold}"/>
     
     <!-- ===================================================================
-         3. 兼容性保留（向后兼容旧代码，建议逐步迁移到新命名）
+         3. 渐变画刷定义（增强游戏UI风格）
+         =================================================================== -->
+    
+    <!-- 金色渐变 -->
+    <LinearGradientBrush x:Key="GoldGradient" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#FFD700" Offset="0" />
+        <GradientStop Color="#C8AA6E" Offset="0.5" />
+        <GradientStop Color="#9D8048" Offset="1" />
+    </LinearGradientBrush>
+    
+    <LinearGradientBrush x:Key="GoldGradientHorizontal" StartPoint="0,0" EndPoint="1,0">
+        <GradientStop Color="#FFD700" Offset="0" />
+        <GradientStop Color="#C8AA6E" Offset="0.5" />
+        <GradientStop Color="#FFD700" Offset="1" />
+    </LinearGradientBrush>
+    
+    <!-- 青色渐变 -->
+    <LinearGradientBrush x:Key="CyanGradient" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#0AC8B9" Offset="0" />
+        <GradientStop Color="#1dbaa9" Offset="0.5" />
+        <GradientStop Color="#0A9B8D" Offset="1" />
+    </LinearGradientBrush>
+    
+    <!-- 暗色渐变 -->
+    <LinearGradientBrush x:Key="DarkGradient" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#191e25" Offset="0" />
+        <GradientStop Color="#161a20" Offset="1" />
+    </LinearGradientBrush>
+    
+    <LinearGradientBrush x:Key="DarkGradientHorizontal" StartPoint="0,0" EndPoint="1,0">
+        <GradientStop Color="#191e25" Offset="0" />
+        <GradientStop Color="#041822" Offset="0.5" />
+        <GradientStop Color="#191e25" Offset="1" />
+    </LinearGradientBrush>
+    
+    <!-- 卡片渐变效果 -->
+    <LinearGradientBrush x:Key="CardGradient" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#161a20" Offset="0" />
+        <GradientStop Color="#1a1f25" Offset="0.5" />
+        <GradientStop Color="#161a20" Offset="1" />
+    </LinearGradientBrush>
+    
+    <!-- 发光效果渐变 -->
+    <RadialGradientBrush x:Key="GoldGlowGradient" Center="0.5,0.5" RadiusX="1" RadiusY="1">
+        <GradientStop Color="{DynamicResource AccentGoldBright}" Offset="0" />
+        <GradientStop Color="{DynamicResource AccentGoldLight}" Offset="0.3" />
+        <GradientStop Color="Transparent" Offset="1" />
+    </RadialGradientBrush>
+    
+    <!-- 增强版金色发光效果 -->
+    <RadialGradientBrush x:Key="GoldGlowGradientIntense" Center="0.5,0.5" RadiusX="1" RadiusY="1">
+        <GradientStop Color="{DynamicResource AccentGoldBright}" Offset="0" />
+        <GradientStop Color="{DynamicResource AccentGoldLight}" Offset="0.2" />
+        <GradientStop Color="{DynamicResource AccentGold}" Offset="0.5" />
+        <GradientStop Color="Transparent" Offset="1" />
+    </RadialGradientBrush>
+    
+    <!-- 线性金色渐变（用于按钮和标题） -->
+    <LinearGradientBrush x:Key="GoldGradientButton" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="{DynamicResource AccentGoldBright}" Offset="0" />
+        <GradientStop Color="{DynamicResource AccentGoldLight}" Offset="0.4" />
+        <GradientStop Color="{DynamicResource AccentGold}" Offset="0.6" />
+        <GradientStop Color="{DynamicResource AccentGoldDark}" Offset="1" />
+    </LinearGradientBrush>
+    
+    <!-- 边框金色渐变 -->
+    <LinearGradientBrush x:Key="GoldBorderGradient" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="{DynamicResource AccentGoldBright}" Offset="0" />
+        <GradientStop Color="{DynamicResource AccentGoldDark}" Offset="1" />
+    </LinearGradientBrush>
+    
+    <RadialGradientBrush x:Key="CyanGlowGradient" Center="0.5,0.5" RadiusX="1" RadiusY="1">
+        <GradientStop Color="#0AC8B9" Offset="0" />
+        <GradientStop Color="#1dbaa9" Offset="0.3" />
+        <GradientStop Color="Transparent" Offset="1" />
+    </RadialGradientBrush>
+    
+    <!-- ===================================================================
+         4. 扩展颜色变体（增强主题表现力）
+         =================================================================== -->
+    
+    <!-- 额外的金色变体 -->
+    <Color x:Key="AccentGoldUltraLight">#e8d29f</Color> <!-- 超浅金色 -->
+    <Color x:Key="AccentGoldUltraDark">#785A28</Color> <!-- 超深金色 -->
+    <Color x:Key="AccentGoldMatte">#b89a5e</Color> <!-- 哑光金色 -->
+    
+    <!-- 额外的青色变体 -->
+    <Color x:Key="AccentCyanLight">#34d3c6</Color> <!-- 浅青色 -->
+    <Color x:Key="AccentCyanDark">#0A9B8D</Color> <!-- 深青色 -->
+    <Color x:Key="AccentCyanBright">#00FFFF</Color> <!-- 亮青色 -->
+    
+    <!-- 状态颜色变体 -->
+    <Color x:Key="StateErrorLight">#f56363</Color> <!-- 浅错误红 -->
+    <Color x:Key="StateSuccessLight">#34d3c6</Color> <!-- 浅成功青 -->
+    <Color x:Key="StateWarningLight">#e8d29f</Color> <!-- 浅警告金 -->
+    <Color x:Key="StateInfoLight">#6cb2f2</Color> <!-- 浅信息蓝 -->
+    
+    <!-- 对应的画刷 -->
+    <SolidColorBrush x:Key="AccentGoldUltraLightBrush" Color="{DynamicResource AccentGoldUltraLight}"/>
+    <SolidColorBrush x:Key="AccentGoldUltraDarkBrush" Color="{DynamicResource AccentGoldUltraDark}"/>
+    <SolidColorBrush x:Key="AccentGoldMatteBrush" Color="{DynamicResource AccentGoldMatte}"/>
+    <SolidColorBrush x:Key="AccentCyanLightBrush" Color="{DynamicResource AccentCyanLight}"/>
+    <SolidColorBrush x:Key="AccentCyanDarkBrush" Color="{DynamicResource AccentCyanDark}"/>
+    <SolidColorBrush x:Key="AccentCyanBrightBrush" Color="{DynamicResource AccentCyanBright}"/>
+    <SolidColorBrush x:Key="StateErrorLightBrush" Color="{DynamicResource StateErrorLight}"/>
+    <SolidColorBrush x:Key="StateSuccessLightBrush" Color="{DynamicResource StateSuccessLight}"/>
+    <SolidColorBrush x:Key="StateWarningLightBrush" Color="{DynamicResource StateWarningLight}"/>
+    <SolidColorBrush x:Key="StateInfoLightBrush" Color="{DynamicResource StateInfoLight}"/>
+    
+    <!-- ===================================================================
+         5. 兼容性保留（向后兼容旧代码，建议逐步迁移到新命名）
          =================================================================== -->
     
     <!-- 旧的颜色画刷（映射到新的命名） -->
@@ -154,23 +308,37 @@
     <SolidColorBrush x:Key="BackgroundMediumBrush" Color="{DynamicResource BackgroundHover}"/>
     
     <!-- 保留旧的边框画刷以保持兼容性 -->
-    <SolidColorBrush x:Key="BorderAccentBrush" Color="#785A28"/>
+    <SolidColorBrush x:Key="BorderAccentBrush" Color="{DynamicResource AccentGoldUltraDark}"/>
     
-    <!-- 保留旧的颜色画刷以保持兼容性（未映射到新命名，保留原值） -->
-    <SolidColorBrush x:Key="PrimaryGoldBrush" Color="#C8AA6E"/>
-    <SolidColorBrush x:Key="PrimaryDarkBlueBrush" Color="#010A13"/>
-    <SolidColorBrush x:Key="PrimaryCyanBrush" Color="#0AC8B9"/>
-    <SolidColorBrush x:Key="HoverGoldBrush" Color="#F0E6D2"/>
-    <SolidColorBrush x:Key="PressedGoldBrush" Color="#785A28"/>
-    <SolidColorBrush x:Key="WarningYellowBrush" Color="#CDBE91"/>
+    <!-- 保留旧的颜色画刷以保持兼容性（映射到新命名） -->
+    <SolidColorBrush x:Key="PrimaryGoldBrush" Color="{DynamicResource AccentGoldLight}"/>
+    <SolidColorBrush x:Key="PrimaryDarkBlueBrush" Color="{DynamicResource BackgroundDark}"/>
+    <SolidColorBrush x:Key="PrimaryCyanBrush" Color="{DynamicResource AccentCyan}"/>
+    <SolidColorBrush x:Key="HoverGoldBrush" Color="{DynamicResource TextWhite}"/>
+    <SolidColorBrush x:Key="PressedGoldBrush" Color="{DynamicResource AccentGoldUltraDark}"/>
+    <SolidColorBrush x:Key="WarningYellowBrush" Color="{DynamicResource AccentGoldLight}"/>
     
     <!-- ===================================================================
-         4. 其他资源（Thickness 等）
+         6. 其他资源（Thickness 等）
          =================================================================== -->
     
     <!-- 间距和内边距资源 -->
     <Thickness x:Key="InputBoxPadding">8,4</Thickness>
     <Thickness x:Key="InputBoxPaddingCompact">4,2</Thickness>
     <Thickness x:Key="InputBoxPaddingNone">0</Thickness>
+    
+    <!-- 动画持续时间（确保资源总是可用） -->
+    <Duration x:Key="AnimationDurationFast">0:0:0.15</Duration>
+    <Duration x:Key="AnimationDurationNormal">0:0:0.2</Duration>
+    <Duration x:Key="AnimationDurationSlow">0:0:0.3</Duration>
+    <Duration x:Key="AnimationDurationVerySlow">0:0:0.5</Duration>
+    
+    <!-- 缓动函数（确保资源总是可用） -->
+    <CubicEase x:Key="EaseOut" EasingMode="EaseOut"/>
+    <CubicEase x:Key="EaseIn" EasingMode="EaseIn"/>
+    <CubicEase x:Key="EaseInOut" EasingMode="EaseInOut"/>
+    <QuadraticEase x:Key="QuadraticEaseOut" EasingMode="EaseOut"/>
+    <QuadraticEase x:Key="QuadraticEaseIn" EasingMode="EaseIn"/>
+    <QuadraticEase x:Key="QuadraticEaseInOut" EasingMode="EaseInOut"/>
 
 </ResourceDictionary>

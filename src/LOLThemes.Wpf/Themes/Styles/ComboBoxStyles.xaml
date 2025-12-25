@@ -2,9 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
     <!-- 合并基础资源，确保可以访问 Fonts -->
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
+    
 
     <!-- ComboBox 切换按钮样式 -->
     <Style x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
@@ -18,7 +16,7 @@
                            Background="{TemplateBinding Background}"
                            BorderBrush="{TemplateBinding BorderBrush}"
                            BorderThickness="{TemplateBinding BorderThickness}"
-                           CornerRadius="3"
+                           CornerRadius="{DynamicResource TextBoxCornerRadius}"
                            SnapsToDevicePixels="True"
                            UseLayoutRounding="True">
                         <Grid>
@@ -115,6 +113,8 @@
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource LOLComboBoxItemStyle}"/>
+        <Setter Property="AutomationProperties.AutomationId" Value="ComboBox"/>
+        <Setter Property="AutomationProperties.Name" Value="ComboBox Selection"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ComboBox">
@@ -147,7 +147,7 @@
                                    Background="{DynamicResource BackgroundCardBrush}"
                                    BorderBrush="{DynamicResource BorderDefaultBrush}"
                                    BorderThickness="1"
-                                   CornerRadius="3"
+                                   CornerRadius="{DynamicResource BorderCornerRadius}"
                                    MinWidth="{TemplateBinding ActualWidth}"
                                    MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                    SnapsToDevicePixels="True"

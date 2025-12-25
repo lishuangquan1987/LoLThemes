@@ -25,10 +25,7 @@
         - 默认样式会自动应用到所有 ProgressBar 控件
     -->
     
-    <!-- 合并基础资源，确保可以访问 Fonts -->
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
+    <!-- 基础资源已通过 Generic.xaml 加载，无需直接引用 -->
 
     <!-- LOL ProgressBar 样式 -->
     <Style x:Key="LOLProgressBarStyle" TargetType="ProgressBar">
@@ -37,6 +34,9 @@
         <Setter Property="Foreground" Value="{DynamicResource ProgressFillBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="AutomationProperties.AutomationId" Value="ProgressBar"/>
+        <Setter Property="AutomationProperties.Name" Value="Progress Bar"/>
+        <Setter Property="AutomationProperties.HelpText" Value="显示进度信息"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ProgressBar">
@@ -51,12 +51,12 @@
                         <!-- 进度条容器 -->
                         <Border x:Name="PART_Track"
                                Margin="2"
-                               CornerRadius="2">
+                               CornerRadius="{DynamicResource SmallCornerRadius}">
                             <Grid>
                                 <!-- 进度指示器 - 纯色填充 -->
                                 <Border x:Name="PART_Indicator"
                                        HorizontalAlignment="Left"
-                                       CornerRadius="2"
+                                       CornerRadius="{DynamicResource SmallCornerRadius}"
                                        Background="{TemplateBinding Foreground}"/>
                             </Grid>
                         </Border>
@@ -99,6 +99,9 @@
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Orientation" Value="Vertical"/>
+        <Setter Property="AutomationProperties.AutomationId" Value="VerticalProgressBar"/>
+        <Setter Property="AutomationProperties.Name" Value="Vertical Progress Bar"/>
+        <Setter Property="AutomationProperties.HelpText" Value="垂直显示进度信息"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ProgressBar">

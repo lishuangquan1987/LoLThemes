@@ -131,7 +131,8 @@
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                Padding="{TemplateBinding Padding}">
+                                Padding="{TemplateBinding Padding}"
+                                CornerRadius="3">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
@@ -179,15 +180,45 @@
                         <!-- Mouse over -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Bd" Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
+                            <Setter TargetName="Bd" Property="BorderThickness" Value="1"/>
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="Bd" Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="2" Color="{DynamicResource PrimaryGoldBrush}" Opacity="0.3" Direction="0" ShadowDepth="0"/>
+                                </Setter.Value>
+                            </Setter>
                         </Trigger>
                         
                         <!-- Selected -->
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="Bd" Property="Background" Value="{DynamicResource SelectedBackgroundBrush}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource SelectedTextBrush}"/>
+                            <Setter TargetName="Bd" Property="Background" Value="{DynamicResource PrimaryGoldSemiBrush}"/>
+                            <Setter TargetName="Bd" Property="BorderThickness" Value="1"/>
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
                             <!-- 确保箭头在选中状态下使用选中文本颜色 -->
-                            <Setter TargetName="Expander" Property="Foreground" Value="{DynamicResource SelectedTextBrush}"/>
+                            <Setter TargetName="Expander" Property="Foreground" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="Bd" Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="3" Color="{DynamicResource PrimaryGoldBrush}" Opacity="0.5" Direction="0" ShadowDepth="0"/>
+                                </Setter.Value>
+                            </Setter>
                         </Trigger>
+                        
+                        <!-- Selected and Focused -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="True"/>
+                                <Condition Property="IsFocused" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="Bd" Property="Background" Value="{DynamicResource PrimaryGoldSemiBrush}"/>
+                            <Setter TargetName="Bd" Property="BorderThickness" Value="1"/>
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="Bd" Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="2" Color="{DynamicResource PrimaryGoldBrush}" Opacity="0.3" Direction="0" ShadowDepth="0"/>
+                                </Setter.Value>
+                            </Setter>
+                        </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

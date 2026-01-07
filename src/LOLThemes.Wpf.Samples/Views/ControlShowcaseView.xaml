@@ -10,228 +10,234 @@
              d:DesignHeight="800" d:DesignWidth="1150"
              Background="{DynamicResource BackgroundDarkBrush}">
     
-    <UserControl.DataContext>
-        <viewmodels:ControlShowcaseViewModel/>
-    </UserControl.DataContext>
-    
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
-            <ColumnDefinition Width="5"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        
-        <!-- 左侧导航栏 -->
-        <Border Grid.Column="0"
-               Background="{DynamicResource BackgroundMediumBrush}"
-               BorderBrush="{DynamicResource BorderDarkBrush}"
-               BorderThickness="0,0,1,0">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                
-                <!-- 标题 -->
-                <Border Grid.Row="0"
-                       Background="{DynamicResource BackgroundDarkBrush}"
-                       BorderBrush="{DynamicResource BorderGoldBrush}"
-                       BorderThickness="0,0,0,1"
-                       Padding="15,20">
-                    <StackPanel>
-                        <TextBlock Text="控件列表"
-                                  FontSize="{StaticResource FontSizeLarge}"
-                                  FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{DynamicResource PrimaryGoldBrush}"/>
-                        <TextBlock Text="选择控件查看详情"
-                                  FontSize="{DynamicResource FontSizeSmall}"
-                                  Foreground="{DynamicResource TextSecondaryBrush}"
-                                  Margin="0,5,0,0"/>
-                    </StackPanel>
-                </Border>
-                
-                <!-- 控件列表 -->
-                <ListBox Grid.Row="1"
-                        ItemsSource="{Binding ControlItems}"
-                        SelectedValue="{Binding SelectedControl}"
-                        SelectedValuePath="ViewName"
-                        BorderThickness="0"
-                        Background="Transparent"
-                        ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Border Background="Transparent"
-                                   Padding="15,12"
-                                   Margin="5,2"
-                                   SnapsToDevicePixels="True">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Icon}"
-                                              FontSize="20"
-                                              Margin="0,0,10,0"
-                                              VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding DisplayName}"
-                                              FontSize="{StaticResource FontSizeNormal}"
-                                              Foreground="{DynamicResource TextPrimaryBrush}"
-                                              VerticalAlignment="Center"/>
-                                </StackPanel>
-                            </Border>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                    <ListBox.ItemContainerStyle>
-                        <Style TargetType="ListBoxItem">
-                            <Setter Property="Template">
+        <!-- 内容展示区域 -->
+        <ContentControl
+                       Margin="20">
+            <ContentControl.Style>
+                <Style TargetType="ContentControl">
+                    <Style.Triggers>
+                        <!-- 根据SelectedControl的值动态切换内容 -->
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="ButtonShowcaseView">
+                            <Setter Property="Content">
                                 <Setter.Value>
-                                    <ControlTemplate TargetType="ListBoxItem">
-                                        <Border x:Name="border"
-                                               Background="{TemplateBinding Background}"
-                                               BorderBrush="{TemplateBinding BorderBrush}"
-                                               BorderThickness="0"
-                                               SnapsToDevicePixels="True">
-                                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                            Margin="{TemplateBinding Padding}"/>
-                                        </Border>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter TargetName="border" Property="Background">
-                                                    <Setter.Value>
-                                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                                            <GradientStop Color="{DynamicResource HoverGoldSemiColor}" Offset="0"/>
-                                                            <GradientStop Color="#20C8AA6E" Offset="1"/>
-                                                        </LinearGradientBrush>
-                                                    </Setter.Value>
-                                                </Setter>
-                                            </Trigger>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter TargetName="border" Property="Background">
-                                                    <Setter.Value>
-                                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                                            <GradientStop Color="#E6C8AA6E" Offset="0"/>
-                                                            <GradientStop Color="#CCC8AA6E" Offset="1"/>
-                                                        </LinearGradientBrush>
-                                                    </Setter.Value>
-                                                </Setter>
-                                                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryGoldBrush}"/>
-                                                <Setter TargetName="border" Property="BorderThickness" Value="0,0,3,0"/>
-                                                <Setter Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}"/>
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
+                                    <local:ButtonShowcaseView/>
                                 </Setter.Value>
                             </Setter>
-                        </Style>
-                    </ListBox.ItemContainerStyle>
-                </ListBox>
-            </Grid>
-        </Border>
-        
-        <!-- 分隔线 -->
-        <Border Grid.Column="1"
-               Background="{DynamicResource BorderDarkBrush}"/>
-        
-        <!-- 右侧内容区域 -->
-        <ContentControl Grid.Column="2"
-                       Content="{Binding SelectedControl, Mode=OneWay}"
-                       Margin="20">
-            <ContentControl.Resources>
-                <!-- 控件详情页面模板 -->
-                <DataTemplate x:Key="ButtonShowcaseViewTemplate">
-                    <local:ButtonShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="TextBoxShowcaseViewTemplate">
-                    <local:TextBoxShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="PasswordBoxShowcaseViewTemplate">
-                    <local:PasswordBoxShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="ComboBoxShowcaseViewTemplate">
-                    <local:ComboBoxShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="CheckBoxShowcaseViewTemplate">
-                    <local:CheckBoxShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="RadioButtonShowcaseViewTemplate">
-                    <local:RadioButtonShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="ToggleButtonShowcaseViewTemplate">
-                    <local:ToggleButtonShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="SliderShowcaseViewTemplate">
-                    <local:SliderShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="ProgressBarShowcaseViewTemplate">
-                    <local:ProgressBarShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="ListBoxShowcaseViewTemplate">
-                    <local:ListBoxShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="ListViewShowcaseViewTemplate">
-                    <local:ListViewShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="TabControlShowcaseViewTemplate">
-                    <local:TabControlShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="GroupBoxShowcaseViewTemplate">
-                    <local:GroupBoxShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="MenuShowcaseViewTemplate">
-                    <local:MenuShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="ToolTipShowcaseViewTemplate">
-                    <local:ToolTipShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="GlowButtonShowcaseViewTemplate">
-                    <local:GlowButtonShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="HexagonButtonShowcaseViewTemplate">
-                    <local:HexagonButtonShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="SkillButtonShowcaseViewTemplate">
-                    <local:SkillButtonShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="ChampionCardShowcaseViewTemplate">
-                    <local:ChampionCardShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="RankBadgeShowcaseViewTemplate">
-                    <local:RankBadgeShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="CurrencyDisplayShowcaseViewTemplate">
-                    <local:CurrencyDisplayShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="StatBarShowcaseViewTemplate">
-                    <local:StatBarShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="DataGridShowcaseViewTemplate">
-                    <local:DataGridShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="TreeViewShowcaseViewTemplate">
-                    <local:TreeViewShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="ExpanderShowcaseViewTemplate">
-                    <local:ExpanderShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="RichTextBoxShowcaseViewTemplate">
-                    <local:RichTextBoxShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="CalendarShowcaseViewTemplate">
-                    <local:CalendarShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="DatePickerShowcaseViewTemplate">
-                    <local:DatePickerShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="ContextMenuShowcaseViewTemplate">
-                    <local:ContextMenuShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="StatusBarShowcaseViewTemplate">
-                    <local:StatusBarShowcaseView/>
-                </DataTemplate>
-                <DataTemplate x:Key="WindowShowcaseViewTemplate">
-                    <local:WindowShowcaseView/>
-                </DataTemplate>
-            </ContentControl.Resources>
-            <ContentControl.ContentTemplateSelector>
-                <local:ControlShowcaseTemplateSelector/>
-            </ContentControl.ContentTemplateSelector>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="TextBoxShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:TextBoxShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="PasswordBoxShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:PasswordBoxShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="ComboBoxShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:ComboBoxShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="CheckBoxShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:CheckBoxShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="RadioButtonShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:RadioButtonShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="ToggleButtonShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:ToggleButtonShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="SliderShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:SliderShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="ProgressBarShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:ProgressBarShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="ListBoxShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:ListBoxShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="ListViewShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:ListViewShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="TabControlShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:TabControlShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="GroupBoxShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:GroupBoxShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="MenuShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:MenuShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="ToolTipShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:ToolTipShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="GlowButtonShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:GlowButtonShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="HexagonButtonShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:HexagonButtonShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="SkillButtonShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:SkillButtonShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="ChampionCardShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:ChampionCardShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="RankBadgeShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:RankBadgeShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="CurrencyDisplayShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:CurrencyDisplayShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="StatBarShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:StatBarShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="DataGridShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:DataGridShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="TreeViewShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:TreeViewShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="ExpanderShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:ExpanderShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="RichTextBoxShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:RichTextBoxShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="CalendarShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:CalendarShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="DatePickerShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:DatePickerShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="ContextMenuShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:ContextMenuShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="StatusBarShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:StatusBarShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedControl}" Value="WindowShowcaseView">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:WindowShowcaseView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
         </ContentControl>
     </Grid>
 </UserControl>

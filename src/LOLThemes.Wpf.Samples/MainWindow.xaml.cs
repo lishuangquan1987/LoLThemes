@@ -1,5 +1,7 @@
-﻿using System.Windows;
+using System.Windows;
+using System.Windows.Controls;
 using LOLThemes.Wpf.Helpers;
+using LOLThemes.Wpf.Samples.ViewModels;
 
 namespace LOLThemes.Wpf.Samples;
 
@@ -23,5 +25,16 @@ public partial class MainWindow : Window
         {
             ThemeManager.RefreshVisualTree(this);
         };
+    }
+
+    private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+    {
+        if (DataContext is MainViewModel viewModel && e.NewValue is NavigationItem selectedItem)
+        {
+            if (!string.IsNullOrEmpty(selectedItem.ViewName))
+            {
+                viewModel.CurrentView = selectedItem.ViewName;
+            }
+        }
     }
 }

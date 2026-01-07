@@ -21,14 +21,14 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         
-                        <!-- 单选按钮容�-->
+                        <!-- 单选按钮容器 -->
                         <Border x:Name="RadioBorder"
                                Grid.Column="0"
                                Width="20"
                                Height="20"
                                Background="{DynamicResource BackgroundInputBrush}"
                                BorderBrush="{DynamicResource BorderDefaultBrush}"
-                               BorderThickness="{DynamicResource BorderThickness}"
+                               BorderThickness="1"
                                CornerRadius="10"
                                Margin="0,0,8,0">
                             <!-- 选中圆点 -->
@@ -54,15 +54,19 @@
                         <!-- 鼠标悬停 -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="RadioBorder" Property="BorderBrush" 
-                                   Value="{DynamicResource HoverGoldBrush}"/>
+                                   Value="{DynamicResource BorderGoldBrush}"/>
                             <Setter TargetName="RadioBorder" Property="Background" 
                                    Value="{DynamicResource BackgroundInputBrush}"/>
-                            <Setter TargetName="RadioBorder" Property="BorderBrush" 
-                                   Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="RadioBorder" Property="BorderThickness" Value="1.5"/>
                         </Trigger>
                         
-                        <!-- 选中状�-->
+                        <!-- 选中状态 -->
                         <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="RadioBorder" Property="BorderBrush" 
+                                   Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="RadioBorder" Property="Background" 
+                                   Value="{DynamicResource PrimaryGoldSemiBrush}"/>
+                            <Setter TargetName="RadioBorder" Property="BorderThickness" Value="2"/>
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
@@ -109,10 +113,12 @@
                             </Trigger.ExitActions>
                         </Trigger>
                         
-                        <!-- 禁用状�-->
+                        <!-- 禁用状态 -->
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="RadioBorder" Property="BorderBrush" 
                                    Value="{DynamicResource TextDisabledBrush}"/>
+                            <Setter TargetName="RadioBorder" Property="Background" 
+                                   Value="{DynamicResource BackgroundInputBrush}"/>
                             <Setter TargetName="RadioDot" Property="Fill" 
                                    Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter Property="Foreground" 

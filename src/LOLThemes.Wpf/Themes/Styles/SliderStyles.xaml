@@ -7,8 +7,8 @@
     <Style x:Key="SliderThumbStyle" TargetType="Thumb">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="OverridesDefaultStyle" Value="True"/>
-        <Setter Property="Height" Value="18"/>
-        <Setter Property="Width" Value="18"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Width" Value="20"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Thumb">
@@ -33,12 +33,16 @@
                                    Value="{DynamicResource BorderGoldBrush}"/>
                             <Setter TargetName="Ellipse" Property="Stroke" 
                                    Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="Ellipse" Property="StrokeThickness" 
+                                   Value="2"/>
                         </Trigger>
                         <Trigger Property="IsDragging" Value="True">
                             <Setter TargetName="Ellipse" Property="Fill" 
                                    Value="{DynamicResource BackgroundCardBrush}"/>
                             <Setter TargetName="Ellipse" Property="Stroke" 
                                    Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="Ellipse" Property="StrokeThickness" 
+                                   Value="2"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="Ellipse" Property="Fill" 
@@ -67,152 +71,133 @@
         </Setter>
     </Style>
 
-    <!-- 水平 Slider 样式 -->
-    <Style x:Key="LOLHorizontalSliderStyle" TargetType="Slider">
-        <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="OverridesDefaultStyle" Value="True"/>
-        <Setter Property="Height" Value="Auto"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Slider">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        
-                        <!-- 刻度（上方） -->
-                        <TickBar x:Name="TopTick"
-                                Grid.Row="0"
-                                Height="4"
-                                Placement="Top"
-                                Fill="{DynamicResource TextSecondaryBrush}"
-                                Visibility="Collapsed"/>
-                        
-                        <!-- 轨道背景 -->
-                        <Border x:Name="TrackBackground"
-                               Grid.Row="1"
-                               Height="6"
-                               Background="{DynamicResource BackgroundLightBrush}"
-                               BorderBrush="{DynamicResource BorderDefaultBrush}"
-                               BorderThickness="1"
-                               CornerRadius="3"
-                               Margin="5,0"
-                               SnapsToDevicePixels="True"
-                               UseLayoutRounding="True"/>
-                        
-                        <Track x:Name="PART_Track" Grid.Row="1">
-                            <Track.DecreaseRepeatButton>
-                                <RepeatButton Style="{StaticResource SliderRepeatButtonStyle}"
-                                            Command="Slider.DecreaseLarge"/>
-                            </Track.DecreaseRepeatButton>
-                            <Track.Thumb>
-                                <Thumb Style="{StaticResource SliderThumbStyle}"/>
-                            </Track.Thumb>
-                            <Track.IncreaseRepeatButton>
-                                <RepeatButton Style="{StaticResource SliderRepeatButtonStyle}"
-                                            Command="Slider.IncreaseLarge"/>
-                            </Track.IncreaseRepeatButton>
-                        </Track>
-                        
-                        <!-- 刻度（下方） -->
-                        <TickBar x:Name="BottomTick"
-                                Grid.Row="2"
-                                Height="4"
-                                Placement="Bottom"
-                                Fill="{DynamicResource TextSecondaryBrush}"
-                                Visibility="Collapsed"/>
-                    </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="TickPlacement" Value="TopLeft">
-                            <Setter TargetName="TopTick" Property="Visibility" Value="Visible"/>
-                        </Trigger>
-                        <Trigger Property="TickPlacement" Value="BottomRight">
-                            <Setter TargetName="BottomTick" Property="Visibility" Value="Visible"/>
-                        </Trigger>
-                        <Trigger Property="TickPlacement" Value="Both">
-                            <Setter TargetName="TopTick" Property="Visibility" Value="Visible"/>
-                            <Setter TargetName="BottomTick" Property="Visibility" Value="Visible"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
+    <!-- 水平 Slider ControlTemplate -->
+    <ControlTemplate x:Key="LOLHorizontalSliderTemplate" TargetType="Slider">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <!-- 刻度（上方） -->
+            <TickBar x:Name="TopTick"
+                    Grid.Row="0"
+                    Height="4"
+                    Placement="Top"
+                    Fill="{DynamicResource TextSecondaryBrush}"
+                    Visibility="Collapsed"/>
+            
+            <!-- 轨道背景 -->
+            <Border x:Name="TrackBackground"
+                   Grid.Row="1"
+                   Height="6"
+                   Background="{DynamicResource BackgroundLightBrush}"
+                   BorderBrush="{DynamicResource BorderDefaultBrush}"
+                   BorderThickness="1"
+                   CornerRadius="3"
+                   Margin="5,0"
+                   SnapsToDevicePixels="True"
+                   UseLayoutRounding="True"/>
+            
+            <Track x:Name="PART_Track" Grid.Row="1">
+                <Track.DecreaseRepeatButton>
+                    <RepeatButton Style="{StaticResource SliderRepeatButtonStyle}"
+                                Command="Slider.DecreaseLarge"/>
+                </Track.DecreaseRepeatButton>
+                <Track.Thumb>
+                    <Thumb Style="{StaticResource SliderThumbStyle}"/>
+                </Track.Thumb>
+                <Track.IncreaseRepeatButton>
+                    <RepeatButton Style="{StaticResource SliderRepeatButtonStyle}"
+                                Command="Slider.IncreaseLarge"/>
+                </Track.IncreaseRepeatButton>
+            </Track>
+            
+            <!-- 刻度（下方） -->
+            <TickBar x:Name="BottomTick"
+                    Grid.Row="2"
+                    Height="4"
+                    Placement="Bottom"
+                    Fill="{DynamicResource TextSecondaryBrush}"
+                    Visibility="Collapsed"/>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="TickPlacement" Value="TopLeft">
+                <Setter TargetName="TopTick" Property="Visibility" Value="Visible"/>
+            </Trigger>
+            <Trigger Property="TickPlacement" Value="BottomRight">
+                <Setter TargetName="BottomTick" Property="Visibility" Value="Visible"/>
+            </Trigger>
+            <Trigger Property="TickPlacement" Value="Both">
+                <Setter TargetName="TopTick" Property="Visibility" Value="Visible"/>
+                <Setter TargetName="BottomTick" Property="Visibility" Value="Visible"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
 
-    <!-- 垂直 Slider 样式 -->
-    <Style x:Key="LOLVerticalSliderStyle" TargetType="Slider">
-        <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="OverridesDefaultStyle" Value="True"/>
-        <Setter Property="Width" Value="Auto"/>
-        <Setter Property="Orientation" Value="Vertical"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Slider">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto" MinWidth="{TemplateBinding MinWidth}"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        
-                        <!-- 刻度（左侧） -->
-                        <TickBar x:Name="LeftTick"
-                                Grid.Column="0"
-                                Width="4"
-                                Placement="Left"
-                                Fill="{DynamicResource TextSecondaryBrush}"
-                                Visibility="Collapsed"/>
-                        
-                        <!-- 轨道背景 -->
-                        <Border x:Name="TrackBackground"
-                               Grid.Column="1"
-                               Width="6"
-                               Background="{DynamicResource BackgroundLightBrush}"
-                               BorderBrush="{DynamicResource BorderDefaultBrush}"
-                               BorderThickness="1"
-                               CornerRadius="3"
-                               Margin="0,5"/>
-                        
-                        <Track x:Name="PART_Track" Grid.Column="1">
-                            <Track.DecreaseRepeatButton>
-                                <RepeatButton Style="{StaticResource SliderRepeatButtonStyle}"
-                                            Command="Slider.DecreaseLarge"/>
-                            </Track.DecreaseRepeatButton>
-                            <Track.Thumb>
-                                <Thumb Style="{StaticResource SliderThumbStyle}"/>
-                            </Track.Thumb>
-                            <Track.IncreaseRepeatButton>
-                                <RepeatButton Style="{StaticResource SliderRepeatButtonStyle}"
-                                            Command="Slider.IncreaseLarge"/>
-                            </Track.IncreaseRepeatButton>
-                        </Track>
-                        
-                        <!-- 刻度（右侧） -->
-                        <TickBar x:Name="RightTick"
-                                Grid.Column="2"
-                                Width="4"
-                                Placement="Right"
-                                Fill="{DynamicResource TextSecondaryBrush}"
-                                Visibility="Collapsed"/>
-                    </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="TickPlacement" Value="TopLeft">
-                            <Setter TargetName="LeftTick" Property="Visibility" Value="Visible"/>
-                        </Trigger>
-                        <Trigger Property="TickPlacement" Value="BottomRight">
-                            <Setter TargetName="RightTick" Property="Visibility" Value="Visible"/>
-                        </Trigger>
-                        <Trigger Property="TickPlacement" Value="Both">
-                            <Setter TargetName="LeftTick" Property="Visibility" Value="Visible"/>
-                            <Setter TargetName="RightTick" Property="Visibility" Value="Visible"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
+    <!-- 垂直 Slider ControlTemplate -->
+    <ControlTemplate x:Key="LOLVerticalSliderTemplate" TargetType="Slider">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto" MinWidth="{TemplateBinding MinWidth}"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- 刻度（左侧） -->
+            <TickBar x:Name="LeftTick"
+                    Grid.Column="0"
+                    Width="4"
+                    Placement="Left"
+                    Fill="{DynamicResource TextSecondaryBrush}"
+                    Visibility="Collapsed"/>
+            
+            <!-- 轨道背景 -->
+            <Border x:Name="TrackBackground"
+                   Grid.Column="1"
+                   Width="6"
+                   Background="{DynamicResource BackgroundLightBrush}"
+                   BorderBrush="{DynamicResource BorderDefaultBrush}"
+                   BorderThickness="1"
+                   CornerRadius="3"
+                   Margin="0,5"/>
+            
+            <Track x:Name="PART_Track" Grid.Column="1">
+                <Track.DecreaseRepeatButton>
+                    <RepeatButton Style="{StaticResource SliderRepeatButtonStyle}"
+                                Command="Slider.DecreaseLarge"/>
+                </Track.DecreaseRepeatButton>
+                <Track.Thumb>
+                    <Thumb Style="{StaticResource SliderThumbStyle}"/>
+                </Track.Thumb>
+                <Track.IncreaseRepeatButton>
+                    <RepeatButton Style="{StaticResource SliderRepeatButtonStyle}"
+                                Command="Slider.IncreaseLarge"/>
+                </Track.IncreaseRepeatButton>
+            </Track>
+            
+            <!-- 刻度（右侧） -->
+            <TickBar x:Name="RightTick"
+                    Grid.Column="2"
+                    Width="4"
+                    Placement="Right"
+                    Fill="{DynamicResource TextSecondaryBrush}"
+                    Visibility="Collapsed"/>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="TickPlacement" Value="TopLeft">
+                <Setter TargetName="LeftTick" Property="Visibility" Value="Visible"/>
+            </Trigger>
+            <Trigger Property="TickPlacement" Value="BottomRight">
+                <Setter TargetName="RightTick" Property="Visibility" Value="Visible"/>
+            </Trigger>
+            <Trigger Property="TickPlacement" Value="Both">
+                <Setter TargetName="LeftTick" Property="Visibility" Value="Visible"/>
+                <Setter TargetName="RightTick" Property="Visibility" Value="Visible"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
 
     <!-- LOL Slider 样式（默认水平） -->
     <Style x:Key="LOLSliderStyle" TargetType="Slider">
@@ -220,10 +205,10 @@
         <Setter Property="OverridesDefaultStyle" Value="True"/>
         <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource BorderGoldBrush}"/>
-        <Setter Property="Template" Value="{StaticResource LOLHorizontalSliderStyle}"/>
+        <Setter Property="Template" Value="{StaticResource LOLHorizontalSliderTemplate}"/>
         <Style.Triggers>
             <Trigger Property="Orientation" Value="Vertical">
-                <Setter Property="Template" Value="{StaticResource LOLVerticalSliderStyle}"/>
+                <Setter Property="Template" Value="{StaticResource LOLVerticalSliderTemplate}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

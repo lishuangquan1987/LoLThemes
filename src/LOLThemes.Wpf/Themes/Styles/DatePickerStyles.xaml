@@ -5,9 +5,9 @@
 
     <!-- DatePicker TextBox Style -->
     <Style x:Key="DatePickerTextBoxStyle" TargetType="{x:Type DatePickerTextBox}">
-        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundCardBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
@@ -16,7 +16,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DatePickerTextBox}">
                     <Grid>
-                        <Border Background="{TemplateBinding Background}"
+                        <Border x:Name="Border" Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}">
                             <ScrollViewer x:Name="PART_ContentHost"
@@ -36,6 +36,12 @@
                         <Trigger Property="Text" Value="">
                             <Setter TargetName="Watermark" Property="Visibility" Value="Visible"/>
                         </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -44,15 +50,57 @@
 
     <!-- DatePicker Style -->
     <Style x:Key="LOLDatePickerStyle" TargetType="{x:Type DatePicker}">
-        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="0.5"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundCardBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         <Setter Property="Padding" Value="0"/>
         <Setter Property="Height" Value="36"/>
         <Setter Property="CalendarStyle" Value="{StaticResource LOLCalendarStyle}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DatePicker}">
+                    <Grid x:Name="PART_Root">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="PART_Button" 
+                                Grid.Column="1"
+                                Background="{DynamicResource BackgroundCardBrush}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="0,1,1,1"
+                                Foreground="{DynamicResource BorderGoldBrush}"
+                                Width="36"
+                                Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                                Focusable="False">
+                            <Path Data="M3,4 L8,10 L13,4" 
+                                  Stroke="{DynamicResource BorderGoldBrush}" 
+                                  StrokeThickness="2" 
+                                  HorizontalAlignment="Center" 
+                                  VerticalAlignment="Center"/>
+                        </Button>
+                        <DatePickerTextBox x:Name="PART_TextBox" 
+                                          Grid.Column="0" 
+                                          Style="{StaticResource DatePickerTextBoxStyle}" 
+                                          HorizontalAlignment="Stretch" 
+                                          VerticalAlignment="Center" 
+                                          Margin="0"/>
+                        <Popup x:Name="PART_Popup" 
+                               Placement="Bottom" 
+                               PlacementTarget="{Binding ElementName=PART_Button}" 
+                               StaysOpen="False"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="PART_Button" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <!-- 默认 DatePicker 样式 -->

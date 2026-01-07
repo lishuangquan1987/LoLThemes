@@ -40,20 +40,20 @@
 
     <!-- Calendar Day Button Style -->
     <Style x:Key="CalendarDayButtonStyle" TargetType="{x:Type CalendarDayButton}">
-        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundCardBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
-        <Setter Property="MinWidth" Value="32"/>
-        <Setter Property="MinHeight" Value="32"/>
+        <Setter Property="MinWidth" Value="36"/>
+        <Setter Property="MinHeight" Value="36"/>
         <Setter Property="Margin" Value="1"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type CalendarDayButton}">
                     <Border x:Name="Border"
                             Background="{TemplateBinding Background}"
-                            BorderBrush="Transparent"
-                            BorderThickness="0.5"
+                            BorderBrush="{DynamicResource BorderDefaultBrush}"
+                            BorderThickness="1"
                             CornerRadius="4">
                         <ContentPresenter HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
@@ -61,16 +61,18 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource HoverGoldBrush}"/>
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource HoverGoldBrush}"/>
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource HoverGoldSemiBrush}"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="Border" Property="Background" Value="{DynamicResource BorderGoldBrush}"/>
                             <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="Border" Property="BorderThickness" Value="2"/>
                             <Setter Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}"/>
                         </Trigger>
                         <Trigger Property="IsToday" Value="True">
                             <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="Border" Property="BorderThickness" Value="2"/>
                             <Setter Property="Foreground" Value="{DynamicResource BorderGoldBrush}"/>
                         </Trigger>
                         <MultiTrigger>
@@ -80,10 +82,11 @@
                             </MultiTrigger.Conditions>
                             <Setter TargetName="Border" Property="Background" Value="{DynamicResource BorderGoldBrush}"/>
                             <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="Border" Property="BorderThickness" Value="2"/>
                             <Setter Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}"/>
                         </MultiTrigger>
                         <Trigger Property="IsInactive" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}"/>
                         </Trigger>
                         <Trigger Property="IsBlackedOut" Value="True">
                             <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}"/>

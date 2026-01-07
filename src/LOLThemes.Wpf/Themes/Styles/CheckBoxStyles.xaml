@@ -68,8 +68,8 @@
                             <!-- 焦点指示 -->
                             <Border x:Name="FocusBorder"
                                    Background="Transparent"
-                                   BorderBrush="{DynamicResource AccentGoldBrush}"
-                                   BorderThickness="1"
+                                   BorderBrush="{DynamicResource BorderGoldBrush}"
+                                   BorderThickness="2"
                                    CornerRadius="3"
                                    SnapsToDevicePixels="True"
                                    UseLayoutRounding="True"
@@ -109,16 +109,21 @@
                                    Value="{DynamicResource BorderGoldBrush}"/>
                             <Setter TargetName="CheckBoxBorder" Property="Background" 
                                    Value="{DynamicResource BackgroundInputBrush}"/>
+                            <Setter TargetName="CheckBoxBorder" Property="BorderThickness" Value="1.5"/>
                         </Trigger>
                         
                         <!-- 键盘焦点 -->
                         <Trigger Property="IsKeyboardFocused" Value="True">
                             <Setter TargetName="FocusBorder" Property="Opacity" Value="1"/>
-                            <Setter TargetName="FocusBorder" Property="BorderThickness" Value="2"/>
                         </Trigger>
                         
                         <!-- 选中状态 -->
                         <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="CheckBoxBorder" Property="BorderBrush" 
+                                   Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="CheckBoxBorder" Property="Background" 
+                                   Value="{DynamicResource PrimaryGoldSemiBrush}"/>
+                            <Setter TargetName="CheckBoxBorder" Property="BorderThickness" Value="2"/>
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
@@ -167,6 +172,11 @@
                         
                         <!-- 不确定状态 -->
                         <Trigger Property="IsChecked" Value="{x:Null}">
+                            <Setter TargetName="CheckBoxBorder" Property="BorderBrush" 
+                                   Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="CheckBoxBorder" Property="Background" 
+                                   Value="{DynamicResource PrimaryGoldSemiBrush}"/>
+                            <Setter TargetName="CheckBoxBorder" Property="BorderThickness" Value="2"/>
                             <Setter TargetName="CheckMark" Property="Data" Value="M 4,9 L 14,9"/>
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
@@ -210,6 +220,8 @@
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="CheckBoxBorder" Property="BorderBrush" 
                                    Value="{DynamicResource TextDisabledBrush}"/>
+                            <Setter TargetName="CheckBoxBorder" Property="Background" 
+                                   Value="{DynamicResource BackgroundInputBrush}"/>
                             <Setter TargetName="CheckMark" Property="Stroke" 
                                    Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter Property="Foreground" 

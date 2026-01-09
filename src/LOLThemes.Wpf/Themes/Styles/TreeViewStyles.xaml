@@ -1,6 +1,8 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:converters="clr-namespace:LOLThemes.Wpf.Converters">
+                    xmlns:converters="clr-namespace:LOLThemes.Wpf.Converters"
+                    xmlns:helpers="clr-namespace:LOLThemes.Wpf.Helpers;assembly=LOLThemes.Wpf"
+                    x:Class="LOLThemes.Wpf.Themes.Styles.TreeViewStyles">
     
     <!--
         ===================================================================
@@ -115,7 +117,8 @@
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
-        <Setter Property="Padding" Value="4,2"/>
+        <Setter Property="Padding" Value="2,2"/>
+        <EventSetter Event="Loaded" Handler="TreeViewItem_Loaded"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TreeViewItem}">
@@ -131,8 +134,7 @@
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                Padding="{TemplateBinding Padding}"
-                                CornerRadius="3">
+                                Padding="{TemplateBinding Padding}">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
@@ -141,8 +143,9 @@
                                 </Grid.ColumnDefinitions>
                                 
                                 <!-- Indentation -->
-                                <FrameworkElement Grid.Column="0" 
-                                                 Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Level, Converter={StaticResource LevelToIndentConverter}}"/>
+                                <Border Grid.Column="0" 
+                                       Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helpers:TreeViewHelper.Level), Converter={StaticResource LevelToIndentConverter}}" 
+                                       Background="Transparent"/>
                                 
                                 <!-- Expand/Collapse Toggle -->
                                 <ToggleButton Grid.Column="1"
@@ -180,13 +183,7 @@
                         <!-- Mouse over -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Bd" Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
-                            <Setter TargetName="Bd" Property="BorderThickness" Value="1"/>
-                            <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
-                            <Setter TargetName="Bd" Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect BlurRadius="2" Color="{DynamicResource PrimaryGoldBrush}" Opacity="0.3" Direction="0" ShadowDepth="0"/>
-                                </Setter.Value>
-                            </Setter>
+                            <Setter TargetName="Bd" Property="BorderThickness" Value="0"/>
                         </Trigger>
                         
                         <!-- Selected -->
@@ -197,11 +194,6 @@
                             <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
                             <!-- 确保箭头在选中状态下使用选中文本颜色 -->
                             <Setter TargetName="Expander" Property="Foreground" Value="{DynamicResource BorderGoldBrush}"/>
-                            <Setter TargetName="Bd" Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect BlurRadius="3" Color="{DynamicResource PrimaryGoldBrush}" Opacity="0.5" Direction="0" ShadowDepth="0"/>
-                                </Setter.Value>
-                            </Setter>
                         </Trigger>
                         
                         <!-- Selected and Focused -->
@@ -213,11 +205,6 @@
                             <Setter TargetName="Bd" Property="Background" Value="{DynamicResource PrimaryGoldSemiBrush}"/>
                             <Setter TargetName="Bd" Property="BorderThickness" Value="1"/>
                             <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
-                            <Setter TargetName="Bd" Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect BlurRadius="2" Color="{DynamicResource PrimaryGoldBrush}" Opacity="0.3" Direction="0" ShadowDepth="0"/>
-                                </Setter.Value>
-                            </Setter>
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

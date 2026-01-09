@@ -1,7 +1,10 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
-    <!-- 基础资源已通过 Generic.xaml 加载，无需直接引用 -->
+    <!-- 合并基础资源，确保可以访问 CalendarStyle -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Styles/CalendarStyles.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
 
     <!-- DatePicker TextBox Style -->
     <Style x:Key="DatePickerTextBoxStyle" TargetType="{x:Type DatePickerTextBox}">

@@ -8,7 +8,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <!--  先加载基础资源：Colors 和 Sizes  -->
-                <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Colors.Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Colors.Dark.V2.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Sizes.Medium.xaml" />
                 <!--  再加载控件库的主题资源  -->
                 <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Generic.xaml" />

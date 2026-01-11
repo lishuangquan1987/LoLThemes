@@ -1,0 +1,869 @@
+<UserControl x:Class="LOLThemes.Wpf.Samples.Views.LeagueOfLegendsMainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:LOLThemes.Wpf.Samples.Views"
+             xmlns:materialIcons="clr-namespace:Material.Icons.WPF;assembly=Material.Icons.WPF"
+             xmlns:helpers="clr-namespace:LOLThemes.Wpf.Helpers;assembly=LOLThemes.Wpf"
+             mc:Ignorable="d"
+             d:DesignHeight="800" d:DesignWidth="1150"
+             Background="{DynamicResource BackgroundDarkBrush}">
+    <Grid>
+        <!-- 顶部导航栏 -->
+        <Border
+            Height="60"
+            Background="{DynamicResource BackgroundPanelBrush}"
+            BorderBrush="{DynamicResource BorderGoldBrush}"
+            BorderThickness="0,0,0,2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="300" />
+                </Grid.ColumnDefinitions>
+                
+                <!-- 左侧Logo -->
+                <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="20,0,0,0" VerticalAlignment="Center">
+                    <materialIcons:MaterialIcon
+                        Width="32"
+                        Height="32"
+                        Foreground="{DynamicResource AccentGoldBrightBrush}"
+                        Kind="Sword" />
+                    <TextBlock
+                        Margin="10,0,0,0"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Foreground="{DynamicResource TextPrimaryBrush}"
+                        Text="英雄联盟" />
+                </StackPanel>
+                
+                <!-- 中间导航菜单 -->
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="20,0" VerticalAlignment="Center">
+                    <Button
+                        Margin="0,0,20,0"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        Content="英雄"
+                        Cursor="Hand"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Foreground="{DynamicResource AccentGoldBrightBrush}"
+                        Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" />
+                    <Button
+                        Margin="0,0,20,0"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        Content="皮肤"
+                        Cursor="Hand"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Foreground="{DynamicResource TextPrimaryBrush}"
+                        Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" />
+                    <Button
+                        Margin="0,0,20,0"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        Content="装备"
+                        Cursor="Hand"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Foreground="{DynamicResource TextPrimaryBrush}"
+                        Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" />
+                    <Button
+                        Margin="0,0,20,0"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        Content="符文"
+                        Cursor="Hand"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Foreground="{DynamicResource TextPrimaryBrush}"
+                        Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" />
+                    <Button
+                        Margin="0,0,20,0"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        Content="攻略"
+                        Cursor="Hand"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Foreground="{DynamicResource TextPrimaryBrush}"
+                        Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" />
+                </StackPanel>
+                
+                <!-- 右侧搜索框 -->
+                <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="0,0,20,0" VerticalAlignment="Center">
+                    <Border
+                        Width="200"
+                        Height="36"
+                        Background="{DynamicResource BackgroundInputBrush}"
+                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                        BorderThickness="1"
+                        CornerRadius="18">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <materialIcons:MaterialIcon
+                                Margin="10,0,0,0"
+                                Width="16"
+                                Height="16"
+                                Foreground="{DynamicResource TextSecondaryBrush}"
+                                Kind="Magnify" />
+                            <TextBox
+                                Margin="10,0,0,0"
+                                Width="150"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                BorderThickness="0"
+                                Cursor="IBeam"
+                                FontSize="14"
+                                Foreground="{DynamicResource TextPrimaryBrush}"
+                                HorizontalAlignment="Left" />
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </Border>
+        
+        <!-- 主内容区域 -->
+        <Grid Margin="0,60,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <!-- 左侧英雄分类 -->
+            <Border
+                Grid.Column="0"
+                Background="{DynamicResource BackgroundPanelBrush}"
+                BorderBrush="{DynamicResource BorderDarkBrush}"
+                BorderThickness="0,0,1,0">
+                <StackPanel>
+                    <TextBlock
+                        Margin="20,20,0,10"
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Foreground="{DynamicResource TextSecondaryBrush}"
+                        Text="英雄分类" />
+                    
+                    <ListBox
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        FontSize="14"
+                        Foreground="{DynamicResource TextPrimaryBrush}">
+                        <ListBoxItem Cursor="Hand">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <materialIcons:MaterialIcon
+                                    Margin="20,0,10,0"
+                                    Width="16"
+                                    Height="16"
+                                    Foreground="{DynamicResource AccentGoldBrightBrush}"
+                                    Kind="Sword" />
+                                <TextBlock Text="全部英雄" />
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem Cursor="Hand">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <materialIcons:MaterialIcon
+                                    Margin="20,0,10,0"
+                                    Width="16"
+                                    Height="16"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Kind="Sword" />
+                                <TextBlock Text="战士" />
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem Cursor="Hand">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <materialIcons:MaterialIcon
+                                    Margin="20,0,10,0"
+                                    Width="16"
+                                    Height="16"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Kind="Shield" />
+                                <TextBlock Text="坦克" />
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem Cursor="Hand">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <materialIcons:MaterialIcon
+                                    Margin="20,0,10,0"
+                                    Width="16"
+                                    Height="16"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Kind="MagicWand" />
+                                <TextBlock Text="法师" />
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem Cursor="Hand">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <materialIcons:MaterialIcon
+                                    Margin="20,0,10,0"
+                                    Width="16"
+                                    Height="16"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Kind="BowArrow" />
+                                <TextBlock Text="射手" />
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem Cursor="Hand">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <materialIcons:MaterialIcon
+                                    Margin="20,0,10,0"
+                                    Width="16"
+                                    Height="16"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Kind="Dagger" />
+                                <TextBlock Text="刺客" />
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem Cursor="Hand">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <materialIcons:MaterialIcon
+                                    Margin="20,0,10,0"
+                                    Width="16"
+                                    Height="16"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Kind="HeartPulse" />
+                                <TextBlock Text="辅助" />
+                            </StackPanel>
+                        </ListBoxItem>
+                    </ListBox>
+                </StackPanel>
+            </Border>
+            
+            <!-- 右侧英雄列表 -->
+            <Grid Grid.Column="1" Margin="20">
+                <!-- 顶部英雄统计信息 -->
+                <Border
+                    Height="50"
+                    Background="{DynamicResource BackgroundPanelBrush}"
+                    BorderBrush="{DynamicResource BorderMediumBrush}"
+                    BorderThickness="1"
+                    CornerRadius="4">
+                    <StackPanel Orientation="Horizontal" Margin="20,0" VerticalAlignment="Center">
+                        <TextBlock
+                            FontSize="14"
+                            Foreground="{DynamicResource TextPrimaryBrush}"
+                            Text="当前共有 165 个英雄" />
+                        <Border
+                            Margin="20,0,0,0"
+                            Width="1"
+                            Height="20"
+                            Background="{DynamicResource BorderMediumBrush}" />
+                        <Button
+                            Margin="20,0,0,0"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            BorderThickness="0"
+                            Content="按名字排序"
+                            Cursor="Hand"
+                            FontSize="14"
+                            Foreground="{DynamicResource TextSecondaryBrush}"
+                            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" />
+                        <Button
+                            Margin="20,0,0,0"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            BorderThickness="0"
+                            Content="按热度排序"
+                            Cursor="Hand"
+                            FontSize="14"
+                            Foreground="{DynamicResource TextSecondaryBrush}"
+                            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" />
+                    </StackPanel>
+                </Border>
+                
+                <!-- 英雄卡片网格 -->
+                <WrapPanel Margin="0,70,0,0" ItemHeight="280" ItemWidth="200">
+                    <!-- 英雄卡片示例 -->
+                    <Border
+                        Width="190"
+                        Height="270"
+                        Background="{DynamicResource BackgroundCardBrush}"
+                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                        BorderThickness="1"
+                        CornerRadius="4"
+                        Cursor="Hand">
+                        <StackPanel>
+                            <!-- 英雄图片 -->
+                            <Border
+                                Height="140"
+                                Background="{DynamicResource BackgroundInputBrush}"
+                                CornerRadius="4,4,0,0">
+                                <Image
+                                    Width="190"
+                                    Height="140"
+                                    Source="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_0.jpg"
+                                    Stretch="UniformToFill" />
+                            </Border>
+                            
+                            <!-- 英雄信息 -->
+                            <StackPanel Margin="15">
+                                <TextBlock
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Foreground="{DynamicResource TextPrimaryBrush}"
+                                    Text="阿狸" />
+                                <TextBlock
+                                    Margin="0,5,0,0"
+                                    FontSize="12"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Text="法师 / 刺客" />
+                                
+                                <!-- 英雄技能图标 -->
+                                <StackPanel Margin="0,15,0,0" Orientation="Horizontal">
+                                    <Border
+                                        Margin="0,0,10,0"
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentBlueBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                    <Border
+                                        Margin="0,0,10,0"
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentPurpleBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                    <Border
+                                        Margin="0,0,10,0"
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentPinkBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                    <Border
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentGoldBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    
+                    <!-- 英雄卡片示例 -->
+                    <Border
+                        Width="190"
+                        Height="270"
+                        Background="{DynamicResource BackgroundCardBrush}"
+                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                        BorderThickness="1"
+                        CornerRadius="4"
+                        Cursor="Hand">
+                        <StackPanel>
+                            <!-- 英雄图片 -->
+                            <Border
+                                Height="140"
+                                Background="{DynamicResource BackgroundInputBrush}"
+                                CornerRadius="4,4,0,0">
+                                <Image
+                                    Width="190"
+                                    Height="140"
+                                    Source="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg"
+                                    Stretch="UniformToFill" />
+                            </Border>
+                            
+                            <!-- 英雄信息 -->
+                            <StackPanel Margin="15">
+                                <TextBlock
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Foreground="{DynamicResource TextPrimaryBrush}"
+                                    Text="亚托克斯" />
+                                <TextBlock
+                                    Margin="0,5,0,0"
+                                    FontSize="12"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Text="战士 / 坦克" />
+                                
+                                <!-- 英雄技能图标 -->
+                                <StackPanel Margin="0,15,0,0" Orientation="Horizontal">
+                                    <Border
+                                        Margin="0,0,10,0"
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentRedBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                    <Border
+                                        Margin="0,0,10,0"
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentRedBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                    <Border
+                                        Margin="0,0,10,0"
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentRedBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                    <Border
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentGoldBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    
+                    <!-- 英雄卡片示例 -->
+                    <Border
+                        Width="190"
+                        Height="270"
+                        Background="{DynamicResource BackgroundCardBrush}"
+                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                        BorderThickness="1"
+                        CornerRadius="4"
+                        Cursor="Hand">
+                        <StackPanel>
+                            <!-- 英雄图片 -->
+                            <Border
+                                Height="140"
+                                Background="{DynamicResource BackgroundInputBrush}"
+                                CornerRadius="4,4,0,0">
+                                <Image
+                                    Width="190"
+                                    Height="140"
+                                    Source="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Akali_0.jpg"
+                                    Stretch="UniformToFill" />
+                            </Border>
+                            
+                            <!-- 英雄信息 -->
+                            <StackPanel Margin="15">
+                                <TextBlock
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Foreground="{DynamicResource TextPrimaryBrush}"
+                                    Text="阿卡丽" />
+                                <TextBlock
+                                    Margin="0,5,0,0"
+                                    FontSize="12"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Text="刺客 / 战士" />
+                                
+                                <!-- 英雄技能图标 -->
+                                <StackPanel Margin="0,15,0,0" Orientation="Horizontal">
+                                    <Border
+                                        Margin="0,0,10,0"
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentPurpleBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                    <Border
+                                        Margin="0,0,10,0"
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentPurpleBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                    <Border
+                                        Margin="0,0,10,0"
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentPurpleBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                    <Border
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentGoldBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    
+                    <!-- 英雄卡片示例 -->
+                    <Border
+                        Width="190"
+                        Height="270"
+                        Background="{DynamicResource BackgroundCardBrush}"
+                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                        BorderThickness="1"
+                        CornerRadius="4"
+                        Cursor="Hand">
+                        <StackPanel>
+                            <!-- 英雄图片 -->
+                            <Border
+                                Height="140"
+                                Background="{DynamicResource BackgroundInputBrush}"
+                                CornerRadius="4,4,0,0">
+                                <Image
+                                    Width="190"
+                                    Height="140"
+                                    Source="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Alistar_0.jpg"
+                                    Stretch="UniformToFill" />
+                            </Border>
+                            
+                            <!-- 英雄信息 -->
+                            <StackPanel Margin="15">
+                                <TextBlock
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Foreground="{DynamicResource TextPrimaryBrush}"
+                                    Text="阿利斯塔" />
+                                <TextBlock
+                                    Margin="0,5,0,0"
+                                    FontSize="12"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Text="坦克 / 辅助" />
+                                
+                                <!-- 英雄技能图标 -->
+                                <StackPanel Margin="0,15,0,0" Orientation="Horizontal">
+                                    <Border
+                                        Margin="0,0,10,0"
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentBrownBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                    <Border
+                                        Margin="0,0,10,0"
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentBrownBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                    <Border
+                                        Margin="0,0,10,0"
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentBrownBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                    <Border
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentGoldBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    
+                    <!-- 英雄卡片示例 -->
+                    <Border
+                        Width="190"
+                        Height="270"
+                        Background="{DynamicResource BackgroundCardBrush}"
+                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                        BorderThickness="1"
+                        CornerRadius="4"
+                        Cursor="Hand">
+                        <StackPanel>
+                            <!-- 英雄图片 -->
+                            <Border
+                                Height="140"
+                                Background="{DynamicResource BackgroundInputBrush}"
+                                CornerRadius="4,4,0,0">
+                                <Image
+                                    Width="190"
+                                    Height="140"
+                                    Source="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Amumu_0.jpg"
+                                    Stretch="UniformToFill" />
+                            </Border>
+                            
+                            <!-- 英雄信息 -->
+                            <StackPanel Margin="15">
+                                <TextBlock
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Foreground="{DynamicResource TextPrimaryBrush}"
+                                    Text="阿木木" />
+                                <TextBlock
+                                    Margin="0,5,0,0"
+                                    FontSize="12"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Text="坦克 / 法师" />
+                                
+                                <!-- 英雄技能图标 -->
+                                <StackPanel Margin="0,15,0,0" Orientation="Horizontal">
+                                    <Border
+                                        Margin="0,0,10,0"
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentBlueBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                    <Border
+                                        Margin="0,0,10,0"
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentBlueBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                    <Border
+                                        Margin="0,0,10,0"
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentBlueBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                    <Border
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentGoldBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    
+                    <!-- 英雄卡片示例 -->
+                    <Border
+                        Width="190"
+                        Height="270"
+                        Background="{DynamicResource BackgroundCardBrush}"
+                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                        BorderThickness="1"
+                        CornerRadius="4"
+                        Cursor="Hand">
+                        <StackPanel>
+                            <!-- 英雄图片 -->
+                            <Border
+                                Height="140"
+                                Background="{DynamicResource BackgroundInputBrush}"
+                                CornerRadius="4,4,0,0">
+                                <Image
+                                    Width="190"
+                                    Height="140"
+                                    Source="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Anivia_0.jpg"
+                                    Stretch="UniformToFill" />
+                            </Border>
+                            
+                            <!-- 英雄信息 -->
+                            <StackPanel Margin="15">
+                                <TextBlock
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Foreground="{DynamicResource TextPrimaryBrush}"
+                                    Text="艾尼维亚" />
+                                <TextBlock
+                                    Margin="0,5,0,0"
+                                    FontSize="12"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Text="法师 / 控制" />
+                                
+                                <!-- 英雄技能图标 -->
+                                <StackPanel Margin="0,15,0,0" Orientation="Horizontal">
+                                    <Border
+                                        Margin="0,0,10,0"
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentLightBlueBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                    <Border
+                                        Margin="0,0,10,0"
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentLightBlueBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                    <Border
+                                        Margin="0,0,10,0"
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentLightBlueBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                    <Border
+                                        Width="32"
+                                        Height="32"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4">
+                                        <materialIcons:MaterialIcon
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{DynamicResource AccentGoldBrush}"
+                                            Kind="StarFourPoints" />
+                                    </Border>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </WrapPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

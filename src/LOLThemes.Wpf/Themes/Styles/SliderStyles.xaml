@@ -2,45 +2,38 @@
 
     <!--  基础资源已通过 Generic.xaml 加载，无需直接引用  -->
 
-    <!--  Slider Thumb 样式  -->
+    <!--  Slider Thumb 样式 - 简化为基本圆形设计  -->
     <Style x:Key="SliderThumbStyle" TargetType="Thumb">
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
-        <Setter Property="Height" Value="20" />
-        <Setter Property="Width" Value="20" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Thumb">
-                    <Grid>
-                        <Ellipse
-                            x:Name="Ellipse"
-                            SnapsToDevicePixels="True"
-                            UseLayoutRounding="True">
-                            <Ellipse.Fill>
-                                <SolidColorBrush Color="{DynamicResource BorderGold}" />
-                            </Ellipse.Fill>
-                            <Ellipse.Stroke>
-                                <SolidColorBrush Color="{DynamicResource BorderGold}" />
-                            </Ellipse.Stroke>
-                            <Ellipse.StrokeThickness>
-                                1
-                            </Ellipse.StrokeThickness>
-                        </Ellipse>
-                    </Grid>
+                    <!--  简化的主滑块  -->
+                    <Ellipse
+                        x:Name="MainEllipse"
+                        Fill="{DynamicResource AccentGoldBrush}"
+                        SnapsToDevicePixels="True"
+                        Stroke="{DynamicResource AccentGoldBrush}"
+                        StrokeThickness="2"
+                        UseLayoutRounding="True" />
                     <ControlTemplate.Triggers>
+                        <!--  鼠标悬停状态  -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Ellipse" Property="Fill" Value="{DynamicResource BorderGoldBrush}" />
-                            <Setter TargetName="Ellipse" Property="Stroke" Value="{DynamicResource BorderGoldBrush}" />
-                            <Setter TargetName="Ellipse" Property="StrokeThickness" Value="2" />
+                            <Setter TargetName="MainEllipse" Property="Stroke" Value="{DynamicResource AccentGoldLightBrush}" />
                         </Trigger>
+
+                        <!--  拖拽状态  -->
                         <Trigger Property="IsDragging" Value="True">
-                            <Setter TargetName="Ellipse" Property="Fill" Value="{DynamicResource BackgroundCardBrush}" />
-                            <Setter TargetName="Ellipse" Property="Stroke" Value="{DynamicResource BorderGoldBrush}" />
-                            <Setter TargetName="Ellipse" Property="StrokeThickness" Value="2" />
+                            <Setter TargetName="MainEllipse" Property="Fill" Value="{DynamicResource AccentGoldBrush}" />
+                            <Setter TargetName="MainEllipse" Property="Stroke" Value="{DynamicResource AccentGoldBrightBrush}" />
                         </Trigger>
+
+                        <!--  禁用状态  -->
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="Ellipse" Property="Fill" Value="{DynamicResource TextDisabledBrush}" />
-                            <Setter TargetName="Ellipse" Property="Stroke" Value="{DynamicResource TextDisabledBrush}" />
+                            <Setter TargetName="MainEllipse" Property="Fill" Value="{DynamicResource BackgroundPanelBrush}" />
+                            <Setter TargetName="MainEllipse" Property="Stroke" Value="{DynamicResource TextDisabledBrush}" />
+                            <Setter TargetName="MainEllipse" Property="StrokeThickness" Value="1" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -48,22 +41,43 @@
         </Setter>
     </Style>
 
-    <!--  Slider RepeatButton 样式（轨道填充）  -->
-    <Style x:Key="SliderRepeatButtonStyle" TargetType="RepeatButton">
+    <!--  Slider RepeatButton 样式（轨道填充）- 简化为纯色填充  -->
+    <Style x:Key="SliderRepeatButtonStyle_Horizontal" TargetType="RepeatButton">
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
+
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RepeatButton">
-                    <Border Background="{DynamicResource BorderGoldBrush}" CornerRadius="3" />
+                    <Border
+                        Margin="0,0,-5,0"
+                        Background="{DynamicResource AccentGoldBrush}"
+                        CornerRadius="3" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SliderRepeatButtonStyle_Vertical" TargetType="RepeatButton">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Border
+                        Margin="0,-5,0,0"
+                        Background="{DynamicResource AccentGoldBrush}"
+                        CornerRadius="3" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!--  水平 Slider ControlTemplate  -->
+    <!--  水平 Slider ControlTemplate - 优化为更现代的设计  -->
     <ControlTemplate x:Key="LOLHorizontalSliderTemplate" TargetType="Slider">
         <Grid>
             <Grid.RowDefinitions>
@@ -81,28 +95,61 @@
                 Placement="Top"
                 Visibility="Collapsed" />
 
-            <!--  轨道背景  -->
-            <Border
+            <!--  轨道背景 - 优化为更简洁的深色设计  -->
+            <!--<Border
                 x:Name="TrackBackground"
                 Grid.Row="1"
-                Height="6"
-                Margin="5,0"
-                Background="{DynamicResource BackgroundLightBrush}"
-                BorderBrush="{DynamicResource BorderDefaultBrush}"
+                Background="{DynamicResource BackgroundInputBrush}"
+                BorderBrush="{DynamicResource BorderMediumBrush}"
                 BorderThickness="1"
                 CornerRadius="3"
                 SnapsToDevicePixels="True"
-                UseLayoutRounding="True" />
+                UseLayoutRounding="True" />-->
 
             <Track x:Name="PART_Track" Grid.Row="1">
                 <Track.DecreaseRepeatButton>
-                    <RepeatButton Command="Slider.DecreaseLarge" Style="{StaticResource SliderRepeatButtonStyle}" />
+                    <RepeatButton
+                        Height="5"
+                        Command="Slider.DecreaseLarge"
+                        Focusable="False"
+                        IsTabStop="True"
+                        OverridesDefaultStyle="True"
+                        SnapsToDevicePixels="True">
+                        <RepeatButton.Template>
+                            <ControlTemplate>
+                                <Border
+                                    Margin="0,0,-5,0"
+                                    Background="{DynamicResource AccentGoldBrush}"
+                                    CornerRadius="3" />
+                            </ControlTemplate>
+                        </RepeatButton.Template>
+                    </RepeatButton>
                 </Track.DecreaseRepeatButton>
                 <Track.Thumb>
-                    <Thumb Style="{StaticResource SliderThumbStyle}" />
+                    <Thumb
+                        Width="15"
+                        Height="15"
+                        Style="{StaticResource SliderThumbStyle}" />
                 </Track.Thumb>
                 <Track.IncreaseRepeatButton>
-                    <RepeatButton Command="Slider.IncreaseLarge" Style="{StaticResource SliderRepeatButtonStyle}" />
+                    <!--  右侧未填充区域使用透明背景  -->
+                    <RepeatButton
+                        Height="5"
+                        Command="Slider.IncreaseLarge"
+                        Focusable="False"
+                        IsTabStop="True"
+                        OverridesDefaultStyle="True"
+                        SnapsToDevicePixels="True">
+                        <RepeatButton.Template>
+                            <ControlTemplate>
+                                <Border
+                                    Margin="-5,0,0,0"
+                                    BorderBrush="{DynamicResource AccentGoldBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="3" />
+                            </ControlTemplate>
+                        </RepeatButton.Template>
+                    </RepeatButton>
                 </Track.IncreaseRepeatButton>
             </Track>
 
@@ -116,6 +163,7 @@
                 Visibility="Collapsed" />
         </Grid>
         <ControlTemplate.Triggers>
+            <!--  启用刻度显示  -->
             <Trigger Property="TickPlacement" Value="TopLeft">
                 <Setter TargetName="TopTick" Property="Visibility" Value="Visible" />
             </Trigger>
@@ -126,10 +174,16 @@
                 <Setter TargetName="TopTick" Property="Visibility" Value="Visible" />
                 <Setter TargetName="BottomTick" Property="Visibility" Value="Visible" />
             </Trigger>
+
+            <!--  禁用状态  -->
+            <!--<Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="TrackBackground" Property="Background" Value="{DynamicResource BackgroundDarkBrush}" />
+                <Setter TargetName="TrackBackground" Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}" />
+            </Trigger>-->
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <!--  垂直 Slider ControlTemplate  -->
+    <!--  垂直 Slider ControlTemplate - 优化为更现代的设计  -->
     <ControlTemplate x:Key="LOLVerticalSliderTemplate" TargetType="Slider">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -147,26 +201,60 @@
                 Placement="Left"
                 Visibility="Collapsed" />
 
-            <!--  轨道背景  -->
-            <Border
+            <!--  轨道背景 - 优化为更简洁的深色设计  -->
+            <!--<Border
                 x:Name="TrackBackground"
                 Grid.Column="1"
-                Width="6"
-                Margin="0,5"
-                Background="{DynamicResource BackgroundLightBrush}"
-                BorderBrush="{DynamicResource BorderDefaultBrush}"
+                Background="{DynamicResource BackgroundInputBrush}"
+                BorderBrush="{DynamicResource BorderMediumBrush}"
                 BorderThickness="1"
-                CornerRadius="3" />
+                CornerRadius="3" />-->
 
             <Track x:Name="PART_Track" Grid.Column="1">
                 <Track.DecreaseRepeatButton>
-                    <RepeatButton Command="Slider.DecreaseLarge" Style="{StaticResource SliderRepeatButtonStyle}" />
+                    <RepeatButton
+                        Width="5"
+                        Command="Slider.DecreaseLarge"
+                        Focusable="False"
+                        IsTabStop="True"
+                        OverridesDefaultStyle="True"
+                        SnapsToDevicePixels="True">
+                        <RepeatButton.Template>
+                            <ControlTemplate>
+                                <Border
+                                    Margin="0,-5,0,0"
+                                    Background="{DynamicResource AccentGoldBrush}"
+                                    CornerRadius="3" />
+                            </ControlTemplate>
+                        </RepeatButton.Template>
+                    </RepeatButton>
                 </Track.DecreaseRepeatButton>
                 <Track.Thumb>
-                    <Thumb Style="{StaticResource SliderThumbStyle}" />
+                    <Thumb
+                        Width="15"
+                        Height="15"
+                        Style="{StaticResource SliderThumbStyle}" />
                 </Track.Thumb>
                 <Track.IncreaseRepeatButton>
-                    <RepeatButton Command="Slider.IncreaseLarge" Style="{StaticResource SliderRepeatButtonStyle}" />
+                    <!--  右侧未填充区域使用透明背景  -->
+                    <RepeatButton
+                        Width="5"
+                        HorizontalAlignment="Center"
+                        Command="Slider.IncreaseLarge"
+                        Focusable="False"
+                        IsTabStop="True"
+                        OverridesDefaultStyle="True"
+                        SnapsToDevicePixels="True">
+                        <RepeatButton.Template>
+                            <ControlTemplate>
+                                <Border
+                                    Margin="0,0,0,-5"
+                                    BorderBrush="{DynamicResource AccentGoldBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="3" />
+                            </ControlTemplate>
+                        </RepeatButton.Template>
+                    </RepeatButton>
                 </Track.IncreaseRepeatButton>
             </Track>
 
@@ -180,6 +268,7 @@
                 Visibility="Collapsed" />
         </Grid>
         <ControlTemplate.Triggers>
+            <!--  启用刻度显示  -->
             <Trigger Property="TickPlacement" Value="TopLeft">
                 <Setter TargetName="LeftTick" Property="Visibility" Value="Visible" />
             </Trigger>
@@ -190,6 +279,12 @@
                 <Setter TargetName="LeftTick" Property="Visibility" Value="Visible" />
                 <Setter TargetName="RightTick" Property="Visibility" Value="Visible" />
             </Trigger>
+
+            <!--  禁用状态  -->
+            <!--<Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="TrackBackground" Property="Background" Value="{DynamicResource BackgroundDarkBrush}" />
+                <Setter TargetName="TrackBackground" Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}" />
+            </Trigger>-->
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
@@ -197,7 +292,7 @@
     <Style x:Key="LOLSliderStyle" TargetType="Slider">
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
-        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource BorderGoldBrush}" />
         <Setter Property="Template" Value="{StaticResource LOLHorizontalSliderTemplate}" />
         <Style.Triggers>

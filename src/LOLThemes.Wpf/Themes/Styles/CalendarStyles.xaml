@@ -2,14 +2,14 @@
 
     <!--  基础资源已通过 Generic.xaml 加载，无需直接引用  -->
 
-    <!--  Calendar Button Style  -->
+    <!--  Calendar Button Style - 优化为更符合英雄联盟主题的设计  -->
     <Style x:Key="CalendarButtonStyle" TargetType="{x:Type CalendarButton}">
-        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundInputBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="MinWidth" Value="40" />
-        <Setter Property="MinHeight" Value="40" />
+        <Setter Property="MinHeight" Value="36" />
         <Setter Property="Margin" Value="1" />
         <Setter Property="Template">
             <Setter.Value>
@@ -17,18 +17,20 @@
                     <Border
                         x:Name="Border"
                         Background="{TemplateBinding Background}"
-                        BorderBrush="Transparent"
-                        BorderThickness="0.5"
-                        CornerRadius="4">
+                        BorderBrush="{DynamicResource BorderMediumBrush}"
+                        BorderThickness="1"
+                        CornerRadius="4"
+                        SnapsToDevicePixels="True">
                         <ContentPresenter
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
+                            TextElement.FontWeight="Medium"
                             TextElement.Foreground="{TemplateBinding Foreground}" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource HoverGoldBrush}" />
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource HoverGoldBrush}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource AccentGoldSemiBrush}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}" />
                         </Trigger>
                         <Trigger Property="IsInactive" Value="True">
                             <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}" />
@@ -39,9 +41,9 @@
         </Setter>
     </Style>
 
-    <!--  Calendar Day Button Style  -->
+    <!--  Calendar Day Button Style - 优化为更符合英雄联盟主题的设计  -->
     <Style x:Key="CalendarDayButtonStyle" TargetType="{x:Type CalendarDayButton}">
-        <Setter Property="Background" Value="{DynamicResource BackgroundCardBrush}" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundInputBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
@@ -51,42 +53,61 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type CalendarDayButton}">
-                    <Border
-                        x:Name="Border"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{DynamicResource BorderDefaultBrush}"
-                        BorderThickness="1"
-                        CornerRadius="4">
-                        <ContentPresenter
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            TextElement.Foreground="{TemplateBinding Foreground}" />
-                    </Border>
+                    <Grid>
+                        <!--  背景边框  -->
+                        <Border
+                            x:Name="Border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{DynamicResource BorderMediumBrush}"
+                            BorderThickness="1"
+                            CornerRadius="4"
+                            SnapsToDevicePixels="True">
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                TextElement.FontWeight="Medium"
+                                TextElement.Foreground="{TemplateBinding Foreground}" />
+                        </Border>
+
+                        <!--  今天日期标记  -->
+                        <Ellipse
+                            x:Name="TodayMarker"
+                            Width="6"
+                            Height="6"
+                            Margin="0,2,2,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            Fill="{DynamicResource AccentGoldBrightBrush}"
+                            Visibility="Collapsed" />
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource HoverGoldSemiBrush}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource AccentGoldSemiBrush}" />
                             <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}" />
+                            <Setter TargetName="Border" Property="BorderThickness" Value="2" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource BorderGoldBrush}" />
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource AccentGoldBrush}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource AccentGoldBrightBrush}" />
                             <Setter TargetName="Border" Property="BorderThickness" Value="2" />
                             <Setter Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}" />
                         </Trigger>
                         <Trigger Property="IsToday" Value="True">
                             <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}" />
                             <Setter TargetName="Border" Property="BorderThickness" Value="2" />
-                            <Setter Property="Foreground" Value="{DynamicResource BorderGoldBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource AccentGoldBrightBrush}" />
+                            <Setter TargetName="TodayMarker" Property="Visibility" Value="Visible" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsToday" Value="True" />
                                 <Condition Property="IsSelected" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource BorderGoldBrush}" />
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource AccentGoldBrush}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource AccentGoldBrightBrush}" />
                             <Setter TargetName="Border" Property="BorderThickness" Value="2" />
                             <Setter Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}" />
+                            <Setter TargetName="TodayMarker" Property="Visibility" Value="Visible" />
                         </MultiTrigger>
                         <Trigger Property="IsInactive" Value="True">
                             <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}" />
@@ -101,27 +122,68 @@
         </Setter>
     </Style>
 
-    <!--  CalendarItem Style  -->
+    <!--  CalendarItem Style - 优化为更符合英雄联盟主题的设计  -->
     <Style x:Key="CalendarItemStyle" TargetType="{x:Type CalendarItem}">
-        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundPanelBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}" />
-        <Setter Property="BorderThickness" Value="0.5" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CalendarItem}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="4"
+                        SnapsToDevicePixels="True">
+                        <!--  使用默认的 CalendarItem 内部结构  -->
+                        <ContentPresenter />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
-    <!--  Calendar Style  -->
+    <!--  Calendar Style - 优化为更符合英雄联盟主题的设计  -->
     <Style x:Key="LOLCalendarStyle" TargetType="{x:Type Calendar}">
-        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundPanelBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}" />
-        <Setter Property="BorderThickness" Value="0.5" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
         <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="CalendarButtonStyle" Value="{StaticResource CalendarButtonStyle}" />
         <Setter Property="CalendarDayButtonStyle" Value="{StaticResource CalendarDayButtonStyle}" />
         <Setter Property="CalendarItemStyle" Value="{StaticResource CalendarItemStyle}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Calendar}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="6"
+                        SnapsToDevicePixels="True">
+                        <Grid>
+                            <!--  日历头部背景  -->
+                            <Border
+                                Height="40"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Top"
+                                Background="{DynamicResource BackgroundDarkBrush}"
+                                BorderBrush="{DynamicResource BorderGoldBrush}"
+                                BorderThickness="0,0,0,1" />
+
+                            <!--  使用默认的 Calendar 内部结构  -->
+                            <ContentPresenter />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <!--  默认 Calendar 样式  -->

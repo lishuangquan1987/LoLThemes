@@ -27,12 +27,31 @@
     
     <!-- 基础资源已通过 Generic.xaml 加载，无需直接引用 -->
 
-    <!-- LOL ProgressBar 样式 -->
+    <!-- 进度条不确定状态模板（简化版，无动画） -->
+    <ControlTemplate x:Key="IndeterminateProgressBarTemplate">
+        <Grid>
+            <!-- 背景边框 -->
+            <Border
+                Background="{DynamicResource BackgroundInputBrush}"
+                BorderBrush="{DynamicResource BorderMediumBrush}"
+                BorderThickness="1"
+                CornerRadius="3"
+                SnapsToDevicePixels="True" />
+            
+            <!-- 简化的不确定状态显示 -->
+            <Border Margin="2"
+                    Background="{DynamicResource AccentGoldBrush}"
+                    CornerRadius="1"
+                    Opacity="0.5" />
+        </Grid>
+    </ControlTemplate>
+
+    <!-- LOL ProgressBar 样式 - 简化设计 -->
     <Style x:Key="LOLProgressBarStyle" TargetType="ProgressBar">
         <Setter Property="Height" Value="20"/>
-        <Setter Property="Background" Value="{DynamicResource BackgroundCardBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundInputBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource ProgressFillBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderMediumBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="AutomationProperties.AutomationId" Value="ProgressBar"/>
         <Setter Property="AutomationProperties.Name" Value="Progress Bar"/>
@@ -42,48 +61,37 @@
                 <ControlTemplate TargetType="ProgressBar">
                     <Grid>
                         <!-- 背景边框 -->
-                        <Border Background="{TemplateBinding Background}"
-                               BorderBrush="{TemplateBinding BorderBrush}"
-                               BorderThickness="{TemplateBinding BorderThickness}"
-                               CornerRadius="3"
-                               SnapsToDevicePixels="True"/>
+                        <Border 
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="3"
+                            SnapsToDevicePixels="True"/>
                         
-                        <!-- 进度条容器 -->
-                        <Border x:Name="PART_Track"
+                        <!-- 进度指示器 - 简化为纯色填充 -->
+                        <Border x:Name="PART_Indicator"
                                Margin="2"
-                               CornerRadius="{DynamicResource SmallCornerRadius}">
-                            <Grid>
-                                <!-- 进度指示器 - 纯色填充 -->
-                                <Border x:Name="PART_Indicator"
-                                       HorizontalAlignment="Left"
-                                       CornerRadius="{DynamicResource SmallCornerRadius}"
-                                       Background="{TemplateBinding Foreground}"/>
-                            </Grid>
-                        </Border>
+                               HorizontalAlignment="Left"
+                               Background="{DynamicResource AccentGoldBrush}"
+                               CornerRadius="1"/>
+                        
+                        <!-- 不确定状态容器 -->
+                        <ContentControl 
+                            x:Name="IndeterminateContainer"
+                            Visibility="Collapsed"
+                            Template="{StaticResource IndeterminateProgressBarTemplate}" />
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <!-- 不确定模式 - 保留动画（用于加载状态） -->
+                        <!-- 确定状态 -->
+                        <Trigger Property="IsIndeterminate" Value="False">
+                            <Setter TargetName="IndeterminateContainer" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_Indicator" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        
+                        <!-- 不确定模式 -->
                         <Trigger Property="IsIndeterminate" Value="True">
-                            <Setter TargetName="PART_Indicator" Property="Visibility" Value="Collapsed"/>
-                            <Trigger.EnterActions>
-                                <BeginStoryboard Name="IndeterminateStoryboard">
-                                    <Storyboard RepeatBehavior="Forever">
-                                        <DoubleAnimation Storyboard.TargetName="PART_Indicator"
-                                                       Storyboard.TargetProperty="Width"
-                                                       From="0"
-                                                       To="100"
-                                                       Duration="0:0:1.5"
-                                                       AutoReverse="True">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseInOut"/>
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.EnterActions>
-                            <Trigger.ExitActions>
-                                <StopStoryboard BeginStoryboardName="IndeterminateStoryboard"/>
-                            </Trigger.ExitActions>
+                            <Setter TargetName="IndeterminateContainer" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PART_Indicator" Property="Visibility" Value="Collapsed" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -91,12 +99,12 @@
         </Setter>
     </Style>
 
-    <!-- 垂直 ProgressBar 样式 -->
+    <!-- 垂直 ProgressBar 样式 - 简化设计 -->
     <Style x:Key="LOLVerticalProgressBarStyle" TargetType="ProgressBar">
         <Setter Property="Width" Value="20"/>
-        <Setter Property="Background" Value="{DynamicResource BackgroundCardBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundInputBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource ProgressFillBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderMediumBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Orientation" Value="Vertical"/>
         <Setter Property="AutomationProperties.AutomationId" Value="VerticalProgressBar"/>
@@ -107,25 +115,39 @@
                 <ControlTemplate TargetType="ProgressBar">
                     <Grid>
                         <!-- 背景边框 -->
-                        <Border Background="{TemplateBinding Background}"
-                               BorderBrush="{TemplateBinding BorderBrush}"
-                               BorderThickness="{TemplateBinding BorderThickness}"
-                               CornerRadius="3"
-                               SnapsToDevicePixels="True"/>
+                        <Border 
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="3"
+                            SnapsToDevicePixels="True"/>
                         
-                        <!-- 进度条容器 -->
-                        <Border x:Name="PART_Track"
+                        <!-- 进度指示器 - 简化为纯色填充 -->
+                        <Border x:Name="PART_Indicator"
                                Margin="2"
-                               CornerRadius="2">
-                            <Grid>
-                                <!-- 进度指示器 - 纯色填充 -->
-                                <Border x:Name="PART_Indicator"
-                                       VerticalAlignment="Bottom"
-                                       CornerRadius="2"
-                                       Background="{TemplateBinding Foreground}"/>
-                            </Grid>
-                        </Border>
+                               VerticalAlignment="Bottom"
+                               Background="{DynamicResource AccentGoldBrush}"
+                               CornerRadius="1"/>
+                        
+                        <!-- 不确定状态容器 -->
+                        <ContentControl 
+                            x:Name="IndeterminateContainer"
+                            Visibility="Collapsed"
+                            Template="{StaticResource IndeterminateProgressBarTemplate}" />
                     </Grid>
+                    <ControlTemplate.Triggers>
+                        <!-- 确定状态 -->
+                        <Trigger Property="IsIndeterminate" Value="False">
+                            <Setter TargetName="IndeterminateContainer" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_Indicator" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        
+                        <!-- 不确定模式 -->
+                        <Trigger Property="IsIndeterminate" Value="True">
+                            <Setter TargetName="IndeterminateContainer" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PART_Indicator" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

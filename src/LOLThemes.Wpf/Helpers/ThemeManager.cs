@@ -69,6 +69,11 @@ namespace LOLThemes.Wpf.Helpers
         private const string DarkColorsUri = "pack://application:,,,/LOLThemes.Wpf;component/Themes/Colors.Dark.xaml";
         
         /// <summary>
+        /// Enhanced Dark 主题颜色资源 URI (V2)
+        /// </summary>
+        private const string DarkColorsV2Uri = "pack://application:,,,/LOLThemes.Wpf;component/Themes/Colors.Dark.V2.xaml";
+        
+        /// <summary>
         /// 紧凑尺寸资源 URI
         /// </summary>
         private const string CompactSizesUri = "pack://application:,,,/LOLThemes.Wpf;component/Themes/Sizes.Compact.xaml";
@@ -127,15 +132,14 @@ namespace LOLThemes.Wpf.Helpers
 
         /// <summary>
         /// 切换到指定主题
-        /// 注意：当前版本仅支持 Dark 主题，此方法主要用于确保 Dark 主题资源已加载
-        /// 新逻辑：直接在App.Resources.MergedDictionaries中查找并替换Colors.Dark.xaml
-        /// 这种方式比通过占位符文件更可靠，可以立即生效
+        /// 支持多种Dark主题变体
         /// </summary>
         /// <param name="theme">要切换到的主题（当前仅支持 Theme.Dark）</param>
+        /// <param name="isV2Theme">是否使用增强版Dark主题（V2）</param>
         /// <param name="application">应用程序实例，如果为null则使用Application.Current</param>
         /// <exception cref="InvalidOperationException">当无法获取Application实例时抛出</exception>
         /// <exception cref="ArgumentException">当传入非 Dark 主题时抛出</exception>
-        public static void SwitchTheme(Theme theme, Application? application = null)
+        public static void SwitchTheme(Theme theme, bool isV2Theme = false, Application? application = null)
         {
             // 当前版本仅支持 Dark 主题
             if (theme != Theme.Dark)
@@ -156,10 +160,13 @@ namespace LOLThemes.Wpf.Helpers
                 app.Resources.MergedDictionaries.Remove(existingColorsDict);
             }
 
-            // 添加新的Colors.Dark.xaml资源字典
+            // 根据参数选择要使用的主题资源
+            string themeUri = isV2Theme ? DarkColorsV2Uri : DarkColorsUri;
+            
+            // 添加新的Colors.Dark.xaml或Colors.Dark.V2.xaml资源字典
             var newColorsDict = new ResourceDictionary
             {
-                Source = new Uri(DarkColorsUri, UriKind.RelativeOrAbsolute)
+                Source = new Uri(themeUri, UriKind.RelativeOrAbsolute)
             };
             app.Resources.MergedDictionaries.Add(newColorsDict);
 
@@ -171,6 +178,16 @@ namespace LOLThemes.Wpf.Helpers
             {
                 RefreshVisualTree(window);
             }
+        }
+        
+        /// <summary>
+        /// 切换Dark主题变体
+        /// </summary>
+        /// <param name="isV2Theme">是否使用增强版Dark主题（V2）</param>
+        /// <param name="application">应用程序实例，如果为null则使用Application.Current</param>
+        public static void SwitchDarkThemeVariant(bool isV2Theme, Application? application = null)
+        {
+            SwitchTheme(Theme.Dark, isV2Theme, application);
         }
 
         /// <summary>
@@ -239,10 +256,10 @@ namespace LOLThemes.Wpf.Helpers
             bool themeLoaded = FindColorsResourceDictionary(app.Resources) != null;
 
             // 如果没有加载，则加载默认主题
-            if (!themeLoaded)
-            {
-                SwitchTheme(defaultTheme, app);
-            }
+                if (!themeLoaded)
+                {
+                    SwitchTheme(defaultTheme, false, app);
+                }
             else
             {
                 // 如果已加载，根据当前资源确定主题并更新状态

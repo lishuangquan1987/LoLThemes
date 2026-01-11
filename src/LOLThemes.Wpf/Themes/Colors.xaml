@@ -6,7 +6,7 @@
         所有样式文件引用此文件，ThemeManager会动态替换MergedDictionaries中的引用
     -->
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Colors.Dark.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Colors.Dark.V2.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

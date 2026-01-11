@@ -1,0 +1,1075 @@
+<UserControl x:Class="LOLThemes.Wpf.Samples.Views.LeagueOfLegendsGameView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:LOLThemes.Wpf.Samples.Views"
+             xmlns:materialIcons="clr-namespace:Material.Icons.WPF;assembly=Material.Icons.WPF"
+             mc:Ignorable="d"
+             d:DesignHeight="800" d:DesignWidth="1150"
+             Background="{DynamicResource BackgroundDarkBrush}">
+    <Grid>
+        <!-- 顶部导航栏 -->
+        <Border
+            Height="50"
+            Background="{DynamicResource BackgroundDarkBrush}"
+            BorderBrush="{DynamicResource BorderGoldBrush}"
+            BorderThickness="0,0,0,2"
+            Effect="{DynamicResource DropShadowBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="350" />
+                </Grid.ColumnDefinitions>
+                
+                <!-- 左侧PLAY按钮 -->
+                <Border
+                    Grid.Column="0"
+                    Margin="20,5,0,5"
+                    Width="120"
+                    Height="40"
+                    Background="{DynamicResource AccentBlueBrush}"
+                    BorderBrush="{DynamicResource AccentBlueLightBrush}"
+                    BorderThickness="2"
+                    CornerRadius="20"
+                    Cursor="Hand">
+                    <Button
+                                Width="116"
+                                Height="36"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                BorderThickness="0"
+                                Cursor="Hand"
+                                FontSize="16"
+                                FontWeight="Bold"
+                                Foreground="White">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <materialIcons:MaterialIcon
+                                Margin="0,0,8,0"
+                                Width="18"
+                                Height="18"
+                                Foreground="White"
+                                Kind="Play" />
+                            <TextBlock Text="PLAY" />
+                        </StackPanel>
+                    </Button>
+                </Border>
+                
+                <!-- 中间导航菜单 -->
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="30,0" VerticalAlignment="Center">
+                    <Button
+                        Margin="0,0,30,0"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        Content="主页"
+                        Cursor="Hand"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="{DynamicResource AccentGoldBrush}">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border>
+                                    <ContentPresenter />
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Setter Property="BorderThickness" Value="0,0,0,3" />
+                                            <Setter Property="BorderBrush" Value="Transparent" />
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="BorderBrush" Value="{DynamicResource AccentGoldBrush}" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button
+                        Margin="0,0,30,0"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        Content="云顶之弈"
+                        Cursor="Hand"
+                        FontSize="16"
+                        FontWeight="Medium"
+                        Foreground="{DynamicResource TextSecondaryBrush}">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border>
+                                    <ContentPresenter />
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Setter Property="BorderThickness" Value="0,0,0,3" />
+                                            <Setter Property="BorderBrush" Value="Transparent" />
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="BorderBrush" Value="{DynamicResource TextSecondaryBrush}" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button
+                        Margin="0,0,30,0"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        Content="为了德玛西亚"
+                        Cursor="Hand"
+                        FontSize="16"
+                        FontWeight="Medium"
+                        Foreground="{DynamicResource TextSecondaryBrush}">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border>
+                                    <ContentPresenter />
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Setter Property="BorderThickness" Value="0,0,0,3" />
+                                            <Setter Property="BorderBrush" Value="Transparent" />
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="BorderBrush" Value="{DynamicResource TextSecondaryBrush}" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button
+                        Margin="0,0,30,0"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        Content="藏品"
+                        Cursor="Hand"
+                        FontSize="16"
+                        FontWeight="Medium"
+                        Foreground="{DynamicResource TextSecondaryBrush}">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border>
+                                    <ContentPresenter />
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Setter Property="BorderThickness" Value="0,0,0,3" />
+                                            <Setter Property="BorderBrush" Value="Transparent" />
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="BorderBrush" Value="{DynamicResource TextSecondaryBrush}" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button
+                        Margin="0,0,30,0"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        Content="战利品"
+                        Cursor="Hand"
+                        FontSize="16"
+                        FontWeight="Medium"
+                        Foreground="{DynamicResource TextSecondaryBrush}">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border>
+                                    <ContentPresenter />
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Setter Property="BorderThickness" Value="0,0,0,3" />
+                                            <Setter Property="BorderBrush" Value="Transparent" />
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="BorderBrush" Value="{DynamicResource TextSecondaryBrush}" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button
+                        Margin="0,0,30,0"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        Content="商城"
+                        Cursor="Hand"
+                        FontSize="16"
+                        FontWeight="Medium"
+                        Foreground="{DynamicResource TextSecondaryBrush}">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border>
+                                    <ContentPresenter />
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Setter Property="BorderThickness" Value="0,0,0,3" />
+                                            <Setter Property="BorderBrush" Value="Transparent" />
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="BorderBrush" Value="{DynamicResource TextSecondaryBrush}" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+                
+                <!-- 右侧金币和精粹 -->
+                <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="0,0,20,0" VerticalAlignment="Center">
+                    <!-- 金币 -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,25,0" VerticalAlignment="Center">
+                        <materialIcons:MaterialIcon
+                            Margin="0,0,8,0"
+                            Width="24"
+                            Height="24"
+                            Foreground="{DynamicResource AccentGoldBrush}"
+                            Kind="Coins" />
+                        <TextBlock
+                            FontSize="16"
+                            FontWeight="Bold"
+                            Foreground="{DynamicResource AccentGoldBrush}"
+                            Text="4,500" />
+                    </StackPanel>
+                    
+                    <!-- 蓝色精粹 -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,25,0" VerticalAlignment="Center">
+                        <materialIcons:MaterialIcon
+                            Margin="0,0,8,0"
+                            Width="24"
+                            Height="24"
+                            Foreground="{DynamicResource AccentBlueBrush}"
+                            Kind="Diamond" />
+                        <TextBlock
+                            FontSize="16"
+                            FontWeight="Bold"
+                            Foreground="{DynamicResource AccentBlueBrush}"
+                            Text="33,900" />
+                    </StackPanel>
+                    
+                    <!-- 玩家头像 -->
+                    <Border
+                        Width="42"
+                        Height="42"
+                        Background="{DynamicResource BackgroundInputBrush}"
+                        BorderBrush="{DynamicResource BorderGoldBrush}"
+                        BorderThickness="2"
+                        CornerRadius="21"
+                        Effect="{DynamicResource DropShadowBrush}">
+                        <Image
+                            Width="40"
+                            Height="40"
+                            Source="https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Ahri.jpg"
+                            Stretch="UniformToFill" />
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </Border>
+        
+        <!-- 主内容区域 -->
+        <Grid Margin="0,50,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="160" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="250" />
+            </Grid.ColumnDefinitions>
+            
+            <!-- 左侧导航栏 -->
+            <Border
+                Grid.Column="0"
+                Background="{DynamicResource BackgroundDarkBrush}"
+                BorderBrush="{DynamicResource BorderGoldBrush}"
+                BorderThickness="0,0,2,0">
+                <StackPanel>
+                    <!-- 左侧标题 -->
+                    <Border
+                        Height="60"
+                        Background="{DynamicResource BackgroundDarkBrush}"
+                        BorderBrush="{DynamicResource BorderGoldBrush}"
+                        BorderThickness="0,0,0,2">
+                        <StackPanel Margin="10,0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <TextBlock
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Foreground="{DynamicResource AccentGoldBrush}"
+                                Text="德玛西亚的崛起"
+                                TextAlignment="Center">
+                                <TextBlock.Effect>
+                                    <DropShadowEffect
+                                        BlurRadius="5"
+                                        Color="Black"
+                                        Direction="0"
+                                        Opacity="0.5" />
+                                </TextBlock.Effect>
+                            </TextBlock>
+                        </StackPanel>
+                    </Border>
+                    
+                    <!-- 活动横幅 -->
+                    <Border
+                        Margin="10,15,10,0"
+                        Height="100"
+                        Background="{DynamicResource BackgroundCardBrush}"
+                        BorderBrush="{DynamicResource BorderGoldBrush}"
+                        BorderThickness="2"
+                        CornerRadius="6"
+                        Cursor="Hand"
+                        Effect="{DynamicResource DropShadowBrush}">
+                        <Image
+                            Width="140"
+                            Height="100"
+                            Source="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Garen_0.jpg"
+                            Stretch="UniformToFill" />
+                    </Border>
+                    
+                    <!-- 导航菜单项 -->
+                    <ListBox
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        FontSize="16"
+                        Foreground="{DynamicResource TextPrimaryBrush}"
+                        Margin="0,15,0,0">
+                        <ListBox.Style>
+                            <Style TargetType="ListBox">
+                                <Setter Property="ItemContainerStyle">
+                                    <Setter.Value>
+                                        <Style TargetType="ListBoxItem">
+                                            <Setter Property="Background" Value="Transparent" />
+                                            <Setter Property="BorderThickness" Value="0" />
+                                            <Setter Property="Padding" Value="10,12,10,12" />
+                                            <Setter Property="Cursor" Value="Hand" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="ListBoxItem">
+                                                        <Border x:Name="border"
+                                                                Background="{TemplateBinding Background}"
+                                                                CornerRadius="0,4,4,0"
+                                                                Margin="0,2,0,2">
+                                                            <ContentPresenter />
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsSelected" Value="True">
+                                                                <Setter TargetName="border" Property="Background" Value="{DynamicResource AccentGoldBrush}" />
+                                                                <Setter Property="Foreground" Value="White" />
+                                                            </Trigger>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundHoverBrush}" />
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListBox.Style>
+                        
+                        <ListBoxItem IsSelected="True">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <materialIcons:MaterialIcon
+                                    Margin="0,0,15,0"
+                                    Width="20"
+                                    Height="20"
+                                    Foreground="{DynamicResource AccentGoldBrush}"
+                                    Kind="Home" />
+                                <TextBlock Text="首页" FontSize="16" FontWeight="Bold" />
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <materialIcons:MaterialIcon
+                                    Margin="0,0,15,0"
+                                    Width="20"
+                                    Height="20"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Kind="Store" />
+                                <TextBlock Text="阿卡丽的神秘商店" FontSize="16" />
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <materialIcons:MaterialIcon
+                                    Margin="0,0,15,0"
+                                    Width="20"
+                                    Height="20"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Kind="Gift" />
+                                <TextBlock Text="祥龙秘宝" FontSize="16" />
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <materialIcons:MaterialIcon
+                                    Margin="0,0,15,0"
+                                    Width="20"
+                                    Height="20"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Kind="StarFourPoints" />
+                                <TextBlock Text="百唤中心" FontSize="16" />
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <materialIcons:MaterialIcon
+                                    Margin="0,0,15,0"
+                                    Width="20"
+                                    Height="20"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Kind="Calendar" />
+                                <TextBlock Text="活动中心" FontSize="16" />
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <materialIcons:MaterialIcon
+                                    Margin="0,0,15,0"
+                                    Width="20"
+                                    Height="20"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Kind="Trophy" />
+                                <TextBlock Text="排位赛" FontSize="16" />
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <materialIcons:MaterialIcon
+                                    Margin="0,0,15,0"
+                                    Width="20"
+                                    Height="20"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Kind="MessageText" />
+                                <TextBlock Text="社区" FontSize="16" />
+                            </StackPanel>
+                        </ListBoxItem>
+                    </ListBox>
+                </StackPanel>
+            </Border>
+            
+            <!-- 中间主内容 -->
+            <Grid Grid.Column="1">
+                <!-- 活动横幅 -->
+                <Border
+                    Margin="20,20,20,0"
+                    Height="420"
+                    Background="{DynamicResource BackgroundCardBrush}"
+                    BorderBrush="{DynamicResource BorderGoldBrush}"
+                    BorderThickness="3"
+                    CornerRadius="8"
+                    Effect="{DynamicResource DropShadowBrush}">
+                    <Grid>
+                        <!-- 背景图片 -->
+                        <Image
+                            Width="838"
+                            Height="420"
+                            Source="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_7.jpg"
+                            Stretch="UniformToFill" />
+                        
+                        <!-- 渐变遮罩 -->
+                        <Border Background="{DynamicResource GradientDarkBrush}" Opacity="0.6" />
+                        
+                        <!-- 活动标题 -->
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            
+                            <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20">
+                                <TextBlock
+                                    FontSize="60"
+                                    FontWeight="ExtraBold"
+                                    Foreground="White"
+                                    Text="幸运之门召唤"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap">
+                                    <TextBlock.Effect>
+                                        <DropShadowEffect
+                                            BlurRadius="15"
+                                            Color="Black"
+                                            Direction="0"
+                                            Opacity="0.8" />
+                                    </TextBlock.Effect>
+                                </TextBlock>
+                                <TextBlock
+                                    Margin="0,15,0,0"
+                                    FontSize="24"
+                                    FontWeight="Medium"
+                                    Foreground="White"
+                                    Text="开启你的幸运之旅，赢取丰厚奖励！"
+                                    TextAlignment="Center">
+                                    <TextBlock.Effect>
+                                        <DropShadowEffect
+                                            BlurRadius="10"
+                                            Color="Black"
+                                            Direction="0"
+                                            Opacity="0.8" />
+                                    </TextBlock.Effect>
+                                </TextBlock>
+                            </StackPanel>
+                            
+                            <StackPanel Grid.Row="1" Margin="0,0,0,40" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Border
+                                    Width="220"
+                                    Height="60"
+                                    Background="{DynamicResource AccentBlueBrush}"
+                                    BorderBrush="{DynamicResource AccentBlueLightBrush}"
+                                    BorderThickness="3"
+                                    CornerRadius="30"
+                                    Cursor="Hand"
+                                    Effect="{DynamicResource DropShadowBrush}">
+                                    <Button
+                                        Width="214"
+                                        Height="54"
+                                        Background="Transparent"
+                                        BorderBrush="Transparent"
+                                        BorderThickness="0"
+                                        Cursor="Hand"
+                                        FontSize="20"
+                                        FontWeight="ExtraBold"
+                                        Foreground="White"
+                                        Content="立即前往">
+                                        <Button.Effect>
+                                            <DropShadowEffect
+                                                BlurRadius="8"
+                                                Color="Black"
+                                                Direction="0"
+                                                Opacity="0.6" />
+                                        </Button.Effect>
+                                    </Button>
+                                </Border>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Border>
+                
+                <!-- 游戏模式选择 -->
+                <StackPanel Margin="20,440,20,20">
+                    <TextBlock
+                        Margin="0,0,0,15"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Foreground="{DynamicResource TextPrimaryBrush}"
+                        Text="选择游戏模式">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="5"
+                                Color="Black"
+                                Direction="0"
+                                Opacity="0.5" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+                    
+                    <WrapPanel ItemHeight="140" ItemWidth="220" HorizontalAlignment="Left">
+                        <!-- 召唤师峡谷 -->
+                        <Border
+                            Width="210"
+                            Height="130"
+                            Background="{DynamicResource BackgroundCardBrush}"
+                            BorderBrush="{DynamicResource BorderGoldBrush}"
+                            BorderThickness="2"
+                            CornerRadius="8"
+                            Cursor="Hand"
+                            Effect="{DynamicResource DropShadowBrush}">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Background" Value="{DynamicResource BackgroundCardBrush}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="{DynamicResource BackgroundHoverBrush}" />
+                                            <Setter Property="BorderBrush" Value="{DynamicResource AccentBlueBrush}" />
+                                            <Setter Property="Effect">
+                                                <Setter.Value>
+                                                    <DropShadowEffect
+                                                        BlurRadius="15"
+                                                        Color="{DynamicResource AccentBlueBrush}"
+                                                        Direction="0"
+                                                        Opacity="0.7" />
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <StackPanel>
+                                <Image
+                                    Width="210"
+                                    Height="90"
+                                    Source="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Garen_0.jpg"
+                                    Stretch="UniformToFill" />
+                                <StackPanel Margin="10,8,0,0">
+                                    <TextBlock
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Foreground="{DynamicResource TextPrimaryBrush}"
+                                        Text="召唤师峡谷" />
+                                    <TextBlock
+                                        FontSize="12"
+                                        Foreground="{DynamicResource TextSecondaryBrush}"
+                                        Text="5v5 经典对战" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                        
+                        <!-- 极地大乱斗 -->
+                        <Border
+                            Width="210"
+                            Height="130"
+                            Background="{DynamicResource BackgroundCardBrush}"
+                            BorderBrush="{DynamicResource BorderGoldBrush}"
+                            BorderThickness="2"
+                            CornerRadius="8"
+                            Cursor="Hand"
+                            Effect="{DynamicResource DropShadowBrush}">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Background" Value="{DynamicResource BackgroundCardBrush}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="{DynamicResource BackgroundHoverBrush}" />
+                                            <Setter Property="BorderBrush" Value="{DynamicResource AccentBlueBrush}" />
+                                            <Setter Property="Effect">
+                                                <Setter.Value>
+                                                    <DropShadowEffect
+                                                        BlurRadius="15"
+                                                        Color="{DynamicResource AccentBlueBrush}"
+                                                        Direction="0"
+                                                        Opacity="0.7" />
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <StackPanel>
+                                <Image
+                                    Width="210"
+                                    Height="90"
+                                    Source="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ashe_0.jpg"
+                                    Stretch="UniformToFill" />
+                                <StackPanel Margin="10,8,0,0">
+                                    <TextBlock
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Foreground="{DynamicResource TextPrimaryBrush}"
+                                        Text="极地大乱斗" />
+                                    <TextBlock
+                                        FontSize="12"
+                                        Foreground="{DynamicResource TextSecondaryBrush}"
+                                        Text="5v5 快节奏对战" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                        
+                        <!-- 云顶之弈 -->
+                        <Border
+                            Width="210"
+                            Height="130"
+                            Background="{DynamicResource BackgroundCardBrush}"
+                            BorderBrush="{DynamicResource BorderGoldBrush}"
+                            BorderThickness="2"
+                            CornerRadius="8"
+                            Cursor="Hand"
+                            Effect="{DynamicResource DropShadowBrush}">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Background" Value="{DynamicResource BackgroundCardBrush}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="{DynamicResource BackgroundHoverBrush}" />
+                                            <Setter Property="BorderBrush" Value="{DynamicResource AccentBlueBrush}" />
+                                            <Setter Property="Effect">
+                                                <Setter.Value>
+                                                    <DropShadowEffect
+                                                        BlurRadius="15"
+                                                        Color="{DynamicResource AccentBlueBrush}"
+                                                        Direction="0"
+                                                        Opacity="0.7" />
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <StackPanel>
+                                <Image
+                                    Width="210"
+                                    Height="90"
+                                    Source="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/AurelionSol_0.jpg"
+                                    Stretch="UniformToFill" />
+                                <StackPanel Margin="10,8,0,0">
+                                    <TextBlock
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Foreground="{DynamicResource TextPrimaryBrush}"
+                                        Text="云顶之弈" />
+                                    <TextBlock
+                                        FontSize="12"
+                                        Foreground="{DynamicResource TextSecondaryBrush}"
+                                        Text="策略回合制游戏" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                        
+                        <!-- 训练模式 -->
+                        <Border
+                            Width="210"
+                            Height="130"
+                            Background="{DynamicResource BackgroundCardBrush}"
+                            BorderBrush="{DynamicResource BorderGoldBrush}"
+                            BorderThickness="2"
+                            CornerRadius="8"
+                            Cursor="Hand"
+                            Effect="{DynamicResource DropShadowBrush}">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Background" Value="{DynamicResource BackgroundCardBrush}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="{DynamicResource BackgroundHoverBrush}" />
+                                            <Setter Property="BorderBrush" Value="{DynamicResource AccentBlueBrush}" />
+                                            <Setter Property="Effect">
+                                                <Setter.Value>
+                                                    <DropShadowEffect
+                                                        BlurRadius="15"
+                                                        Color="{DynamicResource AccentBlueBrush}"
+                                                        Direction="0"
+                                                        Opacity="0.7" />
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <StackPanel>
+                                <Image
+                                    Width="210"
+                                    Height="90"
+                                    Source="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Garen_2.jpg"
+                                    Stretch="UniformToFill" />
+                                <StackPanel Margin="10,8,0,0">
+                                    <TextBlock
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Foreground="{DynamicResource TextPrimaryBrush}"
+                                        Text="训练模式" />
+                                    <TextBlock
+                                        FontSize="12"
+                                        Foreground="{DynamicResource TextSecondaryBrush}"
+                                        Text="练习你的技巧" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </WrapPanel>
+                </StackPanel>
+            </Grid>
+            
+            <!-- 右侧好友列表 -->
+            <Border
+                Grid.Column="2"
+                Background="{DynamicResource BackgroundDarkBrush}"
+                BorderBrush="{DynamicResource BorderGoldBrush}"
+                BorderThickness="2,0,0,0">
+                <StackPanel>
+                    <!-- 好友列表标题 -->
+                    <Border
+                        Height="60"
+                        Background="{DynamicResource BackgroundDarkBrush}"
+                        BorderBrush="{DynamicResource BorderGoldBrush}"
+                        BorderThickness="0,0,0,2">
+                        <StackPanel Margin="15,0" Orientation="Horizontal" VerticalAlignment="Center">
+                            <materialIcons:MaterialIcon
+                                Margin="0,0,10,0"
+                                Width="20"
+                                Height="20"
+                                Foreground="{DynamicResource AccentGoldBrush}"
+                                Kind="AccountGroup" />
+                            <TextBlock
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Foreground="{DynamicResource TextPrimaryBrush}"
+                                Text="好友列表" />
+                            <TextBlock
+                                Margin="8,0,0,0"
+                                FontSize="14"
+                                Foreground="{DynamicResource TextSecondaryBrush}"
+                                Text="(3/30)" />
+                        </StackPanel>
+                    </Border>
+                    
+                    <!-- 好友列表 -->
+                    <StackPanel>
+                        <!-- 在线好友 -->
+                        <StackPanel Orientation="Horizontal" Margin="15,15,15,5" VerticalAlignment="Center">
+                            <Border
+                                Width="10"
+                                Height="10"
+                                Background="{DynamicResource AccentGreenBrush}"
+                                BorderBrush="{DynamicResource AccentGreenLightBrush}"
+                                BorderThickness="2"
+                                CornerRadius="5" />
+                            <TextBlock
+                                Margin="8,0,0,0"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                Foreground="{DynamicResource TextSecondaryBrush}"
+                                Text="在线好友" />
+                            <TextBlock
+                                Margin="5,0,0,0"
+                                FontSize="12"
+                                Foreground="{DynamicResource AccentGreenBrush}"
+                                Text="(3)" />
+                        </StackPanel>
+                        
+                        <!-- 好友项 -->
+                        <StackPanel Margin="0,5,0,0">
+                            <!-- 好友1 -->
+                            <StackPanel Margin="10,5,10,5" Cursor="Hand">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <!-- 在线状态指示器 -->
+                                    <Border
+                                        Width="12"
+                                        Height="12"
+                                        Margin="0,0,8,0"
+                                        Background="{DynamicResource AccentGreenBrush}"
+                                        BorderBrush="{DynamicResource BackgroundDarkBrush}"
+                                        BorderThickness="3"
+                                        CornerRadius="6" />
+                                    
+                                    <!-- 好友头像 -->
+                                    <Border
+                                        Width="36"
+                                        Height="36"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource AccentBlueBrush}"
+                                        BorderThickness="2"
+                                        CornerRadius="18">
+                                        <Image
+                                            Width="34"
+                                            Height="34"
+                                            Source="https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Ahri.jpg"
+                                            Stretch="UniformToFill" />
+                                    </Border>
+                                    
+                                    <!-- 好友信息 -->
+                                    <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
+                                        <TextBlock
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="{DynamicResource TextPrimaryBrush}"
+                                            Text="玩家1" />
+                                        <TextBlock
+                                            FontSize="11"
+                                            Foreground="{DynamicResource TextSecondaryBrush}"
+                                            Text="正在游戏中 - 召唤师峡谷" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                            
+                            <!-- 好友2 -->
+                            <StackPanel Margin="10,5,10,5" Cursor="Hand">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <!-- 在线状态指示器 -->
+                                    <Border
+                                        Width="12"
+                                        Height="12"
+                                        Margin="0,0,8,0"
+                                        Background="{DynamicResource AccentGreenBrush}"
+                                        BorderBrush="{DynamicResource BackgroundDarkBrush}"
+                                        BorderThickness="3"
+                                        CornerRadius="6" />
+                                    
+                                    <!-- 好友头像 -->
+                                    <Border
+                                        Width="36"
+                                        Height="36"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource AccentBlueBrush}"
+                                        BorderThickness="2"
+                                        CornerRadius="18">
+                                        <Image
+                                            Width="34"
+                                            Height="34"
+                                            Source="https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Aatrox.jpg"
+                                            Stretch="UniformToFill" />
+                                    </Border>
+                                    
+                                    <!-- 好友信息 -->
+                                    <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
+                                        <TextBlock
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="{DynamicResource TextPrimaryBrush}"
+                                            Text="玩家2" />
+                                        <TextBlock
+                                            FontSize="11"
+                                            Foreground="{DynamicResource TextSecondaryBrush}"
+                                            Text="在线 - 聊天中" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                            
+                            <!-- 好友3 -->
+                            <StackPanel Margin="10,5,10,5" Cursor="Hand">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <!-- 在线状态指示器 -->
+                                    <Border
+                                        Width="12"
+                                        Height="12"
+                                        Margin="0,0,8,0"
+                                        Background="{DynamicResource AccentGreenBrush}"
+                                        BorderBrush="{DynamicResource BackgroundDarkBrush}"
+                                        BorderThickness="3"
+                                        CornerRadius="6" />
+                                    
+                                    <!-- 好友头像 -->
+                                    <Border
+                                        Width="36"
+                                        Height="36"
+                                        Background="{DynamicResource BackgroundInputBrush}"
+                                        BorderBrush="{DynamicResource AccentBlueBrush}"
+                                        BorderThickness="2"
+                                        CornerRadius="18">
+                                        <Image
+                                            Width="34"
+                                            Height="34"
+                                            Source="https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Ashe.jpg"
+                                            Stretch="UniformToFill" />
+                                    </Border>
+                                    
+                                    <!-- 好友信息 -->
+                                    <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
+                                        <TextBlock
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="{DynamicResource TextPrimaryBrush}"
+                                            Text="玩家3" />
+                                        <TextBlock
+                                            FontSize="11"
+                                            Foreground="{DynamicResource TextSecondaryBrush}"
+                                            Text="在线 - 待机中" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                        
+                        <!-- 离线好友 -->
+                        <StackPanel Orientation="Horizontal" Margin="15,20,15,5" VerticalAlignment="Center">
+                            <Border
+                                Width="10"
+                                Height="10"
+                                Background="{DynamicResource TextSecondaryBrush}"
+                                BorderBrush="{DynamicResource BackgroundDarkBrush}"
+                                BorderThickness="2"
+                                CornerRadius="5" />
+                            <TextBlock
+                                Margin="8,0,0,0"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                Foreground="{DynamicResource TextSecondaryBrush}"
+                                Text="离线好友" />
+                            <TextBlock
+                                Margin="5,0,0,0"
+                                FontSize="12"
+                                Foreground="{DynamicResource TextSecondaryBrush}"
+                                Text="(1)" />
+                        </StackPanel>
+                        
+                        <!-- 离线好友项 -->
+                        <StackPanel Margin="10,5,10,5" Cursor="Hand">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <!-- 离线状态指示器 -->
+                                <Border
+                                    Width="12"
+                                    Height="12"
+                                    Margin="0,0,8,0"
+                                    Background="{DynamicResource TextSecondaryBrush}"
+                                    BorderBrush="{DynamicResource BackgroundDarkBrush}"
+                                    BorderThickness="3"
+                                    CornerRadius="6" />
+                                
+                                <!-- 好友头像 -->
+                                <Border
+                                    Width="36"
+                                    Height="36"
+                                    Background="{DynamicResource BackgroundInputBrush}"
+                                    BorderBrush="{DynamicResource BorderMediumBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="18">
+                                    <Image
+                                        Width="34"
+                                        Height="34"
+                                        Source="https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Garen.jpg"
+                                        Stretch="UniformToFill" Opacity="0.6" />
+                                </Border>
+                                
+                                <!-- 好友信息 -->
+                                <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock
+                                        FontSize="14"
+                                        FontWeight="Medium"
+                                        Foreground="{DynamicResource TextSecondaryBrush}"
+                                        Text="玩家4" />
+                                    <TextBlock
+                                        FontSize="11"
+                                        Foreground="{DynamicResource TextSecondaryBrush}"
+                                        Text="最近在线: 2小时前" />
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    
+                    <!-- 添加好友按钮 -->
+                    <Border
+                        Margin="15,20,15,15"
+                        Background="{DynamicResource AccentBlueBrush}"
+                        BorderBrush="{DynamicResource AccentBlueLightBrush}"
+                        BorderThickness="2"
+                        CornerRadius="8"
+                        Cursor="Hand" Effect="{DynamicResource DropShadowBrush}">
+                        <Button
+                            Width="220"
+                            Height="40"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            BorderThickness="0"
+                            Cursor="Hand"
+                            FontSize="16"
+                            FontWeight="Bold"
+                            Foreground="White">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <materialIcons:MaterialIcon
+                                    Margin="0,0,10,0"
+                                    Width="20"
+                                    Height="20"
+                                    Foreground="White"
+                                    Kind="AccountPlus" />
+                                <TextBlock Text="添加好友" />
+                            </StackPanel>
+                        </Button>
+                    </Border>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

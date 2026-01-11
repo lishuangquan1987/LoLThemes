@@ -38,10 +38,7 @@ namespace LOLThemes.Wpf.Samples.ViewModels
         /// </summary>
         public string ThemeToolTip => CurrentTheme == Theme.Dark ? "切换到增强版Dark主题" : "切换到暗黑主题";
 
-        /// <summary>
-        /// 是否使用V2主题
-        /// </summary>
-        private bool _isV2Theme = false;
+        
 
         /// <summary>
         /// 尺寸图标（Material.Icons 图标类型）
@@ -186,8 +183,8 @@ namespace LOLThemes.Wpf.Samples.ViewModels
             try
             {
                 // 切换主题变体
-                _isV2Theme = !_isV2Theme;
-                ThemeManager.SwitchDarkThemeVariant(_isV2Theme);
+                var newTheme = CurrentTheme == Theme.Dark ? Theme.DarkV2 : Theme.Dark;
+                ThemeManager.SwitchTheme(newTheme);
             }
             catch (System.Exception ex)
             {

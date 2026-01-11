@@ -1,512 +1,684 @@
-<UserControl x:Class="LOLThemes.Wpf.Samples.Views.Screenshot3View"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:controls="clr-namespace:LOLThemes.Wpf.Controls;assembly=LOLThemes.Wpf"
-             mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="1150"
-             Background="{DynamicResource BackgroundDarkBrush}">
-    
+<UserControl
+    x:Class="LOLThemes.Wpf.Samples.Views.Screenshot3View"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:LOLThemes.Wpf.Controls;assembly=LOLThemes.Wpf"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="800"
+    d:DesignWidth="1150"
+    Background="{DynamicResource BackgroundDarkBrush}"
+    mc:Ignorable="d">
+
     <Grid>
-        <!-- 主容器 -->
+        <!--  主容器  -->
         <Grid Margin="20">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            
-            <!-- 顶部标题栏 -->
-            <Border Grid.Row="0" 
-                   Background="{DynamicResource BackgroundMediumBrush}"
-                   BorderBrush="{DynamicResource BorderGoldBrush}"
-                   BorderThickness="0,0,0,2"
-                   Padding="20,15">
+
+            <!--  顶部标题栏  -->
+            <Border
+                Grid.Row="0"
+                Padding="20,15"
+                Background="{DynamicResource BackgroundMediumBrush}"
+                BorderBrush="{DynamicResource BorderGoldBrush}"
+                BorderThickness="0,0,0,2">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    
-                    <!-- 左侧标题 -->
+
+                    <!--  左侧标题  -->
                     <StackPanel Grid.Column="0" Orientation="Horizontal">
-                        <TextBlock Text="🎮" 
-                                  FontSize="{DynamicResource FontSizeLarge}"
-                                  Foreground="{DynamicResource PrimaryGoldBrush}"
-                                  VerticalAlignment="Center"
-                                  Margin="0,0,15,0"/>
-                        <TextBlock Text="游戏大厅" 
-                                  FontSize="{StaticResource FontSizeLarge}"
-                                  FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{DynamicResource TextPrimaryBrush}"
-                                  VerticalAlignment="Center"/>
+                        <TextBlock
+                            Margin="0,0,15,0"
+                            VerticalAlignment="Center"
+                            FontSize="{DynamicResource FontSizeLarge}"
+                            Foreground="{DynamicResource PrimaryGoldBrush}"
+                            Text="🎮" />
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="{StaticResource FontSizeLarge}"
+                            FontWeight="{StaticResource FontWeightBold}"
+                            Foreground="{DynamicResource TextPrimaryBrush}"
+                            Text="游戏大厅" />
                     </StackPanel>
-                    
-                    <!-- 中间游戏模式选择 -->
-                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button Content="经典模式" 
-                               Style="{StaticResource LOLPrimaryButtonStyle}"
-                               Width="120" Height="35"
-                               Margin="5,0"/>
-                        <Button Content="排位赛" 
-                               Style="{StaticResource LOLSecondaryButtonStyle}"
-                               Width="120" Height="35"
-                               Margin="5,0"/>
-                        <Button Content="极地大乱斗" 
-                               Style="{StaticResource LOLSecondaryButtonStyle}"
-                               Width="120" Height="35"
-                               Margin="5,0"/>
-                        <Button Content="云顶之弈" 
-                               Style="{StaticResource LOLSecondaryButtonStyle}"
-                               Width="120" Height="35"
-                               Margin="5,0"/>
+
+                    <!--  中间游戏模式选择  -->
+                    <StackPanel
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Button
+                            Width="120"
+                            Height="35"
+                            Margin="5,0"
+                            Content="经典模式"
+                            Style="{StaticResource LOLPrimaryButtonStyle}" />
+                        <Button
+                            Width="120"
+                            Height="35"
+                            Margin="5,0"
+                            Content="排位赛"
+                            Style="{StaticResource LOLSecondaryButtonStyle}" />
+                        <Button
+                            Width="120"
+                            Height="35"
+                            Margin="5,0"
+                            Content="极地大乱斗"
+                            Style="{StaticResource LOLSecondaryButtonStyle}" />
+                        <Button
+                            Width="120"
+                            Height="35"
+                            Margin="5,0"
+                            Content="云顶之弈"
+                            Style="{StaticResource LOLSecondaryButtonStyle}" />
                     </StackPanel>
-                    
-                    <!-- 右侧通知按钮 -->
-                    <Button Grid.Column="2" 
-                           Content="🔔" 
-                           Style="{StaticResource LOLSecondaryButtonStyle}"
-                           Width="40" Height="40"
-                           FontSize="{StaticResource FontSizeLarge}"/>
+
+                    <!--  右侧通知按钮  -->
+                    <Button
+                        Grid.Column="2"
+                        Width="40"
+                        Height="40"
+                        Content="🔔"
+                        FontSize="{StaticResource FontSizeLarge}"
+                        Style="{StaticResource LOLSecondaryButtonStyle}" />
                 </Grid>
             </Border>
-            
-            <!-- 主内容区域 -->
+
+            <!--  主内容区域  -->
             <Grid Grid.Row="1" Margin="0,20,0,20">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="200" />
                 </Grid.RowDefinitions>
-                
-                <!-- 上半部分：队伍组建区域 -->
-                <Border Grid.Row="0"
-                       Background="{DynamicResource BackgroundMediumBrush}"
-                       BorderBrush="{DynamicResource BorderDarkBrush}"
-                       BorderThickness="1"
-                       Padding="25"
-                       Margin="0,0,0,15">
+
+                <!--  上半部分：队伍组建区域  -->
+                <Border
+                    Grid.Row="0"
+                    Margin="0,0,0,15"
+                    Padding="25"
+                    Background="{DynamicResource BackgroundMediumBrush}"
+                    BorderBrush="{DynamicResource BorderDarkBrush}"
+                    BorderThickness="1">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="250"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="250" />
                         </Grid.ColumnDefinitions>
-                        
-                        <!-- 左侧：队伍成员列表 -->
+
+                        <!--  左侧：队伍成员列表  -->
                         <StackPanel Grid.Column="0">
-                            <TextBlock Text="队伍成员"
-                                      FontSize="{StaticResource FontSizeMedium}"
-                                      FontWeight="{StaticResource FontWeightBold}"
-                                      Foreground="{DynamicResource PrimaryGoldBrush}"
-                                      Margin="0,0,0,20"/>
-                            
-                            <!-- 队伍成员 1 (队长) -->
-                            <Border Background="{DynamicResource BackgroundLightBrush}"
-                                   BorderBrush="{DynamicResource PrimaryGoldBrush}"
-                                   BorderThickness="2"
-                                   Padding="15"
-                                   Margin="0,0,0,10">
+                            <TextBlock
+                                Margin="0,0,0,20"
+                                FontSize="{StaticResource FontSizeMedium}"
+                                FontWeight="{StaticResource FontWeightBold}"
+                                Foreground="{DynamicResource PrimaryGoldBrush}"
+                                Text="队伍成员" />
+
+                            <!--  队伍成员 1 (队长)  -->
+                            <Border
+                                Margin="0,0,0,10"
+                                Padding="15"
+                                Background="{DynamicResource BackgroundLightBrush}"
+                                BorderBrush="{DynamicResource PrimaryGoldBrush}"
+                                BorderThickness="2">
+
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="60"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="60" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
-                                    
-                                    <Border Grid.Column="0"
-                                           Background="{DynamicResource PrimaryGoldBrush}"
-                                           Width="50" Height="50"
-                                           CornerRadius="25">
-                                        <TextBlock Text="👑"
-                                                  FontSize="24"
-                                                  HorizontalAlignment="Center"
-                                                  VerticalAlignment="Center"/>
+
+                                    <Border
+                                        Grid.Column="0"
+                                        Width="50"
+                                        Height="50"
+                                        Background="{DynamicResource PrimaryGoldBrush}"
+                                        CornerRadius="25">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="24"
+                                            Text="👑" />
                                     </Border>
-                                    
-                                    <StackPanel Grid.Column="1" Margin="15,0,0,0" VerticalAlignment="Center">
-                                        <TextBlock Text="召唤师名称 (队长)"
-                                                  FontSize="{StaticResource FontSizeNormal}"
-                                                  FontWeight="{StaticResource FontWeightBold}"
-                                                  Foreground="{DynamicResource TextPrimaryBrush}"
-                                                  Margin="0,0,0,5"/>
+
+                                    <StackPanel
+                                        Grid.Column="1"
+                                        Margin="15,0,0,0"
+                                        VerticalAlignment="Center">
+                                        <TextBlock
+                                            Margin="0,0,0,5"
+                                            FontSize="{StaticResource FontSizeNormal}"
+                                            FontWeight="{StaticResource FontWeightBold}"
+                                            Foreground="{DynamicResource TextPrimaryBrush}"
+                                            Text="召唤师名称 (队长)" />
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="等级 147 · "
-                                                      FontSize="{DynamicResource FontSizeSmall}"
-                                                      Foreground="{DynamicResource TextSecondaryBrush}"/>
-                                            <TextBlock Text="钻石 II"
-                                                      FontSize="{DynamicResource FontSizeSmall}"
-                                                      Foreground="{DynamicResource PrimaryGoldBrush}"/>
+                                            <TextBlock
+                                                FontSize="{DynamicResource FontSizeSmall}"
+                                                Foreground="{DynamicResource TextSecondaryBrush}"
+                                                Text="等级 147 · " />
+                                            <TextBlock
+                                                FontSize="{DynamicResource FontSizeSmall}"
+                                                Foreground="{DynamicResource PrimaryGoldBrush}"
+                                                Text="钻石 II" />
                                         </StackPanel>
                                     </StackPanel>
-                                    
-                                    <Border Grid.Column="2"
-                                           Background="{DynamicResource SuccessGreenBrush}"
-                                           Padding="10,5"
-                                           CornerRadius="3"
-                                           Margin="0,0,10,0"
-                                           VerticalAlignment="Center">
-                                        <TextBlock Text="准备就绪"
-                                                  FontSize="{DynamicResource FontSizeSmall}"
-                                                  FontWeight="{StaticResource FontWeightBold}"
-                                                  Foreground="{DynamicResource BackgroundDarkBrush}"/>
+
+                                    <Border
+                                        Grid.Column="2"
+                                        Margin="0,0,10,0"
+                                        Padding="10,5"
+                                        VerticalAlignment="Center"
+                                        Background="{DynamicResource SuccessGreenBrush}"
+                                        CornerRadius="3">
+                                        <TextBlock
+                                            FontSize="{DynamicResource FontSizeSmall}"
+                                            FontWeight="{StaticResource FontWeightBold}"
+                                            Foreground="{DynamicResource BackgroundDarkBrush}"
+                                            Text="准备就绪" />
                                     </Border>
-                                    
-                                    <TextBlock Grid.Column="3"
-                                              Text="⚔️"
-                                              FontSize="{StaticResource FontSizeLarge}"
-                                              VerticalAlignment="Center"/>
+
+                                    <TextBlock
+                                        Grid.Column="3"
+                                        VerticalAlignment="Center"
+                                        FontSize="{StaticResource FontSizeLarge}"
+                                        Text="⚔️" />
                                 </Grid>
                             </Border>
-                            
-                            <!-- 队伍成员 2 -->
-                            <Border Background="{DynamicResource BackgroundLightBrush}"
-                                   BorderBrush="{DynamicResource BorderDarkBrush}"
-                                   BorderThickness="1"
-                                   Padding="15"
-                                   Margin="0,0,0,10">
+
+                            <!--  队伍成员 2  -->
+                            <Border
+                                Margin="0,0,0,10"
+                                Padding="15"
+                                Background="{DynamicResource BackgroundLightBrush}"
+                                BorderBrush="{DynamicResource BorderDarkBrush}"
+                                BorderThickness="1">
+
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="60"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="60" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
-                                    
-                                    <Border Grid.Column="0"
-                                           Background="{DynamicResource PrimaryCyanBrush}"
-                                           Width="50" Height="50"
-                                           CornerRadius="25">
-                                        <TextBlock Text="👤"
-                                                  FontSize="24"
-                                                  HorizontalAlignment="Center"
-                                                  VerticalAlignment="Center"/>
+
+                                    <Border
+                                        Grid.Column="0"
+                                        Width="50"
+                                        Height="50"
+                                        Background="{DynamicResource PrimaryCyanBrush}"
+                                        CornerRadius="25">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="24"
+                                            Text="👤" />
                                     </Border>
-                                    
-                                    <StackPanel Grid.Column="1" Margin="15,0,0,0" VerticalAlignment="Center">
-                                        <TextBlock Text="队友A"
-                                                  FontSize="{StaticResource FontSizeNormal}"
-                                                  FontWeight="{StaticResource FontWeightBold}"
-                                                  Foreground="{DynamicResource TextPrimaryBrush}"
-                                                  Margin="0,0,0,5"/>
+
+                                    <StackPanel
+                                        Grid.Column="1"
+                                        Margin="15,0,0,0"
+                                        VerticalAlignment="Center">
+                                        <TextBlock
+                                            Margin="0,0,0,5"
+                                            FontSize="{StaticResource FontSizeNormal}"
+                                            FontWeight="{StaticResource FontWeightBold}"
+                                            Foreground="{DynamicResource TextPrimaryBrush}"
+                                            Text="队友A" />
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="等级 132 · "
-                                                      FontSize="{DynamicResource FontSizeSmall}"
-                                                      Foreground="{DynamicResource TextSecondaryBrush}"/>
-                                            <TextBlock Text="铂金 I"
-                                                      FontSize="{DynamicResource FontSizeSmall}"
-                                                      Foreground="{DynamicResource PrimaryCyanBrush}"/>
+                                            <TextBlock
+                                                FontSize="{DynamicResource FontSizeSmall}"
+                                                Foreground="{DynamicResource TextSecondaryBrush}"
+                                                Text="等级 132 · " />
+                                            <TextBlock
+                                                FontSize="{DynamicResource FontSizeSmall}"
+                                                Foreground="{DynamicResource PrimaryCyanBrush}"
+                                                Text="铂金 I" />
                                         </StackPanel>
                                     </StackPanel>
-                                    
-                                    <Border Grid.Column="2"
-                                           Background="{DynamicResource SuccessGreenBrush}"
-                                           Padding="10,5"
-                                           CornerRadius="3"
-                                           Margin="0,0,10,0"
-                                           VerticalAlignment="Center">
-                                        <TextBlock Text="准备就绪"
-                                                  FontSize="{DynamicResource FontSizeSmall}"
-                                                  FontWeight="{StaticResource FontWeightBold}"
-                                                  Foreground="{DynamicResource BackgroundDarkBrush}"/>
+
+                                    <Border
+                                        Grid.Column="2"
+                                        Margin="0,0,10,0"
+                                        Padding="10,5"
+                                        VerticalAlignment="Center"
+                                        Background="{DynamicResource SuccessGreenBrush}"
+                                        CornerRadius="3">
+                                        <TextBlock
+                                            FontSize="{DynamicResource FontSizeSmall}"
+                                            FontWeight="{StaticResource FontWeightBold}"
+                                            Foreground="{DynamicResource BackgroundDarkBrush}"
+                                            Text="准备就绪" />
                                     </Border>
-                                    
-                                    <TextBlock Grid.Column="3"
-                                              Text="🏹"
-                                              FontSize="{StaticResource FontSizeLarge}"
-                                              VerticalAlignment="Center"/>
+
+                                    <TextBlock
+                                        Grid.Column="3"
+                                        VerticalAlignment="Center"
+                                        FontSize="{StaticResource FontSizeLarge}"
+                                        Text="🏹" />
                                 </Grid>
                             </Border>
-                            
-                            <!-- 队伍成员 3 -->
-                            <Border Background="{DynamicResource BackgroundLightBrush}"
-                                   BorderBrush="{DynamicResource BorderDarkBrush}"
-                                   BorderThickness="1"
-                                   Padding="15"
-                                   Margin="0,0,0,10">
+
+                            <!--  队伍成员 3  -->
+                            <Border
+                                Margin="0,0,0,10"
+                                Padding="15"
+                                Background="{DynamicResource BackgroundLightBrush}"
+                                BorderBrush="{DynamicResource BorderDarkBrush}"
+                                BorderThickness="1">
+
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="60"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="60" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
-                                    
-                                    <Border Grid.Column="0"
-                                           Background="{DynamicResource PrimaryCyanBrush}"
-                                           Width="50" Height="50"
-                                           CornerRadius="25">
-                                        <TextBlock Text="👤"
-                                                  FontSize="24"
-                                                  HorizontalAlignment="Center"
-                                                  VerticalAlignment="Center"/>
+
+                                    <Border
+                                        Grid.Column="0"
+                                        Width="50"
+                                        Height="50"
+                                        Background="{DynamicResource PrimaryCyanBrush}"
+                                        CornerRadius="25">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="24"
+                                            Text="👤" />
                                     </Border>
-                                    
-                                    <StackPanel Grid.Column="1" Margin="15,0,0,0" VerticalAlignment="Center">
-                                        <TextBlock Text="队友B"
-                                                  FontSize="{StaticResource FontSizeNormal}"
-                                                  FontWeight="{StaticResource FontWeightBold}"
-                                                  Foreground="{DynamicResource TextPrimaryBrush}"
-                                                  Margin="0,0,0,5"/>
+
+                                    <StackPanel
+                                        Grid.Column="1"
+                                        Margin="15,0,0,0"
+                                        VerticalAlignment="Center">
+                                        <TextBlock
+                                            Margin="0,0,0,5"
+                                            FontSize="{StaticResource FontSizeNormal}"
+                                            FontWeight="{StaticResource FontWeightBold}"
+                                            Foreground="{DynamicResource TextPrimaryBrush}"
+                                            Text="队友B" />
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="等级 98 · "
-                                                      FontSize="{DynamicResource FontSizeSmall}"
-                                                      Foreground="{DynamicResource TextSecondaryBrush}"/>
-                                            <TextBlock Text="黄金 III"
-                                                      FontSize="{DynamicResource FontSizeSmall}"
-                                                      Foreground="{DynamicResource PrimaryGoldBrush}"/>
+                                            <TextBlock
+                                                FontSize="{DynamicResource FontSizeSmall}"
+                                                Foreground="{DynamicResource TextSecondaryBrush}"
+                                                Text="等级 98 · " />
+                                            <TextBlock
+                                                FontSize="{DynamicResource FontSizeSmall}"
+                                                Foreground="{DynamicResource PrimaryGoldBrush}"
+                                                Text="黄金 III" />
                                         </StackPanel>
                                     </StackPanel>
-                                    
-                                    <Border Grid.Column="2"
-                                           Background="{DynamicResource TextDisabledBrush}"
-                                           Padding="10,5"
-                                           CornerRadius="3"
-                                           Margin="0,0,10,0"
-                                           VerticalAlignment="Center">
-                                        <TextBlock Text="未准备"
-                                                  FontSize="{DynamicResource FontSizeSmall}"
-                                                  FontWeight="{StaticResource FontWeightBold}"
-                                                  Foreground="{DynamicResource TextPrimaryBrush}"/>
+
+                                    <Border
+                                        Grid.Column="2"
+                                        Margin="0,0,10,0"
+                                        Padding="10,5"
+                                        VerticalAlignment="Center"
+                                        Background="{DynamicResource TextDisabledBrush}"
+                                        CornerRadius="3">
+                                        <TextBlock
+                                            FontSize="{DynamicResource FontSizeSmall}"
+                                            FontWeight="{StaticResource FontWeightBold}"
+                                            Foreground="{DynamicResource TextPrimaryBrush}"
+                                            Text="未准备" />
                                     </Border>
-                                    
-                                    <TextBlock Grid.Column="3"
-                                              Text="🛡️"
-                                              FontSize="{StaticResource FontSizeLarge}"
-                                              VerticalAlignment="Center"/>
+
+                                    <TextBlock
+                                        Grid.Column="3"
+                                        VerticalAlignment="Center"
+                                        FontSize="{StaticResource FontSizeLarge}"
+                                        Text="🛡️" />
                                 </Grid>
                             </Border>
-                            
-                            <!-- 空位 -->
-                            <Border Background="{DynamicResource BackgroundDarkBrush}"
-                                   BorderBrush="{DynamicResource BorderDarkBrush}"
-                                   BorderThickness="1"
-                                   Padding="15"
-                                   Margin="0,0,0,10">
+
+                            <!--  空位  -->
+                            <Border
+                                Margin="0,0,0,10"
+                                Padding="15"
+                                Background="{DynamicResource BackgroundDarkBrush}"
+                                BorderBrush="{DynamicResource BorderDarkBrush}"
+                                BorderThickness="1">
+
                                 <Grid>
-                                    <TextBlock Text="+ 邀请好友"
-                                              FontSize="{StaticResource FontSizeNormal}"
-                                              Foreground="{DynamicResource TextSecondaryBrush}"
-                                              HorizontalAlignment="Center"
-                                              VerticalAlignment="Center"/>
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="{StaticResource FontSizeNormal}"
+                                        Foreground="{DynamicResource TextSecondaryBrush}"
+                                        Text="+ 邀请好友" />
                                 </Grid>
                             </Border>
-                            
-                            <!-- 空位 -->
-                            <Border Background="{DynamicResource BackgroundDarkBrush}"
-                                   BorderBrush="{DynamicResource BorderDarkBrush}"
-                                   BorderThickness="1"
-                                   Padding="15">
+
+                            <!--  空位  -->
+                            <Border
+                                Padding="15"
+                                Background="{DynamicResource BackgroundDarkBrush}"
+                                BorderBrush="{DynamicResource BorderDarkBrush}"
+                                BorderThickness="1">
+
                                 <Grid>
-                                    <TextBlock Text="+ 邀请好友"
-                                              FontSize="{StaticResource FontSizeNormal}"
-                                              Foreground="{DynamicResource TextSecondaryBrush}"
-                                              HorizontalAlignment="Center"
-                                              VerticalAlignment="Center"/>
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="{StaticResource FontSizeNormal}"
+                                        Foreground="{DynamicResource TextSecondaryBrush}"
+                                        Text="+ 邀请好友" />
                                 </Grid>
                             </Border>
                         </StackPanel>
-                        
-                        <!-- 右侧：游戏设置 -->
-                        <Border Grid.Column="1"
-                               Background="{DynamicResource BackgroundLightBrush}"
-                               BorderBrush="{DynamicResource BorderGoldBrush}"
-                               BorderThickness="2"
-                               Padding="20"
-                               Margin="15,0,0,0">
+
+                        <!--  右侧：游戏设置  -->
+                        <Border
+                            Grid.Column="1"
+                            Margin="15,0,0,0"
+                            Padding="20"
+                            Background="{DynamicResource BackgroundLightBrush}"
+                            BorderBrush="{DynamicResource BorderGoldBrush}"
+                            BorderThickness="2">
                             <StackPanel>
-                                <TextBlock Text="游戏设置"
-                                          FontSize="{StaticResource FontSizeMedium}"
-                                          FontWeight="{StaticResource FontWeightBold}"
-                                          Foreground="{DynamicResource PrimaryGoldBrush}"
-                                          Margin="0,0,0,20"/>
-                                
-                                <!-- 地图选择 -->
-                                <TextBlock Text="地图"
-                                          FontSize="{StaticResource FontSizeNormal}"
-                                          Foreground="{DynamicResource TextSecondaryBrush}"
-                                          Margin="0,0,0,10"/>
+                                <TextBlock
+                                    Margin="0,0,0,20"
+                                    FontSize="{StaticResource FontSizeMedium}"
+                                    FontWeight="{StaticResource FontWeightBold}"
+                                    Foreground="{DynamicResource PrimaryGoldBrush}"
+                                    Text="游戏设置" />
+
+                                <!--  地图选择  -->
+                                <TextBlock
+                                    Margin="0,0,0,10"
+                                    FontSize="{StaticResource FontSizeNormal}"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Text="地图" />
                                 <ComboBox
-                                         Height="35"
-                                         Margin="0,0,0,20">
-                                    <ComboBoxItem Content="召唤师峡谷" IsSelected="True"/>
-                                    <ComboBoxItem Content="扭曲丛林"/>
-                                    <ComboBoxItem Content="嚎哭深渊"/>
+                                    Height="35"
+                                    Margin="0,0,0,20"
+                                    Style="{StaticResource LOLComboBoxStyle}">
+                                    <ComboBoxItem Content="召唤师峡谷" IsSelected="True" />
+                                    <ComboBoxItem Content="扭曲丛林" />
+                                    <ComboBoxItem Content="嚎哭深渊" />
                                 </ComboBox>
-                                
-                                <!-- 队伍规模 -->
-                                <TextBlock Text="队伍规模"
-                                          FontSize="{StaticResource FontSizeNormal}"
-                                          Foreground="{DynamicResource TextSecondaryBrush}"
-                                          Margin="0,0,0,10"/>
+
+                                <!--  队伍规模  -->
+                                <TextBlock
+                                    Margin="0,0,0,10"
+                                    FontSize="{StaticResource FontSizeNormal}"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Text="队伍规模" />
                                 <ComboBox
-                                         Height="35"
-                                         Margin="0,0,0,20">
-                                    <ComboBoxItem Content="5v5" IsSelected="True"/>
-                                    <ComboBoxItem Content="3v3"/>
-                                    <ComboBoxItem Content="1v1"/>
+                                    Height="35"
+                                    Margin="0,0,0,20"
+                                    Style="{StaticResource LOLComboBoxStyle}">
+                                    <ComboBoxItem Content="5v5" IsSelected="True" />
+                                    <ComboBoxItem Content="3v3" />
+                                    <ComboBoxItem Content="1v1" />
                                 </ComboBox>
-                                
-                                <!-- 游戏模式 -->
-                                <TextBlock Text="游戏模式"
-                                          FontSize="{StaticResource FontSizeNormal}"
-                                          Foreground="{DynamicResource TextSecondaryBrush}"
-                                          Margin="0,0,0,10"/>
+
+                                <!--  游戏模式  -->
+                                <TextBlock
+                                    Margin="0,0,0,10"
+                                    FontSize="{StaticResource FontSizeNormal}"
+                                    Foreground="{DynamicResource TextSecondaryBrush}"
+                                    Text="游戏模式" />
                                 <ComboBox
-                                         Height="35"
-                                         Margin="0,0,0,20">
-                                    <ComboBoxItem Content="匹配模式" IsSelected="True"/>
-                                    <ComboBoxItem Content="自定义"/>
-                                    <ComboBoxItem Content="训练模式"/>
+                                    Height="35"
+                                    Margin="0,0,0,20"
+                                    Style="{StaticResource LOLComboBoxStyle}">
+                                    <ComboBoxItem Content="匹配模式" IsSelected="True" />
+                                    <ComboBoxItem Content="自定义" />
+                                    <ComboBoxItem Content="训练模式" />
                                 </ComboBox>
-                                
-                                <!-- 选项 -->
-                                <CheckBox Content="允许观战"
-                                        
-                                         IsChecked="True"
-                                         Margin="0,0,0,10"/>
-                                <CheckBox Content="锁定队伍"
-                                        
-                                         Margin="0,0,0,10"/>
+
+                                <!--  选项  -->
+                                <CheckBox
+                                    Margin="0,0,0,10"
+                                    Content="允许观战"
+                                    IsChecked="True"
+                                    Style="{StaticResource LOLCheckBoxStyle}" />
+                                <CheckBox
+                                    Margin="0,0,0,10"
+                                    Content="锁定队伍"
+                                    Style="{StaticResource LOLCheckBoxStyle}" />
                             </StackPanel>
                         </Border>
                     </Grid>
                 </Border>
-                
-                <!-- 下半部分：聊天区域 -->
-                <Border Grid.Row="1"
-                       Background="{DynamicResource BackgroundMediumBrush}"
-                       BorderBrush="{DynamicResource BorderDarkBrush}"
-                       BorderThickness="1"
-                       Padding="20">
+
+                <!--  下半部分：聊天区域  -->
+                <Border
+                    Grid.Row="1"
+                    Padding="20"
+                    Background="{DynamicResource BackgroundMediumBrush}"
+                    BorderBrush="{DynamicResource BorderDarkBrush}"
+                    BorderThickness="1">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        
-                        <TextBlock Grid.Row="0"
-                                  Text="队伍聊天"
-                                  FontSize="{StaticResource FontSizeMedium}"
-                                  FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{DynamicResource PrimaryGoldBrush}"
-                                  Margin="0,0,0,10"/>
-                        
-                        <ScrollViewer Grid.Row="1"
-                                     VerticalScrollBarVisibility="Auto"
-                                     Margin="0,0,0,10">
+
+                        <TextBlock
+                            Grid.Row="0"
+                            Margin="0,0,0,10"
+                            FontSize="{StaticResource FontSizeMedium}"
+                            FontWeight="{StaticResource FontWeightBold}"
+                            Foreground="{DynamicResource PrimaryGoldBrush}"
+                            Text="队伍聊天" />
+
+                        <ScrollViewer
+                            Grid.Row="1"
+                            Margin="0,0,0,10"
+                            VerticalScrollBarVisibility="Auto">
                             <StackPanel>
-                                <!-- 聊天消息 1 -->
-                                <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                                    <TextBlock Text="[召唤师名称]: "
-                                              FontSize="{DynamicResource FontSizeSmall}"
-                                              FontWeight="{StaticResource FontWeightBold}"
-                                              Foreground="{DynamicResource PrimaryGoldBrush}"/>
-                                    <TextBlock Text="大家好！准备开始了吗？"
-                                              FontSize="{DynamicResource FontSizeSmall}"
-                                              Foreground="{DynamicResource TextPrimaryBrush}"/>
+                                <!--  聊天消息 1  -->
+                                <StackPanel
+                                    Margin="0,0,0,8"
+                                    Opacity="0"
+                                    Orientation="Horizontal">
+                                    <StackPanel.Triggers>
+                                        <EventTrigger RoutedEvent="Loaded">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation
+                                                        BeginTime="0:0:0.2"
+                                                        Storyboard.TargetProperty="Opacity"
+                                                        From="0"
+                                                        To="1"
+                                                        Duration="0:0:0.5" />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </StackPanel.Triggers>
+                                    <TextBlock
+                                        FontSize="{DynamicResource FontSizeSmall}"
+                                        FontWeight="{StaticResource FontWeightBold}"
+                                        Foreground="{DynamicResource PrimaryGoldBrush}"
+                                        Text="[召唤师名称]: " />
+                                    <TextBlock
+                                        FontSize="{DynamicResource FontSizeSmall}"
+                                        Foreground="{DynamicResource TextPrimaryBrush}"
+                                        Text="大家好！准备开始了吗？" />
                                 </StackPanel>
-                                
-                                <!-- 聊天消息 2 -->
-                                <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                                    <TextBlock Text="[队友A]: "
-                                              FontSize="{DynamicResource FontSizeSmall}"
-                                              FontWeight="{StaticResource FontWeightBold}"
-                                              Foreground="{DynamicResource PrimaryCyanBrush}"/>
-                                    <TextBlock Text="准备好了！"
-                                              FontSize="{DynamicResource FontSizeSmall}"
-                                              Foreground="{DynamicResource TextPrimaryBrush}"/>
+
+                                <!--  聊天消息 2  -->
+                                <StackPanel
+                                    Margin="0,0,0,8"
+                                    Opacity="0"
+                                    Orientation="Horizontal">
+                                    <StackPanel.Triggers>
+                                        <EventTrigger RoutedEvent="Loaded">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation
+                                                        BeginTime="0:0:0.8"
+                                                        Storyboard.TargetProperty="Opacity"
+                                                        From="0"
+                                                        To="1"
+                                                        Duration="0:0:0.5" />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </StackPanel.Triggers>
+                                    <TextBlock
+                                        FontSize="{DynamicResource FontSizeSmall}"
+                                        FontWeight="{StaticResource FontWeightBold}"
+                                        Foreground="{DynamicResource PrimaryCyanBrush}"
+                                        Text="[队友A]: " />
+                                    <TextBlock
+                                        FontSize="{DynamicResource FontSizeSmall}"
+                                        Foreground="{DynamicResource TextPrimaryBrush}"
+                                        Text="准备好了！" />
                                 </StackPanel>
-                                
-                                <!-- 聊天消息 3 -->
-                                <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                                    <TextBlock Text="[队友B]: "
-                                              FontSize="{DynamicResource FontSizeSmall}"
-                                              FontWeight="{StaticResource FontWeightBold}"
-                                              Foreground="{DynamicResource PrimaryCyanBrush}"/>
-                                    <TextBlock Text="等我一下，马上就好"
-                                              FontSize="{DynamicResource FontSizeSmall}"
-                                              Foreground="{DynamicResource TextPrimaryBrush}"/>
+
+                                <!--  聊天消息 3  -->
+                                <StackPanel
+                                    Margin="0,0,0,8"
+                                    Opacity="0"
+                                    Orientation="Horizontal">
+                                    <StackPanel.Triggers>
+                                        <EventTrigger RoutedEvent="Loaded">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation
+                                                        BeginTime="0:0:1.4"
+                                                        Storyboard.TargetProperty="Opacity"
+                                                        From="0"
+                                                        To="1"
+                                                        Duration="0:0:0.5" />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </StackPanel.Triggers>
+                                    <TextBlock
+                                        FontSize="{DynamicResource FontSizeSmall}"
+                                        FontWeight="{StaticResource FontWeightBold}"
+                                        Foreground="{DynamicResource PrimaryCyanBrush}"
+                                        Text="[队友B]: " />
+                                    <TextBlock
+                                        FontSize="{DynamicResource FontSizeSmall}"
+                                        Foreground="{DynamicResource TextPrimaryBrush}"
+                                        Text="等我一下，马上就好" />
                                 </StackPanel>
-                                
-                                <!-- 系统消息 -->
-                                <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                                    <TextBlock Text="[系统]: "
-                                              FontSize="{DynamicResource FontSizeSmall}"
-                                              FontWeight="{StaticResource FontWeightBold}"
-                                              Foreground="{DynamicResource TextSecondaryBrush}"/>
-                                    <TextBlock Text="等待所有玩家准备就绪..."
-                                              FontSize="{DynamicResource FontSizeSmall}"
-                                              Foreground="{DynamicResource TextSecondaryBrush}"
-                                              FontStyle="Italic"/>
+
+                                <!--  系统消息  -->
+                                <StackPanel
+                                    Margin="0,0,0,8"
+                                    Opacity="0"
+                                    Orientation="Horizontal">
+                                    <StackPanel.Triggers>
+                                        <EventTrigger RoutedEvent="Loaded">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation
+                                                        BeginTime="0:0:2.0"
+                                                        Storyboard.TargetProperty="Opacity"
+                                                        From="0"
+                                                        To="1"
+                                                        Duration="0:0:0.5" />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </StackPanel.Triggers>
+                                    <TextBlock
+                                        FontSize="{DynamicResource FontSizeSmall}"
+                                        FontWeight="{StaticResource FontWeightBold}"
+                                        Foreground="{DynamicResource TextSecondaryBrush}"
+                                        Text="[系统]: " />
+                                    <TextBlock
+                                        FontSize="{DynamicResource FontSizeSmall}"
+                                        FontStyle="Italic"
+                                        Foreground="{DynamicResource TextSecondaryBrush}"
+                                        Text="等待所有玩家准备就绪..." />
                                 </StackPanel>
                             </StackPanel>
                         </ScrollViewer>
-                        
+
                         <Grid Grid.Row="2">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            
-                            <TextBox Grid.Column="0"
-                                   
-                                    Tag="输入消息..."
-                                    Height="35"
-                                    Margin="0,0,10,0"/>
-                            
-                            <Button Grid.Column="1"
-                                   Content="发送"
-                                   Style="{StaticResource LOLPrimaryButtonStyle}"
-                                   Width="80" Height="35"/>
+
+                            <TextBox
+                                Grid.Column="0"
+                                Height="35"
+                                Margin="0,0,10,0"
+                                Style="{StaticResource LOLTextBoxStyle}"
+                                Tag="输入消息..." />
+
+                            <Button
+                                Grid.Column="1"
+                                Width="80"
+                                Height="35"
+                                Content="发送"
+                                Style="{StaticResource LOLPrimaryButtonStyle}" />
                         </Grid>
                     </Grid>
                 </Border>
             </Grid>
-            
-            <!-- 底部操作栏 -->
-            <Border Grid.Row="2"
-                   Background="{DynamicResource BackgroundMediumBrush}"
-                   BorderBrush="{DynamicResource BorderGoldBrush}"
-                   BorderThickness="0,2,0,0"
-                   Padding="20,10">
+
+            <!--  底部操作栏  -->
+            <Border
+                Grid.Row="2"
+                Padding="20,10"
+                Background="{DynamicResource BackgroundMediumBrush}"
+                BorderBrush="{DynamicResource BorderGoldBrush}"
+                BorderThickness="0,2,0,0">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    
-                    <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
-                        <TextBlock Text="预计等待时间: "
-                                  FontSize="{StaticResource FontSizeNormal}"
-                                  Foreground="{DynamicResource TextSecondaryBrush}"/>
-                        <TextBlock Text="2:30"
-                                  FontSize="{StaticResource FontSizeNormal}"
-                                  FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{DynamicResource PrimaryCyanBrush}"
-                                  Margin="5,0,20,0"/>
-                        
-                        <TextBlock Text="在线玩家: "
-                                  FontSize="{StaticResource FontSizeNormal}"
-                                  Foreground="{DynamicResource TextSecondaryBrush}"/>
-                        <TextBlock Text="1,234,567"
-                                  FontSize="{StaticResource FontSizeNormal}"
-                                  FontWeight="{StaticResource FontWeightBold}"
-                                  Foreground="{DynamicResource SuccessGreenBrush}"/>
+
+                    <StackPanel
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <TextBlock
+                            FontSize="{StaticResource FontSizeNormal}"
+                            Foreground="{DynamicResource TextSecondaryBrush}"
+                            Text="预计等待时间: " />
+                        <TextBlock
+                            Margin="5,0,20,0"
+                            FontSize="{StaticResource FontSizeNormal}"
+                            FontWeight="{StaticResource FontWeightBold}"
+                            Foreground="{DynamicResource PrimaryCyanBrush}"
+                            Text="2:30" />
+
+                        <TextBlock
+                            FontSize="{StaticResource FontSizeNormal}"
+                            Foreground="{DynamicResource TextSecondaryBrush}"
+                            Text="在线玩家: " />
+                        <TextBlock
+                            FontSize="{StaticResource FontSizeNormal}"
+                            FontWeight="{StaticResource FontWeightBold}"
+                            Foreground="{DynamicResource SuccessGreenBrush}"
+                            Text="1,234,567" />
                     </StackPanel>
-                    
+
                     <StackPanel Grid.Column="1" Orientation="Horizontal">
-                        <Button Content="离开队伍"
-                               Style="{StaticResource LOLSecondaryButtonStyle}"
-                               Width="120" Height="40"
-                               Margin="0,0,10,0"/>
-                        <controls:GlowButton Content="开始游戏"
-                                           GlowColor="{DynamicResource PrimaryGold}"
-                                           Width="150" Height="40"
-                                           FontSize="{StaticResource FontSizeMedium}"
-                                           FontWeight="{StaticResource FontWeightBold}"/>
+                        <Button
+                            Width="120"
+                            Height="40"
+                            Margin="0,0,10,0"
+                            Content="离开队伍"
+                            Style="{StaticResource LOLSecondaryButtonStyle}" />
+                        <controls:GlowButton
+                            Width="150"
+                            Height="40"
+                            Content="开始游戏"
+                            FontSize="{StaticResource FontSizeMedium}"
+                            FontWeight="{StaticResource FontWeightBold}"
+                            GlowColor="{DynamicResource PrimaryGold}" />
                     </StackPanel>
                 </Grid>
             </Border>

@@ -1,63 +1,29 @@
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using LOLThemes.Wpf.Helpers;
+using LOLThemes.Wpf.Samples.Models;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
-using LOLThemes.Wpf.Helpers;
-using LOLThemes.Wpf.Samples.ViewModels;
 
 namespace LOLThemes.Wpf.Samples.ViewModels
 {
-    /// <summary>
-    /// 主窗口视图模型
-    /// </summary>
-    public class MainViewModel : INotifyPropertyChanged
+
+    public partial class MainViewModel : ObservableObject
     {
-        private string _currentView = "ControlShowcaseView";
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(ThemeIcon))]
+        [NotifyPropertyChangedFor(nameof(ThemeToolTip))]
         private Theme _currentTheme;
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(SizeIcon))]
+        [NotifyPropertyChangedFor(nameof(SizeToolTip))]
         private SizeTheme _currentSizeTheme;
-
-        public string CurrentView
-        {
-            get => _currentView;
-            set
-            {
-                if (_currentView != value)
-                {
-                    _currentView = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        public Theme CurrentTheme
-        {
-            get => _currentTheme;
-            private set
-            {
-                if (_currentTheme != value)
-                {
-                    _currentTheme = value;
-                    OnPropertyChanged();
-                    OnPropertyChanged(nameof(ThemeIcon));
-                    OnPropertyChanged(nameof(ThemeToolTip));
-                }
-            }
-        }
-
-        public SizeTheme CurrentSizeTheme
-        {
-            get => _currentSizeTheme;
-            private set
-            {
-                if (_currentSizeTheme != value)
-                {
-                    _currentSizeTheme = value;
-                    OnPropertyChanged();
-                    OnPropertyChanged(nameof(SizeIcon));
-                    OnPropertyChanged(nameof(SizeToolTip));
-                }
-            }
-        }
 
         /// <summary>
         /// 主题图标（Material.Icons 图标类型）
@@ -121,105 +87,50 @@ namespace LOLThemes.Wpf.Samples.ViewModels
                 // 控件展示节点，包含所有控件分类
                 new NavigationItem
                 {
-                    Name = "控件展示",
+                    Name = "基础控件",
                     Icon = "🎨",
                     IsExpanded = true,
                     Children = new ObservableCollection<NavigationItem>
                     {
-                        // 将ControlItems的子项转换为NavigationItems
-                        new NavigationItem
-                        {
-                            Name = "基础控件",
-                            Icon = "🎛️",
-                            IsExpanded = true,
-                            Children = new ObservableCollection<NavigationItem>
-                            {
-                                new NavigationItem
-                                {
-                                    Name = "基础输入控件",
-                                    Icon = "⌨️",
-                                    IsExpanded = true,
-                                    Children = new ObservableCollection<NavigationItem>
-                                    {
-                                        new NavigationItem { Name = "按钮", ViewName = "ButtonShowcaseView", Icon = "🔘" },
-                                        new NavigationItem { Name = "文本框", ViewName = "TextBoxShowcaseView", Icon = "📝" },
-                                        new NavigationItem { Name = "密码框", ViewName = "PasswordBoxShowcaseView", Icon = "🔒" }
-                                    }
-                                },
-                                new NavigationItem
-                                {
-                                    Name = "选择控件",
-                                    Icon = "📋",
-                                    IsExpanded = true,
-                                    Children = new ObservableCollection<NavigationItem>
-                                    {
-                                        new NavigationItem { Name = "下拉框", ViewName = "ComboBoxShowcaseView", Icon = "📋" },
-                                        new NavigationItem { Name = "复选框", ViewName = "CheckBoxShowcaseView", Icon = "☑️" },
-                                        new NavigationItem { Name = "单选按钮", ViewName = "RadioButtonShowcaseView", Icon = "🔘" },
-                                        new NavigationItem { Name = "切换按钮", ViewName = "ToggleButtonShowcaseView", Icon = "🔄" },
-                                        new NavigationItem { Name = "滑块", ViewName = "SliderShowcaseView", Icon = "🎚️" },
-                                        new NavigationItem { Name = "日历", ViewName = "CalendarShowcaseView", Icon = "📅" },
-                                        new NavigationItem { Name = "日期选择器", ViewName = "DatePickerShowcaseView", Icon = "📆" }
-                                    }
-                                },
-                                new NavigationItem
-                                {
-                                    Name = "列表控件",
-                                    Icon = "📜",
-                                    IsExpanded = true,
-                                    Children = new ObservableCollection<NavigationItem>
-                                    {
-                                        new NavigationItem { Name = "列表框", ViewName = "ListBoxShowcaseView", Icon = "📜" },
-                                        new NavigationItem { Name = "列表视图", ViewName = "ListViewShowcaseView", Icon = "📋" },
-                                        new NavigationItem { Name = "树形视图", ViewName = "TreeViewShowcaseView", Icon = "🌳" },
-                                        new NavigationItem { Name = "数据网格", ViewName = "DataGridShowcaseView", Icon = "📊" },
-                                        new NavigationItem { Name = "富文本框", ViewName = "RichTextBoxShowcaseView", Icon = "📄" }
-                                    }
-                                },
-                                new NavigationItem
-                                {
-                                    Name = "容器控件",
-                                    Icon = "📦",
-                                    IsExpanded = true,
-                                    Children = new ObservableCollection<NavigationItem>
-                                    {
-                                        new NavigationItem { Name = "标签页", ViewName = "TabControlShowcaseView", Icon = "📑" },
-                                        new NavigationItem { Name = "分组框", ViewName = "GroupBoxShowcaseView", Icon = "📦" },
-                                        new NavigationItem { Name = "展开器", ViewName = "ExpanderShowcaseView", Icon = "📂" }
-                                    }
-                                },
-                                new NavigationItem
-                                {
-                                    Name = "特殊控件",
-                                    Icon = "✨",
-                                    IsExpanded = true,
-                                    Children = new ObservableCollection<NavigationItem>
-                                    {
-                                        new NavigationItem { Name = "菜单", ViewName = "MenuShowcaseView", Icon = "☰" },
-                                        new NavigationItem { Name = "提示框", ViewName = "ToolTipShowcaseView", Icon = "💡" },
-                                        new NavigationItem { Name = "状态栏", ViewName = "StatusBarShowcaseView", Icon = "📊" },
-                                        new NavigationItem { Name = "上下文菜单", ViewName = "ContextMenuShowcaseView", Icon = "☰" }
-                                    }
-                                },
-                                new NavigationItem
-                                {
-                                    Name = "游戏控件",
-                                    Icon = "🎮",
-                                    IsExpanded = true,
-                                    Children = new ObservableCollection<NavigationItem>
-                                    {
-                                        new NavigationItem { Name = "发光按钮", ViewName = "GlowButtonShowcaseView", Icon = "✨" },
-                                        new NavigationItem { Name = "六边形按钮", ViewName = "HexagonButtonShowcaseView", Icon = "⬡" },
-                                        new NavigationItem { Name = "技能按钮", ViewName = "SkillButtonShowcaseView", Icon = "⚔️" },
-                                        new NavigationItem { Name = "英雄卡片", ViewName = "ChampionCardShowcaseView", Icon = "🃏" },
-                                        new NavigationItem { Name = "段位徽章", ViewName = "RankBadgeShowcaseView", Icon = "🏆" },
-                                        new NavigationItem { Name = "货币显示", ViewName = "CurrencyDisplayShowcaseView", Icon = "💰" },
-                                        new NavigationItem { Name = "属性条", ViewName = "StatBarShowcaseView", Icon = "📊" },
-                                        new NavigationItem { Name = "进度条", ViewName = "ProgressBarShowcaseView", Icon = "📊" }
-                                    }
-                                }
-                            }
-                        }
+                        new NavigationItem { Name = "按钮", ViewName = "ButtonShowcaseView", Icon = "🔘" },
+                        new NavigationItem { Name = "文本框", ViewName = "TextBoxShowcaseView", Icon = "📝" },
+                        new NavigationItem { Name = "密码框", ViewName = "PasswordBoxShowcaseView", Icon = "🔒" },
+                        new NavigationItem { Name = "下拉框", ViewName = "ComboBoxShowcaseView", Icon = "📋" },
+                        new NavigationItem { Name = "复选框", ViewName = "CheckBoxShowcaseView", Icon = "☑️" },
+                        new NavigationItem { Name = "单选按钮", ViewName = "RadioButtonShowcaseView", Icon = "🔘" },
+                        new NavigationItem { Name = "切换按钮", ViewName = "ToggleButtonShowcaseView", Icon = "🔄" },
+                        new NavigationItem { Name = "滑块", ViewName = "SliderShowcaseView", Icon = "🎚️" },
+                        new NavigationItem { Name = "日历", ViewName = "CalendarShowcaseView", Icon = "📅" },
+                        new NavigationItem { Name = "日期选择器", ViewName = "DatePickerShowcaseView", Icon = "📆" },
+                        new NavigationItem { Name = "列表框", ViewName = "ListBoxShowcaseView", Icon = "📜" },
+                        new NavigationItem { Name = "列表视图", ViewName = "ListViewShowcaseView", Icon = "📋" },
+                        new NavigationItem { Name = "树形视图", ViewName = "TreeViewShowcaseView", Icon = "🌳" },
+                        new NavigationItem { Name = "数据网格", ViewName = "DataGridShowcaseView", Icon = "📊" },
+                        new NavigationItem { Name = "富文本框", ViewName = "RichTextBoxShowcaseView", Icon = "📄" },
+                        new NavigationItem { Name = "标签页", ViewName = "TabControlShowcaseView", Icon = "📑" },
+                        new NavigationItem { Name = "分组框", ViewName = "GroupBoxShowcaseView", Icon = "📦" },
+                        new NavigationItem { Name = "展开器", ViewName = "ExpanderShowcaseView", Icon = "📂" },
+                            new NavigationItem { Name = "菜单", ViewName = "MenuShowcaseView", Icon = "☰" },
+                        new NavigationItem { Name = "提示框", ViewName = "ToolTipShowcaseView", Icon = "💡" },
+                        new NavigationItem { Name = "状态栏", ViewName = "StatusBarShowcaseView", Icon = "📊" },
+                        new NavigationItem { Name = "上下文菜单", ViewName = "ContextMenuShowcaseView", Icon = "☰" },
+                    }
+                },
+                new NavigationItem
+                {
+                    Name = "自定义控件",
+                    Icon = "🎨",
+                    IsExpanded = true,
+                    Children = new ObservableCollection<NavigationItem>
+                    {
+                        new NavigationItem { Name = "发光按钮", ViewName = "GlowButtonShowcaseView", Icon = "✨" },
+                        new NavigationItem { Name = "六边形按钮", ViewName = "HexagonButtonShowcaseView", Icon = "⬡" },
+                        new NavigationItem { Name = "技能按钮", ViewName = "SkillButtonShowcaseView", Icon = "⚔️" },
+                        new NavigationItem { Name = "英雄卡片", ViewName = "ChampionCardShowcaseView", Icon = "🃏" },
+                        new NavigationItem { Name = "段位徽章", ViewName = "RankBadgeShowcaseView", Icon = "🏆" },
+                        new NavigationItem { Name = "货币显示", ViewName = "CurrencyDisplayShowcaseView", Icon = "💰" },
+                        new NavigationItem { Name = "属性条", ViewName = "StatBarShowcaseView", Icon = "📊" },
+                        new NavigationItem { Name = "进度条", ViewName = "ProgressBarShowcaseView", Icon = "📊" },
                     }
                 },
                 new NavigationItem
@@ -239,24 +150,17 @@ namespace LOLThemes.Wpf.Samples.ViewModels
                 }
             };
 
-            NavigateCommand = new RelayCommand<string>(Navigate);
             ToggleThemeCommand = new RelayCommand(ToggleTheme);
             ToggleSizeCommand = new RelayCommand(ToggleSize);
         }
 
-        private void Navigate(string? viewName)
-        {
-            if (!string.IsNullOrEmpty(viewName))
-            {
-                CurrentView = viewName;
-            }
-        }
+
 
         private void ToggleTheme()
         {
             try
             {
-                var newTheme =  Theme.Dark ;
+                var newTheme = Theme.Dark;
                 ThemeManager.SwitchTheme(newTheme);
             }
             catch (System.Exception ex)
@@ -292,24 +196,29 @@ namespace LOLThemes.Wpf.Samples.ViewModels
             }
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(CurrentView))]
+        private NavigationItem? _selectedItem;
 
-        protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+        public object? CurrentView
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-    }
+            get
+            {
+                if (SelectedItem == null) return null;
 
-    /// <summary>
-    /// 导航项数据模型
-    /// </summary>
-    public class NavigationItem
-    {
-        public string Name { get; set; } = string.Empty;
-        public string ViewName { get; set; } = string.Empty;
-        public string Icon { get; set; } = string.Empty;
-        public ObservableCollection<NavigationItem> Children { get; set; } = new ObservableCollection<NavigationItem>();
-        public bool IsGroup => !string.IsNullOrEmpty(Name) && string.IsNullOrEmpty(ViewName);
-        public bool IsExpanded { get; set; } = true;
+                var view = $"LOLThemes.Wpf.Samples.Views.{SelectedItem.ViewName}";
+                try
+                {
+                    var obj = Activator.CreateInstance("LOLThemes.Wpf.Samples", view);
+                    return obj?.Unwrap();
+                }
+                catch
+                {
+                    return null;
+                }
+
+            }
+        }
+
     }
 }

@@ -1,72 +1,83 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
-    <!-- 合并基础资源，确保可以访问 Fonts -->
-    <!-- 注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  合并基础资源，确保可以访问 Fonts  -->
+    <!--  注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用  -->
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <!-- 水平 Separator 样式 -->
+    <!--  水平 Separator 样式  -->
     <Style x:Key="LOLSeparatorStyle" TargetType="Separator">
-        <Setter Property="Background" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="Margin" Value="0,4"/>
-        <Setter Property="Focusable" Value="False"/>
-        <Setter Property="Height" Value="1"/>
-        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Background" Value="{DynamicResource BorderDarkBrush}" />
+        <Setter Property="Margin" Value="0,4" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Height" Value="1" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Separator">
-                    <Border Background="{TemplateBinding Background}"
-                           BorderBrush="{TemplateBinding BorderBrush}"
-                           BorderThickness="{TemplateBinding BorderThickness}"
-                           Height="{TemplateBinding Height}"
-                           SnapsToDevicePixels="True"/>
+                    <Border
+                        Height="{TemplateBinding Height}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="True" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!-- 垂直 Separator 样式 -->
-    <Style x:Key="VerticalSeparator" TargetType="Separator" BasedOn="{StaticResource LOLSeparatorStyle}">
-        <Setter Property="Margin" Value="4,0"/>
-        <Setter Property="Width" Value="1"/>
-        <Setter Property="Height" Value="Auto"/>
-        <Setter Property="VerticalAlignment" Value="Stretch"/>
+    <!--  垂直 Separator 样式  -->
+    <Style
+        x:Key="VerticalSeparator"
+        BasedOn="{StaticResource LOLSeparatorStyle}"
+        TargetType="Separator">
+        <Setter Property="Margin" Value="4,0" />
+        <Setter Property="Width" Value="1" />
+        <Setter Property="Height" Value="Auto" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Separator">
-                    <Border Background="{TemplateBinding Background}"
-                           BorderBrush="{TemplateBinding BorderBrush}"
-                           BorderThickness="{TemplateBinding BorderThickness}"
-                           Width="{TemplateBinding Width}"
-                           SnapsToDevicePixels="True"/>
+                    <Border
+                        Width="{TemplateBinding Width}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="True" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!-- 金色 Separator 样式 -->
-    <Style x:Key="GoldSeparator" TargetType="Separator" BasedOn="{StaticResource LOLSeparatorStyle}">
-        <Setter Property="Background" Value="{DynamicResource BorderGoldBrush}"/>
+    <!--  金色 Separator 样式  -->
+    <Style
+        x:Key="GoldSeparator"
+        BasedOn="{StaticResource LOLSeparatorStyle}"
+        TargetType="Separator">
+        <Setter Property="Background" Value="{DynamicResource BorderGoldBrush}" />
     </Style>
 
-    <!-- �Separator 样式 -->
-    <Style x:Key="ThickSeparator" TargetType="Separator" BasedOn="{StaticResource LOLSeparatorStyle}">
+    <!--  �Separator 样式  -->
+    <Style
+        x:Key="ThickSeparator"
+        BasedOn="{StaticResource LOLSeparatorStyle}"
+        TargetType="Separator">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Separator">
-                    <Border Background="{TemplateBinding Background}"
-                           BorderBrush="{TemplateBinding BorderBrush}"
-                           BorderThickness="{TemplateBinding BorderThickness}"
-                           Height="2"
-                           SnapsToDevicePixels="True"/>
+                    <Border
+                        Height="2"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="True" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!-- 设置为默认样�-->
-    <Style TargetType="Separator" BasedOn="{StaticResource LOLSeparatorStyle}"/>
+    <!--  设置为默认样�  -->
+    <Style BasedOn="{StaticResource LOLSeparatorStyle}" TargetType="Separator" />
 
 </ResourceDictionary>

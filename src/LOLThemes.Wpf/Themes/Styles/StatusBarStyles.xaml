@@ -1,101 +1,107 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
-    <!-- 合并基础资源，确保可以访问 Fonts -->
-    <!-- 注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  合并基础资源，确保可以访问 Fonts  -->
+    <!--  注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用  -->
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <!-- StatusBarItem Style -->
+    <!--  StatusBarItem Style  -->
     <Style x:Key="LOLStatusBarItemStyle" TargetType="{x:Type StatusBarItem}">
-        <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}"/>
-        <Setter Property="Padding" Value="8,4"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
-        <Setter Property="TextOptions.TextRenderingMode" Value="ClearType"/>
-        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
+        <Setter Property="Padding" Value="8,4" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
+        <Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type StatusBarItem}">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            Padding="{TemplateBinding Padding}"
-                            SnapsToDevicePixels="True">
-                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                        TextOptions.TextFormattingMode="Display"
-                                        TextOptions.TextRenderingMode="ClearType"
-                                        RenderOptions.ClearTypeHint="Enabled"
-                                        SnapsToDevicePixels="True"/>
+                    <Border
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="True">
+                        <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            RenderOptions.ClearTypeHint="Enabled"
+                            SnapsToDevicePixels="True"
+                            TextOptions.TextFormattingMode="Display"
+                            TextOptions.TextRenderingMode="ClearType" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!-- StatusBar Style -->
+    <!--  StatusBar Style  -->
     <Style x:Key="LOLStatusBarStyle" TargetType="{x:Type StatusBar}">
-        <Setter Property="Background" Value="{DynamicResource BackgroundSecondaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="{DynamicResource StatusBarTopBorderThickness}"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}"/>
-        <Setter Property="Height" Value="28"/>
-        <Setter Property="ItemContainerStyle" Value="{StaticResource LOLStatusBarItemStyle}"/>
-        <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
-        <Setter Property="TextOptions.TextRenderingMode" Value="ClearType"/>
-        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundSecondaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource StatusBarTopBorderThickness}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
+        <Setter Property="Height" Value="28" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource LOLStatusBarItemStyle}" />
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
+        <Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type StatusBar}">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            SnapsToDevicePixels="True">
-                        <ItemsPresenter/>
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="True">
+                        <ItemsPresenter />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!-- StatusBar with Separator Style -->
-    <Style x:Key="LOLStatusBarWithSeparatorStyle" TargetType="{x:Type StatusBar}" BasedOn="{StaticResource LOLStatusBarStyle}">
+    <!--  StatusBar with Separator Style  -->
+    <Style
+        x:Key="LOLStatusBarWithSeparatorStyle"
+        BasedOn="{StaticResource LOLStatusBarStyle}"
+        TargetType="{x:Type StatusBar}">
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
-                    <DockPanel LastChildFill="True"/>
+                    <DockPanel LastChildFill="True" />
                 </ItemsPanelTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!-- StatusBar Separator Style -->
+    <!--  StatusBar Separator Style  -->
     <Style x:Key="StatusBarSeparatorStyle" TargetType="{x:Type Separator}">
-        <Setter Property="Background" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="Width" Value="0.5"/>
-        <Setter Property="Margin" Value="4,2"/>
-        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Background" Value="{DynamicResource BorderDarkBrush}" />
+        <Setter Property="Width" Value="0.5" />
+        <Setter Property="Margin" Value="4,2" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Separator}">
-                    <Border Background="{TemplateBinding Background}"
-                            Width="{TemplateBinding Width}"
-                            Margin="{TemplateBinding Margin}"
-                            SnapsToDevicePixels="True"/>
+                    <Border
+                        Width="{TemplateBinding Width}"
+                        Margin="{TemplateBinding Margin}"
+                        Background="{TemplateBinding Background}"
+                        SnapsToDevicePixels="True" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!-- 默认 StatusBar 样式 -->
-    <Style TargetType="{x:Type StatusBar}" BasedOn="{StaticResource LOLStatusBarStyle}"/>
-    <!-- 默认 StatusBarItem 样式 -->
-    <Style TargetType="{x:Type StatusBarItem}" BasedOn="{StaticResource LOLStatusBarItemStyle}"/>
+    <!--  默认 StatusBar 样式  -->
+    <Style BasedOn="{StaticResource LOLStatusBarStyle}" TargetType="{x:Type StatusBar}" />
+    <!--  默认 StatusBarItem 样式  -->
+    <Style BasedOn="{StaticResource LOLStatusBarItemStyle}" TargetType="{x:Type StatusBarItem}" />
 
 </ResourceDictionary>

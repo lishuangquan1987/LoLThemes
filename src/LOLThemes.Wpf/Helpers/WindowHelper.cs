@@ -24,15 +24,19 @@ namespace LOLThemes.Wpf.Helpers
     /// </remarks>
     public static class WindowHelper
     {
-        /// <summary>
-        /// 标识 <see cref="EnableCustomChrome"/> 附加属性。
-        /// </summary>
-        public static readonly DependencyProperty EnableCustomChromeProperty =
-            DependencyProperty.RegisterAttached(
-                "EnableCustomChrome",
-                typeof(bool),
-                typeof(WindowHelper),
-                new PropertyMetadata(false, OnEnableCustomChromeChanged));
+        static WindowHelper()
+        {
+            EventManager.RegisterClassHandler(typeof(Window), Window.LoadedEvent, new RoutedEventHandler(Window_Loaded));
+        }
+        ///// <summary>
+        ///// 标识 <see cref="EnableCustomChrome"/> 附加属性。
+        ///// </summary>
+        //public static readonly DependencyProperty EnableCustomChromeProperty =
+        //    DependencyProperty.RegisterAttached(
+        //        "EnableCustomChrome",
+        //        typeof(bool),
+        //        typeof(WindowHelper),
+        //        new PropertyMetadata(true, OnEnableCustomChromeChanged));
 
         /// <summary>
         /// 标识 <see cref="CustomHeaderContent"/> 附加属性。
@@ -78,25 +82,25 @@ namespace LOLThemes.Wpf.Helpers
             obj.SetValue(CustomHeaderContentProperty, value);
         }
 
-        /// <summary>
-        /// 获取是否启用自定义窗口装饰。
-        /// </summary>
-        /// <param name="obj">依赖对象（应为 Window）</param>
-        /// <returns>如果启用自定义装饰返回 true，否则返回 false</returns>
-        public static bool GetEnableCustomChrome(DependencyObject obj)
-        {
-            return (bool)obj.GetValue(EnableCustomChromeProperty);
-        }
+        ///// <summary>
+        ///// 获取是否启用自定义窗口装饰。
+        ///// </summary>
+        ///// <param name="obj">依赖对象（应为 Window）</param>
+        ///// <returns>如果启用自定义装饰返回 true，否则返回 false</returns>
+        //public static bool GetEnableCustomChrome(DependencyObject obj)
+        //{
+        //    return (bool)obj.GetValue(EnableCustomChromeProperty);
+        //}
 
-        /// <summary>
-        /// 设置是否启用自定义窗口装饰。
-        /// </summary>
-        /// <param name="obj">依赖对象（应为 Window）</param>
-        /// <param name="value">是否启用</param>
-        public static void SetEnableCustomChrome(DependencyObject obj, bool value)
-        {
-            obj.SetValue(EnableCustomChromeProperty, value);
-        }
+        ///// <summary>
+        ///// 设置是否启用自定义窗口装饰。
+        ///// </summary>
+        ///// <param name="obj">依赖对象（应为 Window）</param>
+        ///// <param name="value">是否启用</param>
+        //public static void SetEnableCustomChrome(DependencyObject obj, bool value)
+        //{
+        //    obj.SetValue(EnableCustomChromeProperty, value);
+        //}
 
         /// <summary>
         /// 当 <see cref="EnableCustomChrome"/> 属性值改变时调用。

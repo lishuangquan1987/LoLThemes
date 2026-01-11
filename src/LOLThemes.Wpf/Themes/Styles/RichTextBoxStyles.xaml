@@ -1,79 +1,80 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
-    <!-- 合并基础资源，确保可以访问 Fonts -->
-    <!-- 注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  合并基础资源，确保可以访问 Fonts  -->
+    <!--  注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用  -->
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <!-- RichTextBox Style -->
+    <!--  RichTextBox Style  -->
     <Style x:Key="LOLRichTextBoxStyle" TargetType="{x:Type RichTextBox}">
-        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource InputBorderBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
-        <Setter Property="Padding" Value="{DynamicResource InputBoxPadding}"/>
-        <Setter Property="SelectionBrush" Value="{DynamicResource BorderGoldBrush}"/>
-        <Setter Property="CaretBrush" Value="{DynamicResource BorderGoldBrush}"/>
-        <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="AcceptsReturn" Value="True"/>
-        <Setter Property="AcceptsTab" Value="True"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource InputBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
+        <Setter Property="Padding" Value="{DynamicResource InputBoxPadding}" />
+        <Setter Property="SelectionBrush" Value="{DynamicResource BorderGoldBrush}" />
+        <Setter Property="CaretBrush" Value="{DynamicResource BorderGoldBrush}" />
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="AcceptsReturn" Value="True" />
+        <Setter Property="AcceptsTab" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type RichTextBox}">
-                    <Border x:Name="Border"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="3"
+                    <Border
+                        x:Name="Border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="3"
+                        SnapsToDevicePixels="True"
+                        UseLayoutRounding="True">
+                        <ScrollViewer
+                            x:Name="PART_ContentHost"
+                            Focusable="False"
+                            HorizontalScrollBarVisibility="{TemplateBinding HorizontalScrollBarVisibility}"
+                            RenderOptions.ClearTypeHint="Enabled"
                             SnapsToDevicePixels="True"
-                            UseLayoutRounding="True">
-                        <ScrollViewer x:Name="PART_ContentHost"
-                                    Focusable="False"
-                                    HorizontalScrollBarVisibility="{TemplateBinding HorizontalScrollBarVisibility}"
-                                    VerticalScrollBarVisibility="{TemplateBinding VerticalScrollBarVisibility}"
-                                    TextOptions.TextFormattingMode="Display"
-                                    TextOptions.TextRenderingMode="ClearType"
-                                    RenderOptions.ClearTypeHint="Enabled"
-                                    SnapsToDevicePixels="True"/>
+                            TextOptions.TextFormattingMode="Display"
+                            TextOptions.TextRenderingMode="ClearType"
+                            VerticalScrollBarVisibility="{TemplateBinding VerticalScrollBarVisibility}" />
                     </Border>
                     <ControlTemplate.Triggers>
-                        <!-- Focused 且 MouseOver 状态 - 确保边框明显（优先级最高） -->
+                        <!--  Focused 且 MouseOver 状态 - 确保边框明显（优先级最高）  -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsFocused" Value="True"/>
-                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="IsFocused" Value="True" />
+                                <Condition Property="IsMouseOver" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
-                            <Setter TargetName="Border" Property="BorderThickness" Value="2"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}" />
+                            <Setter TargetName="Border" Property="BorderThickness" Value="2" />
                         </MultiTrigger>
-                        
-                        <!-- Focused 状态 - 边框高亮 -->
+
+                        <!--  Focused 状态 - 边框高亮  -->
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
-                            <Setter TargetName="Border" Property="BorderThickness" Value="2"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}" />
+                            <Setter TargetName="Border" Property="BorderThickness" Value="2" />
                         </Trigger>
-                        
-                        <!-- MouseOver 状态（仅在未获得焦点时） -->
+
+                        <!--  MouseOver 状态（仅在未获得焦点时）  -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
-                            <Setter TargetName="Border" Property="BorderThickness" Value="1.5"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}" />
+                            <Setter TargetName="Border" Property="BorderThickness" Value="1.5" />
                         </Trigger>
-                        
-                        <!-- Disabled -->
+
+                        <!--  Disabled  -->
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}"/>
-                            <Setter Property="Opacity" Value="0.6"/>
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource BackgroundMediumBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}" />
+                            <Setter Property="Opacity" Value="0.6" />
                         </Trigger>
-                        
-                        <!-- Read Only -->
+
+                        <!--  Read Only  -->
                         <Trigger Property="IsReadOnly" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource BackgroundMediumBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -81,19 +82,25 @@
         </Setter>
     </Style>
 
-    <!-- RichTextBox with Border Style -->
-    <Style x:Key="LOLRichTextBoxBorderedStyle" TargetType="{x:Type RichTextBox}" BasedOn="{StaticResource LOLRichTextBoxStyle}">
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+    <!--  RichTextBox with Border Style  -->
+    <Style
+        x:Key="LOLRichTextBoxBorderedStyle"
+        BasedOn="{StaticResource LOLRichTextBoxStyle}"
+        TargetType="{x:Type RichTextBox}">
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}" />
     </Style>
 
-    <!-- RichTextBox Compact Style -->
-    <Style x:Key="LOLRichTextBoxCompactStyle" TargetType="{x:Type RichTextBox}" BasedOn="{StaticResource LOLRichTextBoxStyle}">
-        <Setter Property="Padding" Value="{DynamicResource InputBoxPaddingCompact}"/>
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}"/>
+    <!--  RichTextBox Compact Style  -->
+    <Style
+        x:Key="LOLRichTextBoxCompactStyle"
+        BasedOn="{StaticResource LOLRichTextBoxStyle}"
+        TargetType="{x:Type RichTextBox}">
+        <Setter Property="Padding" Value="{DynamicResource InputBoxPaddingCompact}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
     </Style>
 
-    <!-- 默认 RichTextBox 样式 -->
-    <Style TargetType="{x:Type RichTextBox}" BasedOn="{StaticResource LOLRichTextBoxStyle}"/>
+    <!--  默认 RichTextBox 样式  -->
+    <Style BasedOn="{StaticResource LOLRichTextBoxStyle}" TargetType="{x:Type RichTextBox}" />
 
 </ResourceDictionary>

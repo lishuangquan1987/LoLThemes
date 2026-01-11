@@ -1,72 +1,73 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:LOLThemes.Wpf.Controls">
-    
-    <!-- 合并基础资源，确保可以访问 Fonts -->
-    <!-- 注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:LOLThemes.Wpf.Controls">
+
+    <!--  合并基础资源，确保可以访问 Fonts  -->
+    <!--  注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用  -->
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type controls:HexagonButton}">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
-        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}"/>
-        <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="UseLayoutRounding" Value="True"/>
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeMedium}"/>
-        <Setter Property="FontWeight" Value="{StaticResource FontWeightBold}"/>
-        <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Width" Value="100"/>
-        <Setter Property="Height" Value="100"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeMedium}" />
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightBold}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Height" Value="100" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:HexagonButton}">
                     <Grid>
-                        <Path x:Name="hexagonPath"
-                              Data="{TemplateBinding HexagonGeometry}"
-                              Fill="{TemplateBinding Background}"
-                              Stroke="{TemplateBinding BorderBrush}"
-                              StrokeThickness="{TemplateBinding BorderThickness}"
-                              Stretch="Fill"
-                              SnapsToDevicePixels="True">
-                        </Path>
-                        <!-- 内层高光边框 -->
-                        <Path x:Name="highlightPath"
-                              Data="{TemplateBinding HexagonGeometry}"
-                              Stroke="#40F0E6D2"
-                              StrokeThickness="0.5"
-                              Stretch="Fill"
-                              Opacity="0"
-                              IsHitTestVisible="False"
-                              SnapsToDevicePixels="True"/>
-                        <ContentPresenter HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        TextElement.Foreground="{TemplateBinding Foreground}"
-                                        Clip="{TemplateBinding HexagonGeometry}"
-                                        TextOptions.TextFormattingMode="Display"
-                                        TextOptions.TextRenderingMode="ClearType"
-                                        RenderOptions.ClearTypeHint="Enabled"
-                                        SnapsToDevicePixels="True"/>
+                        <Path
+                            x:Name="hexagonPath"
+                            Data="{TemplateBinding HexagonGeometry}"
+                            Fill="{TemplateBinding Background}"
+                            SnapsToDevicePixels="True"
+                            Stretch="Fill"
+                            Stroke="{TemplateBinding BorderBrush}"
+                            StrokeThickness="{TemplateBinding BorderThickness}" />
+                        <!--  内层高光边框  -->
+                        <Path
+                            x:Name="highlightPath"
+                            Data="{TemplateBinding HexagonGeometry}"
+                            IsHitTestVisible="False"
+                            Opacity="0"
+                            SnapsToDevicePixels="True"
+                            Stretch="Fill"
+                            Stroke="#40F0E6D2"
+                            StrokeThickness="0.5" />
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Clip="{TemplateBinding HexagonGeometry}"
+                            RenderOptions.ClearTypeHint="Enabled"
+                            SnapsToDevicePixels="True"
+                            TextElement.Foreground="{TemplateBinding Foreground}"
+                            TextOptions.TextFormattingMode="Display"
+                            TextOptions.TextRenderingMode="ClearType" />
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <!-- IsMouseOver 状态 - 无动画，即时切换 -->
+                        <!--  IsMouseOver 状态 - 无动画，即时切换  -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="hexagonPath" Property="Fill" 
-                                   Value="{DynamicResource BorderGoldBrush}"/>
-                            <Setter TargetName="highlightPath" Property="Opacity" Value="1"/>
-                            <Setter Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}"/>
+                            <Setter TargetName="hexagonPath" Property="Fill" Value="{DynamicResource BorderGoldBrush}" />
+                            <Setter TargetName="highlightPath" Property="Opacity" Value="1" />
+                            <Setter Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}" />
                         </Trigger>
-                        <!-- IsPressed 状态 - 无动画，即时切换 -->
+                        <!--  IsPressed 状态 - 无动画，即时切换  -->
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="hexagonPath" Property="Fill" 
-                                   Value="{DynamicResource BackgroundCardBrush}"/>
+                            <Setter TargetName="hexagonPath" Property="Fill" Value="{DynamicResource BackgroundCardBrush}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="hexagonPath" Property="Stroke" Value="{DynamicResource TextDisabledBrush}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}"/>
+                            <Setter TargetName="hexagonPath" Property="Stroke" Value="{DynamicResource TextDisabledBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

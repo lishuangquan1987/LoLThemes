@@ -135,7 +135,7 @@ namespace LOLThemes.Wpf.Samples.ViewModels
                 Champions.Add(champion);
             }
 
-            if (Champions.Count > 0 && !Champions.Contains(SelectedChampion))
+            if (Champions.Count > 0 && SelectedChampion != null && !Champions.Contains(SelectedChampion))
             {
                 SelectedChampion = Champions[0];
             }

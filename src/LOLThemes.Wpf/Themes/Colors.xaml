@@ -1,13 +1,12 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
-    <!-- 
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--
         注意：此文件是一个占位符，用于主题切换
         默认指向Colors.Dark.xaml，运行时可以通过ThemeManager.SwitchTheme()切换
         所有样式文件引用此文件，ThemeManager会动态替换MergedDictionaries中的引用
     -->
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Colors.Dark.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Colors.Dark.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

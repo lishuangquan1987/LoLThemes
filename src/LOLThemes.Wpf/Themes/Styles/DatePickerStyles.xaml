@@ -1,49 +1,52 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
-    <!-- 合并基础资源，确保可以访问 CalendarStyle -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  合并基础资源，确保可以访问 CalendarStyle  -->
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Styles/CalendarStyles.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Styles/CalendarStyles.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <!-- DatePicker TextBox Style -->
+    <!--  DatePicker TextBox Style  -->
     <Style x:Key="DatePickerTextBoxStyle" TargetType="{x:Type DatePickerTextBox}">
-        <Setter Property="Background" Value="{DynamicResource BackgroundCardBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
-        <Setter Property="Padding" Value="8,6"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundCardBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
+        <Setter Property="Padding" Value="8,6" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DatePickerTextBox}">
                     <Grid>
-                        <Border x:Name="Border" Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}">
-                            <ScrollViewer x:Name="PART_ContentHost"
-                                        Focusable="False"
-                                        HorizontalScrollBarVisibility="Hidden"
-                                        VerticalScrollBarVisibility="Hidden"/>
+                        <Border
+                            x:Name="Border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                            <ScrollViewer
+                                x:Name="PART_ContentHost"
+                                Focusable="False"
+                                HorizontalScrollBarVisibility="Hidden"
+                                VerticalScrollBarVisibility="Hidden" />
                         </Border>
-                        <TextBlock x:Name="Watermark"
-                                 Text="选择日期"
-                                 Foreground="{DynamicResource TextSecondaryBrush}"
-                                 Padding="{TemplateBinding Padding}"
-                                 VerticalAlignment="Center"
-                                 IsHitTestVisible="False"
-                                 Visibility="Collapsed"/>
+                        <TextBlock
+                            x:Name="Watermark"
+                            Padding="{TemplateBinding Padding}"
+                            VerticalAlignment="Center"
+                            Foreground="{DynamicResource TextSecondaryBrush}"
+                            IsHitTestVisible="False"
+                            Text="选择日期"
+                            Visibility="Collapsed" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Text" Value="">
-                            <Setter TargetName="Watermark" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="Watermark" Property="Visibility" Value="Visible" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}" />
                         </Trigger>
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -51,54 +54,58 @@
         </Setter>
     </Style>
 
-    <!-- DatePicker Style -->
+    <!--  DatePicker Style  -->
     <Style x:Key="LOLDatePickerStyle" TargetType="{x:Type DatePicker}">
-        <Setter Property="Background" Value="{DynamicResource BackgroundCardBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
-        <Setter Property="Padding" Value="0"/>
-        <Setter Property="Height" Value="36"/>
-        <Setter Property="CalendarStyle" Value="{StaticResource LOLCalendarStyle}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundCardBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Height" Value="36" />
+        <Setter Property="CalendarStyle" Value="{StaticResource LOLCalendarStyle}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DatePicker}">
                     <Grid x:Name="PART_Root">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <Button x:Name="PART_Button" 
-                                Grid.Column="1"
-                                Background="{DynamicResource BackgroundCardBrush}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="0,1,1,1"
-                                Foreground="{DynamicResource BorderGoldBrush}"
-                                Width="36"
-                                Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
-                                Focusable="False">
-                            <Path Data="M3,4 L8,10 L13,4" 
-                                  Stroke="{DynamicResource BorderGoldBrush}" 
-                                  StrokeThickness="2" 
-                                  HorizontalAlignment="Center" 
-                                  VerticalAlignment="Center"/>
+                        <Button
+                            x:Name="PART_Button"
+                            Grid.Column="1"
+                            Width="36"
+                            Background="{DynamicResource BackgroundCardBrush}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="0,1,1,1"
+                            Focusable="False"
+                            Foreground="{DynamicResource BorderGoldBrush}"
+                            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                            <Path
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Data="M3,4 L8,10 L13,4"
+                                Stroke="{DynamicResource BorderGoldBrush}"
+                                StrokeThickness="2" />
                         </Button>
-                        <DatePickerTextBox x:Name="PART_TextBox" 
-                                          Grid.Column="0" 
-                                          Style="{StaticResource DatePickerTextBoxStyle}" 
-                                          HorizontalAlignment="Stretch" 
-                                          VerticalAlignment="Center" 
-                                          Margin="0"/>
-                        <Popup x:Name="PART_Popup" 
-                               Placement="Bottom" 
-                               PlacementTarget="{Binding ElementName=PART_Button}" 
-                               StaysOpen="False"/>
+                        <DatePickerTextBox
+                            x:Name="PART_TextBox"
+                            Grid.Column="0"
+                            Margin="0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DatePickerTextBoxStyle}" />
+                        <Popup
+                            x:Name="PART_Popup"
+                            Placement="Bottom"
+                            PlacementTarget="{Binding ElementName=PART_Button}"
+                            StaysOpen="False" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="PART_Button" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="PART_Button" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -106,6 +113,6 @@
         </Setter>
     </Style>
 
-    <!-- 默认 DatePicker 样式 -->
-    <Style TargetType="{x:Type DatePicker}" BasedOn="{StaticResource LOLDatePickerStyle}"/>
+    <!--  默认 DatePicker 样式  -->
+    <Style BasedOn="{StaticResource LOLDatePickerStyle}" TargetType="{x:Type DatePicker}" />
 </ResourceDictionary>

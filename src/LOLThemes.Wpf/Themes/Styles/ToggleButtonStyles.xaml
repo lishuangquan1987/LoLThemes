@@ -1,73 +1,66 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
-    <!-- Fonts.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <!-- LOL ToggleButton 样式 -->
+    <!--  Fonts.xaml 已通过 Generic.xaml 加载，无需直接引用  -->
+
+    <!--  LOL ToggleButton 样式  -->
     <Style x:Key="LOLToggleButtonStyle" TargetType="ToggleButton">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
-        <Setter Property="BorderThickness" Value="2"/>
-        <Setter Property="Padding" Value="20,10"/>
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
-        <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
-        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="Padding" Value="20,10" />
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}" />
+        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
-                    <Border x:Name="border"
-                           Background="{TemplateBinding Background}"
-                           BorderBrush="{TemplateBinding BorderBrush}"
-                           BorderThickness="{TemplateBinding BorderThickness}"
-                           CornerRadius="{DynamicResource ButtonCornerRadius}"
-                           SnapsToDevicePixels="True">
-                        <ContentPresenter x:Name="contentPresenter"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Margin="{TemplateBinding Padding}"
-                                        RecognizesAccessKey="True"/>
+                    <Border
+                        x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{DynamicResource ButtonCornerRadius}"
+                        SnapsToDevicePixels="True">
+                        <ContentPresenter
+                            x:Name="contentPresenter"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            RecognizesAccessKey="True" />
                     </Border>
                     <ControlTemplate.Triggers>
-                        <!-- 鼠标悬停 -->
+                        <!--  鼠标悬停  -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="Background" 
-                                   Value="{DynamicResource BackgroundHoverBrush}"/>
-                            <Setter TargetName="border" Property="BorderBrush" 
-                                   Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundHoverBrush}" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}" />
                         </Trigger>
-                        
-                        <!-- 选中状�-->
+
+                        <!--  选中状�  -->
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="border" Property="Background" 
-                                   Value="{DynamicResource BorderGoldBrush}"/>
-                            <Setter Property="Foreground" 
-                                   Value="{DynamicResource BackgroundDarkBrush}"/>
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource BorderGoldBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource BackgroundDarkBrush}" />
                         </Trigger>
-                        
-                        <!-- 选中且悬�-->
+
+                        <!--  选中且悬�  -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsChecked" Value="True"/>
-                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="IsChecked" Value="True" />
+                                <Condition Property="IsMouseOver" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="border" Property="Background" 
-                                   Value="{DynamicResource BorderGoldBrush}"/>
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource BorderGoldBrush}" />
                         </MultiTrigger>
-                        
-                        <!-- 按下状�-->
+
+                        <!--  按下状�  -->
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="border" Property="Background" 
-                                   Value="{DynamicResource BackgroundCardBrush}"/>
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundCardBrush}" />
                         </Trigger>
-                        
-                        <!-- 禁用状�-->
+
+                        <!--  禁用状�  -->
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="border" Property="BorderBrush" 
-                                   Value="{DynamicResource TextDisabledBrush}"/>
-                            <Setter Property="Foreground" 
-                                   Value="{DynamicResource TextDisabledBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource TextDisabledBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -75,59 +68,59 @@
         </Setter>
     </Style>
 
-    <!-- LOL Switch ToggleButton 样式（开关样式） -->
+    <!--  LOL Switch ToggleButton 样式（开关样式）  -->
     <Style x:Key="LOLSwitchToggleButtonStyle" TargetType="ToggleButton">
-        <Setter Property="Width" Value="50"/>
-        <Setter Property="Height" Value="26"/>
-        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Width" Value="50" />
+        <Setter Property="Height" Value="26" />
+        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
                     <Grid>
-                        <!-- 背景轨道 -->
-                        <Border x:Name="SwitchTrack"
-                               Background="{DynamicResource BackgroundInputBrush}"
-                               BorderBrush="{DynamicResource BorderDarkBrush}"
-                               BorderThickness="2"
-                               CornerRadius="13"
-                               SnapsToDevicePixels="True"/>
-                        
-                        <!-- 滑块 -->
-                        <Border x:Name="SwitchThumb"
-                               Width="18"
-                               Height="18"
-                               Background="{DynamicResource TextSecondaryBrush}"
-                               CornerRadius="9"
-                               HorizontalAlignment="Left"
-                               Margin="4,0,0,0"
-                               SnapsToDevicePixels="True">
+                        <!--  背景轨道  -->
+                        <Border
+                            x:Name="SwitchTrack"
+                            Background="{DynamicResource BackgroundInputBrush}"
+                            BorderBrush="{DynamicResource BorderDarkBrush}"
+                            BorderThickness="2"
+                            CornerRadius="13"
+                            SnapsToDevicePixels="True" />
+
+                        <!--  滑块  -->
+                        <Border
+                            x:Name="SwitchThumb"
+                            Width="18"
+                            Height="18"
+                            Margin="4,0,0,0"
+                            HorizontalAlignment="Left"
+                            Background="{DynamicResource TextSecondaryBrush}"
+                            CornerRadius="9"
+                            SnapsToDevicePixels="True">
                             <Border.RenderTransform>
-                                <TranslateTransform x:Name="ThumbTranslate" X="0"/>
+                                <TranslateTransform x:Name="ThumbTranslate" X="0" />
                             </Border.RenderTransform>
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <!-- 鼠标悬停 -->
+                        <!--  鼠标悬停  -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="SwitchTrack" Property="BorderBrush" 
-                                   Value="{DynamicResource HoverGoldBrush}"/>
+                            <Setter TargetName="SwitchTrack" Property="BorderBrush" Value="{DynamicResource HoverGoldBrush}" />
                         </Trigger>
-                        
-                        <!-- 选中状�-->
+
+                        <!--  选中状�  -->
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="SwitchTrack" Property="Background" 
-                                   Value="{DynamicResource BorderGoldBrush}"/>
-                            <Setter TargetName="SwitchThumb" Property="Background" 
-                                   Value="{DynamicResource BackgroundDarkBrush}"/>
+                            <Setter TargetName="SwitchTrack" Property="Background" Value="{DynamicResource BorderGoldBrush}" />
+                            <Setter TargetName="SwitchThumb" Property="Background" Value="{DynamicResource BackgroundDarkBrush}" />
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="ThumbTranslate"
-                                                       Storyboard.TargetProperty="X"
-                                                       To="24"
-                                                       Duration="0:0:0.2">
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="ThumbTranslate"
+                                            Storyboard.TargetProperty="X"
+                                            To="24"
+                                            Duration="0:0:0.2">
                                             <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
+                                                <CubicEase EasingMode="EaseOut" />
                                             </DoubleAnimation.EasingFunction>
                                         </DoubleAnimation>
                                     </Storyboard>
@@ -136,27 +129,25 @@
                             <Trigger.ExitActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="ThumbTranslate"
-                                                       Storyboard.TargetProperty="X"
-                                                       To="0"
-                                                       Duration="0:0:0.2">
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="ThumbTranslate"
+                                            Storyboard.TargetProperty="X"
+                                            To="0"
+                                            Duration="0:0:0.2">
                                             <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut"/>
+                                                <CubicEase EasingMode="EaseOut" />
                                             </DoubleAnimation.EasingFunction>
                                         </DoubleAnimation>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.ExitActions>
                         </Trigger>
-                        
-                        <!-- 禁用状态 -->
+
+                        <!--  禁用状态  -->
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="SwitchTrack" Property="Background" 
-                                   Value="{DynamicResource BackgroundCardBrush}"/>
-                            <Setter TargetName="SwitchTrack" Property="BorderBrush" 
-                                   Value="{DynamicResource TextDisabledBrush}"/>
-                            <Setter TargetName="SwitchThumb" Property="Background" 
-                                   Value="{DynamicResource TextDisabledBrush}"/>
+                            <Setter TargetName="SwitchTrack" Property="Background" Value="{DynamicResource BackgroundCardBrush}" />
+                            <Setter TargetName="SwitchTrack" Property="BorderBrush" Value="{DynamicResource TextDisabledBrush}" />
+                            <Setter TargetName="SwitchThumb" Property="Background" Value="{DynamicResource TextDisabledBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -164,7 +155,7 @@
         </Setter>
     </Style>
 
-    <!-- 默认 ToggleButton 样式 -->
-    <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource LOLToggleButtonStyle}"/>
+    <!--  默认 ToggleButton 样式  -->
+    <Style BasedOn="{StaticResource LOLToggleButtonStyle}" TargetType="{x:Type ToggleButton}" />
 
 </ResourceDictionary>

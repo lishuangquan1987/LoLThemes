@@ -1,6 +1,5 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
     <!--
         ===================================================================
         ListBoxStyles.xaml - ListBox 控件样式定义
@@ -32,63 +31,68 @@
         - 导航菜单使用 LeftNavigationMenuItemStyle
         - 普通列表使用 LOLListBoxItemStyle（默认）
     -->
-    
-    <!-- 合并基础资源，确保可以访问 Fonts -->
-    
 
-    <!-- 选中状态渐变背景 - 从左侧浅青色到右侧深青色 -->
+    <!--  合并基础资源，确保可以访问 Fonts  -->
+
+
+    <!--  选中状态渐变背景 - 从左侧浅青色到右侧深青色  -->
     <LinearGradientBrush x:Key="SelectedItemGradientBrush" StartPoint="0,0" EndPoint="1,0">
-        <GradientStop Color="#40041c28" Offset="0"/>  <!-- 左侧：浅色背景（25%透明度的选中背景色） -->
-        <GradientStop Color="#66041c28" Offset="0.2"/>   <!-- 左侧过渡 -->
-        <GradientStop Color="#991dbaa9" Offset="0.5"/>   <!-- 中间：青色（约60%透明度） -->
-        <GradientStop Color="#CC1dbaa9" Offset="0.8"/>   <!-- 右侧过渡 -->
-        <GradientStop Color="#FF1dbaa9" Offset="1"/>   <!-- 右侧：纯青色（100%不透明） -->
+        <GradientStop Offset="0" Color="#40041c28" />
+        <!--  左侧：浅色背景（25%透明度的选中背景色）  -->
+        <GradientStop Offset="0.2" Color="#66041c28" />
+        <!--  左侧过渡  -->
+        <GradientStop Offset="0.5" Color="#991dbaa9" />
+        <!--  中间：青色（约60%透明度）  -->
+        <GradientStop Offset="0.8" Color="#CC1dbaa9" />
+        <!--  右侧过渡  -->
+        <GradientStop Offset="1" Color="#FF1dbaa9" />
+        <!--  右侧：纯青色（100%不透明）  -->
     </LinearGradientBrush>
 
-    <!-- 通用 ListBoxItem 样式 - 根据101.qq.com网站配色重新设计 -->
+    <!--  通用 ListBoxItem 样式 - 根据101.qq.com网站配色重新设计  -->
     <Style x:Key="LOLListBoxItemStyle" TargetType="ListBoxItem">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
-        <Setter Property="Padding" Value="8,4"/>
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
-        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
+        <Setter Property="Padding" Value="8,4" />
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
-                    <Border x:Name="border"
-                           Background="{TemplateBinding Background}"
-                           BorderBrush="{DynamicResource SelectedAccentBrush}"
-                           BorderThickness="0"
-                           Padding="{TemplateBinding Padding}"
-                           SnapsToDevicePixels="True">
-                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    <Border
+                        x:Name="border"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{DynamicResource SelectedAccentBrush}"
+                        BorderThickness="0"
+                        SnapsToDevicePixels="True">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                     </Border>
                     <ControlTemplate.Triggers>
-                        <!-- MouseOver 状态 - 无动画，即时切换 -->
+                        <!--  MouseOver 状态 - 无动画，即时切换  -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundHoverBrush}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource BackgroundHoverBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
                         </Trigger>
-                        
-                        <!-- IsSelected 状态 - 左侧竖条效果 + 渐变背景 -->
+
+                        <!--  IsSelected 状态 - 左侧竖条效果 + 渐变背景  -->
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="{StaticResource SelectedItemGradientBrush}"/>
-                            <Setter TargetName="border" Property="BorderThickness" Value="3,0,0,0"/>
-                            <Setter Property="Foreground" Value="{DynamicResource SelectedTextBrush}"/>
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource SelectedItemGradientBrush}" />
+                            <Setter TargetName="border" Property="BorderThickness" Value="3,0,0,0" />
+                            <Setter Property="Foreground" Value="{DynamicResource SelectedTextBrush}" />
                         </Trigger>
-                        
-                        <!-- IsSelected + IsMouseOver 状态 -->
+
+                        <!--  IsSelected + IsMouseOver 状态  -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsSelected" Value="True"/>
-                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="IsSelected" Value="True" />
+                                <Condition Property="IsMouseOver" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="border" Property="Background" Value="{StaticResource SelectedItemGradientBrush}"/>
-                            <Setter TargetName="border" Property="BorderThickness" Value="3,0,0,0"/>
-                            <Setter Property="Foreground" Value="{DynamicResource SelectedTextBrush}"/>
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource SelectedItemGradientBrush}" />
+                            <Setter TargetName="border" Property="BorderThickness" Value="3,0,0,0" />
+                            <Setter Property="Foreground" Value="{DynamicResource SelectedTextBrush}" />
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -96,50 +100,50 @@
         </Setter>
     </Style>
 
-    <!-- 左侧导航菜单项样式 - 选中时使用白色文本 -->
+    <!--  左侧导航菜单项样式 - 选中时使用白色文本  -->
     <Style x:Key="LeftNavigationMenuItemStyle" TargetType="ListBoxItem">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}"/>
-        <Setter Property="Padding" Value="46,0,0,0"/>
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="16"/>
-        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}" />
+        <Setter Property="Padding" Value="46,0,0,0" />
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
-                    <Border x:Name="border"
-                           Background="{TemplateBinding Background}"
-                           BorderBrush="{DynamicResource SelectedAccentBrush}"
-                           BorderThickness="0"
-                           Padding="{TemplateBinding Padding}"
-                           SnapsToDevicePixels="True">
-                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    <Border
+                        x:Name="border"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{DynamicResource SelectedAccentBrush}"
+                        BorderThickness="0"
+                        SnapsToDevicePixels="True">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                     </Border>
                     <ControlTemplate.Triggers>
-                        <!-- MouseOver 状态 - 无动画，即时切换 -->
+                        <!--  MouseOver 状态 - 无动画，即时切换  -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="{DynamicResource SelectedBackgroundBrush}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource TextWhiteBrush}"/>
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource SelectedBackgroundBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource TextWhiteBrush}" />
                         </Trigger>
-                        
-                        <!-- IsSelected 状态 - 左侧竖条效果，白色文本 + 渐变背景 -->
+
+                        <!--  IsSelected 状态 - 左侧竖条效果，白色文本 + 渐变背景  -->
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="{StaticResource SelectedItemGradientBrush}"/>
-                            <Setter TargetName="border" Property="BorderThickness" Value="3,0,0,0"/>
-                            <Setter Property="Foreground" Value="{DynamicResource TextWhiteBrush}"/>
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource SelectedItemGradientBrush}" />
+                            <Setter TargetName="border" Property="BorderThickness" Value="3,0,0,0" />
+                            <Setter Property="Foreground" Value="{DynamicResource TextWhiteBrush}" />
                         </Trigger>
-                        
-                        <!-- IsSelected + IsMouseOver 状态 -->
+
+                        <!--  IsSelected + IsMouseOver 状态  -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsSelected" Value="True"/>
-                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="IsSelected" Value="True" />
+                                <Condition Property="IsMouseOver" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="border" Property="Background" Value="{StaticResource SelectedItemGradientBrush}"/>
-                            <Setter TargetName="border" Property="BorderThickness" Value="3,0,0,0"/>
-                            <Setter Property="Foreground" Value="{DynamicResource TextWhiteBrush}"/>
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource SelectedItemGradientBrush}" />
+                            <Setter TargetName="border" Property="BorderThickness" Value="3,0,0,0" />
+                            <Setter Property="Foreground" Value="{DynamicResource TextWhiteBrush}" />
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -147,27 +151,27 @@
         </Setter>
     </Style>
 
-    <!-- LOL ListBox 样式 -->
+    <!--  LOL ListBox 样式  -->
     <Style x:Key="LOLListBoxStyle" TargetType="ListBox">
-        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
-        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="ItemContainerStyle" Value="{StaticResource LOLListBoxItemStyle}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource LOLListBoxItemStyle}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBox">
-                    <Border Background="{TemplateBinding Background}"
-                           BorderBrush="{TemplateBinding BorderBrush}"
-                           BorderThickness="{TemplateBinding BorderThickness}"
-                           SnapsToDevicePixels="True">
-                        <ScrollViewer Focusable="False"
-                                    Padding="0">
-                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="True">
+                        <ScrollViewer Padding="0" Focusable="False">
+                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </ScrollViewer>
                     </Border>
                 </ControlTemplate>
@@ -175,9 +179,9 @@
         </Setter>
     </Style>
 
-    <!-- 默认 ListBox 样式 -->
-    <Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource LOLListBoxStyle}"/>
-    <!-- 默认 ListBoxItem 样式 -->
-    <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource LOLListBoxItemStyle}"/>
+    <!--  默认 ListBox 样式  -->
+    <Style BasedOn="{StaticResource LOLListBoxStyle}" TargetType="{x:Type ListBox}" />
+    <!--  默认 ListBoxItem 样式  -->
+    <Style BasedOn="{StaticResource LOLListBoxItemStyle}" TargetType="{x:Type ListBoxItem}" />
 
 </ResourceDictionary>

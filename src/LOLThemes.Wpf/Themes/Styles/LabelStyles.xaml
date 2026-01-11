@@ -1,59 +1,76 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
-    <!-- 合并基础资源，确保可以访问 Fonts -->
-    <!-- 注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  合并基础资源，确保可以访问 Fonts  -->
+    <!--  注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用  -->
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <!-- 基础 Label 样式 -->
+    <!--  基础 Label 样式  -->
     <Style x:Key="LOLLabelStyle" TargetType="Label">
-        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
-        <Setter Property="Padding" Value="0"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
     </Style>
 
-    <!-- 标题 Label 样式 -->
-    <Style x:Key="TitleLabel" TargetType="Label" BasedOn="{StaticResource LOLLabelStyle}">
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}"/>
-        <Setter Property="FontWeight" Value="{StaticResource FontWeightBold}"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextGoldBrush}"/>
+    <!--  标题 Label 样式  -->
+    <Style
+        x:Key="TitleLabel"
+        BasedOn="{StaticResource LOLLabelStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightBold}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextGoldBrush}" />
     </Style>
 
-    <!-- 副标�Label 样式 -->
-    <Style x:Key="SubtitleLabel" TargetType="Label" BasedOn="{StaticResource LOLLabelStyle}">
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeMedium}"/>
-        <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
+    <!--  副标�Label 样式  -->
+    <Style
+        x:Key="SubtitleLabel"
+        BasedOn="{StaticResource LOLLabelStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeMedium}" />
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}" />
     </Style>
 
-    <!-- 正文 Label 样式 -->
-    <Style x:Key="BodyLabel" TargetType="Label" BasedOn="{StaticResource LOLLabelStyle}">
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
+    <!--  正文 Label 样式  -->
+    <Style
+        x:Key="BodyLabel"
+        BasedOn="{StaticResource LOLLabelStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
     </Style>
 
-    <!-- 说明 Label 样式 -->
-    <Style x:Key="CaptionLabel" TargetType="Label" BasedOn="{StaticResource LOLLabelStyle}">
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}"/>
+    <!--  说明 Label 样式  -->
+    <Style
+        x:Key="CaptionLabel"
+        BasedOn="{StaticResource LOLLabelStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}" />
     </Style>
 
-    <!-- 强调 Label 样式 -->
-    <Style x:Key="AccentLabel" TargetType="Label" BasedOn="{StaticResource LOLLabelStyle}">
-        <Setter Property="Foreground" Value="{DynamicResource TextCyanBrush}"/>
-        <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
+    <!--  强调 Label 样式  -->
+    <Style
+        x:Key="AccentLabel"
+        BasedOn="{StaticResource LOLLabelStyle}"
+        TargetType="Label">
+        <Setter Property="Foreground" Value="{DynamicResource TextCyanBrush}" />
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}" />
     </Style>
 
-    <!-- 表单 Label 样式 -->
-    <Style x:Key="FormLabel" TargetType="Label" BasedOn="{StaticResource LOLLabelStyle}">
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
-        <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
-        <Setter Property="Margin" Value="0,0,0,4"/>
+    <!--  表单 Label 样式  -->
+    <Style
+        x:Key="FormLabel"
+        BasedOn="{StaticResource LOLLabelStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}" />
+        <Setter Property="Margin" Value="0,0,0,4" />
     </Style>
 
-    <!-- 默认 Label 样式 -->
-    <Style TargetType="{x:Type Label}" BasedOn="{StaticResource LOLLabelStyle}"/>
+    <!--  默认 Label 样式  -->
+    <Style BasedOn="{StaticResource LOLLabelStyle}" TargetType="{x:Type Label}" />
 
 </ResourceDictionary>

@@ -7,12 +7,23 @@
     <!-- 注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Animations.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <!-- 辅助转换器：检查值是否大� -->
+    <!-- 辅助转换器：检查值是否大于零 -->
     <converters:GreaterThanZeroConverter x:Key="GreaterThanZeroConverter"/>
+    <!-- 辅助转换器：处理null值的可见性 -->
+    <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
 
-    <Style TargetType="{x:Type controls:SkillButton}">
+    <Style x:Key="SkillButtonStyle" TargetType="{x:Type controls:SkillButton}">
+        <Style.Resources>
+            <!-- 为了解决InitializeComponent错误，添加必要的资源 -->
+            <SolidColorBrush x:Key="BackgroundMediumBrush" Color="#FF2A2A2A"/>
+            <SolidColorBrush x:Key="BorderGoldBrush" Color="#FFD4AF37"/>
+            <SolidColorBrush x:Key="HoverGoldBrush" Color="#FFF4D03F"/>
+            <SolidColorBrush x:Key="TextPrimaryBrush" Color="#FFFFFFFF"/>
+            <SolidColorBrush x:Key="TextDisabledBrush" Color="#FF888888"/>
+        </Style.Resources>
         <Setter Property="Width" Value="60"/>
         <Setter Property="Height" Value="60"/>
         <Setter Property="Cursor" Value="Hand"/>
@@ -20,49 +31,17 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:SkillButton}">
                     <Grid>
-                        <!-- 圆形背景 -->
+                        <!-- 简化的圆形背景 -->
                         <Ellipse x:Name="background"
                                 Fill="{DynamicResource BackgroundMediumBrush}"
                                 Stroke="{DynamicResource BorderGoldBrush}"
                                 StrokeThickness="2"/>
 
-                        <!-- 技能图�-->
-                        <Ellipse>
-                            <Ellipse.Fill>
-                                <ImageBrush ImageSource="{TemplateBinding SkillIcon}"
-                                          Stretch="UniformToFill"/>
-                            </Ellipse.Fill>
-                        </Ellipse>
-
-                        <!-- 冷却遮罩 -->
-                        <Grid x:Name="cooldownMask"
-                             Visibility="Collapsed">
-                            <Ellipse Fill="#80000000"/>
-                            <Path x:Name="cooldownPath"
-                                 Fill="{DynamicResource BackgroundDarkBrush}"
-                                 Opacity="0.8"
-                                 Stretch="Fill">
-                                <Path.Data>
-                                    <PathGeometry>
-                                        <PathFigure StartPoint="30,30">
-                                            <LineSegment Point="30,0"/>
-                                            <ArcSegment x:Name="cooldownArc"
-                                                      Size="30,30"
-                                                      SweepDirection="Clockwise"
-                                                      IsLargeArc="False"
-                                                      Point="30,0"/>
-                                        </PathFigure>
-                                    </PathGeometry>
-                                </Path.Data>
-                            </Path>
-                        </Grid>
-
-                        <!-- 快捷键文�-->
+                        <!-- 快捷键文本 -->
                         <TextBlock Text="{TemplateBinding HotkeyText}"
                                   Foreground="{DynamicResource TextPrimaryBrush}"
-                                  FontFamily="{StaticResource PrimaryFont}"
-                                  FontSize="{DynamicResource FontSizeSmall}"
-                                  FontWeight="{StaticResource FontWeightBold}"
+                                  FontSize="12"
+                                  FontWeight="Bold"
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="Bottom"
                                   Margin="0,0,0,5"/>
@@ -78,9 +57,6 @@
                             <Setter TargetName="background" Property="Stroke" Value="{DynamicResource TextDisabledBrush}"/>
                             <Setter TargetName="background" Property="Opacity" Value="0.5"/>
                         </Trigger>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=CooldownProgress, Converter={StaticResource GreaterThanZeroConverter}}" Value="True">
-                            <Setter TargetName="cooldownMask" Property="Visibility" Value="Visible"/>
-                        </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

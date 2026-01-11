@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="LOLThemes.Wpf.Samples.Views.CheckBoxShowcaseView"
+<UserControl x:Class="LOLThemes.Wpf.Samples.Views.CheckBoxShowcaseView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
@@ -76,6 +76,147 @@
                             <CheckBox Content="禁用已选中" 
                                     IsChecked="True"
                                     IsEnabled="False"/>
+                        </StackPanel>
+                    </smtx:XamlDisplay>
+                </StackPanel>
+            </Border>
+            
+            <!-- 横向布局 -->
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderDarkBrush}"
+                   BorderThickness="0.5"
+                   Padding="20"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="横向布局" 
+                          FontSize="{DynamicResource FontSizeLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
+                          Margin="0,0,0,15"/>
+                    
+                    <smtx:XamlDisplay UniqueKey="CheckBoxHorizontal" Margin="0,0,0,0">
+                        <WrapPanel>
+                            <CheckBox Content="选项 1" 
+                                    Margin="0,0,20,0"/>
+                            <CheckBox Content="选项 2" 
+                                    IsChecked="True"
+                                    Margin="0,0,20,0"/>
+                            <CheckBox Content="选项 3" 
+                                    Margin="0,0,20,0"/>
+                            <CheckBox Content="选项 4" 
+                                    Margin="0,0,20,0"/>
+                            <CheckBox Content="选项 5" 
+                                    Margin="0,0,20,0"/>
+                        </WrapPanel>
+                    </smtx:XamlDisplay>
+                </StackPanel>
+            </Border>
+            
+            <!-- 带图标的复选框 -->
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderDarkBrush}"
+                   BorderThickness="0.5"
+                   Padding="20"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="带图标的复选框" 
+                          FontSize="{DynamicResource FontSizeLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
+                          Margin="0,0,0,15"/>
+                    
+                    <smtx:XamlDisplay UniqueKey="CheckBoxWithIcon" Margin="0,0,0,0">
+                        <StackPanel>
+                            <CheckBox Margin="0,0,0,10">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <TextBlock Text="🔍" FontSize="18" Margin="0,0,8,0"/>
+                                    <TextBlock Text="搜索功能"/>
+                                </StackPanel>
+                            </CheckBox>
+                            <CheckBox IsChecked="True" Margin="0,0,0,10">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <TextBlock Text="📧" FontSize="18" Margin="0,0,8,0"/>
+                                    <TextBlock Text="邮件通知"/>
+                                </StackPanel>
+                            </CheckBox>
+                            <CheckBox Margin="0,0,0,10">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <TextBlock Text="🔔" FontSize="18" Margin="0,0,8,0"/>
+                                    <TextBlock Text="推送通知"/>
+                                </StackPanel>
+                            </CheckBox>
+                            <CheckBox IsChecked="True" Margin="0,0,0,10">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <TextBlock Text="🔒" FontSize="18" Margin="0,0,8,0"/>
+                                    <TextBlock Text="隐私保护"/>
+                                </StackPanel>
+                            </CheckBox>
+                        </StackPanel>
+                    </smtx:XamlDisplay>
+                </StackPanel>
+            </Border>
+            
+            <!-- 复选框组 -->
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderDarkBrush}"
+                   BorderThickness="0.5"
+                   Padding="20"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="复选框组" 
+                          FontSize="{DynamicResource FontSizeLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
+                          Margin="0,0,0,15"/>
+                    
+                    <smtx:XamlDisplay UniqueKey="CheckBoxGroup" Margin="0,0,0,0">
+                        <StackPanel>
+                            <Border Background="{DynamicResource BackgroundLightBrush}"
+                                    BorderBrush="{DynamicResource BorderDarkBrush}"
+                                    BorderThickness="0.5"
+                                    Padding="15"
+                                    Margin="0,0,0,10">
+                                <StackPanel>
+                                    <TextBlock Text="游戏设置" 
+                                              FontSize="{StaticResource FontSizeMedium}"
+                                              FontWeight="{StaticResource FontWeightBold}"
+                                              Foreground="{DynamicResource PrimaryGoldBrush}"
+                                              Margin="0,0,0,10"/>
+                                    <StackPanel>
+                                        <CheckBox Content="音乐" 
+                                                IsChecked="True"
+                                                Margin="0,0,0,10"/>
+                                        <CheckBox Content="音效" 
+                                                IsChecked="True"
+                                                Margin="0,0,0,10"/>
+                                        <CheckBox Content="语音" 
+                                                Margin="0,0,0,10"/>
+                                        <CheckBox Content="震动" 
+                                                Margin="0,0,0,10"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                            <Border Background="{DynamicResource BackgroundLightBrush}"
+                                    BorderBrush="{DynamicResource BorderDarkBrush}"
+                                    BorderThickness="0.5"
+                                    Padding="15" IsEnabled="False">
+                                <StackPanel>
+                                    <TextBlock Text="高级设置" 
+                                              FontSize="{StaticResource FontSizeMedium}"
+                                              FontWeight="{StaticResource FontWeightBold}"
+                                              Foreground="{DynamicResource PrimaryGoldBrush}"
+                                              Margin="0,0,0,10"/>
+                                    <StackPanel>
+                                        <CheckBox Content="帧率限制" 
+                                                Margin="0,0,0,10"/>
+                                        <CheckBox Content="垂直同步" 
+                                                IsChecked="True"
+                                                Margin="0,0,0,10"/>
+                                        <CheckBox Content="抗锯齿" 
+                                                Margin="0,0,0,10"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
                         </StackPanel>
                     </smtx:XamlDisplay>
                 </StackPanel>

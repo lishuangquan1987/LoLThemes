@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="LOLThemes.Wpf.Samples.Views.DatePickerShowcaseView"
+<UserControl x:Class="LOLThemes.Wpf.Samples.Views.DatePickerShowcaseView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
@@ -38,6 +38,129 @@
                         <StackPanel Width="300" HorizontalAlignment="Left">
                             <DatePicker Width="250" Height="36" Margin="0,0,0,15"/>
                             <DatePicker Width="250" Height="36"/>
+                        </StackPanel>
+                    </smtx:XamlDisplay>
+                </StackPanel>
+            </Border>
+            
+            <!-- 带有占位符文本的日期选择器 -->
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderDarkBrush}"
+                   BorderThickness="0.5"
+                   Padding="20"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="带有占位符文本的日期选择器" 
+                          FontSize="{DynamicResource FontSizeLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
+                          Margin="0,0,0,15"/>
+                    
+                    <smtx:XamlDisplay UniqueKey="DatePickerWithPlaceholder" Margin="0,0,0,0">
+                        <StackPanel Width="300" HorizontalAlignment="Left">
+                            <DatePicker Width="250" Height="36"
+                                      Margin="0,0,0,15">
+                                <DatePicker.Resources>
+                                    <Style TargetType="DatePickerTextBox">
+                                        <Setter Property="Text" Value="请选择日期..."/>
+                                        <Style.Triggers>
+                                            <Trigger Property="Text" Value="">
+                                                <Setter Property="Text" Value="请选择日期..."/>
+                                                <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DatePicker.Resources>
+                            </DatePicker>
+                        </StackPanel>
+                    </smtx:XamlDisplay>
+                </StackPanel>
+            </Border>
+            
+            <!-- 带有日期限制的日期选择器 -->
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderDarkBrush}"
+                   BorderThickness="0.5"
+                   Padding="20"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="带有日期限制的日期选择器" 
+                          FontSize="{DynamicResource FontSizeLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
+                          Margin="0,0,0,15"/>
+                    
+                    <!-- 暂时移除使用不存在转换器的代码 -->
+                    <smtx:XamlDisplay UniqueKey="DatePickerWithLimits" Margin="0,0,0,0">
+                        <StackPanel Width="300" HorizontalAlignment="Left">
+                            <TextBlock Text="日期选择器" 
+                                     Foreground="{DynamicResource TextPrimaryBrush}"
+                                     Margin="0,0,0,10"/>
+                            <DatePicker Width="250" Height="36" Margin="0,0,0,15"/>
+                            <DatePicker Width="250" Height="36"/>
+                        </StackPanel>
+                    </smtx:XamlDisplay>
+                </StackPanel>
+            </Border>
+            
+            <!-- 不同格式的日期显示 -->
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderDarkBrush}"
+                   BorderThickness="0.5"
+                   Padding="20"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="不同格式的日期显示" 
+                          FontSize="{DynamicResource FontSizeLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
+                          Margin="0,0,0,15"/>
+                    
+                    <smtx:XamlDisplay UniqueKey="DatePickerFormats" Margin="0,0,0,0">
+                        <StackPanel Width="300" HorizontalAlignment="Left">
+                            <DatePicker Width="250" Height="36" Margin="0,0,0,15">
+                                <DatePicker.Resources>
+                                    <Style TargetType="DatePickerTextBox">
+                                        <Setter Property="Text" Value="{Binding Path=SelectedDate, StringFormat=yyyy-MM-dd}"/>
+                                    </Style>
+                                </DatePicker.Resources>
+                            </DatePicker>
+                            <DatePicker Width="250" Height="36" Margin="0,0,0,15">
+                                <DatePicker.Resources>
+                                    <Style TargetType="DatePickerTextBox">
+                                        <Setter Property="Text" Value="{Binding Path=SelectedDate, StringFormat='MMMM dd, yyyy'}"/>
+                                    </Style>
+                                </DatePicker.Resources>
+                            </DatePicker>
+                            <DatePicker Width="250" Height="36">
+                                <DatePicker.Resources>
+                                    <Style TargetType="DatePickerTextBox">
+                                        <Setter Property="Text" Value="{Binding Path=SelectedDate, StringFormat='ddd, MMM dd, yyyy'}"/>
+                                    </Style>
+                                </DatePicker.Resources>
+                            </DatePicker>
+                        </StackPanel>
+                    </smtx:XamlDisplay>
+                </StackPanel>
+            </Border>
+            
+            <!-- 带有自定义样式的日期选择器 -->
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderDarkBrush}"
+                   BorderThickness="0.5"
+                   Padding="20"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="带有自定义样式的日期选择器" 
+                          FontSize="{DynamicResource FontSizeLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
+                          Margin="0,0,0,15"/>
+                    
+                    <smtx:XamlDisplay UniqueKey="DatePickerCustomStyle" Margin="0,0,0,0">
+                        <StackPanel Width="300" HorizontalAlignment="Left">
+                            <DatePicker Width="250" Height="36"
+                                      Style="{StaticResource LOLDatePickerStyle}"/>
                         </StackPanel>
                     </smtx:XamlDisplay>
                 </StackPanel>

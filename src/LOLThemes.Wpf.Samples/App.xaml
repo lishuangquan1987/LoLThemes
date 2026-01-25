@@ -18,6 +18,11 @@
                 <ResourceDictionary Source="Styles/XamlDisplayStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
+            <!--  枚举值相等性转换器（用于显示当前选中的菜单项）  -->
+            <local:EnumEqualityConverter x:Key="EnumEqualityConverter" />
+            <!--  布尔值到可见性转换器  -->
+            <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+
             <!--<Style x:Key="StyledBorder" TargetType="Border">
                 <Style.Triggers>
                     <EventTrigger RoutedEvent="MouseEnter">

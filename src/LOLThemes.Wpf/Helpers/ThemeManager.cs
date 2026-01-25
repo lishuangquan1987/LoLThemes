@@ -18,7 +18,12 @@ namespace LOLThemes.Wpf.Helpers
         /// <summary>
         /// 增强版暗黑主题（V2）
         /// </summary>
-        DarkV2
+        DarkV2,
+
+        /// <summary>
+        /// 现代化暗黑主题（V3）
+        /// </summary>
+        DarkV3
     }
 
     /// <summary>
@@ -76,6 +81,11 @@ namespace LOLThemes.Wpf.Helpers
         /// Enhanced Dark 主题颜色资源 URI (V2)
         /// </summary>
         private const string DarkColorsV2Uri = "pack://application:,,,/LOLThemes.Wpf;component/Themes/Colors.Dark.V2.xaml";
+
+        /// <summary>
+        /// Modern Dark 主题颜色资源 URI (V3)
+        /// </summary>
+        private const string DarkColorsV3Uri = "pack://application:,,,/LOLThemes.Wpf;component/Themes/Colors.Dark.V3.xaml";
         
         /// <summary>
         /// 紧凑尺寸资源 URI
@@ -160,6 +170,7 @@ namespace LOLThemes.Wpf.Helpers
             string themeUri = theme switch
             {
                 Theme.DarkV2 => DarkColorsV2Uri,
+                Theme.DarkV3 => DarkColorsV3Uri,
                 _ => DarkColorsUri
             };
             
@@ -257,7 +268,11 @@ namespace LOLThemes.Wpf.Helpers
                 {
                     var sourceStr = colorsDict.Source.OriginalString;
                     // 根据资源路径确定当前主题
-                    if (sourceStr.Contains("Colors.Dark.V2.xaml"))
+                    if (sourceStr.Contains("Colors.Dark.V3.xaml"))
+                    {
+                        _currentTheme = Theme.DarkV3;
+                    }
+                    else if (sourceStr.Contains("Colors.Dark.V2.xaml"))
                     {
                         _currentTheme = Theme.DarkV2;
                     }

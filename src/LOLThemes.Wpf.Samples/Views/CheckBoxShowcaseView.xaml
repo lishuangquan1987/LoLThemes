@@ -221,6 +221,94 @@
                     </smtx:XamlDisplay>
                 </StackPanel>
             </Border>
+            
+            <!-- 复选框带描述 -->
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderDarkBrush}"
+                   BorderThickness="0.5"
+                   Padding="20"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="复选框带描述" 
+                          FontSize="{DynamicResource FontSizeLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
+                          Margin="0,0,0,15"/>
+                    
+                    <smtx:XamlDisplay UniqueKey="CheckBoxWithDescription" Margin="0,0,0,0">
+                        <StackPanel>
+                            <CheckBox Margin="0,0,0,15">
+                                <StackPanel>
+                                    <TextBlock Text="记住我" 
+                                              FontSize="{StaticResource FontSizeNormal}"
+                                              FontWeight="{StaticResource FontWeightMedium}"
+                                              Foreground="{DynamicResource TextPrimaryBrush}"
+                                              Margin="0,0,0,5"/>
+                                    <TextBlock Text="下次自动登录，无需再次输入密码" 
+                                              FontSize="{DynamicResource FontSizeSmall}"
+                                              Foreground="{DynamicResource TextSecondaryBrush}"
+                                              TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </CheckBox>
+                            <CheckBox IsChecked="True" Margin="0,0,0,15">
+                                <StackPanel>
+                                    <TextBlock Text="接受服务条款" 
+                                              FontSize="{StaticResource FontSizeNormal}"
+                                              FontWeight="{StaticResource FontWeightMedium}"
+                                              Foreground="{DynamicResource TextPrimaryBrush}"
+                                              Margin="0,0,0,5"/>
+                                    <TextBlock Text="我已阅读并同意用户协议和隐私政策" 
+                                              FontSize="{DynamicResource FontSizeSmall}"
+                                              Foreground="{DynamicResource TextSecondaryBrush}"
+                                              TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </CheckBox>
+                            <CheckBox Margin="0,0,0,15">
+                                <StackPanel>
+                                    <TextBlock Text="订阅邮件通知" 
+                                              FontSize="{StaticResource FontSizeNormal}"
+                                              FontWeight="{StaticResource FontWeightMedium}"
+                                              Foreground="{DynamicResource TextPrimaryBrush}"
+                                              Margin="0,0,0,5"/>
+                                    <TextBlock Text="接收产品更新、优惠活动等邮件推送" 
+                                              FontSize="{DynamicResource FontSizeSmall}"
+                                              Foreground="{DynamicResource TextSecondaryBrush}"
+                                              TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </CheckBox>
+                        </StackPanel>
+                    </smtx:XamlDisplay>
+                </StackPanel>
+            </Border>
+            
+            <!-- 不确定状态复选框 -->
+            <Border Background="{DynamicResource BackgroundMediumBrush}"
+                   BorderBrush="{DynamicResource BorderDarkBrush}"
+                   BorderThickness="0.5"
+                   Padding="20"
+                   Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="不确定状态复选框" 
+                          FontSize="{DynamicResource FontSizeLarge}"
+                          FontWeight="{StaticResource FontWeightBold}"
+                          Foreground="{DynamicResource PrimaryGoldBrush}"
+                          Margin="0,0,0,15"/>
+                    
+                    <smtx:XamlDisplay UniqueKey="CheckBoxIndeterminate" Margin="0,0,0,0">
+                        <StackPanel>
+                            <CheckBox Content="全选" 
+                                    IsChecked="{x:Null}"
+                                    Margin="0,0,0,10"/>
+                            <CheckBox Content="选中" 
+                                    IsChecked="True"
+                                    Margin="0,0,0,10"/>
+                            <CheckBox Content="未选中" 
+                                    IsChecked="False"
+                                    Margin="0,0,0,10"/>
+                        </StackPanel>
+                    </smtx:XamlDisplay>
+                </StackPanel>
+            </Border>
         </StackPanel>
     </ScrollViewer>
 </UserControl>

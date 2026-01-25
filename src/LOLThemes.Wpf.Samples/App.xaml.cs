@@ -1,11 +1,35 @@
+using System;
+using System.Globalization;
 using System.Configuration;
 using System.Data;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Data;
+using System.Collections.Generic;
 using LOLThemes.Wpf.Helpers;
 using ShowMeTheXAML;
 
 namespace LOLThemes.Wpf.Samples;
+
+/// <summary>
+/// 枚举值相等性转换器（用于显示当前选中的菜单项）
+/// </summary>
+public class EnumEqualityConverter : IMultiValueConverter
+{
+    public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+    {
+        if (values == null || values.Length < 2)
+            return false;
+
+        // 比较两个枚举值
+        return values[0]?.ToString() == values[1]?.ToString();
+    }
+
+    public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+    {
+        throw new NotImplementedException();
+    }
+}
 
 /// <summary>
 /// Interaction logic for App.xaml

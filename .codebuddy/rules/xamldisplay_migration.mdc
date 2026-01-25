@@ -1,0 +1,89 @@
+---
+description: XamlDisplay命名空间从LOLThemes.Wpf.Controls迁移到LOLThemes.Wpf.ShowMeTheXAML的详细规则
+alwaysApply: false
+enabled: true
+updatedAt: 2026-01-24T15:55:06.855Z
+provider: 
+---
+
+# XamlDisplay命名空间迁移规则
+
+## 需要更新的文件和修改内容
+
+### 1. XAML显示样式文件
+**文件**: `src/LOLThemes.Wpf/Themes/Styles/XamlDisplayStyles.xaml`
+
+**修改**:
+- 命名空间: `xmlns:smtx="clr-namespace:LOLThemes.Wpf.ShowMeTheXAML;assembly=LOLThemes.Wpf"`
+- Style TargetType: `{x:Type smtx:XamlDisplay}`
+- ControlTemplate TargetType: `{x:Type smtx:XamlDisplay}`
+- Expander绑定: `IsExpanded="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsExpanded, Mode=TwoWay}"`
+
+### 2. App.xaml文件
+**文件**: `src/LOLThemes.Wpf.Samples/App.xaml`
+
+**修改**:
+- 如果存在ShowMeTheXAML样式引用，需要更新
+
+### 3. 所有视图文件 (共39个)
+**目录**: `src/LOLThemes.Wpf.Samples/Views/`
+
+**需要更新的命名空间**:
+- 将 `xmlns:controls="clr-namespace:LOLThemes.Wpf.Controls;assembly=LOLThemes.Wpf"` 
+- 替换为 `xmlns:smtx="clr-namespace:LOLThemes.Wpf.ShowMeTheXAML;assembly=LOLThemes.Wpf"`
+
+**需要更新的标签**:
+- `<controls:XamlDisplay` → `<smtx:XamlDisplay`
+- `</controls:XamlDisplay>` → `</smtx:XamlDisplay>`
+
+**文件列表**:
+- ButtonShowcaseView.xaml
+- CalendarShowcaseView.xaml
+- ChampionCardShowcaseView.xaml
+- CheckBoxShowcaseView.xaml
+- ComboBoxShowcaseView.xaml
+- ContextMenuShowcaseView.xaml
+- ControlShowcaseView.xaml
+- CurrencyDisplayShowcaseView.xaml
+- DataGridShowcaseView.xaml
+- DatePickerShowcaseView.xaml
+- ExpanderShowcaseView.xaml
+- GlowButtonShowcaseView.xaml
+- GroupBoxShowcaseView.xaml
+- HexagonButtonShowcaseView.xaml
+- LeagueOfLegendsGameView.xaml
+- LeagueOfLegendsMainView.xaml
+- ListBoxShowcaseView.xaml
+- ListViewShowcaseView.xaml
+- MenuShowcaseView.xaml
+- PasswordBoxShowcaseView.xaml
+- ProgressBarShowcaseView.xaml
+- RadioButtonShowcaseView.xaml
+- RankBadgeShowcaseView.xaml
+- RichTextBoxShowcaseView.xaml
+- Screenshot1-6View.xaml (6个文件)
+- SkillButtonShowcaseView.xaml
+- SliderShowcaseView.xaml
+- StatBarShowcaseView.xaml
+- StatusBarShowcaseView.xaml
+- TabControlShowcaseView.xaml
+- TextBoxShowcaseView.xaml
+- ToggleButtonShowcaseView.xaml
+- ToolTipShowcaseView.xaml
+- TreeViewShowcaseView.xaml
+- WindowShowcaseView.xaml
+
+### 4. 代码文件更新
+
+**文件**: `src/LOLThemes.Wpf.Samples/App.xaml.cs`
+
+**修改**:
+- 更新using语句: `using ShowMeTheXAML;` → `using LOLThemes.Wpf.ShowMeTheXAML;`
+- XamlDisplay.Init()调用保持不变
+
+## 验证步骤
+
+1. 编译LOLThemes.Wpf项目
+2. 编译LOLThemes.Wpf.Samples项目
+3. 运行应用程序，验证XamlDisplay控件正常工作
+4. 验证IsExpanded属性可以控制展开/折叠

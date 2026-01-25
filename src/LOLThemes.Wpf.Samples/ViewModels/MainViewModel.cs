@@ -1,4 +1,5 @@
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using LOLThemes.Wpf.Helpers;
 using LOLThemes.Wpf.Samples.Models;
 using Material.Icons;
@@ -10,10 +11,63 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace LOLThemes.Wpf.Samples.ViewModels
 {
+    /// <summary>
+    /// 尺寸主题信息
+    /// </summary>
+    public class SizeThemeInfo
+    {
+        /// <summary>
+        /// 尺寸主题名称
+        /// </summary>
+        public string Name { get; set; } = string.Empty;
+
+        /// <summary>
+        /// 尺寸主题描述
+        /// </summary>
+        public string Description { get; set; } = string.Empty;
+
+        /// <summary>
+        /// 尺寸主题枚举值
+        /// </summary>
+        public SizeTheme SizeTheme { get; set; }
+
+        /// <summary>
+        /// 尺寸主题图标
+        /// </summary>
+        public MaterialIconKind Icon { get; set; }
+    }
+
+    /// <summary>
+    /// 主题信息
+    /// </summary>
+    public class ThemeInfo
+    {
+        /// <summary>
+        /// 主题名称
+        /// </summary>
+        public string Name { get; set; } = string.Empty;
+
+        /// <summary>
+        /// 主题描述
+        /// </summary>
+        public string Description { get; set; } = string.Empty;
+
+        /// <summary>
+        /// 主题枚举值
+        /// </summary>
+        public Theme Theme { get; set; }
+
+        /// <summary>
+        /// 主题图标
+        /// </summary>
+        public MaterialIconKind Icon { get; set; }
+    }
 
     public partial class MainViewModel : ObservableObject
     {
@@ -27,6 +81,41 @@ namespace LOLThemes.Wpf.Samples.ViewModels
         private SizeTheme _currentSizeTheme;
 
         /// <summary>
+        /// 尺寸弹出菜单是否打开
+        /// </summary>
+        [ObservableProperty]
+        private bool _isSizePopupOpen;
+
+        /// <summary>
+        /// 主题弹出菜单是否打开
+        /// </summary>
+        [ObservableProperty]
+        private bool _isThemePopupOpen;
+
+        /// <summary>
+        /// 可用的尺寸主题列表
+        /// </summary>
+        public List<SizeThemeInfo> AvailableSizeThemes { get; } = new List<SizeThemeInfo>
+        {
+            new SizeThemeInfo { Name = "Compact", Description = "紧凑", SizeTheme = SizeTheme.Compact, Icon = MaterialIconKind.FormatSize },
+            new SizeThemeInfo { Name = "Medium", Description = "中等", SizeTheme = SizeTheme.Medium, Icon = MaterialIconKind.FormatSize },
+            new SizeThemeInfo { Name = "Large", Description = "宽大", SizeTheme = SizeTheme.Large, Icon = MaterialIconKind.FormatSize }
+        };
+
+        /// <summary>
+        /// 可用的主题列表
+        /// </summary>
+        public List<ThemeInfo> AvailableThemes { get; } = new List<ThemeInfo>
+        {
+            new ThemeInfo { Name = "Classic Dark", Description = "经典暗黑主题", Theme = Theme.Dark, Icon = MaterialIconKind.WeatherSunny },
+            new ThemeInfo { Name = "Enhanced Dark V2", Description = "增强版暗黑主题", Theme = Theme.DarkV2, Icon = MaterialIconKind.Circle },
+            new ThemeInfo { Name = "Modern Dark V3", Description = "现代暗黑主题", Theme = Theme.DarkV3, Icon = MaterialIconKind.CircleOutline }
+        };
+
+        [ObservableProperty]
+        private ThemeInfo? _selectedTheme;
+
+        /// <summary>
         /// 主题图标（Material.Icons 图标类型）
         /// </summary>
         public Material.Icons.MaterialIconKind ThemeIcon => CurrentTheme == Theme.Dark
@@ -36,29 +125,27 @@ namespace LOLThemes.Wpf.Samples.ViewModels
         /// <summary>
         /// 主题切换提示文本
         /// </summary>
-        public string ThemeToolTip => CurrentTheme == Theme.Dark ? "切换到增强版Dark主题" : "切换到暗黑主题";
-
-        
+        public string ThemeToolTip => CurrentTheme switch
+        {
+            Theme.Dark => "经典暗黑主题",
+            Theme.DarkV2 => "增强版暗黑主题",
+            Theme.DarkV3 => "现代暗黑主题",
+            _ => "切换主题"
+        };
 
         /// <summary>
         /// 尺寸图标（Material.Icons 图标类型）
         /// </summary>
-        public Material.Icons.MaterialIconKind SizeIcon => CurrentSizeTheme switch
-        {
-            SizeTheme.Compact => Material.Icons.MaterialIconKind.FormatSize,
-            SizeTheme.Medium => Material.Icons.MaterialIconKind.FormatSize,
-            SizeTheme.Large => Material.Icons.MaterialIconKind.FormatSize,
-            _ => Material.Icons.MaterialIconKind.FormatSize
-        };
+        public Material.Icons.MaterialIconKind SizeIcon => Material.Icons.MaterialIconKind.FormatSize;
 
         /// <summary>
         /// 尺寸切换提示文本
         /// </summary>
         public string SizeToolTip => CurrentSizeTheme switch
         {
-            SizeTheme.Compact => "当前：紧凑 → 切换到中等",
-            SizeTheme.Medium => "当前：中等 → 切换到宽大",
-            SizeTheme.Large => "当前：宽大 → 切换到紧凑",
+            SizeTheme.Compact => "紧凑尺寸",
+            SizeTheme.Medium => "中等尺寸",
+            SizeTheme.Large => "宽大尺寸",
             _ => "切换尺寸"
         };
 
@@ -67,6 +154,8 @@ namespace LOLThemes.Wpf.Samples.ViewModels
         public ICommand NavigateCommand { get; }
         public ICommand ToggleThemeCommand { get; }
         public ICommand ToggleSizeCommand { get; }
+        public ICommand OpenSizePopupCommand { get; }
+        public ICommand OpenThemePopupCommand { get; }
 
         public MainViewModel()
         {
@@ -172,8 +261,11 @@ namespace LOLThemes.Wpf.Samples.ViewModels
                 }
             };
 
+            NavigateCommand = new RelayCommand<NavigationItem>(item => { SelectedItem = item; });
             ToggleThemeCommand = new RelayCommand(ToggleTheme);
             ToggleSizeCommand = new RelayCommand(ToggleSize);
+            OpenSizePopupCommand = new RelayCommand(() => IsSizePopupOpen = !IsSizePopupOpen);
+            OpenThemePopupCommand = new RelayCommand(() => IsThemePopupOpen = !IsThemePopupOpen);
         }
 
 
@@ -182,8 +274,14 @@ namespace LOLThemes.Wpf.Samples.ViewModels
         {
             try
             {
-                // 切换主题变体
-                var newTheme = CurrentTheme == Theme.Dark ? Theme.DarkV2 : Theme.Dark;
+                // 切换主题变体（Dark -> DarkV2 -> DarkV3 -> 循环）
+                var newTheme = CurrentTheme switch
+                {
+                    Theme.Dark => Theme.DarkV2,
+                    Theme.DarkV2 => Theme.DarkV3,
+                    Theme.DarkV3 => Theme.Dark,
+                    _ => Theme.Dark
+                };
                 ThemeManager.SwitchTheme(newTheme);
             }
             catch (System.Exception ex)
@@ -194,6 +292,86 @@ namespace LOLThemes.Wpf.Samples.ViewModels
                     System.Windows.MessageBoxButton.OK,
                     System.Windows.MessageBoxImage.Error);
             }
+        }
+
+        /// <summary>
+        /// 切换到指定主题
+        /// </summary>
+        private void SwitchToTheme(Theme theme)
+        {
+            ThemeManager.SwitchTheme(theme);
+            SelectedTheme = AvailableThemes.FirstOrDefault(t => t.Theme == theme);
+        }
+
+        /// <summary>
+        /// 检查主题是否为当前选中
+        /// </summary>
+        public bool IsThemeSelected(Theme theme) => CurrentTheme == theme;
+
+        /// <summary>
+        /// 选择主题命令（由主题选择按钮触发）
+        /// </summary>
+        [RelayCommand]
+        private void SelectTheme(ThemeInfo? themeInfo)
+        {
+            if (themeInfo != null)
+            {
+                try
+                {
+                    SwitchToTheme(themeInfo.Theme);
+                    IsThemePopupOpen = false;
+                }
+                catch (System.Exception ex)
+                {
+                    System.Windows.MessageBox.Show(
+                        $"切换主题时发生错误：{ex.Message}\n\n{ex.StackTrace}",
+                        "错误",
+                        System.Windows.MessageBoxButton.OK,
+                        System.Windows.MessageBoxImage.Error);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 检查尺寸主题是否为当前选中
+        /// </summary>
+        public bool IsSizeThemeSelected(SizeTheme sizeTheme) => CurrentSizeTheme == sizeTheme;
+
+        /// <summary>
+        /// 选择尺寸命令（由尺寸选择按钮触发）
+        /// </summary>
+        [RelayCommand]
+        private void SelectSize(string sizeName)
+        {
+            try
+            {
+                var newSizeTheme = sizeName switch
+                {
+                    "Compact" => SizeTheme.Compact,
+                    "Medium" => SizeTheme.Medium,
+                    "Large" => SizeTheme.Large,
+                    _ => SizeTheme.Medium
+                };
+                ThemeManager.SwitchSizeTheme(newSizeTheme);
+                IsSizePopupOpen = false;
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.MessageBox.Show(
+                    $"切换尺寸时发生错误：{ex.Message}\n\n{ex.StackTrace}",
+                    "错误",
+                    System.Windows.MessageBoxButton.OK,
+                    System.Windows.MessageBoxImage.Error);
+            }
+        }
+
+        /// <summary>
+        /// 切换主题弹出菜单命令
+        /// </summary>
+        [RelayCommand]
+        private void ToggleThemePopup()
+        {
+            IsThemePopupOpen = !IsThemePopupOpen;
         }
 
         private void ToggleSize()

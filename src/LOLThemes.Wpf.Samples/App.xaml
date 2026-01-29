@@ -23,34 +23,6 @@
             <!--  布尔值到可见性转换器  -->
             <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
 
-            <!--<Style x:Key="StyledBorder" TargetType="Border">
-                <Style.Triggers>
-                    <EventTrigger RoutedEvent="MouseEnter">
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ColorAnimation
-                                    Storyboard.TargetProperty="Background.Color"
-                                    To="#888888"
-                                    Duration="0:0:0.2" />
-                                <DoubleAnimation
-                                    Storyboard.TargetProperty="Opacity"
-                                    To="1"
-                                    Duration="0:0:0.2" />
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                    <EventTrigger RoutedEvent="MouseLeave">
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ColorAnimation
-                                    Storyboard.TargetProperty="Background.Color"
-                                    To="#CCCCCC"
-                                    Duration="0:0:0.2" />
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                </Style.Triggers>
-            </Style>-->
         </ResourceDictionary>
     </Application.Resources>
 </Application>

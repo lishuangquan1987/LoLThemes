@@ -1,110 +1,117 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
-    <!-- 合并基础资源，确保可以访问 Fonts -->
-    <!-- 注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用 -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  合并基础资源，确保可以访问 Fonts  -->
+    <!--  注意：Colors.xaml 和 Sizes.xaml 已通过 Generic.xaml 加载，无需直接引用  -->
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/LOLThemes.Wpf;component/Themes/Fonts.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <!-- Menu Separator Style -->
+    <!--  Menu Separator Style  -->
     <Style x:Key="MenuSeparatorStyle" TargetType="{x:Type Separator}">
-        <Setter Property="Background" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="Height" Value="1"/>
-        <Setter Property="Margin" Value="{DynamicResource ItemMargin}"/>
+        <Setter Property="Background" Value="{DynamicResource BorderDarkBrush}" />
+        <Setter Property="Height" Value="1" />
+        <Setter Property="Margin" Value="{DynamicResource ItemMargin}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Separator}">
-                    <Border Background="{TemplateBinding Background}"
-                            Height="{TemplateBinding Height}"
-                            Margin="{TemplateBinding Margin}"/>
+                    <Border
+                        Height="{TemplateBinding Height}"
+                        Margin="{TemplateBinding Margin}"
+                        Background="{TemplateBinding Background}" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!-- MenuItem Style -->
+    <!--  MenuItem Style  -->
     <Style x:Key="LOLMenuItemStyle" TargetType="{x:Type MenuItem}">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
-        <Setter Property="Padding" Value="{DynamicResource MenuItemPadding}"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
+        <Setter Property="Padding" Value="{DynamicResource MenuItemPadding}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type MenuItem}">
-                    <Border x:Name="Border"
-                            BorderBrush="Transparent"
-                            BorderThickness="0">
+                    <Border
+                        x:Name="Border"
+                        BorderBrush="Transparent"
+                        BorderThickness="0">
                         <Border.Background>
-                            <SolidColorBrush Color="Transparent"/>
+                            <SolidColorBrush Color="Transparent" />
                         </Border.Background>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" SharedSizeGroup="Icon"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto" SharedSizeGroup="Shortcut"/>
-                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="Icon" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="Shortcut" />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
-                            <!-- Icon -->
-                            <ContentPresenter Grid.Column="0"
-                                            x:Name="Icon"
-                                            ContentSource="Icon"
-                                            Margin="8,0,8,0"
-                                            VerticalAlignment="Center"/>
+                            <!--  Icon  -->
+                            <ContentPresenter
+                                x:Name="Icon"
+                                Grid.Column="0"
+                                Margin="8,0,8,0"
+                                VerticalAlignment="Center"
+                                ContentSource="Icon" />
 
-                            <!-- Check Mark -->
-                            <Path Grid.Column="0"
-                                  x:Name="CheckMark"
-                                  Data="M0,5 L3,8 L8,0"
-                                  Stroke="{DynamicResource PrimaryGoldBrush}"
-                                  StrokeThickness="2"
-                                  Visibility="Collapsed"
-                                  Margin="8,0,8,0"
-                                  VerticalAlignment="Center"/>
+                            <!--  Check Mark  -->
+                            <Path
+                                x:Name="CheckMark"
+                                Grid.Column="0"
+                                Margin="8,0,8,0"
+                                VerticalAlignment="Center"
+                                Data="M0,5 L3,8 L8,0"
+                                Stroke="{DynamicResource PrimaryGoldBrush}"
+                                StrokeThickness="2"
+                                Visibility="Collapsed" />
 
-                            <!-- Header -->
-                            <ContentPresenter Grid.Column="1"
-                                            ContentSource="Header"
-                                            RecognizesAccessKey="True"
-                                            VerticalAlignment="Center"
-                                            Margin="{TemplateBinding Padding}"
-                                            TextElement.Foreground="{TemplateBinding Foreground}"/>
+                            <!--  Header  -->
+                            <ContentPresenter
+                                Grid.Column="1"
+                                Margin="{TemplateBinding Padding}"
+                                VerticalAlignment="Center"
+                                ContentSource="Header"
+                                RecognizesAccessKey="True"
+                                TextElement.Foreground="{TemplateBinding Foreground}" />
 
-                            <!-- Input Gesture Text (Shortcut) -->
-                            <TextBlock Grid.Column="2"
-                                     x:Name="InputGestureText"
-                                     Text="{TemplateBinding InputGestureText}"
-                                     Foreground="{DynamicResource TextSecondaryBrush}"
-                                     Margin="16,0,8,0"
-                                     VerticalAlignment="Center"/>
+                            <!--  Input Gesture Text (Shortcut)  -->
+                            <TextBlock
+                                x:Name="InputGestureText"
+                                Grid.Column="2"
+                                Margin="16,0,8,0"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextSecondaryBrush}"
+                                Text="{TemplateBinding InputGestureText}" />
 
-                            <!-- Submenu Arrow -->
-                            <Path Grid.Column="3"
-                                  x:Name="SubMenuArrow"
-                                  Data="M0,0 L4,4 L0,8 Z"
-                                  Fill="{DynamicResource TextPrimaryBrush}"
-                                  Visibility="Collapsed"
-                                  Margin="0,0,8,0"
-                                  VerticalAlignment="Center"/>
+                            <!--  Submenu Arrow  -->
+                            <Path
+                                x:Name="SubMenuArrow"
+                                Grid.Column="3"
+                                Margin="0,0,8,0"
+                                VerticalAlignment="Center"
+                                Data="M0,0 L4,4 L0,8 Z"
+                                Fill="{DynamicResource TextPrimaryBrush}"
+                                Visibility="Collapsed" />
 
-                            <!-- Popup for Submenu -->
-                            <Popup Grid.Column="0"
-                                   x:Name="PART_Popup"
-                                   AllowsTransparency="True"
-                                   Placement="Right"
-                                   IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"
-                                   Focusable="False"
-                                   PopupAnimation="Fade">
-                                <Border Background="{DynamicResource BackgroundMediumBrush}"
-                                        BorderBrush="{DynamicResource BorderGoldBrush}"
-                                        BorderThickness="{DynamicResource BorderThickness}"
-                                        CornerRadius="3"
-                                        Padding="2">
-                                    <ScrollViewer Style="{DynamicResource {ComponentResourceKey TypeInTargetAssembly={x:Type FrameworkElement}, ResourceId=MenuScrollViewer}}"
-                                                CanContentScroll="True">
-                                        <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Cycle"/>
+                            <!--  Popup for Submenu  -->
+                            <Popup
+                                x:Name="PART_Popup"
+                                Grid.Column="0"
+                                AllowsTransparency="True"
+                                Focusable="False"
+                                IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                                Placement="Right"
+                                PopupAnimation="Fade">
+                                <Border
+                                    Padding="2"
+                                    Background="{DynamicResource BackgroundMediumBrush}"
+                                    BorderBrush="{DynamicResource BorderGoldBrush}"
+                                    BorderThickness="{DynamicResource BorderThickness}"
+                                    CornerRadius="3">
+                                    <ScrollViewer CanContentScroll="True" Style="{DynamicResource {ComponentResourceKey TypeInTargetAssembly={x:Type FrameworkElement}, ResourceId=MenuScrollViewer}}">
+                                        <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Cycle" />
                                     </ScrollViewer>
                                 </Border>
                             </Popup>
@@ -112,48 +119,48 @@
                     </Border>
 
                     <ControlTemplate.Triggers>
-                        <!-- Top Level Item -->
+                        <!--  Top Level Item  -->
                         <Trigger Property="Role" Value="TopLevelHeader">
-                            <Setter Property="Padding" Value="{DynamicResource MenuItemPadding}"/>
-                            <Setter TargetName="PART_Popup" Property="Placement" Value="Bottom"/>
+                            <Setter Property="Padding" Value="{DynamicResource MenuItemPadding}" />
+                            <Setter TargetName="PART_Popup" Property="Placement" Value="Bottom" />
                         </Trigger>
 
                         <Trigger Property="Role" Value="TopLevelItem">
-                            <Setter Property="Padding" Value="{DynamicResource MenuItemPadding}"/>
+                            <Setter Property="Padding" Value="{DynamicResource MenuItemPadding}" />
                         </Trigger>
 
-                        <!-- Submenu Item -->
+                        <!--  Submenu Item  -->
                         <Trigger Property="Role" Value="SubmenuHeader">
-                            <Setter TargetName="SubMenuArrow" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="SubMenuArrow" Property="Visibility" Value="Visible" />
                         </Trigger>
 
-                        <!-- Checkable -->
+                        <!--  Checkable  -->
                         <Trigger Property="IsCheckable" Value="True">
-                            <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="CheckMark" Property="Visibility" Value="Visible" />
                         </Trigger>
 
                         <Trigger Property="IsChecked" Value="False">
-                            <Setter TargetName="CheckMark" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="CheckMark" Property="Visibility" Value="Collapsed" />
                         </Trigger>
 
-                        <!-- Has Icon -->
+                        <!--  Has Icon  -->
                         <Trigger Property="Icon" Value="{x:Null}">
-                            <Setter TargetName="Icon" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="Icon" Property="Visibility" Value="Collapsed" />
                         </Trigger>
 
-                        <!-- Mouse Over - 无动画，即时切换 -->
+                        <!--  Mouse Over - 无动画，即时切换  -->
                         <Trigger Property="IsHighlighted" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource BackgroundHoverBrush}"/>
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}"/>
-                            <Setter TargetName="Border" Property="BorderThickness" Value="1"/>
-                            <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
-                            <Setter TargetName="SubMenuArrow" Property="Fill" Value="{DynamicResource TextPrimaryBrush}"/>
-                            <Setter TargetName="InputGestureText" Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource BackgroundHoverBrush}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}" />
+                            <Setter TargetName="Border" Property="BorderThickness" Value="1" />
+                            <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
+                            <Setter TargetName="SubMenuArrow" Property="Fill" Value="{DynamicResource TextPrimaryBrush}" />
+                            <Setter TargetName="InputGestureText" Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
                         </Trigger>
 
-                        <!-- Disabled -->
+                        <!--  Disabled  -->
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -161,32 +168,33 @@
         </Setter>
     </Style>
 
-    <!-- Menu Style -->
+    <!--  Menu Style  -->
     <Style x:Key="LOLMenuStyle" TargetType="{x:Type Menu}">
-        <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}"/>
-        <Setter Property="BorderThickness" Value="0,0,0,1"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}"/>
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
-        <!-- 不设置 ItemContainerStyle，让 MenuItem 使用隐式样式，Separator 使用默认样式 -->
+        <Setter Property="Background" Value="{DynamicResource BackgroundMediumBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}" />
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
+        <!--  不设置 ItemContainerStyle，让 MenuItem 使用隐式样式，Separator 使用默认样式  -->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Menu}">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            Padding="4,2">
-                        <ItemsPresenter/>
+                    <Border
+                        Padding="4,2"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <ItemsPresenter />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!-- 默认 Menu 样式 -->
-    <Style TargetType="{x:Type Menu}" BasedOn="{StaticResource LOLMenuStyle}"/>
-    <!-- 默认 MenuItem 样式 -->
-    <Style TargetType="{x:Type MenuItem}" BasedOn="{StaticResource LOLMenuItemStyle}"/>
+    <!--  默认 Menu 样式  -->
+    <Style BasedOn="{StaticResource LOLMenuStyle}" TargetType="{x:Type Menu}" />
+    <!--  默认 MenuItem 样式  -->
+    <Style BasedOn="{StaticResource LOLMenuItemStyle}" TargetType="{x:Type MenuItem}" />
 
 </ResourceDictionary>

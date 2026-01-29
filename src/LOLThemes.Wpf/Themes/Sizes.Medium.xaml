@@ -1,8 +1,9 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <!-- Padding 相关资源（中等尺寸，1.0倍） -->
+    <!--  Padding 相关资源（中等尺寸，1.0倍）  -->
     <Thickness x:Key="ButtonPadding">12,6</Thickness>
     <Thickness x:Key="TextBoxPadding">8,4</Thickness>
     <Thickness x:Key="PasswordBoxPadding">8,4</Thickness>
@@ -16,35 +17,35 @@
     <Thickness x:Key="GroupBoxPadding">12,8</Thickness>
     <Thickness x:Key="ExpanderPadding">12,8</Thickness>
     <Thickness x:Key="WindowPadding">0</Thickness>
-    
-    <!-- BorderThickness 相关资源（中等尺寸，1.0倍） -->
+
+    <!--  BorderThickness 相关资源（中等尺寸，1.0倍）  -->
     <Thickness x:Key="BorderThickness">1</Thickness>
     <Thickness x:Key="ButtonBorderThickness">1</Thickness>
     <Thickness x:Key="TextBoxBorderThickness">1</Thickness>
     <Thickness x:Key="PasswordBoxBorderThickness">1</Thickness>
     <Thickness x:Key="ComboBoxBorderThickness">1</Thickness>
     <Thickness x:Key="WindowBorderThickness">1</Thickness>
-    <!-- 特殊边框厚度（用于特定控件） -->
+    <!--  特殊边框厚度（用于特定控件）  -->
     <Thickness x:Key="DataGridColumnHeaderBorderThickness">0,0,1,1</Thickness>
     <Thickness x:Key="DataGridCellBorderThickness">0,0,1,0</Thickness>
     <Thickness x:Key="StatusBarTopBorderThickness">0,1,0,0</Thickness>
     <Thickness x:Key="ListViewItemBorderThickness">0,0,1,1</Thickness>
     <Thickness x:Key="TabItemBorderThickness">1,1,1,0</Thickness>
-    
-    <!-- Margin 相关资源（中等尺寸，1.0倍） -->
+
+    <!--  Margin 相关资源（中等尺寸，1.0倍）  -->
     <Thickness x:Key="ControlMargin">4</Thickness>
     <Thickness x:Key="ControlMarginSmall">1</Thickness>
     <Thickness x:Key="ItemMargin">4,2</Thickness>
     <Thickness x:Key="GroupMargin">12,8</Thickness>
-    
-    <!-- FontSize 相关资源（中等尺寸，1.0倍） -->
+
+    <!--  FontSize 相关资源（中等尺寸，1.0倍）  -->
     <sys:Double x:Key="FontSizeSmall">12</sys:Double>
     <sys:Double x:Key="FontSizeNormal">14</sys:Double>
     <sys:Double x:Key="FontSizeMedium">16</sys:Double>
     <sys:Double x:Key="FontSizeLarge">20</sys:Double>
-    
-    <!-- CornerRadius 相关资源（中等尺寸，1.0倍） -->
-    <!-- 小控件（2-3px），中等控件（3-4px），大控件（4-6px） -->
+
+    <!--  CornerRadius 相关资源（中等尺寸，1.0倍）  -->
+    <!--  小控件（2-3px），中等控件（3-4px），大控件（4-6px）  -->
     <CornerRadius x:Key="CornerRadius">3</CornerRadius>
     <CornerRadius x:Key="ButtonCornerRadius">3</CornerRadius>
     <CornerRadius x:Key="TextBoxCornerRadius">3</CornerRadius>
@@ -52,11 +53,11 @@
     <CornerRadius x:Key="SmallCornerRadius">2</CornerRadius>
     <CornerRadius x:Key="MediumCornerRadius">3</CornerRadius>
     <CornerRadius x:Key="LargeCornerRadius">4</CornerRadius>
-    
-    <!-- IconSize 相关资源（中等尺寸，1.0倍） -->
+
+    <!--  IconSize 相关资源（中等尺寸，1.0倍）  -->
     <sys:Double x:Key="IconSize">16</sys:Double>
-    
-    <!-- Spacing 相关资源（中等尺寸，1.0倍） -->
+
+    <!--  Spacing 相关资源（中等尺寸，1.0倍）  -->
     <sys:Double x:Key="Spacing">4</sys:Double>
 
 </ResourceDictionary>

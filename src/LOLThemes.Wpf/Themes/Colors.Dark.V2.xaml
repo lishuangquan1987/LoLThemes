@@ -38,28 +38,39 @@
     -->
 
     <!--  背景颜色层级（从深到浅）  -->
-    <Color x:Key="BackgroundDark">#0A141A</Color> <!-- 更深的主背景，增强对比度 -->
+    <Color x:Key="BackgroundDark">#0A141A</Color> 
+    <!--  更深的主背景，增强对比度  -->
     <!--  主背景（最深）  -->
-    <Color x:Key="BackgroundSecondary">#0E1920</Color> <!-- 调整次背景色 -->
+    <Color x:Key="BackgroundSecondary">#0E1920</Color> 
+    <!--  调整次背景色  -->
     <!--  次背景（面板、侧边栏）  -->
-    <Color x:Key="BackgroundTertiary">#122029</Color> <!-- 调整三级背景色 -->
+    <Color x:Key="BackgroundTertiary">#122029</Color> 
+    <!--  调整三级背景色  -->
     <!--  三级背景（选中背景）  -->
-    <Color x:Key="BackgroundCard">#1A242C</Color> <!-- 卡片背景 - 增强深度感 -->
+    <Color x:Key="BackgroundCard">#1A242C</Color> 
     <!--  卡片背景 - 增强深度感  -->
-    <Color x:Key="BackgroundPanel">#1D2730</Color> <!-- 面板背景 - 增强深度感 -->
+    <!--  卡片背景 - 增强深度感  -->
+    <Color x:Key="BackgroundPanel">#1D2730</Color> 
     <!--  面板背景 - 增强深度感  -->
-    <Color x:Key="BackgroundInput">#232D36</Color> <!-- 输入框背景 - 调整为更深颜色，增强深度感 -->
+    <!--  面板背景 - 增强深度感  -->
+    <Color x:Key="BackgroundInput">#232D36</Color> 
     <!--  输入框背景 - 调整为更深颜色，增强深度感  -->
-    <Color x:Key="BackgroundHover">#2A353F</Color> <!-- 悬停背景 - 调整为更深颜色，增强深度感 -->
+    <!--  输入框背景 - 调整为更深颜色，增强深度感  -->
+    <Color x:Key="BackgroundHover">#2A353F</Color> 
     <!--  悬停背景 - 调整为更深颜色，增强深度感  -->
-    <Color x:Key="BackgroundSelected">#303C46</Color> <!-- 选中背景 -->
+    <!--  悬停背景 - 调整为更深颜色，增强深度感  -->
+    <Color x:Key="BackgroundSelected">#303C46</Color> 
+    <!--  选中背景  -->
     <!--  选中背景  -->
     <!--  注：BackgroundPanel 与 BackgroundInput 颜色值相近，未来考虑合并  -->
-    <Color x:Key="BackgroundSurface">#232D36</Color> <!-- 表面背景 - 新增背景层级，增强深度感 -->
+    <Color x:Key="BackgroundSurface">#232D36</Color> 
     <!--  表面背景 - 新增背景层级，增强深度感  -->
-    <Color x:Key="BackgroundElevation1">#26313B</Color> <!-- 一级抬升背景 - 新增，用于轻微抬升的元素 -->
+    <!--  表面背景 - 新增背景层级，增强深度感  -->
+    <Color x:Key="BackgroundElevation1">#26313B</Color> 
     <!--  一级抬升背景 - 新增，用于轻微抬升的元素  -->
-    <Color x:Key="BackgroundElevation2">#29343F</Color> <!-- 二级抬升背景 - 新增，用于明显抬升的元素 -->
+    <!--  一级抬升背景 - 新增，用于轻微抬升的元素  -->
+    <Color x:Key="BackgroundElevation2">#29343F</Color> 
+    <!--  二级抬升背景 - 新增，用于明显抬升的元素  -->
     <!--  二级抬升背景 - 新增，用于明显抬升的元素  -->
 
     <!--  阴影效果资源（增强深度感）  -->
@@ -96,75 +107,105 @@
         Color="#000000" />
 
     <!--  文本颜色  -->
-    <Color x:Key="TextPrimary">#FFFFFF</Color> <!-- 纯白色主文本，增强可读性 -->
+    <Color x:Key="TextPrimary">#FFFFFF</Color> 
+    <!--  纯白色主文本，增强可读性  -->
     <!--  主文本（暖白色，合并了 TextBright）  -->
-    <Color x:Key="TextSecondary">#B0BEC5</Color> <!-- 调整次要文本颜色 -->
+    <Color x:Key="TextSecondary">#B0BEC5</Color> 
+    <!--  调整次要文本颜色  -->
     <!--  次要文本（灰色） - 提高对比度，优化可读性  -->
-    <Color x:Key="TextDisabled">#78909C</Color> <!-- 禁用文本 - 提高对比度，优化可读性 -->
+    <Color x:Key="TextDisabled">#78909C</Color> 
     <!--  禁用文本 - 提高对比度，优化可读性  -->
-    <Color x:Key="TextGoldLight">#E6C17A</Color> <!-- 浅金色文本，更鲜艳 -->
+    <!--  禁用文本 - 提高对比度，优化可读性  -->
+    <Color x:Key="TextGoldLight">#E6C17A</Color> 
+    <!--  浅金色文本，更鲜艳  -->
     <!--  浅金色文本  -->
-    <Color x:Key="TextWhite">#FFFFFF</Color> <!-- 纯白色（备用） -->
+    <Color x:Key="TextWhite">#FFFFFF</Color> 
+    <!--  纯白色（备用）  -->
     <!--  纯白色（备用）  -->
 
     <!--  边框颜色  -->
-    <Color x:Key="BorderDefault">#455A64</Color> <!-- 默认边框（最常用） -->
+    <Color x:Key="BorderDefault">#455A64</Color> 
     <!--  默认边框（最常用）  -->
-    <Color x:Key="BorderDark">#263238</Color> <!-- 深色边框 -->
+    <!--  默认边框（最常用）  -->
+    <Color x:Key="BorderDark">#263238</Color> 
     <!--  深色边框  -->
-    <Color x:Key="BorderMedium">#37474F</Color> <!-- 中等边框 -->
+    <!--  深色边框  -->
+    <Color x:Key="BorderMedium">#37474F</Color> 
     <!--  中等边框  -->
-    <Color x:Key="BorderLight">#546E7A</Color> <!-- 浅色边框 -->
+    <!--  中等边框  -->
+    <Color x:Key="BorderLight">#546E7A</Color> 
     <!--  浅色边框  -->
-    <Color x:Key="BorderGray">#90A4AE</Color> <!-- 灰色边框 -->
+    <!--  浅色边框  -->
+    <Color x:Key="BorderGray">#90A4AE</Color> 
+    <!--  灰色边框  -->
     <!--  灰色边框  -->
 
     <!--  强调色 - 更鲜艳的配色  -->
-    <Color x:Key="AccentCyan">#26C6DA</Color> <!-- 更亮的强调青色 -->
+    <Color x:Key="AccentCyan">#26C6DA</Color> 
+    <!--  更亮的强调青色  -->
     <!--  强调色（青色）  -->
-    <Color x:Key="AccentGold">#D4AF37</Color> <!-- 更鲜艳的强调金色 -->
+    <Color x:Key="AccentGold">#D4AF37</Color> 
+    <!--  更鲜艳的强调金色  -->
     <!--  强调色（金色） - 基础金色  -->
-    <Color x:Key="AccentGoldLight">#FFD700</Color> <!-- 亮金色，更醒目 -->
+    <Color x:Key="AccentGoldLight">#FFD700</Color> 
+    <!--  亮金色，更醒目  -->
     <!--  强调色（金色） - 浅金色  -->
-    <Color x:Key="AccentGoldDark">#B8860B</Color> <!-- 深金色 -->
+    <Color x:Key="AccentGoldDark">#B8860B</Color> 
+    <!--  深金色  -->
     <!--  强调色（金色） - 深金色  -->
-    <Color x:Key="AccentGoldBright">#FFDF00</Color> <!-- 更亮的亮金色 -->
+    <Color x:Key="AccentGoldBright">#FFDF00</Color> 
+    <!--  更亮的亮金色  -->
     <!--  强调色（金色） - 亮金色  -->
-    <Color x:Key="SelectedAccentBlue">#4FC3F7</Color> <!-- 选中强调色（蓝色，备用） -->
+    <Color x:Key="SelectedAccentBlue">#4FC3F7</Color> 
+    <!--  选中强调色（蓝色，备用）  -->
     <!--  选中强调色（蓝色，备用）  -->
 
     <!--  状态颜色  -->
-    <Color x:Key="StateError">#FF5252</Color> <!-- 更鲜艳的错误红色 -->
+    <Color x:Key="StateError">#FF5252</Color> 
+    <!--  更鲜艳的错误红色  -->
     <!--  错误红色  -->
-    <Color x:Key="StateErrorDark">#F44336</Color> <!-- 深错误红 -->
+    <Color x:Key="StateErrorDark">#F44336</Color> 
     <!--  深错误红  -->
-    <Color x:Key="StateSuccess">#66BB6A</Color> <!-- 成功绿色 -->
+    <!--  深错误红  -->
+    <Color x:Key="StateSuccess">#66BB6A</Color> 
+    <!--  成功绿色  -->
     <!--  成功青色 - 使用 AccentCyan，避免重复定义  -->
-    <Color x:Key="StateWarning">#FFA726</Color> <!-- 警告橙色 -->
+    <Color x:Key="StateWarning">#FFA726</Color> 
+    <!--  警告橙色  -->
     <!--  警告金色 - 使用 AccentGold，避免重复定义  -->
-    <Color x:Key="StateInfo">#42A5F5</Color> <!-- 信息蓝色 -->
+    <Color x:Key="StateInfo">#42A5F5</Color> 
+    <!--  信息蓝色  -->
     <!--  信息蓝色  -->
 
     <!--  货币显示颜色（使用强调色，保留独立定义以便未来扩展）  -->
-    <Color x:Key="CurrencyBlueEssence">#26C6DA</Color> <!-- 蓝色精粹（使用 AccentCyan） -->
+    <Color x:Key="CurrencyBlueEssence">#26C6DA</Color> 
     <!--  蓝色精粹（使用 AccentCyan）  -->
-    <Color x:Key="CurrencyRiotPoints">#D4AF37</Color> <!-- 点券（金色，使用 AccentGold） -->
+    <!--  蓝色精粹（使用 AccentCyan）  -->
+    <Color x:Key="CurrencyRiotPoints">#D4AF37</Color> 
     <!--  点券（金色，使用 AccentGold）  -->
-    <Color x:Key="CurrencyOrangeEssence">#FF8A65</Color> <!-- 橙色精粹，更鲜艳 -->
+    <!--  点券（金色，使用 AccentGold）  -->
+    <Color x:Key="CurrencyOrangeEssence">#FF8A65</Color> 
+    <!--  橙色精粹，更鲜艳  -->
     <!--  橙色精粹  -->
-    <Color x:Key="CurrencyTokens">#9575CD</Color> <!-- 代币（紫色） -->
+    <Color x:Key="CurrencyTokens">#9575CD</Color> 
+    <!--  代币（紫色）  -->
     <!--  代币（紫色）  -->
 
     <!--  数据可视化颜色  -->
-    <Color x:Key="DataRed">#EF5350</Color> <!-- 数据可视化红色，更鲜艳 -->
+    <Color x:Key="DataRed">#EF5350</Color> 
+    <!--  数据可视化红色，更鲜艳  -->
     <!--  数据可视化红色  -->
-    <Color x:Key="DataBlue">#64B5F6</Color> <!-- 数据可视化蓝色，更鲜艳 -->
+    <Color x:Key="DataBlue">#64B5F6</Color> 
+    <!--  数据可视化蓝色，更鲜艳  -->
     <!--  数据可视化蓝色  -->
-    <Color x:Key="DataGreen">#81C784</Color> <!-- 数据可视化绿色，更鲜艳 -->
+    <Color x:Key="DataGreen">#81C784</Color> 
+    <!--  数据可视化绿色，更鲜艳  -->
     <!--  数据可视化绿色  -->
-    <Color x:Key="DataCyan">#4DD0E1</Color> <!-- 数据可视化青色，更鲜艳 -->
+    <Color x:Key="DataCyan">#4DD0E1</Color> 
+    <!--  数据可视化青色，更鲜艳  -->
     <!--  数据可视化青色  -->
-    <Color x:Key="DataGold">#FFD54F</Color> <!-- 数据可视化金色，更鲜艳 -->
+    <Color x:Key="DataGold">#FFD54F</Color> 
+    <!--  数据可视化金色，更鲜艳  -->
     <!--  数据可视化金色  -->
 
     <!--
@@ -316,29 +357,39 @@
     -->
 
     <!--  额外的金色变体  -->
-    <Color x:Key="AccentGoldUltraLight">#FFE082</Color> <!-- 超浅金色，更亮 -->
+    <Color x:Key="AccentGoldUltraLight">#FFE082</Color> 
+    <!--  超浅金色，更亮  -->
     <!--  超浅金色  -->
-    <Color x:Key="AccentGoldUltraDark">#8B6914</Color> <!-- 超深金色 -->
+    <Color x:Key="AccentGoldUltraDark">#8B6914</Color> 
     <!--  超深金色  -->
-    <Color x:Key="AccentGoldMatte">#C5A34D</Color> <!-- 哑光金色 -->
+    <!--  超深金色  -->
+    <Color x:Key="AccentGoldMatte">#C5A34D</Color> 
+    <!--  哑光金色  -->
     <!--  哑光金色  -->
 
     <!--  额外的青色变体  -->
-    <Color x:Key="AccentCyanLight">#64FFDA</Color> <!-- 浅青色，更亮 -->
+    <Color x:Key="AccentCyanLight">#64FFDA</Color> 
+    <!--  浅青色，更亮  -->
     <!--  浅青色  -->
-    <Color x:Key="AccentCyanDark">#0097A7</Color> <!-- 深青色 -->
+    <Color x:Key="AccentCyanDark">#0097A7</Color> 
     <!--  深青色  -->
-    <Color x:Key="AccentCyanBright">#00FFFF</Color> <!-- 亮青色 -->
+    <!--  深青色  -->
+    <Color x:Key="AccentCyanBright">#00FFFF</Color> 
+    <!--  亮青色  -->
     <!--  亮青色  -->
 
     <!--  状态颜色变体  -->
-    <Color x:Key="StateErrorLight">#FF8A80</Color> <!-- 浅错误红 -->
+    <Color x:Key="StateErrorLight">#FF8A80</Color> 
     <!--  浅错误红  -->
-    <Color x:Key="StateSuccessLight">#A5D6A7</Color> <!-- 浅成功绿 -->
+    <!--  浅错误红  -->
+    <Color x:Key="StateSuccessLight">#A5D6A7</Color> 
+    <!--  浅成功绿  -->
     <!--  浅成功青  -->
-    <Color x:Key="StateWarningLight">#FFD180</Color> <!-- 浅警告金 -->
+    <Color x:Key="StateWarningLight">#FFD180</Color> 
     <!--  浅警告金  -->
-    <Color x:Key="StateInfoLight">#81D4FA</Color> <!-- 浅信息蓝 -->
+    <!--  浅警告金  -->
+    <Color x:Key="StateInfoLight">#81D4FA</Color> 
+    <!--  浅信息蓝  -->
     <!--  浅信息蓝  -->
 
     <!--  对应的画刷  -->

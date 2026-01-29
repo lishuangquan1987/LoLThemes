@@ -46,7 +46,11 @@
     <helpers:WindowHelper.CustomHeaderContent>
         <StackPanel Margin="0,0,4,0" Orientation="Horizontal">
             <!--  尺寸切换按钮（带Popup弹出菜单）  -->
-            <Button x:Name="SizeButton" Style="{StaticResource HeaderButtonStyle}" ToolTip="{Binding SizeToolTip}" Command="{Binding OpenSizePopupCommand}">
+            <Button
+                x:Name="SizeButton"
+                Command="{Binding OpenSizePopupCommand}"
+                Style="{StaticResource HeaderButtonStyle}"
+                ToolTip="{Binding SizeToolTip}">
                 <materialIcons:MaterialIcon
                     Width="20"
                     Height="20"
@@ -55,7 +59,11 @@
             </Button>
 
             <!--  主题切换按钮（带Popup弹出菜单）  -->
-            <Button x:Name="ThemeButton" Style="{StaticResource HeaderButtonStyle}" ToolTip="{Binding ThemeToolTip}" Command="{Binding OpenThemePopupCommand}">
+            <Button
+                x:Name="ThemeButton"
+                Command="{Binding OpenThemePopupCommand}"
+                Style="{StaticResource HeaderButtonStyle}"
+                ToolTip="{Binding ThemeToolTip}">
                 <materialIcons:MaterialIcon
                     Width="20"
                     Height="20"
@@ -122,10 +130,10 @@
                         <HierarchicalDataTemplate ItemsSource="{Binding Children}">
                             <StackPanel Orientation="Horizontal">
                                 <materialIcons:MaterialIcon
-                                    Margin="4,2,10,2"
-                                    VerticalAlignment="Center"
                                     Width="16"
                                     Height="16"
+                                    Margin="4,2,10,2"
+                                    VerticalAlignment="Center"
                                     Foreground="{DynamicResource PrimaryGoldBrush}"
                                     Kind="{Binding Icon}" />
                                 <TextBlock
@@ -158,19 +166,36 @@
         </Border>
 
         <!--  尺寸选择Popup  -->
-        <Popup x:Name="SizePopup" IsOpen="{Binding IsSizePopupOpen, Mode=TwoWay}" Placement="Bottom" StaysOpen="False">
-            <Border Background="{DynamicResource BackgroundMediumBrush}" BorderBrush="{DynamicResource BorderGoldBrush}" BorderThickness="1" CornerRadius="4">
+        <Popup
+            x:Name="SizePopup"
+            IsOpen="{Binding IsSizePopupOpen, Mode=TwoWay}"
+            Placement="Bottom"
+            PlacementTarget="{Binding ElementName=SizeButton}"
+            StaysOpen="False">
+            <Border
+                Background="{DynamicResource BackgroundMediumBrush}"
+                BorderBrush="{DynamicResource BorderGoldBrush}"
+                BorderThickness="1"
+                CornerRadius="4">
                 <StackPanel>
-                    <TextBlock Margin="10,10,10,5" FontWeight="Bold" Foreground="{DynamicResource PrimaryGoldBrush}" Text="选择尺寸主题" />
+                    <TextBlock
+                        Margin="10,10,10,5"
+                        FontWeight="Bold"
+                        Foreground="{DynamicResource PrimaryGoldBrush}"
+                        Text="选择尺寸主题" />
                     <Separator Margin="5,0" Background="{DynamicResource BorderDarkBrush}" />
                     <ItemsControl ItemsSource="{Binding AvailableSizeThemes}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Button Margin="5,2" Padding="10,8" HorizontalContentAlignment="Left" 
-                                        Command="{Binding DataContext.SelectSizeCommand, RelativeSource={RelativeSource AncestorType=Window}}" 
-                                        CommandParameter="{Binding Name}" 
-                                        Style="{StaticResource {x:Type Button}}"
-                                        Background="Transparent" BorderThickness="0">
+                                <Button
+                                    Margin="5,2"
+                                    Padding="10,8"
+                                    HorizontalContentAlignment="Left"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Command="{Binding DataContext.SelectSizeCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                    CommandParameter="{Binding Name}"
+                                    Style="{StaticResource {x:Type Button}}">
                                     <Button.Content>
                                         <Grid>
                                             <Grid.ColumnDefinitions>
@@ -178,13 +203,24 @@
                                                 <ColumnDefinition Width="*" />
                                                 <ColumnDefinition Width="Auto" />
                                             </Grid.ColumnDefinitions>
-                                            <materialIcons:MaterialIcon Grid.Column="0" Width="16" Height="16" Margin="0,0,10,0" 
-                                                                       Foreground="{DynamicResource PrimaryGoldBrush}" Kind="{Binding Icon}" />
-                                            <TextBlock Grid.Column="1" Text="{Binding Description}" 
-                                                      Foreground="{DynamicResource TextPrimaryBrush}" />
-                                            <materialIcons:MaterialIcon Grid.Column="2" Width="16" Height="16" Margin="10,0,0,0"
-                                                                       Foreground="{DynamicResource SuccessGreenBrush}" 
-                                                                       Kind="Check">
+                                            <materialIcons:MaterialIcon
+                                                Grid.Column="0"
+                                                Width="16"
+                                                Height="16"
+                                                Margin="0,0,10,0"
+                                                Foreground="{DynamicResource PrimaryGoldBrush}"
+                                                Kind="{Binding Icon}" />
+                                            <TextBlock
+                                                Grid.Column="1"
+                                                Foreground="{DynamicResource TextPrimaryBrush}"
+                                                Text="{Binding Description}" />
+                                            <materialIcons:MaterialIcon
+                                                Grid.Column="2"
+                                                Width="16"
+                                                Height="16"
+                                                Margin="10,0,0,0"
+                                                Foreground="{DynamicResource SuccessGreenBrush}"
+                                                Kind="Check">
                                                 <materialIcons:MaterialIcon.Visibility>
                                                     <MultiBinding Converter="{StaticResource EnumEqualityConverter}">
                                                         <Binding Path="SizeTheme" />
@@ -203,19 +239,36 @@
         </Popup>
 
         <!--  主题选择Popup  -->
-        <Popup x:Name="ThemePopup" IsOpen="{Binding IsThemePopupOpen, Mode=TwoWay}" Placement="Bottom" StaysOpen="False">
-            <Border Background="{DynamicResource BackgroundMediumBrush}" BorderBrush="{DynamicResource BorderGoldBrush}" BorderThickness="1" CornerRadius="4">
+        <Popup
+            x:Name="ThemePopup"
+            IsOpen="{Binding IsThemePopupOpen, Mode=TwoWay}"
+            Placement="Bottom"
+            PlacementTarget="{Binding ElementName=ThemeButton}"
+            StaysOpen="False">
+            <Border
+                Background="{DynamicResource BackgroundMediumBrush}"
+                BorderBrush="{DynamicResource BorderGoldBrush}"
+                BorderThickness="1"
+                CornerRadius="4">
                 <StackPanel>
-                    <TextBlock Margin="10,10,10,5" FontWeight="Bold" Foreground="{DynamicResource PrimaryGoldBrush}" Text="选择主题" />
+                    <TextBlock
+                        Margin="10,10,10,5"
+                        FontWeight="Bold"
+                        Foreground="{DynamicResource PrimaryGoldBrush}"
+                        Text="选择主题" />
                     <Separator Margin="5,0" Background="{DynamicResource BorderDarkBrush}" />
                     <ItemsControl ItemsSource="{Binding AvailableThemes}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Button Margin="5,2" Padding="10,8" HorizontalContentAlignment="Left"
-                                        Command="{Binding DataContext.SelectThemeCommand, RelativeSource={RelativeSource AncestorType=Window}}"
-                                        CommandParameter="{Binding}"
-                                        Style="{StaticResource {x:Type Button}}"
-                                        Background="Transparent" BorderThickness="0">
+                                <Button
+                                    Margin="5,2"
+                                    Padding="10,8"
+                                    HorizontalContentAlignment="Left"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Command="{Binding DataContext.SelectThemeCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                    CommandParameter="{Binding}"
+                                    Style="{StaticResource {x:Type Button}}">
                                     <Button.Content>
                                         <Grid>
                                             <Grid.ColumnDefinitions>
@@ -223,13 +276,24 @@
                                                 <ColumnDefinition Width="*" />
                                                 <ColumnDefinition Width="Auto" />
                                             </Grid.ColumnDefinitions>
-                                            <materialIcons:MaterialIcon Grid.Column="0" Width="16" Height="16" Margin="0,0,10,0"
-                                                                       Foreground="{DynamicResource PrimaryGoldBrush}" Kind="{Binding Icon}" />
-                                            <TextBlock Grid.Column="1" Text="{Binding Description}"
-                                                      Foreground="{DynamicResource TextPrimaryBrush}" />
-                                            <materialIcons:MaterialIcon Grid.Column="2" Width="16" Height="16" Margin="10,0,0,0"
-                                                                       Foreground="{DynamicResource SuccessGreenBrush}"
-                                                                       Kind="Check">
+                                            <materialIcons:MaterialIcon
+                                                Grid.Column="0"
+                                                Width="16"
+                                                Height="16"
+                                                Margin="0,0,10,0"
+                                                Foreground="{DynamicResource PrimaryGoldBrush}"
+                                                Kind="{Binding Icon}" />
+                                            <TextBlock
+                                                Grid.Column="1"
+                                                Foreground="{DynamicResource TextPrimaryBrush}"
+                                                Text="{Binding Description}" />
+                                            <materialIcons:MaterialIcon
+                                                Grid.Column="2"
+                                                Width="16"
+                                                Height="16"
+                                                Margin="10,0,0,0"
+                                                Foreground="{DynamicResource SuccessGreenBrush}"
+                                                Kind="Check">
                                                 <materialIcons:MaterialIcon.Visibility>
                                                     <MultiBinding Converter="{StaticResource EnumEqualityConverter}">
                                                         <Binding Path="Theme" />

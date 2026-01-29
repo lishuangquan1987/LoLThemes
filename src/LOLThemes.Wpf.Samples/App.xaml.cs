@@ -22,7 +22,7 @@ public class EnumEqualityConverter : IMultiValueConverter
             return false;
 
         // 比较两个枚举值
-        return values[0]?.ToString() == values[1]?.ToString();
+        return values[0]?.ToString() == values[1]?.ToString() ? Visibility.Visible : Visibility.Collapsed;
     }
 
     public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)

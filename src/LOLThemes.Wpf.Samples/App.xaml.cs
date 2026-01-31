@@ -39,9 +39,9 @@ public partial class App : Application
     protected override void OnStartup(StartupEventArgs e)
     {
         // 添加全局异常处理
-        this.DispatcherUnhandledException += App_DispatcherUnhandledException;
-        AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-        TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
+        //this.DispatcherUnhandledException += App_DispatcherUnhandledException;
+        //AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+        //TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
         
         XamlDisplay.Init();
         

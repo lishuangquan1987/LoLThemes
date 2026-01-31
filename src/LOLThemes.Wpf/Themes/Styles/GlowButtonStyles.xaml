@@ -14,7 +14,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}" />
         <Setter Property="BorderThickness" Value="2" />
         <Setter Property="Padding" Value="20,10" />
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontFamily" Value="{DynamicResource PrimaryFont}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}" />
         <Setter Property="Cursor" Value="Hand" />

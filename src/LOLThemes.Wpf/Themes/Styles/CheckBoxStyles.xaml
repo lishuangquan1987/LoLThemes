@@ -37,7 +37,7 @@
     <!--  LOL CheckBox 样式  -->
     <Style x:Key="LOLCheckBoxStyle" TargetType="CheckBox">
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontFamily" Value="{DynamicResource PrimaryFont}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="Cursor" Value="Hand" />
         <!--  添加自动化属性支持  -->

@@ -49,7 +49,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDefaultBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource TextBoxBorderThickness}" />
         <Setter Property="Padding" Value="{DynamicResource TextBoxPadding}" />
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontFamily" Value="{DynamicResource PrimaryFont}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="CaretBrush" Value="{DynamicResource BorderGoldBrush}" />
         <Setter Property="SelectionBrush" Value="{DynamicResource BorderGoldBrush}" />

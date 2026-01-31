@@ -31,7 +31,7 @@
                                     Text="🏆" />
                                 <TextBlock
                                     HorizontalAlignment="Center"
-                                    FontFamily="{StaticResource PrimaryFont}"
+                                    FontFamily="{DynamicResource PrimaryFont}"
                                     FontSize="{DynamicResource FontSizeSmall}"
                                     FontWeight="{StaticResource FontWeightMedium}"
                                     Foreground="{DynamicResource TextPrimaryBrush}"

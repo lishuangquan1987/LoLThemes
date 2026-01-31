@@ -9,7 +9,7 @@
     <!--  基础 Label 样式  -->
     <Style x:Key="LOLLabelStyle" TargetType="Label">
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontFamily" Value="{DynamicResource PrimaryFont}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="VerticalContentAlignment" Value="Center" />

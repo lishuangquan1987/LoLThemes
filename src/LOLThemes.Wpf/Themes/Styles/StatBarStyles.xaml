@@ -51,7 +51,7 @@
                             x:Name="valueText"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            FontFamily="{StaticResource PrimaryFont}"
+                            FontFamily="{DynamicResource PrimaryFont}"
                             FontSize="{DynamicResource FontSizeSmall}"
                             FontWeight="{StaticResource FontWeightBold}"
                             Foreground="{DynamicResource BackgroundDarkBrush}"

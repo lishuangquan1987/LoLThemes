@@ -5,7 +5,7 @@
     <!--  LOL RadioButton 样式  -->
     <Style x:Key="LOLRadioButtonStyle" TargetType="RadioButton">
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontFamily" Value="{DynamicResource PrimaryFont}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="AutomationProperties.AutomationId" Value="RadioButton" />

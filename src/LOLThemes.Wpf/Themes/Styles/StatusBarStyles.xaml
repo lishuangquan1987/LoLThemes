@@ -9,7 +9,7 @@
     <!--  StatusBarItem Style  -->
     <Style x:Key="LOLStatusBarItemStyle" TargetType="{x:Type StatusBarItem}">
         <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}" />
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontFamily" Value="{DynamicResource PrimaryFont}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
         <Setter Property="Padding" Value="8,4" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -44,7 +44,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource StatusBarTopBorderThickness}" />
         <Setter Property="Foreground" Value="{DynamicResource TextBrightBrush}" />
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontFamily" Value="{DynamicResource PrimaryFont}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
         <Setter Property="Height" Value="28" />
         <Setter Property="ItemContainerStyle" Value="{StaticResource LOLStatusBarItemStyle}" />

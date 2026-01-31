@@ -13,7 +13,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource BorderGoldBrush}" />
         <Setter Property="BorderThickness" Value="0.5" />
         <Setter Property="Padding" Value="8" />
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontFamily" Value="{DynamicResource PrimaryFont}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="Template">
             <Setter.Value>

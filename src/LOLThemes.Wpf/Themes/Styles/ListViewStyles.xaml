@@ -13,7 +13,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ListViewItemBorderThickness}" />
         <Setter Property="Padding" Value="10,8" />
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontFamily" Value="{DynamicResource PrimaryFont}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -47,7 +47,7 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
         <Setter Property="Padding" Value="10,8" />
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontFamily" Value="{DynamicResource PrimaryFont}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -109,7 +109,7 @@
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderDarkBrush}" />
         <Setter Property="BorderThickness" Value="0.5" />
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontFamily" Value="{DynamicResource PrimaryFont}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="ItemContainerStyle" Value="{StaticResource LOLListViewItemStyle}" />
         <Setter Property="Template">

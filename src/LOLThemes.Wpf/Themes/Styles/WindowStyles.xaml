@@ -15,7 +15,7 @@
         <Setter Property="AllowsTransparency" Value="True" />
         <Setter Property="Background" Value="{DynamicResource BackgroundDarkBrush}" />
         <Setter Property="BorderThickness" Value="0.5" />
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontFamily" Value="{DynamicResource PrimaryFont}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
         <Setter Property="ResizeMode" Value="CanResizeWithGrip" />
         <Setter Property="Template">

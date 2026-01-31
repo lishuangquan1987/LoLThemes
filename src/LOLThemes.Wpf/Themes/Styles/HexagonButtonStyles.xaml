@@ -16,7 +16,7 @@
         <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="UseLayoutRounding" Value="True" />
-        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Setter Property="FontFamily" Value="{DynamicResource PrimaryFont}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeMedium}" />
         <Setter Property="FontWeight" Value="{StaticResource FontWeightBold}" />
         <Setter Property="Cursor" Value="Hand" />

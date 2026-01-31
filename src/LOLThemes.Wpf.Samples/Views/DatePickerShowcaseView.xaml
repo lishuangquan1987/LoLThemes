@@ -34,11 +34,12 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="DatePickerBasic" Margin="0,0,0,0">
-                        <StackPanel Width="300" HorizontalAlignment="Left">
-                            <DatePicker Width="250" Height="36" Margin="0,0,0,15"/>
-                            <DatePicker Width="250" Height="36"/>
-                        </StackPanel>
+                    <smtx:XamlDisplay UniqueKey="DatePickerBasic1" Margin="0,0,0,15">
+                        <DatePicker Width="250" Height="36" HorizontalAlignment="Left"/>
+                    </smtx:XamlDisplay>
+                    
+                    <smtx:XamlDisplay UniqueKey="DatePickerBasic2" Margin="0,0,0,0">
+                        <DatePicker Width="250" Height="36" HorizontalAlignment="Left"/>
                     </smtx:XamlDisplay>
                 </StackPanel>
             </Border>
@@ -91,14 +92,16 @@
                           Margin="0,0,0,15"/>
                     
                     <!-- 暂时移除使用不存在转换器的代码 -->
-                    <smtx:XamlDisplay UniqueKey="DatePickerWithLimits" Margin="0,0,0,0">
-                        <StackPanel Width="300" HorizontalAlignment="Left">
-                            <TextBlock Text="日期选择器" 
-                                     Foreground="{DynamicResource TextPrimaryBrush}"
-                                     Margin="0,0,0,10"/>
-                            <DatePicker Width="250" Height="36" Margin="0,0,0,15"/>
-                            <DatePicker Width="250" Height="36"/>
-                        </StackPanel>
+                    <TextBlock Text="日期选择器" 
+                             Foreground="{DynamicResource TextPrimaryBrush}"
+                             Margin="0,0,0,10"/>
+                    
+                    <smtx:XamlDisplay UniqueKey="DatePickerWithLimits1" Margin="0,0,0,15">
+                        <DatePicker Width="250" Height="36" HorizontalAlignment="Left"/>
+                    </smtx:XamlDisplay>
+                    
+                    <smtx:XamlDisplay UniqueKey="DatePickerWithLimits2" Margin="0,0,0,0">
+                        <DatePicker Width="250" Height="36" HorizontalAlignment="Left"/>
                     </smtx:XamlDisplay>
                 </StackPanel>
             </Border>
@@ -116,30 +119,34 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="DatePickerFormats" Margin="0,0,0,0">
-                        <StackPanel Width="300" HorizontalAlignment="Left">
-                            <DatePicker Width="250" Height="36" Margin="0,0,0,15">
-                                <DatePicker.Resources>
-                                    <Style TargetType="DatePickerTextBox">
-                                        <Setter Property="Text" Value="{Binding Path=SelectedDate, StringFormat=yyyy-MM-dd}"/>
-                                    </Style>
-                                </DatePicker.Resources>
-                            </DatePicker>
-                            <DatePicker Width="250" Height="36" Margin="0,0,0,15">
-                                <DatePicker.Resources>
-                                    <Style TargetType="DatePickerTextBox">
-                                        <Setter Property="Text" Value="{Binding Path=SelectedDate, StringFormat='MMMM dd, yyyy'}"/>
-                                    </Style>
-                                </DatePicker.Resources>
-                            </DatePicker>
-                            <DatePicker Width="250" Height="36">
-                                <DatePicker.Resources>
-                                    <Style TargetType="DatePickerTextBox">
-                                        <Setter Property="Text" Value="{Binding Path=SelectedDate, StringFormat='ddd, MMM dd, yyyy'}"/>
-                                    </Style>
-                                </DatePicker.Resources>
-                            </DatePicker>
-                        </StackPanel>
+                    <smtx:XamlDisplay UniqueKey="DatePickerFormat1" Margin="0,0,0,15">
+                        <DatePicker Width="250" Height="36" HorizontalAlignment="Left">
+                            <DatePicker.Resources>
+                                <Style TargetType="DatePickerTextBox">
+                                    <Setter Property="Text" Value="{Binding Path=SelectedDate, StringFormat=yyyy-MM-dd}"/>
+                                </Style>
+                            </DatePicker.Resources>
+                        </DatePicker>
+                    </smtx:XamlDisplay>
+                    
+                    <smtx:XamlDisplay UniqueKey="DatePickerFormat2" Margin="0,0,0,15">
+                        <DatePicker Width="250" Height="36" HorizontalAlignment="Left">
+                            <DatePicker.Resources>
+                                <Style TargetType="DatePickerTextBox">
+                                    <Setter Property="Text" Value="{Binding Path=SelectedDate, StringFormat='MMMM dd, yyyy'}"/>
+                                </Style>
+                            </DatePicker.Resources>
+                        </DatePicker>
+                    </smtx:XamlDisplay>
+                    
+                    <smtx:XamlDisplay UniqueKey="DatePickerFormat3" Margin="0,0,0,0">
+                        <DatePicker Width="250" Height="36" HorizontalAlignment="Left">
+                            <DatePicker.Resources>
+                                <Style TargetType="DatePickerTextBox">
+                                    <Setter Property="Text" Value="{Binding Path=SelectedDate, StringFormat='ddd, MMM dd, yyyy'}"/>
+                                </Style>
+                            </DatePicker.Resources>
+                        </DatePicker>
                     </smtx:XamlDisplay>
                 </StackPanel>
             </Border>

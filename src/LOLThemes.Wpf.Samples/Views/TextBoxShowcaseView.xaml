@@ -38,24 +38,28 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="TextBoxBasic" Margin="0,0,0,0">
-                <StackPanel>
-                    <TextBox helpers:TextBoxHelper.Placeholder="请输入用户名..."
-                            Width="300" Height="40" 
-                            HorizontalAlignment="Left"
-                            Margin="0,0,0,15"/>
-                    <TextBox Text="已填充的文本框"
-                            Width="300" Height="40" 
-                            HorizontalAlignment="Left"
-                            Margin="0,0,0,15"/>
-                    <TextBox helpers:TextBoxHelper.Placeholder="请输入多行文本..."
-                            TextWrapping="Wrap"
-                            AcceptsReturn="True"
-                            VerticalScrollBarVisibility="Auto"
-                            Width="300" Height="100" 
-                            HorizontalAlignment="Left"/>
-                </StackPanel>
-                    </smtx:XamlDisplay>
+                    <StackPanel>
+                        <smtx:XamlDisplay Margin="0,0,0,15" UniqueKey="TextBoxPlaceholder">
+                            <TextBox helpers:TextBoxHelper.Placeholder="请输入用户名..."
+                                    Width="300" Height="40" 
+                                    HorizontalAlignment="Left"/>
+                        </smtx:XamlDisplay>
+
+                        <smtx:XamlDisplay Margin="0,0,0,15" UniqueKey="TextBoxFilled">
+                            <TextBox Text="已填充的文本框"
+                                    Width="300" Height="40" 
+                                    HorizontalAlignment="Left"/>
+                        </smtx:XamlDisplay>
+
+                        <smtx:XamlDisplay Margin="0,0,0,0" UniqueKey="TextBoxMultiline">
+                            <TextBox helpers:TextBoxHelper.Placeholder="请输入多行文本..."
+                                    TextWrapping="Wrap"
+                                    AcceptsReturn="True"
+                                    VerticalScrollBarVisibility="Auto"
+                                    Width="300" Height="100" 
+                                    HorizontalAlignment="Left"/>
+                        </smtx:XamlDisplay>
+                    </StackPanel>
                 </StackPanel>
             </Border>
             
@@ -72,18 +76,20 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="TextBoxStates" Margin="0,0,0,0">
-                <StackPanel>
-                    <TextBox helpers:TextBoxHelper.Placeholder="正常状态"
-                            Width="300" Height="40" 
-                            HorizontalAlignment="Left"
-                            Margin="0,0,0,15"/>
-                    <TextBox helpers:TextBoxHelper.Placeholder="禁用状态"
-                            IsEnabled="False"
-                            Width="300" Height="40" 
-                            HorizontalAlignment="Left"/>
-                </StackPanel>
-                    </smtx:XamlDisplay>
+                    <StackPanel>
+                        <smtx:XamlDisplay Margin="0,0,0,15" UniqueKey="TextBoxNormalState">
+                            <TextBox helpers:TextBoxHelper.Placeholder="正常状态"
+                                    Width="300" Height="40" 
+                                    HorizontalAlignment="Left"/>
+                        </smtx:XamlDisplay>
+
+                        <smtx:XamlDisplay Margin="0,0,0,0" UniqueKey="TextBoxDisabledState">
+                            <TextBox helpers:TextBoxHelper.Placeholder="禁用状态"
+                                    IsEnabled="False"
+                                    Width="300" Height="40" 
+                                    HorizontalAlignment="Left"/>
+                        </smtx:XamlDisplay>
+                    </StackPanel>
                 </StackPanel>
             </Border>
             
@@ -100,17 +106,16 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="TextBoxWithClearButton" Margin="0,0,0,0">
-                        <StackPanel>
+                    <StackPanel>
+                        <smtx:XamlDisplay Margin="0,0,0,15" UniqueKey="TextBoxWithClear">
                             <Grid>
                                 <TextBox Text="可清除的文本内容" 
                                         Width="300" Height="40" 
-                                        HorizontalAlignment="Left"
-                                        Margin="0,0,0,15"/>
+                                        HorizontalAlignment="Left"/>
                                 <Button Content="✕" 
                                         Width="30" Height="30" 
                                         HorizontalAlignment="Left"
-                                        Margin="270,5,0,15"
+                                        Margin="270,5,0,0"
                                         Background="Transparent"
                                         BorderBrush="Transparent"
                                         Foreground="{DynamicResource TextSecondaryBrush}"
@@ -125,11 +130,14 @@
                                     </Button.Template>
                                 </Button>
                             </Grid>
+                        </smtx:XamlDisplay>
+
+                        <smtx:XamlDisplay Margin="0,0,0,0" UniqueKey="TextBoxWithClearPlaceholder">
                             <TextBox helpers:TextBoxHelper.Placeholder="输入后显示清除按钮" 
                                     Width="300" Height="40" 
                                     HorizontalAlignment="Left"/>
-                        </StackPanel>
-                    </smtx:XamlDisplay>
+                        </smtx:XamlDisplay>
+                    </StackPanel>
                 </StackPanel>
             </Border>
             
@@ -146,32 +154,36 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="TextBoxWithIcon" Margin="0,0,0,0">
-                        <StackPanel>
+                    <StackPanel>
+                        <smtx:XamlDisplay Margin="0,0,0,15" UniqueKey="TextBoxSearchIcon">
                             <Grid>
                                 <TextBox helpers:TextBoxHelper.Placeholder="搜索..." 
                                         Width="300" Height="40" 
-                                        HorizontalAlignment="Left"
-                                        Margin="0,0,0,15"/>
+                                        HorizontalAlignment="Left"/>
                                 <TextBlock Text="🔍" 
                                           FontSize="18"
                                           Foreground="{DynamicResource TextSecondaryBrush}"
                                           HorizontalAlignment="Left"
                                           VerticalAlignment="Center"
-                                          Margin="10,5,0,15"/>
+                                          Margin="10,5,0,0"/>
                             </Grid>
+                        </smtx:XamlDisplay>
+
+                        <smtx:XamlDisplay Margin="0,0,0,15" UniqueKey="TextBoxUserIcon">
                             <Grid>
                                 <TextBox helpers:TextBoxHelper.Placeholder="用户名" 
                                         Width="300" Height="40" 
-                                        HorizontalAlignment="Left"
-                                        Margin="0,0,0,15"/>
+                                        HorizontalAlignment="Left"/>
                                 <TextBlock Text="👤" 
                                           FontSize="18"
                                           Foreground="{DynamicResource TextSecondaryBrush}"
                                           HorizontalAlignment="Left"
                                           VerticalAlignment="Center"
-                                          Margin="10,5,0,15"/>
+                                          Margin="10,5,0,0"/>
                             </Grid>
+                        </smtx:XamlDisplay>
+
+                        <smtx:XamlDisplay Margin="0,0,0,0" UniqueKey="TextBoxEmailIcon">
                             <Grid>
                                 <TextBox helpers:TextBoxHelper.Placeholder="邮箱" 
                                         Width="300" Height="40" 
@@ -183,8 +195,8 @@
                                           VerticalAlignment="Center"
                                           Margin="10,5,0,0"/>
                             </Grid>
-                        </StackPanel>
-                    </smtx:XamlDisplay>
+                        </smtx:XamlDisplay>
+                    </StackPanel>
                 </StackPanel>
             </Border>
             
@@ -201,11 +213,13 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="PasswordBox" Margin="0,0,0,0">
-                        <StackPanel>
+                    <StackPanel>
+                        <smtx:XamlDisplay Margin="0,0,0,15" UniqueKey="TextBoxPasswordBasic">
                             <PasswordBox Width="300" Height="40" 
-                                        HorizontalAlignment="Left"
-                                        Margin="0,0,0,15"/>
+                                        HorizontalAlignment="Left"/>
+                        </smtx:XamlDisplay>
+
+                        <smtx:XamlDisplay Margin="0,0,0,0" UniqueKey="TextBoxPasswordWithIcon">
                             <Grid>
                                 <PasswordBox Width="300" Height="40" 
                                             HorizontalAlignment="Left"/>
@@ -216,8 +230,8 @@
                                           VerticalAlignment="Center"
                                           Margin="10,5,0,0"/>
                             </Grid>
-                        </StackPanel>
-                    </smtx:XamlDisplay>
+                        </smtx:XamlDisplay>
+                    </StackPanel>
                 </StackPanel>
             </Border>
             
@@ -234,13 +248,12 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="TextBoxWithValidation" Margin="0,0,0,0">
-                        <StackPanel>
+                    <StackPanel>
+                        <smtx:XamlDisplay Margin="0,0,0,15" UniqueKey="TextBoxValidationError">
                             <Grid>
                                 <TextBox Text="invalid-email" 
                                         Width="300" Height="40" 
                                         HorizontalAlignment="Left"
-                                        Margin="0,0,0,15"
                                         BorderBrush="{DynamicResource ErrorRedBrush}"
                                         BorderThickness="1.5"/>
                                 <TextBlock Text="❌" 
@@ -248,13 +261,15 @@
                                           Foreground="{DynamicResource ErrorRedBrush}"
                                           HorizontalAlignment="Left"
                                           VerticalAlignment="Center"
-                                          Margin="270,5,0,15"/>
+                                          Margin="270,5,0,0"/>
                             </Grid>
+                        </smtx:XamlDisplay>
+
+                        <smtx:XamlDisplay Margin="0,0,0,0" UniqueKey="TextBoxValidationSuccess">
                             <Grid>
                                 <TextBox Text="valid@email.com" 
                                         Width="300" Height="40" 
                                         HorizontalAlignment="Left"
-                                        Margin="0,0,0,15"
                                         BorderBrush="{DynamicResource SuccessGreenBrush}"
                                         BorderThickness="1.5"/>
                                 <TextBlock Text="✅" 
@@ -262,10 +277,10 @@
                                           Foreground="{DynamicResource SuccessGreenBrush}"
                                           HorizontalAlignment="Left"
                                           VerticalAlignment="Center"
-                                          Margin="270,5,0,15"/>
+                                          Margin="270,5,0,0"/>
                             </Grid>
-                        </StackPanel>
-                    </smtx:XamlDisplay>
+                        </smtx:XamlDisplay>
+                    </StackPanel>
                 </StackPanel>
             </Border>
             
@@ -282,37 +297,41 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="TextBoxGroup" Margin="0,0,0,0">
-                        <StackPanel>
-                            <TextBlock Text="用户信息" 
-                                      FontSize="{DynamicResource FontSizeMedium}"
-                                      FontWeight="{StaticResource FontWeightMedium}"
-                                      Foreground="{DynamicResource TextPrimaryBrush}"
-                                      Margin="0,0,0,15"/>
+                    <StackPanel>
+                        <TextBlock Text="用户信息" 
+                                  FontSize="{DynamicResource FontSizeMedium}"
+                                  FontWeight="{StaticResource FontWeightMedium}"
+                                  Foreground="{DynamicResource TextPrimaryBrush}"
+                                  Margin="0,0,0,15"/>
+                        <smtx:XamlDisplay Margin="0,0,0,10" UniqueKey="TextBoxGroupUsername">
                             <Grid>
                                 <TextBox helpers:TextBoxHelper.Placeholder="用户名" 
                                         Width="300" Height="40" 
-                                        HorizontalAlignment="Left"
-                                        Margin="0,0,0,10"/>
+                                        HorizontalAlignment="Left"/>
                                 <TextBlock Text="👤" 
                                           FontSize="18"
                                           Foreground="{DynamicResource TextSecondaryBrush}"
                                           HorizontalAlignment="Left"
                                           VerticalAlignment="Center"
-                                          Margin="10,5,0,10"/>
+                                          Margin="10,5,0,0"/>
                             </Grid>
+                        </smtx:XamlDisplay>
+
+                        <smtx:XamlDisplay Margin="0,0,0,10" UniqueKey="TextBoxGroupEmail">
                             <Grid>
                                 <TextBox helpers:TextBoxHelper.Placeholder="邮箱地址" 
                                         Width="300" Height="40" 
-                                        HorizontalAlignment="Left"
-                                        Margin="0,0,0,10"/>
+                                        HorizontalAlignment="Left"/>
                                 <TextBlock Text="📧" 
                                           FontSize="18"
                                           Foreground="{DynamicResource TextSecondaryBrush}"
                                           HorizontalAlignment="Left"
                                           VerticalAlignment="Center"
-                                          Margin="10,5,0,10"/>
+                                          Margin="10,5,0,0"/>
                             </Grid>
+                        </smtx:XamlDisplay>
+
+                        <smtx:XamlDisplay Margin="0,0,0,0" UniqueKey="TextBoxGroupPassword">
                             <Grid>
                                 <PasswordBox helpers:TextBoxHelper.Placeholder="密码" 
                                             Width="300" Height="40" 
@@ -324,8 +343,8 @@
                                           VerticalAlignment="Center"
                                           Margin="10,5,0,0"/>
                             </Grid>
-                        </StackPanel>
-                    </smtx:XamlDisplay>
+                        </smtx:XamlDisplay>
+                    </StackPanel>
                 </StackPanel>
             </Border>
             
@@ -342,23 +361,21 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="TextBoxWithCharCount" Margin="0,0,0,0">
-                        <StackPanel>
-                            <Grid>
-                                <TextBox Text="这是一段示例文本" 
-                                        Width="300" Height="100" 
-                                        TextWrapping="Wrap"
-                                        AcceptsReturn="True"
-                                        VerticalScrollBarVisibility="Auto"
-                                        HorizontalAlignment="Left"/>
-                                <TextBlock Text="8/100" 
-                                          FontSize="{DynamicResource FontSizeSmall}"
-                                          Foreground="{DynamicResource TextSecondaryBrush}"
-                                          HorizontalAlignment="Right"
-                                          VerticalAlignment="Bottom"
-                                          Margin="0,0,5,5"/>
-                            </Grid>
-                        </StackPanel>
+                    <smtx:XamlDisplay Margin="0,0,0,0" UniqueKey="TextBoxWithCharCount">
+                        <Grid>
+                            <TextBox Text="这是一段示例文本" 
+                                    Width="300" Height="100" 
+                                    TextWrapping="Wrap"
+                                    AcceptsReturn="True"
+                                    VerticalScrollBarVisibility="Auto"
+                                    HorizontalAlignment="Left"/>
+                            <TextBlock Text="8/100" 
+                                      FontSize="{DynamicResource FontSizeSmall}"
+                                      Foreground="{DynamicResource TextSecondaryBrush}"
+                                      HorizontalAlignment="Right"
+                                      VerticalAlignment="Bottom"
+                                      Margin="0,0,5,5"/>
+                        </Grid>
                     </smtx:XamlDisplay>
                 </StackPanel>
             </Border>

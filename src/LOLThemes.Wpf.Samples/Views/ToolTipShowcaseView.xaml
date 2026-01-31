@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="LOLThemes.Wpf.Samples.Views.ToolTipShowcaseView"
+<UserControl x:Class="LOLThemes.Wpf.Samples.Views.ToolTipShowcaseView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
@@ -37,38 +37,38 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="ToolTipBasic" Margin="0,0,0,0">
-                        <StackPanel>
-                            <Button Content="悬停查看提示" 
-                                  Width="200" Height="40"
-                                  Margin="0,0,0,15">
-                                <Button.ToolTip>
-                                    <ToolTip>
-                                        这是一个简单的提示信息
-                                    </ToolTip>
-                                </Button.ToolTip>
-                            </Button>
-                            
-                            <TextBox helpers:TextBoxHelper.Placeholder="输入用户名"
-                                   Width="200" Height="35"
-                                   Margin="0,0,0,15">
-                                <TextBox.ToolTip>
-                                    <ToolTip>
-                                        请输入您的用户名
-                                    </ToolTip>
-                                </TextBox.ToolTip>
-                            </TextBox>
-                            
-                            <TextBlock Text="悬停我查看提示" 
-                                     Foreground="{DynamicResource TextPrimaryBrush}"
-                                     FontSize="{StaticResource FontSizeNormal}">
-                                <TextBlock.ToolTip>
-                                    <ToolTip>
-                                        这是一个文本提示
-                                    </ToolTip>
-                                </TextBlock.ToolTip>
-                            </TextBlock>
-                        </StackPanel>
+                    <smtx:XamlDisplay UniqueKey="ToolTipButton" Margin="0,0,0,15">
+                        <Button Content="悬停查看提示" 
+                              Width="200" Height="40">
+                            <Button.ToolTip>
+                                <ToolTip>
+                                    这是一个简单的提示信息
+                                </ToolTip>
+                            </Button.ToolTip>
+                        </Button>
+                    </smtx:XamlDisplay>
+                    
+                    <smtx:XamlDisplay UniqueKey="ToolTipTextBox" Margin="0,0,0,15">
+                        <TextBox helpers:TextBoxHelper.Placeholder="输入用户名"
+                               Width="200" Height="35">
+                            <TextBox.ToolTip>
+                                <ToolTip>
+                                    请输入您的用户名
+                                </ToolTip>
+                            </TextBox.ToolTip>
+                        </TextBox>
+                    </smtx:XamlDisplay>
+                    
+                    <smtx:XamlDisplay UniqueKey="ToolTipTextBlock" Margin="0,0,0,0">
+                        <TextBlock Text="悬停我查看提示" 
+                                 Foreground="{DynamicResource TextPrimaryBrush}"
+                                 FontSize="{StaticResource FontSizeNormal}">
+                            <TextBlock.ToolTip>
+                                <ToolTip>
+                                    这是一个文本提示
+                                </ToolTip>
+                            </TextBlock.ToolTip>
+                        </TextBlock>
                     </smtx:XamlDisplay>
                 </StackPanel>
             </Border>

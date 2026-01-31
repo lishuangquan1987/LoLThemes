@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="LOLThemes.Wpf.Samples.Views.StatBarShowcaseView"
+<UserControl x:Class="LOLThemes.Wpf.Samples.Views.StatBarShowcaseView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
@@ -37,32 +37,36 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="StatBarBasic" Margin="0,0,0,0">
+                    <smtx:XamlDisplay UniqueKey="StatBarAttack" Margin="0,0,0,15">
                         <StackPanel Width="300">
-                            <StackPanel Margin="0,0,0,10">
-                                <TextBlock Text="攻击力" 
-                                         Foreground="{DynamicResource TextPrimaryBrush}"
-                                         Margin="0,0,0,5"/>
-                                <controls:StatBar Value="80" 
-                                                Maximum="100"
-                                                Width="300" Height="30"/>
-                            </StackPanel>
-                            <StackPanel Margin="0,0,0,10">
-                                <TextBlock Text="防御力" 
-                                         Foreground="{DynamicResource TextPrimaryBrush}"
-                                         Margin="0,0,0,5"/>
-                                <controls:StatBar Value="40" 
-                                                Maximum="100"
-                                                Width="300" Height="30"/>
-                            </StackPanel>
-                            <StackPanel>
-                                <TextBlock Text="魔法" 
-                                         Foreground="{DynamicResource TextPrimaryBrush}"
-                                         Margin="0,0,0,5"/>
-                                <controls:StatBar Value="60" 
-                                                Maximum="100"
-                                                Width="300" Height="30"/>
-                            </StackPanel>
+                            <TextBlock Text="攻击力" 
+                                     Foreground="{DynamicResource TextPrimaryBrush}"
+                                     Margin="0,0,0,5"/>
+                            <controls:StatBar Value="80" 
+                                            Maximum="100"
+                                            Width="300" Height="30"/>
+                        </StackPanel>
+                    </smtx:XamlDisplay>
+                    
+                    <smtx:XamlDisplay UniqueKey="StatBarDefense" Margin="0,0,0,15">
+                        <StackPanel Width="300">
+                            <TextBlock Text="防御力" 
+                                     Foreground="{DynamicResource TextPrimaryBrush}"
+                                     Margin="0,0,0,5"/>
+                            <controls:StatBar Value="40" 
+                                            Maximum="100"
+                                            Width="300" Height="30"/>
+                        </StackPanel>
+                    </smtx:XamlDisplay>
+                    
+                    <smtx:XamlDisplay UniqueKey="StatBarMagic" Margin="0,0,0,0">
+                        <StackPanel Width="300">
+                            <TextBlock Text="魔法" 
+                                     Foreground="{DynamicResource TextPrimaryBrush}"
+                                     Margin="0,0,0,5"/>
+                            <controls:StatBar Value="60" 
+                                            Maximum="100"
+                                            Width="300" Height="30"/>
                         </StackPanel>
                     </smtx:XamlDisplay>
                 </StackPanel>

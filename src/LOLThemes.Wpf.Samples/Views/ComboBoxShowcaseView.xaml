@@ -37,15 +37,17 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="ComboBoxBasic" Margin="0,0,0,0">
-                        <StackPanel>
+                    <StackPanel>
+                        <smtx:XamlDisplay Margin="0,0,0,15" UniqueKey="ComboBoxBasic">
                             <ComboBox Width="300" Height="40"
-                                    HorizontalAlignment="Left"
-                                    Margin="0,0,0,15">
+                                    HorizontalAlignment="Left">
                                 <ComboBoxItem Content="选项 1"/>
                                 <ComboBoxItem Content="选项 2"/>
                                 <ComboBoxItem Content="选项 3"/>
                             </ComboBox>
+                        </smtx:XamlDisplay>
+
+                        <smtx:XamlDisplay Margin="0,0,0,0" UniqueKey="ComboBoxSelected">
                             <ComboBox Width="300" Height="40"
                                     HorizontalAlignment="Left"
                                     SelectedIndex="0">
@@ -53,8 +55,8 @@
                                 <ComboBoxItem Content="选项 2"/>
                                 <ComboBoxItem Content="选项 3"/>
                             </ComboBox>
-                        </StackPanel>
-                    </smtx:XamlDisplay>
+                        </smtx:XamlDisplay>
+                    </StackPanel>
                 </StackPanel>
             </Border>
             
@@ -71,33 +73,28 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="ComboBoxWithIcon" Margin="0,0,0,0">
-                        <StackPanel>
-                            <Grid>
-                                <ComboBox Width="300" Height="40"
-                                        HorizontalAlignment="Left"
-                                        Margin="0,0,0,15">
-                                    <ComboBoxItem>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="🔍" FontSize="16" Margin="0,0,8,0"/>
-                                            <TextBlock Text="搜索"/>
-                                        </StackPanel>
-                                    </ComboBoxItem>
-                                    <ComboBoxItem>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="📧" FontSize="16" Margin="0,0,8,0"/>
-                                            <TextBlock Text="邮件"/>
-                                        </StackPanel>
-                                    </ComboBoxItem>
-                                    <ComboBoxItem>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="📁" FontSize="16" Margin="0,0,8,0"/>
-                                            <TextBlock Text="文件"/>
-                                        </StackPanel>
-                                    </ComboBoxItem>
-                                </ComboBox>
-                            </Grid>
-                        </StackPanel>
+                    <smtx:XamlDisplay Margin="0,0,0,0" UniqueKey="ComboBoxWithIcon">
+                        <ComboBox Width="300" Height="40"
+                                HorizontalAlignment="Left">
+                            <ComboBoxItem>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="🔍" FontSize="16" Margin="0,0,8,0"/>
+                                    <TextBlock Text="搜索"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="📧" FontSize="16" Margin="0,0,8,0"/>
+                                    <TextBlock Text="邮件"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="📁" FontSize="16" Margin="0,0,8,0"/>
+                                    <TextBlock Text="文件"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                        </ComboBox>
                     </smtx:XamlDisplay>
                 </StackPanel>
             </Border>
@@ -115,24 +112,22 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="ComboBoxWithGroups" Margin="0,0,0,0">
-                        <StackPanel>
-                            <ComboBox Width="300" Height="40"
-                                    HorizontalAlignment="Left" Margin="0,0,0,15">
-                                <ComboBoxItem IsEnabled="False" Content="=== 位置 ==="/>
-                                <ComboBoxItem Content="上单"/>
-                                <ComboBoxItem Content="打野"/>
-                                <ComboBoxItem Content="中单"/>
-                                <ComboBoxItem Content="ADC"/>
-                                <ComboBoxItem Content="辅助"/>
-                                <ComboBoxItem IsEnabled="False" Content="=== 类型 ==="/>
-                                <ComboBoxItem Content="刺客"/>
-                                <ComboBoxItem Content="法师"/>
-                                <ComboBoxItem Content="战士"/>
-                                <ComboBoxItem Content="坦克"/>
-                                <ComboBoxItem Content="射手"/>
-                            </ComboBox>
-                        </StackPanel>
+                    <smtx:XamlDisplay Margin="0,0,0,0" UniqueKey="ComboBoxWithGroups">
+                        <ComboBox Width="300" Height="40"
+                                HorizontalAlignment="Left">
+                            <ComboBoxItem IsEnabled="False" Content="=== 位置 ==="/>
+                            <ComboBoxItem Content="上单"/>
+                            <ComboBoxItem Content="打野"/>
+                            <ComboBoxItem Content="中单"/>
+                            <ComboBoxItem Content="ADC"/>
+                            <ComboBoxItem Content="辅助"/>
+                            <ComboBoxItem IsEnabled="False" Content="=== 类型 ==="/>
+                            <ComboBoxItem Content="刺客"/>
+                            <ComboBoxItem Content="法师"/>
+                            <ComboBoxItem Content="战士"/>
+                            <ComboBoxItem Content="坦克"/>
+                            <ComboBoxItem Content="射手"/>
+                        </ComboBox>
                     </smtx:XamlDisplay>
                 </StackPanel>
             </Border>
@@ -150,44 +145,42 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="ComboBoxWithCustomTemplate" Margin="0,0,0,0">
-                        <StackPanel>
-                            <ComboBox Width="300" Height="40"
-                                    HorizontalAlignment="Left" Margin="0,0,0,15">
-                                <ComboBoxItem>
-                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                        <Border Background="{DynamicResource PrimaryGoldBrush}" 
-                                                Width="24" Height="24" CornerRadius="12"
-                                                Margin="0,0,10,0">
-                                            <TextBlock Text="J" FontWeight="Bold" 
-                                                       HorizontalAlignment="Center" 
-                                                       VerticalAlignment="Center" 
-                                                       Foreground="{DynamicResource BackgroundDarkBrush}"/>
-                                        </Border>
-                                        <StackPanel>
-                                            <TextBlock Text="亚索" FontWeight="Medium"/>
-                                            <TextBlock Text="疾风剑豪" FontSize="10" Foreground="{DynamicResource TextSecondaryBrush}"/>
-                                        </StackPanel>
+                    <smtx:XamlDisplay Margin="0,0,0,0" UniqueKey="ComboBoxWithCustomTemplate">
+                        <ComboBox Width="300" Height="40"
+                                HorizontalAlignment="Left">
+                            <ComboBoxItem>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <Border Background="{DynamicResource PrimaryGoldBrush}" 
+                                            Width="24" Height="24" CornerRadius="12"
+                                            Margin="0,0,10,0">
+                                        <TextBlock Text="J" FontWeight="Bold" 
+                                                   HorizontalAlignment="Center" 
+                                                   VerticalAlignment="Center" 
+                                                   Foreground="{DynamicResource BackgroundDarkBrush}"/>
+                                    </Border>
+                                    <StackPanel>
+                                        <TextBlock Text="亚索" FontWeight="Medium"/>
+                                        <TextBlock Text="疾风剑豪" FontSize="10" Foreground="{DynamicResource TextSecondaryBrush}"/>
                                     </StackPanel>
-                                </ComboBoxItem>
-                                <ComboBoxItem>
-                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                        <Border Background="{DynamicResource PrimaryCyanBrush}" 
-                                                Width="24" Height="24" CornerRadius="12"
-                                                Margin="0,0,10,0">
-                                            <TextBlock Text="L" FontWeight="Bold" 
-                                                       HorizontalAlignment="Center" 
-                                                       VerticalAlignment="Center" 
-                                                       Foreground="{DynamicResource BackgroundDarkBrush}"/>
-                                        </Border>
-                                        <StackPanel>
-                                            <TextBlock Text="拉克丝" FontWeight="Medium"/>
-                                            <TextBlock Text="光辉女郎" FontSize="10" Foreground="{DynamicResource TextSecondaryBrush}"/>
-                                        </StackPanel>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <Border Background="{DynamicResource PrimaryCyanBrush}" 
+                                            Width="24" Height="24" CornerRadius="12"
+                                            Margin="0,0,10,0">
+                                        <TextBlock Text="L" FontWeight="Bold" 
+                                                   HorizontalAlignment="Center" 
+                                                   VerticalAlignment="Center" 
+                                                   Foreground="{DynamicResource BackgroundDarkBrush}"/>
+                                    </Border>
+                                    <StackPanel>
+                                        <TextBlock Text="拉克丝" FontWeight="Medium"/>
+                                        <TextBlock Text="光辉女郎" FontSize="10" Foreground="{DynamicResource TextSecondaryBrush}"/>
                                     </StackPanel>
-                                </ComboBoxItem>
-                            </ComboBox>
-                        </StackPanel>
+                                </StackPanel>
+                            </ComboBoxItem>
+                        </ComboBox>
                     </smtx:XamlDisplay>
                 </StackPanel>
             </Border>
@@ -205,30 +198,28 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="ComboBoxWithSearch" Margin="0,0,0,0">
-                        <StackPanel>
-                            <Grid>
-                                <ComboBox Width="300" Height="40"
-                                        HorizontalAlignment="Left" Margin="0,0,0,15">
-                                    <ComboBoxItem Content="阿卡丽"/>
-                                    <ComboBoxItem Content="阿狸"/>
-                                    <ComboBoxItem Content="阿木木"/>
-                                    <ComboBoxItem Content="艾希"/>
-                                    <ComboBoxItem Content="安妮"/>
-                                    <ComboBoxItem Content="奥莉安娜"/>
-                                    <ComboBoxItem Content="巴德"/>
-                                    <ComboBoxItem Content="波比"/>
-                                    <ComboBoxItem Content="布兰德"/>
-                                </ComboBox>
-                                <TextBox helpers:TextBoxHelper.Placeholder="搜索英雄..." 
-                                        Width="270" Height="30" 
-                                        HorizontalAlignment="Left"
-                                        Margin="15,5,0,15"
-                                        Background="{DynamicResource BackgroundInputBrush}"
-                                        BorderBrush="Transparent"
-                                        BorderThickness="0"/>
-                            </Grid>
-                        </StackPanel>
+                    <smtx:XamlDisplay Margin="0,0,0,0" UniqueKey="ComboBoxWithSearch">
+                        <Grid>
+                            <ComboBox Width="300" Height="40"
+                                    HorizontalAlignment="Left">
+                                <ComboBoxItem Content="阿卡丽"/>
+                                <ComboBoxItem Content="阿狸"/>
+                                <ComboBoxItem Content="阿木木"/>
+                                <ComboBoxItem Content="艾希"/>
+                                <ComboBoxItem Content="安妮"/>
+                                <ComboBoxItem Content="奥莉安娜"/>
+                                <ComboBoxItem Content="巴德"/>
+                                <ComboBoxItem Content="波比"/>
+                                <ComboBoxItem Content="布兰德"/>
+                            </ComboBox>
+                            <TextBox helpers:TextBoxHelper.Placeholder="搜索英雄..." 
+                                    Width="270" Height="30" 
+                                    HorizontalAlignment="Left"
+                                    Margin="15,5,0,0"
+                                    Background="{DynamicResource BackgroundInputBrush}"
+                                    BorderBrush="Transparent"
+                                    BorderThickness="0"/>
+                        </Grid>
                     </smtx:XamlDisplay>
                 </StackPanel>
             </Border>

@@ -53,28 +53,31 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="CalendarViewModes" Margin="0,0,0,0">
-                        <StackPanel HorizontalAlignment="Left">
-                            <TextBlock Text="月视图" 
-                                     Foreground="{DynamicResource TextPrimaryBrush}"
-                                     Margin="0,0,0,10"/>
-                            <Calendar Width="300" HorizontalAlignment="Left"
-                                     DisplayMode="Month"
-                                     Margin="0,0,0,20"/>
-                            
-                            <TextBlock Text="年视图" 
-                                     Foreground="{DynamicResource TextPrimaryBrush}"
-                                     Margin="0,0,0,10"/>
-                            <Calendar Width="300" HorizontalAlignment="Left"
-                                     DisplayMode="Year"
-                                     Margin="0,0,0,20"/>
-                            
-                            <TextBlock Text="十年视图" 
-                                     Foreground="{DynamicResource TextPrimaryBrush}"
-                                     Margin="0,0,0,10"/>
-                            <Calendar Width="300" HorizontalAlignment="Left"
-                                     DisplayMode="Decade"/>
-                        </StackPanel>
+                    <TextBlock Text="月视图" 
+                             Foreground="{DynamicResource TextPrimaryBrush}"
+                             Margin="0,0,0,10"/>
+                    
+                    <smtx:XamlDisplay UniqueKey="CalendarMonthView" Margin="0,0,0,20">
+                        <Calendar Width="300" HorizontalAlignment="Left"
+                                 DisplayMode="Month"/>
+                    </smtx:XamlDisplay>
+                    
+                    <TextBlock Text="年视图" 
+                             Foreground="{DynamicResource TextPrimaryBrush}"
+                             Margin="0,0,0,10"/>
+                    
+                    <smtx:XamlDisplay UniqueKey="CalendarYearView" Margin="0,0,0,20">
+                        <Calendar Width="300" HorizontalAlignment="Left"
+                                 DisplayMode="Year"/>
+                    </smtx:XamlDisplay>
+                    
+                    <TextBlock Text="十年视图" 
+                             Foreground="{DynamicResource TextPrimaryBrush}"
+                             Margin="0,0,0,10"/>
+                    
+                    <smtx:XamlDisplay UniqueKey="CalendarDecadeView" Margin="0,0,0,0">
+                        <Calendar Width="300" HorizontalAlignment="Left"
+                                 DisplayMode="Decade"/>
                     </smtx:XamlDisplay>
                 </StackPanel>
             </Border>

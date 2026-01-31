@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="LOLThemes.Wpf.Samples.Views.SkillButtonShowcaseView"
+<UserControl x:Class="LOLThemes.Wpf.Samples.Views.SkillButtonShowcaseView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
@@ -37,21 +37,24 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="SkillButtonBasic" Margin="0,0,0,0">
-                        <WrapPanel>
-                            <controls:SkillButton HotkeyText="Q" 
-                                                 Width="60" Height="60"
-                                                 Margin="10"/>
-                            <controls:SkillButton HotkeyText="W" 
-                                                 Width="60" Height="60"
-                                                 Margin="10"/>
-                            <controls:SkillButton HotkeyText="E" 
-                                                 Width="60" Height="60"
-                                                 Margin="10"/>
-                            <controls:SkillButton HotkeyText="R" 
-                                                 Width="60" Height="60"
-                                                 Margin="10"/>
-                        </WrapPanel>
+                    <smtx:XamlDisplay UniqueKey="SkillButtonQ" Margin="0,0,0,15">
+                        <controls:SkillButton HotkeyText="Q" 
+                                             Width="60" Height="60"/>
+                    </smtx:XamlDisplay>
+                    
+                    <smtx:XamlDisplay UniqueKey="SkillButtonW" Margin="0,0,0,15">
+                        <controls:SkillButton HotkeyText="W" 
+                                             Width="60" Height="60"/>
+                    </smtx:XamlDisplay>
+                    
+                    <smtx:XamlDisplay UniqueKey="SkillButtonE" Margin="0,0,0,15">
+                        <controls:SkillButton HotkeyText="E" 
+                                             Width="60" Height="60"/>
+                    </smtx:XamlDisplay>
+                    
+                    <smtx:XamlDisplay UniqueKey="SkillButtonR" Margin="0,0,0,0">
+                        <controls:SkillButton HotkeyText="R" 
+                                             Width="60" Height="60"/>
                     </smtx:XamlDisplay>
                 </StackPanel>
             </Border>
@@ -69,25 +72,28 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="SkillButtonCooldown" Margin="0,0,0,0">
-                        <WrapPanel>
-                            <controls:SkillButton HotkeyText="Q" 
-                                                 CooldownProgress="0.0"
-                                                 Width="60" Height="60"
-                                                 Margin="10"/>
-                            <controls:SkillButton HotkeyText="W" 
-                                                 CooldownProgress="0.3"
-                                                 Width="60" Height="60"
-                                                 Margin="10"/>
-                            <controls:SkillButton HotkeyText="E" 
-                                                 CooldownProgress="0.6"
-                                                 Width="60" Height="60"
-                                                 Margin="10"/>
-                            <controls:SkillButton HotkeyText="R" 
-                                                 CooldownProgress="0.9"
-                                                 Width="60" Height="60"
-                                                 Margin="10"/>
-                        </WrapPanel>
+                    <smtx:XamlDisplay UniqueKey="SkillButtonCooldown0" Margin="0,0,0,15">
+                        <controls:SkillButton HotkeyText="Q" 
+                                             CooldownProgress="0.0"
+                                             Width="60" Height="60"/>
+                    </smtx:XamlDisplay>
+                    
+                    <smtx:XamlDisplay UniqueKey="SkillButtonCooldown30" Margin="0,0,0,15">
+                        <controls:SkillButton HotkeyText="W" 
+                                             CooldownProgress="0.3"
+                                             Width="60" Height="60"/>
+                    </smtx:XamlDisplay>
+                    
+                    <smtx:XamlDisplay UniqueKey="SkillButtonCooldown60" Margin="0,0,0,15">
+                        <controls:SkillButton HotkeyText="E" 
+                                             CooldownProgress="0.6"
+                                             Width="60" Height="60"/>
+                    </smtx:XamlDisplay>
+                    
+                    <smtx:XamlDisplay UniqueKey="SkillButtonCooldown90" Margin="0,0,0,0">
+                        <controls:SkillButton HotkeyText="R" 
+                                             CooldownProgress="0.9"
+                                             Width="60" Height="60"/>
                     </smtx:XamlDisplay>
                 </StackPanel>
             </Border>

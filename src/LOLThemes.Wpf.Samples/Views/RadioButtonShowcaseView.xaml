@@ -1,6 +1,7 @@
 <UserControl x:Class="LOLThemes.Wpf.Samples.Views.RadioButtonShowcaseView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:LOLThemes.Wpf.Controls;assembly=LOLThemes.Wpf"
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
              Background="{DynamicResource BackgroundDarkBrush}">
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="30">
@@ -36,20 +37,23 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="RadioButtonBasic" Margin="0,0,0,0">
-                        <StackPanel>
+                    <StackPanel>
+                        <smtx:XamlDisplay Margin="0,0,0,10" UniqueKey="RadioButtonOption1">
                             <RadioButton Content="选项 1" 
-                                       GroupName="Group1"
-                                       Margin="0,0,0,10"/>
+                                       GroupName="Group1"/>
+                        </smtx:XamlDisplay>
+
+                        <smtx:XamlDisplay Margin="0,0,0,10" UniqueKey="RadioButtonOption2">
                             <RadioButton Content="选项 2" 
                                        GroupName="Group1"
-                                       IsChecked="True"
-                                       Margin="0,0,0,10"/>
+                                       IsChecked="True"/>
+                        </smtx:XamlDisplay>
+
+                        <smtx:XamlDisplay Margin="0,0,0,0" UniqueKey="RadioButtonOption3">
                             <RadioButton Content="选项 3" 
-                                       GroupName="Group1"
-                                       Margin="0,0,0,10"/>
-                        </StackPanel>
-                    </smtx:XamlDisplay>
+                                       GroupName="Group1"/>
+                        </smtx:XamlDisplay>
+                    </StackPanel>
                 </StackPanel>
             </Border>
             
@@ -66,21 +70,24 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="RadioButtonStates" Margin="0,0,0,0">
-                        <StackPanel>
+                    <StackPanel>
+                        <smtx:XamlDisplay Margin="0,0,0,10" UniqueKey="RadioButtonUnchecked">
                             <RadioButton Content="未选中" 
-                                       GroupName="Group2"
-                                       Margin="0,0,0,10"/>
+                                       GroupName="Group2"/>
+                        </smtx:XamlDisplay>
+
+                        <smtx:XamlDisplay Margin="0,0,0,10" UniqueKey="RadioButtonChecked">
                             <RadioButton Content="已选中" 
                                        GroupName="Group2"
-                                       IsChecked="True"
-                                       Margin="0,0,0,10"/>
+                                       IsChecked="True"/>
+                        </smtx:XamlDisplay>
+
+                        <smtx:XamlDisplay Margin="0,0,0,0" UniqueKey="RadioButtonDisabled">
                             <RadioButton Content="禁用状态" 
                                        GroupName="Group2"
-                                       IsEnabled="False"
-                                       Margin="0,0,0,10"/>
-                        </StackPanel>
-                    </smtx:XamlDisplay>
+                                       IsEnabled="False"/>
+                        </smtx:XamlDisplay>
+                    </StackPanel>
                 </StackPanel>
             </Border>
             
@@ -97,23 +104,28 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="RadioButtonHorizontal" Margin="0,0,0,0">
-                        <WrapPanel>
+                    <WrapPanel>
+                        <smtx:XamlDisplay Margin="0,0,20,0" UniqueKey="RadioButtonHorizontal1">
                             <RadioButton Content="选项 1" 
-                                       GroupName="Group3"
-                                       Margin="0,0,20,0"/>
+                                       GroupName="Group3"/>
+                        </smtx:XamlDisplay>
+
+                        <smtx:XamlDisplay Margin="0,0,20,0" UniqueKey="RadioButtonHorizontal2">
                             <RadioButton Content="选项 2" 
                                        GroupName="Group3"
-                                       IsChecked="True"
-                                       Margin="0,0,20,0"/>
+                                       IsChecked="True"/>
+                        </smtx:XamlDisplay>
+
+                        <smtx:XamlDisplay Margin="0,0,20,0" UniqueKey="RadioButtonHorizontal3">
                             <RadioButton Content="选项 3" 
-                                       GroupName="Group3"
-                                       Margin="0,0,20,0"/>
+                                       GroupName="Group3"/>
+                        </smtx:XamlDisplay>
+
+                        <smtx:XamlDisplay Margin="0,0,0,0" UniqueKey="RadioButtonHorizontal4">
                             <RadioButton Content="选项 4" 
-                                       GroupName="Group3"
-                                       Margin="0,0,20,0"/>
-                        </WrapPanel>
-                    </smtx:XamlDisplay>
+                                       GroupName="Group3"/>
+                        </smtx:XamlDisplay>
+                    </WrapPanel>
                 </StackPanel>
             </Border>
             
@@ -130,28 +142,34 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="RadioButtonWithIcon" Margin="0,0,0,0">
-                        <StackPanel>
-                            <RadioButton GroupName="Group4" Margin="0,0,0,10">
+                    <StackPanel>
+                        <smtx:XamlDisplay Margin="0,0,0,10" UniqueKey="RadioButtonPCVersion">
+                            <RadioButton GroupName="Group4">
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                     <TextBlock Text="🖥️" FontSize="18" Margin="0,0,8,0"/>
                                     <TextBlock Text="PC版"/>
                                 </StackPanel>
                             </RadioButton>
-                            <RadioButton GroupName="Group4" IsChecked="True" Margin="0,0,0,10">
+                        </smtx:XamlDisplay>
+
+                        <smtx:XamlDisplay Margin="0,0,0,10" UniqueKey="RadioButtonMobileVersion">
+                            <RadioButton GroupName="Group4" IsChecked="True">
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                     <TextBlock Text="📱" FontSize="18" Margin="0,0,8,0"/>
                                     <TextBlock Text="手机版"/>
                                 </StackPanel>
                             </RadioButton>
-                            <RadioButton GroupName="Group4" Margin="0,0,0,10">
+                        </smtx:XamlDisplay>
+
+                        <smtx:XamlDisplay Margin="0,0,0,0" UniqueKey="RadioButtonConsoleVersion">
+                            <RadioButton GroupName="Group4">
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                     <TextBlock Text="🎮" FontSize="18" Margin="0,0,8,0"/>
                                     <TextBlock Text="主机版"/>
                                 </StackPanel>
                             </RadioButton>
-                        </StackPanel>
-                    </smtx:XamlDisplay>
+                        </smtx:XamlDisplay>
+                    </StackPanel>
                 </StackPanel>
             </Border>
             
@@ -168,65 +186,71 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="RadioButtonGroup" Margin="0,0,0,0">
-                        <StackPanel>
-                            <Border Background="{DynamicResource BackgroundLightBrush}"
-                                    BorderBrush="{DynamicResource BorderDarkBrush}"
-                                    BorderThickness="0.5"
-                                    Padding="15"
-                                    Margin="0,0,0,10">
+                    <StackPanel>
+                        <Border Background="{DynamicResource BackgroundLightBrush}"
+                                BorderBrush="{DynamicResource BorderDarkBrush}"
+                                BorderThickness="0.5"
+                                Padding="15" Margin="0,0,0,10">
+                            <StackPanel>
+                                <TextBlock Text="游戏难度" 
+                                          FontSize="{StaticResource FontSizeMedium}"
+                                          FontWeight="{StaticResource FontWeightBold}"
+                                          Foreground="{DynamicResource PrimaryGoldBrush}"
+                                          Margin="0,0,0,10"/>
                                 <StackPanel>
-                                    <TextBlock Text="游戏难度" 
-                                              FontSize="{StaticResource FontSizeMedium}"
-                                              FontWeight="{StaticResource FontWeightBold}"
-                                              Foreground="{DynamicResource PrimaryGoldBrush}"
-                                              Margin="0,0,0,10"/>
-                                    <StackPanel>
+                                    <smtx:XamlDisplay Margin="0,0,0,10" UniqueKey="RadioButtonEasy">
                                         <RadioButton Content="简单" 
-                                                   GroupName="Difficulty"
-                                                   Margin="0,0,0,10"/>
+                                                   GroupName="Difficulty"/>
+                                    </smtx:XamlDisplay>
+                                    <smtx:XamlDisplay Margin="0,0,0,10" UniqueKey="RadioButtonNormal">
                                         <RadioButton Content="普通" 
                                                    GroupName="Difficulty"
-                                                   IsChecked="True"
-                                                   Margin="0,0,0,10"/>
+                                                   IsChecked="True"/>
+                                    </smtx:XamlDisplay>
+                                    <smtx:XamlDisplay Margin="0,0,0,10" UniqueKey="RadioButtonHard">
                                         <RadioButton Content="困难" 
-                                                   GroupName="Difficulty"
-                                                   Margin="0,0,0,10"/>
+                                                   GroupName="Difficulty"/>
+                                    </smtx:XamlDisplay>
+                                    <smtx:XamlDisplay Margin="0,0,0,0" UniqueKey="RadioButtonExpert">
                                         <RadioButton Content="专家" 
-                                                   GroupName="Difficulty"
-                                                   Margin="0,0,0,10"/>
-                                    </StackPanel>
+                                                   GroupName="Difficulty"/>
+                                    </smtx:XamlDisplay>
                                 </StackPanel>
-                            </Border>
-                            <Border Background="{DynamicResource BackgroundLightBrush}"
-                                    BorderBrush="{DynamicResource BorderDarkBrush}"
-                                    BorderThickness="0.5"
-                                    Padding="15" IsEnabled="False">
+                            </StackPanel>
+                        </Border>
+
+                        <Border Background="{DynamicResource BackgroundLightBrush}"
+                                BorderBrush="{DynamicResource BorderDarkBrush}"
+                                BorderThickness="0.5"
+                                Padding="15" IsEnabled="False">
+                            <StackPanel>
+                                <TextBlock Text="画质设置" 
+                                          FontSize="{StaticResource FontSizeMedium}"
+                                          FontWeight="{StaticResource FontWeightBold}"
+                                          Foreground="{DynamicResource PrimaryGoldBrush}"
+                                          Margin="0,0,0,10"/>
                                 <StackPanel>
-                                    <TextBlock Text="画质设置" 
-                                              FontSize="{StaticResource FontSizeMedium}"
-                                              FontWeight="{StaticResource FontWeightBold}"
-                                              Foreground="{DynamicResource PrimaryGoldBrush}"
-                                              Margin="0,0,0,10"/>
-                                    <StackPanel>
+                                    <smtx:XamlDisplay Margin="0,0,0,10" UniqueKey="RadioButtonQualityLow">
                                         <RadioButton Content="低" 
-                                                   GroupName="Quality"
-                                                   Margin="0,0,0,10"/>
+                                                   GroupName="Quality"/>
+                                    </smtx:XamlDisplay>
+                                    <smtx:XamlDisplay Margin="0,0,0,10" UniqueKey="RadioButtonQualityMedium">
                                         <RadioButton Content="中" 
-                                                   GroupName="Quality"
-                                                   Margin="0,0,0,10"/>
+                                                   GroupName="Quality"/>
+                                    </smtx:XamlDisplay>
+                                    <smtx:XamlDisplay Margin="0,0,0,10" UniqueKey="RadioButtonQualityHigh">
                                         <RadioButton Content="高" 
                                                    GroupName="Quality"
-                                                   IsChecked="True"
-                                                   Margin="0,0,0,10"/>
+                                                   IsChecked="True"/>
+                                    </smtx:XamlDisplay>
+                                    <smtx:XamlDisplay Margin="0,0,0,0" UniqueKey="RadioButtonQualityUltra">
                                         <RadioButton Content="极致" 
-                                                   GroupName="Quality"
-                                                   Margin="0,0,0,10"/>
-                                    </StackPanel>
+                                                   GroupName="Quality"/>
+                                    </smtx:XamlDisplay>
                                 </StackPanel>
-                            </Border>
-                        </StackPanel>
-                    </smtx:XamlDisplay>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
                 </StackPanel>
             </Border>
         </StackPanel>

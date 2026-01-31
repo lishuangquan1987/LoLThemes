@@ -29,7 +29,7 @@
                 <ControlTemplate TargetType="smtx:XamlDisplay">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
+                            <ColumnDefinition Width="auto" />
                             <ColumnDefinition Width="auto" />
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
@@ -42,7 +42,7 @@
                                         <Style TargetType="Border">
                                             <Setter Property="BorderThickness" Value="0" />
                                             <Style.Triggers>
-                                                <DataTrigger Binding="{Binding ElementName=PopupBox, Path=IsPopupOpen}" Value="True">
+                                                <DataTrigger Binding="{Binding ElementName=PopupBox, Path=IsOpen}" Value="True">
                                                     <Setter Property="BorderThickness" Value="5" />
                                                 </DataTrigger>
                                             </Style.Triggers>
@@ -59,9 +59,12 @@
                             VerticalAlignment="Bottom"
                             BorderThickness="0">
                             <materialIcons:MaterialIcon
-                                Margin="3"
+                                Width="20"
+                                Height="20"
+                                Margin="0"
                                 Background="Transparent"
                                 Cursor="Hand"
+                                FontWeight="Thin"
                                 Foreground="{DynamicResource PrimaryHueDarkBrush}"
                                 Kind="Xml"
                                 ToolTip="View XAML">
@@ -86,7 +89,11 @@
                             Placement="Bottom"
                             PlacementTarget="{Binding ElementName=Chk}"
                             StaysOpen="False">
-                            <Border MaxWidth="800" MaxHeight="600">
+                            <Border
+                                MinWidth="400"
+                                MinHeight="100"
+                                MaxWidth="800"
+                                MaxHeight="600">
                                 <DockPanel>
                                     <Button
                                         Margin="0,10,0,0"

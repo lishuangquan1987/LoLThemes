@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="LOLThemes.Wpf.Samples.Views.GlowButtonShowcaseView"
+<UserControl x:Class="LOLThemes.Wpf.Samples.Views.GlowButtonShowcaseView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
@@ -37,16 +37,16 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="GlowButtonBasic" Margin="0,0,0,0">
-                        <StackPanel>
-                            <controls:GlowButton Content="发光按钮" 
-                                                GlowColor="{DynamicResource PrimaryGold}"
-                                                Width="200" Height="40"
-                                                Margin="0,0,0,15"/>
-                            <controls:GlowButton Content="自定义颜色" 
-                                                GlowColor="#0AC8B9"
-                                                Width="200" Height="40"/>
-                        </StackPanel>
+                    <smtx:XamlDisplay UniqueKey="GlowButtonOption1" Margin="0,0,0,15">
+                        <controls:GlowButton Content="发光按钮" 
+                                            GlowColor="{DynamicResource PrimaryGold}"
+                                            Width="200" Height="40"/>
+                    </smtx:XamlDisplay>
+                    
+                    <smtx:XamlDisplay UniqueKey="GlowButtonOption2" Margin="0,0,0,0">
+                        <controls:GlowButton Content="自定义颜色" 
+                                            GlowColor="#0AC8B9"
+                                            Width="200" Height="40"/>
                     </smtx:XamlDisplay>
                 </StackPanel>
             </Border>
@@ -64,17 +64,17 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="GlowButtonStates" Margin="0,0,0,0">
-                        <StackPanel>
-                            <controls:GlowButton Content="正常状态" 
-                                                GlowColor="{DynamicResource PrimaryGold}"
-                                                Width="200" Height="40"
-                                                Margin="0,0,0,15"/>
-                            <controls:GlowButton Content="禁用状态" 
-                                                GlowColor="{DynamicResource PrimaryGold}"
-                                                IsEnabled="False"
-                                                Width="200" Height="40"/>
-                        </StackPanel>
+                    <smtx:XamlDisplay UniqueKey="GlowButtonNormal" Margin="0,0,0,15">
+                        <controls:GlowButton Content="正常状态" 
+                                            GlowColor="{DynamicResource PrimaryGold}"
+                                            Width="200" Height="40"/>
+                    </smtx:XamlDisplay>
+                    
+                    <smtx:XamlDisplay UniqueKey="GlowButtonDisabled" Margin="0,0,0,0">
+                        <controls:GlowButton Content="禁用状态" 
+                                            GlowColor="{DynamicResource PrimaryGold}"
+                                            IsEnabled="False"
+                                            Width="200" Height="40"/>
                     </smtx:XamlDisplay>
                 </StackPanel>
             </Border>

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="LOLThemes.Wpf.Samples.Views.ExpanderShowcaseView"
+<UserControl x:Class="LOLThemes.Wpf.Samples.Views.ExpanderShowcaseView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
@@ -34,24 +34,28 @@
                           Foreground="{DynamicResource PrimaryGoldBrush}"
                           Margin="0,0,0,15"/>
                     
-                    <smtx:XamlDisplay UniqueKey="ExpanderBasic" Margin="0,0,0,0">
-                        <StackPanel Width="400" HorizontalAlignment="Left">
-                            <Expander Header="展开器 1" IsExpanded="True" Margin="0,0,0,10">
-                                <TextBlock Text="这是第一个展开器的内容" 
-                                     Foreground="{DynamicResource TextPrimaryBrush}"
-                                     Padding="10"/>
-                            </Expander>
-                            <Expander Header="展开器 2" Margin="0,0,0,10">
-                                <TextBlock Text="这是第二个展开器的内容" 
-                                     Foreground="{DynamicResource TextPrimaryBrush}"
-                                     Padding="10"/>
-                            </Expander>
-                            <Expander Header="展开器 3">
-                                <TextBlock Text="这是第三个展开器的内容" 
-                                     Foreground="{DynamicResource TextPrimaryBrush}"
-                                     Padding="10"/>
-                            </Expander>
-                        </StackPanel>
+                    <smtx:XamlDisplay UniqueKey="ExpanderOption1" Margin="0,0,0,15">
+                        <Expander Header="展开器 1" IsExpanded="True" Width="400" HorizontalAlignment="Left">
+                            <TextBlock Text="这是第一个展开器的内容" 
+                                 Foreground="{DynamicResource TextPrimaryBrush}"
+                                 Padding="10"/>
+                        </Expander>
+                    </smtx:XamlDisplay>
+                    
+                    <smtx:XamlDisplay UniqueKey="ExpanderOption2" Margin="0,0,0,15">
+                        <Expander Header="展开器 2" Width="400" HorizontalAlignment="Left">
+                            <TextBlock Text="这是第二个展开器的内容" 
+                                 Foreground="{DynamicResource TextPrimaryBrush}"
+                                 Padding="10"/>
+                        </Expander>
+                    </smtx:XamlDisplay>
+                    
+                    <smtx:XamlDisplay UniqueKey="ExpanderOption3" Margin="0,0,0,0">
+                        <Expander Header="展开器 3" Width="400" HorizontalAlignment="Left">
+                            <TextBlock Text="这是第三个展开器的内容" 
+                                 Foreground="{DynamicResource TextPrimaryBrush}"
+                                 Padding="10"/>
+                        </Expander>
                     </smtx:XamlDisplay>
                 </StackPanel>
             </Border>
